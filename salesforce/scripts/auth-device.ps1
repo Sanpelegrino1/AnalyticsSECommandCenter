@@ -1,0 +1,2 @@
+Write-Error "A standard 'sf org login device' flow is not currently exposed in the documented modern Salesforce CLI org-login command set used by this workspace. Use .\scripts\auth-web.ps1 for interactive login, or sf org login sfdx-url / sf org login jwt for non-browser workflows."
+exit 1

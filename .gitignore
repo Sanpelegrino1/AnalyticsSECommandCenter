@@ -1,0 +1,9 @@
+.env
+.env.local
+.env.*.local
+tmp/*
+!tmp/.gitkeep
+notes/registries/*.snapshot.json
+*.log
+*.tmp
+*.bak

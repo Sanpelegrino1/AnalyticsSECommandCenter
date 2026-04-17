@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataStreamDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <areHeadersIncludedInFile>false</areHeadersIncludedInFile>
+    <bulkIngest>false</bulkIngest>
+    <creationType>Custom</creationType>
+    <dataConnector>UploadedFiles</dataConnector>
+    <dataConnectorType>UploadedFiles</dataConnectorType>
+    <dataPlatformDataSetItemName>CONNECTORSFRAMEWORK</dataPlatformDataSetItemName>
+    <dataSource>UploadedFiles</dataSource>
+    <isLimitedToNewFiles>false</isLimitedToNewFiles>
+    <isMissingFileFailure>false</isMissingFileFailure>
+    <masterLabel>Company Names - Sheet1.csv</masterLabel>
+    <mktDataLakeObject>Company_Names_Sheet1csv__dll</mktDataLakeObject>
+    <mktDataTranObject>Company_Names_Sheet1csv</mktDataTranObject>
+    <parameters>
+        <fullName>Company_Names_Sheet1csv_delimiter</fullName>
+        <paramName>delimiter</paramName>
+        <value>,</value>
+    </parameters>
+    <parameters>
+        <fullName>Company_Names_Sheet1csv_fileName</fullName>
+        <paramName>fileName</paramName>
+        <value>Company Names - Sheet1.csv</value>
+    </parameters>
+    <parameters>
+        <fullName>Company_Names_Sheet1csv_fileType</fullName>
+        <paramName>fileType</paramName>
+        <value>CSV</value>
+    </parameters>
+    <parameters>
+        <fullName>Company_Names_Sheet1csv_importDirectory</fullName>
+        <paramName>importDirectory</paramName>
+        <value>005KZ000002apmsYAA/2026-04-02T06:54:01:647Z</value>
+    </parameters>
+    <parameters>
+        <fullName>Company_Names_Sheet1csv_isDataStreamConfigValid</fullName>
+        <paramName>isDataStreamConfigValid</paramName>
+        <value>true</value>
+    </parameters>
+    <parameters>
+        <fullName>Company_Names_Sheet1csv_parentDirectory</fullName>
+        <paramName>parentDirectory</paramName>
+        <value>s3://aws-prod21-useast2-cdp2-lakehouse-2/sfdrive/a360-prod21-0f25efad5b3e4f4d8424778e5a2e8f67/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload</value>
+    </parameters>
+</DataStreamDefinition>

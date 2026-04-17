@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "salesforce.salesforcedx-vscode",
+    "humao.rest-client",
+    "redhat.vscode-xml",
+    "redhat.vscode-yaml",
+    "dotenv.dotenv-vscode",
+    "yzhang.markdown-all-in-one",
+    "ms-vscode.powershell"
+  ]
+}

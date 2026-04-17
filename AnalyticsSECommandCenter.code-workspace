@@ -1,0 +1,18 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": true,
+      "**/.DS_Store": true,
+      "salesforce/.tmp": true
+    },
+    "search.exclude": {
+      "tmp/**": true,
+      "salesforce/.tmp/**": true
+    }
+  }
+}

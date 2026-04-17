@@ -1,0 +1,24 @@
+{
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "files.eol": "\r\n",
+  "files.associations": {
+    "*.env": "dotenv",
+    "*.env.*": "dotenv"
+  },
+  "files.exclude": {
+    "salesforce/.tmp": true
+  },
+  "search.exclude": {
+    "tmp/**": true,
+    "salesforce/.tmp/**": true
+  },
+  "yaml.format.enable": true,
+  "xml.format.enabled": true,
+  "markdown.validate.enabled": true,
+  "rest-client.environmentVariables": {
+    "$shared": {
+      "tableauServerUrl": "{{TABLEAU_SERVER_URL}}",
+      "tableauSiteContentUrl": "{{TABLEAU_SITE_CONTENT_URL}}"
+    }
+  }
+}

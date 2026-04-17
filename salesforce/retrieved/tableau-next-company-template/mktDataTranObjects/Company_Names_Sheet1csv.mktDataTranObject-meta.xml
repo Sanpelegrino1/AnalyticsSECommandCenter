@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MktDataTranObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <connector>UploadedFiles</connector>
+    <creationType>Custom</creationType>
+    <dataSource>UploadedFiles</dataSource>
+    <dataSourceObject>Company_Names_Sheet1csv_dll</dataSourceObject>
+    <masterLabel>Company Names - Sheet1.csv</masterLabel>
+    <mktDataTranFields>
+        <fullName>CompanydcName</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Company Name</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Company Name</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <objectCategory>Salesforce_SFDCReferenceModel_0_93.Related</objectCategory>
+</MktDataTranObject>
