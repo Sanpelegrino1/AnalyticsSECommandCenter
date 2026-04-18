@@ -1,4 +1,12 @@
-{
-  "defaultAlias": "",
-  "orgs": []
+﻿{
+    "defaultAlias":  "STORM_TABLEAU_NEXT",
+    "orgs":  [
+                 {
+                     "alias":  "STORM_TABLEAU_NEXT",
+                     "loginUrl":  "https://storm-8bdc14a63d953e.my.salesforce.com",
+                     "purpose":  "Data Cloud ingestion auth",
+                     "notes":  "",
+                     "lastValidatedUtc":  "2026-04-17T20:33:12Z"
+                 }
+             ]
 }

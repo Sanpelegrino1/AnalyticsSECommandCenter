@@ -38,6 +38,48 @@ function Normalize-DataCloudUrl {
     return ('https://{0}' -f $trimmed.Trim('/')).TrimEnd('/')
 }
 
+function Resolve-DataCloudTokenExchangeUrl {
+    param(
+        [string]$Value
+    )
+
+    if ([string]::IsNullOrWhiteSpace($Value)) {
+        return ''
+    }
+
+    $normalized = Normalize-DataCloudUrl -Value $Value
+    if ($normalized -match '/services/a360/token$') {
+        return $normalized
+    }
+
+    return '{0}/services/a360/token' -f $normalized
+}
+
+function Get-SalesforceCliOrgSession {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$Alias
+    )
+
+    Assert-CommandAvailable -Name 'sf' -Hint 'Install Salesforce CLI or run the bootstrap script.'
+
+    $output = & sf org display --target-org $Alias --json 2>$null
+    if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($output)) {
+        throw "Unable to resolve Salesforce CLI auth for alias '$Alias'. Log in again or set DATACLOUD_SF_ACCESS_TOKEN explicitly."
+    }
+
+    $payload = $output | ConvertFrom-Json
+    if ($null -eq $payload.result -or [string]::IsNullOrWhiteSpace($payload.result.accessToken) -or [string]::IsNullOrWhiteSpace($payload.result.instanceUrl)) {
+        throw "Salesforce CLI auth for alias '$Alias' did not include an access token and instance URL."
+    }
+
+    return [pscustomobject]@{
+        alias = $Alias
+        accessToken = $payload.result.accessToken
+        instanceUrl = Normalize-DataCloudUrl -Value $payload.result.instanceUrl
+    }
+}
+
 function Get-DataCloudRegistryPath {
     return Resolve-CommandCenterPath 'notes/registries/data-cloud-targets.json'
 }
@@ -197,7 +239,7 @@ function Get-DataCloudTargetConfiguration {
         SourceName = if (-not [string]::IsNullOrWhiteSpace($env:DATACLOUD_SOURCE_NAME)) { $env:DATACLOUD_SOURCE_NAME } elseif ($null -ne $target) { $target.sourceName } else { '' }
         ObjectName = if (-not [string]::IsNullOrWhiteSpace($env:DATACLOUD_OBJECT_NAME)) { $env:DATACLOUD_OBJECT_NAME } elseif ($null -ne $target) { $target.objectName } else { '' }
         ObjectEndpoint = if (-not [string]::IsNullOrWhiteSpace($env:DATACLOUD_OBJECT_ENDPOINT)) { $env:DATACLOUD_OBJECT_ENDPOINT } elseif ($null -ne $target) { $target.objectEndpoint } else { '' }
-        SalesforceAlias = if ($null -ne $target) { $target.salesforceAlias } else { '' }
+        SalesforceAlias = if (-not [string]::IsNullOrWhiteSpace($env:DATACLOUD_SALESFORCE_ALIAS)) { $env:DATACLOUD_SALESFORCE_ALIAS } elseif ($null -ne $target -and -not [string]::IsNullOrWhiteSpace($target.salesforceAlias)) { $target.salesforceAlias } elseif (-not [string]::IsNullOrWhiteSpace($env:SF_DEFAULT_ALIAS)) { $env:SF_DEFAULT_ALIAS } else { '' }
         DataStreamLabel = if ($null -ne $target) { $target.dataStreamLabel } else { '' }
         Category = if ($null -ne $target) { $target.category } else { '' }
         PrimaryKey = if ($null -ne $target) { $target.primaryKey } else { '' }
@@ -260,12 +302,28 @@ function Get-DataCloudAccessContext {
     }
 
     $salesforceAccessToken = $env:DATACLOUD_SF_ACCESS_TOKEN
-    $tokenExchangeUrl = ''
+    $tokenExchangeUrl = Resolve-DataCloudTokenExchangeUrl -Value $env:DATACLOUD_TOKEN_EXCHANGE_URL
+    $tokenSource = 'salesforce-token-exchange'
 
     if ([string]::IsNullOrWhiteSpace($salesforceAccessToken)) {
-        if ([string]::IsNullOrWhiteSpace($env:DATACLOUD_CLIENT_ID) -or [string]::IsNullOrWhiteSpace($env:DATACLOUD_REFRESH_TOKEN)) {
-            throw 'No usable Data Cloud auth configuration was found. Set DATACLOUD_ACCESS_TOKEN and DATACLOUD_TENANT_ENDPOINT, or set DATACLOUD_CLIENT_ID and DATACLOUD_REFRESH_TOKEN for token exchange.'
+        if (-not [string]::IsNullOrWhiteSpace($config.SalesforceAlias)) {
+            $cliSession = Get-SalesforceCliOrgSession -Alias $config.SalesforceAlias
+            $salesforceAccessToken = $cliSession.accessToken
+            if ([string]::IsNullOrWhiteSpace($tokenExchangeUrl)) {
+                $tokenExchangeUrl = Resolve-DataCloudTokenExchangeUrl -Value $cliSession.instanceUrl
+            }
+
+            $tokenSource = 'salesforce-cli-session'
+        } elseif ([string]::IsNullOrWhiteSpace($env:DATACLOUD_CLIENT_ID) -or [string]::IsNullOrWhiteSpace($env:DATACLOUD_REFRESH_TOKEN)) {
+            throw 'No usable Data Cloud auth configuration was found. Set DATACLOUD_ACCESS_TOKEN and DATACLOUD_TENANT_ENDPOINT, log into Salesforce CLI with a Data Cloud-scoped connected app, or set DATACLOUD_CLIENT_ID and DATACLOUD_REFRESH_TOKEN for token exchange.'
         }
+    }
+
+    if ([string]::IsNullOrWhiteSpace($salesforceAccessToken)) {
+        throw 'A Salesforce access token was not available for Data Cloud token exchange.'
+    }
+
+    if ($tokenSource -ne 'salesforce-cli-session') {
 
         $tokenRequestBody = @{
             grant_type = 'refresh_token'
@@ -286,13 +344,13 @@ function Get-DataCloudAccessContext {
         }
 
         $salesforceAccessToken = $salesforceResponse.access_token
-        $tokenExchangeUrl = if (-not [string]::IsNullOrWhiteSpace($env:DATACLOUD_TOKEN_EXCHANGE_URL)) { $env:DATACLOUD_TOKEN_EXCHANGE_URL } else { $salesforceResponse.instance_url }
-    } else {
-        $tokenExchangeUrl = $env:DATACLOUD_TOKEN_EXCHANGE_URL
+        if ([string]::IsNullOrWhiteSpace($tokenExchangeUrl)) {
+            $tokenExchangeUrl = Resolve-DataCloudTokenExchangeUrl -Value $salesforceResponse.instance_url
+        }
     }
 
     if ([string]::IsNullOrWhiteSpace($tokenExchangeUrl)) {
-        throw 'A token exchange URL was not available. Set DATACLOUD_TOKEN_EXCHANGE_URL or use the refresh-token flow so the exchange URL comes back from Salesforce OAuth.'
+        throw 'A token exchange URL was not available. Set DATACLOUD_TOKEN_EXCHANGE_URL, log into Salesforce CLI with a Data Cloud-scoped connected app, or use the refresh-token flow so the exchange URL comes back from Salesforce OAuth.'
     }
 
     $exchangeBody = @{
@@ -339,7 +397,7 @@ function Get-DataCloudAccessContext {
         AccessToken = $exchangeResponse.access_token
         TenantEndpoint = $tenantEndpoint
         Config = $resolvedConfig
-        TokenSource = 'salesforce-token-exchange'
+        TokenSource = $tokenSource
     }
 }
 

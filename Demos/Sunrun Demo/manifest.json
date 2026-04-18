@@ -1,0 +1,177 @@
+{
+  "datasetName": "Sunrun Residential Solar Operations",
+  "schemaVersion": "JUJU_RELATIONAL_MANIFEST_V1",
+  "rowCounts": {
+    "projects": 30000,
+    "affiliates": 50,
+    "distributors": 10,
+    "milestones": 303229,
+    "bom_lines": 129028,
+    "procurement_orders": 35966
+  },
+  "files": [
+    {
+      "tableName": "projects",
+      "fileName": "projects.csv"
+    },
+    {
+      "tableName": "affiliates",
+      "fileName": "affiliates.csv"
+    },
+    {
+      "tableName": "distributors",
+      "fileName": "distributors.csv"
+    },
+    {
+      "tableName": "milestones",
+      "fileName": "milestones.csv"
+    },
+    {
+      "tableName": "bom_lines",
+      "fileName": "bom_lines.csv"
+    },
+    {
+      "tableName": "procurement_orders",
+      "fileName": "procurement_orders.csv"
+    }
+  ],
+  "joinGraph": [
+    {
+      "tableName": "projects",
+      "primaryKey": [
+        "project_id"
+      ],
+      "foreignKeys": [
+        {
+          "fieldName": "affiliate_id",
+          "referencesTable": "affiliates",
+          "referencesField": "affiliate_id"
+        }
+      ]
+    },
+    {
+      "tableName": "affiliates",
+      "primaryKey": [
+        "affiliate_id"
+      ],
+      "foreignKeys": []
+    },
+    {
+      "tableName": "distributors",
+      "primaryKey": [
+        "distributor_id"
+      ],
+      "foreignKeys": []
+    },
+    {
+      "tableName": "milestones",
+      "primaryKey": [
+        "milestone_id"
+      ],
+      "foreignKeys": [
+        {
+          "fieldName": "project_id",
+          "referencesTable": "projects",
+          "referencesField": "project_id"
+        }
+      ]
+    },
+    {
+      "tableName": "bom_lines",
+      "primaryKey": [
+        "bom_line_id"
+      ],
+      "foreignKeys": [
+        {
+          "fieldName": "project_id",
+          "referencesTable": "projects",
+          "referencesField": "project_id"
+        }
+      ]
+    },
+    {
+      "tableName": "procurement_orders",
+      "primaryKey": [
+        "procurement_order_id"
+      ],
+      "foreignKeys": [
+        {
+          "fieldName": "project_id",
+          "referencesTable": "projects",
+          "referencesField": "project_id"
+        },
+        {
+          "fieldName": "distributor_id",
+          "referencesTable": "distributors",
+          "referencesField": "distributor_id"
+        }
+      ]
+    }
+  ],
+  "publishContract": {
+    "rootTable": "projects",
+    "tables": [
+      "projects",
+      "affiliates",
+      "distributors",
+      "milestones",
+      "bom_lines",
+      "procurement_orders"
+    ],
+    "relationships": [
+      {
+        "sourceTable": "projects",
+        "sourceField": "affiliate_id",
+        "targetTable": "affiliates",
+        "targetField": "affiliate_id",
+        "direction": "many_to_one",
+        "required": true
+      },
+      {
+        "sourceTable": "milestones",
+        "sourceField": "project_id",
+        "targetTable": "projects",
+        "targetField": "project_id",
+        "direction": "many_to_one",
+        "required": true
+      },
+      {
+        "sourceTable": "bom_lines",
+        "sourceField": "project_id",
+        "targetTable": "projects",
+        "targetField": "project_id",
+        "direction": "many_to_one",
+        "required": true
+      },
+      {
+        "sourceTable": "procurement_orders",
+        "sourceField": "project_id",
+        "targetTable": "projects",
+        "targetField": "project_id",
+        "direction": "many_to_one",
+        "required": true
+      },
+      {
+        "sourceTable": "procurement_orders",
+        "sourceField": "distributor_id",
+        "targetTable": "distributors",
+        "targetField": "distributor_id",
+        "direction": "many_to_one",
+        "required": true
+      }
+    ]
+  },
+  "storyEffects": [
+    "Margin Improvement: sunrun_equipment_cost_estimate multiplier drops in 2025-06.",
+    "Cancellation Reduction: direct_pay_flag adoption increases in 2026, reducing cancellation probability.",
+    "Milestone Visibility: Permits Approved and Materials Delivered have higher days_late.",
+    "Backlog and Value at Risk: Recent projects are more likely to be Signed/In Procurement.",
+    "Affiliate Performance: Top-tier affiliates get higher share in 2026."
+  ],
+  "validationChecks": [
+    "Primary keys are unique.",
+    "Foreign keys resolve correctly.",
+    "Margin gap grows over time (Story 1).",
+    "Permits and Materials milestones show higher delays (Story 3)."
+  ]
+}

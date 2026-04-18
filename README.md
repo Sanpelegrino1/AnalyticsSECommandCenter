@@ -48,6 +48,7 @@ Use `sf org login web` through `scripts/salesforce/login-web.ps1`.
 - Salesforce CLI stores auth material locally in its own secure auth store.
 - This repo stores only non-secret metadata in `notes/registries/salesforce-orgs.json`.
 - Reuse aliases aggressively. That is the main friction reducer.
+- Keep standard org-access aliases separate from Data Cloud publishing aliases.
 
 Example:
 
@@ -80,6 +81,9 @@ Use the Data Cloud bulk ingestion scripts for CSV uploads after an admin has cre
 - Put Data Cloud secrets only in `.env.local` or user environment variables.
 - Store only non-secret connector and object metadata in `notes/registries/data-cloud-targets.json`.
 - The repo supports two local auth patterns: direct `DATACLOUD_ACCESS_TOKEN` injection, or a refresh-token flow that exchanges a Salesforce token for a Data Cloud token.
+- The repo-owned auth app is `CommandCenterAuth`; the repo should not depend on pre-existing external client apps from an org.
+- Preferred interactive model: use a dedicated Salesforce CLI alias for Data Cloud publishing and let `DataCloud.Common.ps1` reuse that CLI session for token exchange.
+- Do not overwrite the standard Salesforce org alias with the Data Cloud login. Keep a separate alias such as `ORG_ALIAS_DC` and set `DATACLOUD_SALESFORCE_ALIAS` or the target registry's `salesforceAlias` to that value.
 
 Example local-only config:
 
@@ -89,6 +93,13 @@ DATACLOUD_LOGIN_URL=https://login.salesforce.com
 DATACLOUD_CLIENT_ID=your_connected_app_client_id
 DATACLOUD_CLIENT_SECRET=your_connected_app_client_secret
 DATACLOUD_REFRESH_TOKEN=your_refresh_token
+```
+
+Recommended alias split for one org:
+
+```powershell
+SF_DEFAULT_ALIAS=STORM_TABLEAU_NEXT
+DATACLOUD_SALESFORCE_ALIAS=STORM_TABLEAU_NEXT_DC
 ```
 
 Example upload:
@@ -140,6 +151,8 @@ Useful scripts:
 
 Useful scripts:
 
+- Deploy the repo-owned auth app and optionally launch auth: `scripts/salesforce/setup-command-center-connected-app.ps1`
+- Browser login with a custom Data Cloud-scoped connected app: `scripts/salesforce/data-cloud-login-web.ps1`
 - Target registry write: `scripts/salesforce/data-cloud-register-target.ps1`
 - Manifest-based target registry write: `scripts/salesforce/data-cloud-register-manifest-targets.ps1`
 - Auth check without exposing tokens by default: `scripts/salesforce/data-cloud-get-access-token.ps1`
@@ -148,15 +161,48 @@ Useful scripts:
 - Manifest-based batch upload: `scripts/salesforce/data-cloud-upload-manifest.ps1`
 - Job list and job detail: `scripts/salesforce/data-cloud-list-jobs.ps1`, `scripts/salesforce/data-cloud-get-job.ps1`
 
+New org prerequisites that must be true before this workflow will work:
+
+1. Salesforce Data Cloud is provisioned in the org.
+2. External Client App metadata deployment is allowed in the org.
+3. The operator can deploy metadata and manage External Client Apps.
+4. The repo-owned `CommandCenterAuth` external client app is deployed.
+5. The app's OAuth policy allows self-authorization for the users who will log in.
+6. The login user can authorize scopes that include `cdp_ingest_api`.
+7. A Data Cloud Ingestion API connector exists.
+8. A Data Cloud data stream exists for each object you want to upload.
+9. The tenant endpoint, object API name, source name, and object endpoint are recorded in `notes/registries/data-cloud-targets.json`.
+10. If the org uses additional security controls, localhost callback auth for Salesforce CLI must be allowed.
+
 Expected operating model:
 
 1. Create the Ingestion API connector and download the object endpoints in Data Cloud.
 2. Create the Ingestion API data stream for the target object.
 3. Register the non-secret target metadata in `notes/registries/data-cloud-targets.json`.
-4. Put the auth secrets in `.env.local` or user environment variables.
+4. Put the auth secrets in `.env.local` or user environment variables, or log in with `scripts/salesforce/data-cloud-login-web.ps1` using the repo-owned external client app that includes `cdp_ingest_api`.
 5. Inspect the CSV.
 6. Upload the CSV and wait for `JobComplete` or handle `Failed`.
 7. For multi-table datasets, generate one target per manifest table and run the manifest upload script.
+
+Example browser login plus immediate validation:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-login-web.ps1 -Alias STORM_TABLEAU_NEXT -InstanceUrl https://your-domain.my.salesforce.com -ValidateAfterLogin
+```
+
+To bootstrap the repo-owned auth app first:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\setup-command-center-connected-app.ps1 -TargetOrg STORM_TABLEAU_NEXT -LaunchLogin -SetDefault
+```
+
+What a fresh org still needs configured outside this repo:
+
+- Data Cloud enabled and licensed.
+- Ingestion API connector created in Data Cloud Setup.
+- Data stream created for each destination object.
+- User permissions that allow Data Cloud ingestion operations and app authorization.
+- Network and session controls that do not block the localhost OAuth callback used by Salesforce CLI.
 
 The underlying Salesforce DX project stays in `salesforce/` and the new wrappers are deliberately thin so the existing metadata workflow remains intact.
 
@@ -222,6 +268,8 @@ Ignored local-only files:
 - `playbooks/data-cloud-upload-csv.md`
 - `playbooks/upload-manifest-dataset-to-data-cloud.md`
 - `playbooks/set-up-data-cloud-ingestion-target.md`
+- `notes/evaluations/salesforce-auth-strategy.md`
+- `notes/evaluations/README.md`
 - `playbooks/rotate-tableau-pat.md`
 - `prompts/new-machine-setup.md`
 - `prompts/extract-skill-from-repeated-workflow.md`
