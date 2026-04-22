@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MktDataLakeObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <creationType>Custom</creationType>
+    <dataSourceObject>projects_dll</dataSourceObject>
+    <externalIdentifier>projects__dll</externalIdentifier>
+    <externalName>projects__dll</externalName>
+    <isEnabled>true</isEnabled>
+    <masterLabel>projects</masterLabel>
+    <objectCategory>Salesforce_SFDCReferenceModel_0_93.Engagement</objectCategory>
+    <storage>LOCAL</storage>
+</MktDataLakeObject>

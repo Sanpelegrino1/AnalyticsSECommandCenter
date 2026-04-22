@@ -1,0 +1,1 @@
+{"actions":[{"id":"1;a","descriptor":"aura://CdpDataStreamsController/ACTION$getDataStreamPaginated","callingDescriptor":"markup://one:one","params":{"limit":10,"offset":0,"orderBy":"label","includeMappings":"true","clientOptions":{}}}]}

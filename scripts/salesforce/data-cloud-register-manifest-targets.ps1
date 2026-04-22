@@ -2,7 +2,6 @@
 param(
     [Parameter(Mandatory = $true)]
     [string]$ManifestPath,
-    [Parameter(Mandatory = $true)]
     [string]$SourceName,
     [string]$TenantEndpoint,
     [string]$TargetKeyPrefix,
@@ -45,34 +44,83 @@ function New-CompactTargetRecord {
 
 $manifestInfo = Get-DataCloudManifestInfo -ManifestPath $ManifestPath
 $manifest = $manifestInfo.Content
-$datasetName = if ([string]::IsNullOrWhiteSpace($manifest.datasetName)) { 'Manifest Dataset' } else { [string]$manifest.datasetName }
-$resolvedCategory = if ([string]::IsNullOrWhiteSpace($Category)) { $datasetName } else { $Category }
+$datasetDefaults = Get-DataCloudManifestDefaults -ManifestInfo $manifestInfo
+$rootTable = if ($null -ne $manifest.publishContract -and -not [string]::IsNullOrWhiteSpace($manifest.publishContract.rootTable)) { [string]$manifest.publishContract.rootTable } else { [string]$manifest.files[0].tableName }
 
 $registry = Get-DataCloudRegistry
+$registrationHints = Get-DataCloudManifestRegistrationHints -ManifestInfo $manifestInfo -Registry $registry -RootTableName $rootTable -TargetKeySeparator $TargetKeySeparator -ObjectNameSeparator $ObjectNameSeparator
 $existingTargets = @($registry.targets)
 $updatedTargets = @($existingTargets)
 $registeredTargets = @()
 
+$resolvedTargetKeyPrefix = if ([string]::IsNullOrWhiteSpace($TargetKeyPrefix)) {
+    if (-not [string]::IsNullOrWhiteSpace($registrationHints.TargetKeyPrefix)) { $registrationHints.TargetKeyPrefix } else { $datasetDefaults.TargetKeyPrefix }
+} else {
+    $TargetKeyPrefix
+}
+
+$resolvedSourceName = if ([string]::IsNullOrWhiteSpace($SourceName)) {
+    if (-not [string]::IsNullOrWhiteSpace($registrationHints.SourceName)) { $registrationHints.SourceName } else { $datasetDefaults.SourceName }
+} else {
+    $SourceName
+}
+
+$resolvedObjectNamePrefix = if ([string]::IsNullOrWhiteSpace($ObjectNamePrefix)) {
+    if (-not [string]::IsNullOrWhiteSpace($registrationHints.ObjectNamePrefix)) { $registrationHints.ObjectNamePrefix } else { $datasetDefaults.ObjectNamePrefix }
+} else {
+    $ObjectNamePrefix
+}
+
+$resolvedCategory = if ([string]::IsNullOrWhiteSpace($Category)) {
+    if (-not [string]::IsNullOrWhiteSpace($registrationHints.Category)) { $registrationHints.Category } else { $datasetDefaults.DatasetLabel }
+} else {
+    $Category
+}
+
+$resolvedNotes = if ([string]::IsNullOrWhiteSpace($Notes)) { $datasetDefaults.NotesPrefix } else { $Notes }
+
 foreach ($file in @($manifest.files)) {
     $tableName = [string]$file.tableName
-    $targetKey = Resolve-DataCloudManifestTargetKey -TableName $tableName -TargetKeyPrefix $TargetKeyPrefix -TargetKeySeparator $TargetKeySeparator
-    $objectName = Resolve-DataCloudManifestObjectName -TableName $tableName -ObjectNamePrefix $ObjectNamePrefix -ObjectNameSeparator $ObjectNameSeparator
+    $expectedTarget = New-DataCloudManifestTargetDefinition -ManifestInfo $manifestInfo -TableName $tableName -TargetKeyPrefix $resolvedTargetKeyPrefix -TargetKeySeparator $TargetKeySeparator -ObjectNamePrefix $resolvedObjectNamePrefix -ObjectNameSeparator $ObjectNameSeparator -SourceName $resolvedSourceName -Category $resolvedCategory -Notes $resolvedNotes
+    $targetKey = $expectedTarget.key
     $existingTarget = @($updatedTargets | Where-Object { $_.key -eq $targetKey } | Select-Object -First 1)
     $createdAt = if ($existingTarget.Count -gt 0 -and -not [string]::IsNullOrWhiteSpace($existingTarget[0].createdAt)) { $existingTarget[0].createdAt } else { Get-UtcTimestamp }
-    $primaryKey = Get-DataCloudManifestPrimaryKey -Manifest $manifest -TableName $tableName
-    $csvPath = Resolve-DataCloudManifestCsvPath -ManifestInfo $manifestInfo -FileDefinition $file
+    $existingTargetRecord = if ($existingTarget.Count -gt 0) { $existingTarget[0] } else { $null }
+    $resolvedSalesforceAlias = if ([string]::IsNullOrWhiteSpace($SalesforceAlias)) { Get-OptionalObjectPropertyValue -InputObject $existingTargetRecord -PropertyName 'salesforceAlias' } else { $SalesforceAlias }
+    $existingSalesforceAlias = Get-OptionalObjectPropertyValue -InputObject $existingTargetRecord -PropertyName 'salesforceAlias'
+    $aliasChanged = (-not [string]::IsNullOrWhiteSpace($resolvedSalesforceAlias) -and -not [string]::IsNullOrWhiteSpace($existingSalesforceAlias) -and $resolvedSalesforceAlias -ne $existingSalesforceAlias)
+    $resolvedTenantEndpoint = if ([string]::IsNullOrWhiteSpace($TenantEndpoint)) {
+        if ($aliasChanged) { '' } else { Get-OptionalObjectPropertyValue -InputObject $existingTargetRecord -PropertyName 'tenantEndpoint' }
+    } else {
+        Normalize-DataCloudUrl -Value $TenantEndpoint
+    }
+    $resolvedObjectEndpoint = if ([string]::IsNullOrWhiteSpace((Get-OptionalObjectPropertyValue -InputObject $existingTargetRecord -PropertyName 'objectEndpoint'))) {
+        ''
+    } elseif ($aliasChanged) {
+        ''
+    } else {
+        Get-OptionalObjectPropertyValue -InputObject $existingTargetRecord -PropertyName 'objectEndpoint'
+    }
 
     $targetRecord = New-CompactTargetRecord -Values @{
         key = $targetKey
-        salesforceAlias = $SalesforceAlias
-        tenantEndpoint = if ([string]::IsNullOrWhiteSpace($TenantEndpoint)) { '' } else { Normalize-DataCloudUrl -Value $TenantEndpoint }
-        sourceName = $SourceName
-        objectName = $objectName
-        dataStreamLabel = '{0} - {1}' -f $datasetName, $tableName
-        category = $resolvedCategory
-        primaryKey = $primaryKey
-        schemaPath = $manifestInfo.Path
-        notes = if ([string]::IsNullOrWhiteSpace($Notes)) { 'Manifest table {0}; csv={1}' -f $tableName, $csvPath } else { '{0}; table={1}; csv={2}' -f $Notes, $tableName, $csvPath }
+        salesforceAlias = $resolvedSalesforceAlias
+        tenantEndpoint = $resolvedTenantEndpoint
+        sourceName = $expectedTarget.sourceName
+        objectName = $expectedTarget.objectName
+        objectEndpoint = $resolvedObjectEndpoint
+        dataStreamLabel = $expectedTarget.dataStreamLabel
+        category = $expectedTarget.category
+        primaryKey = $expectedTarget.primaryKey
+        schemaPath = $expectedTarget.schemaPath
+        manifestPath = $expectedTarget.manifestPath
+        csvPath = $expectedTarget.csvPath
+        datasetKey = $expectedTarget.datasetKey
+        datasetLabel = $expectedTarget.datasetLabel
+        manifestTableName = $expectedTarget.manifestTableName
+        targetKeyPrefix = $expectedTarget.targetKeyPrefix
+        objectNamePrefix = $expectedTarget.objectNamePrefix
+        notes = $expectedTarget.notes
         createdAt = $createdAt
         updatedAt = Get-UtcTimestamp
     }
@@ -83,8 +131,7 @@ foreach ($file in @($manifest.files)) {
 
 $defaultTargetKey = $registry.defaultTargetKey
 if ($SetDefault) {
-    $rootTable = if ($null -ne $manifest.publishContract -and -not [string]::IsNullOrWhiteSpace($manifest.publishContract.rootTable)) { [string]$manifest.publishContract.rootTable } else { [string]$manifest.files[0].tableName }
-    $defaultTargetKey = Resolve-DataCloudManifestTargetKey -TableName $rootTable -TargetKeyPrefix $TargetKeyPrefix -TargetKeySeparator $TargetKeySeparator
+    $defaultTargetKey = Resolve-DataCloudManifestTargetKey -TableName $rootTable -TargetKeyPrefix $resolvedTargetKeyPrefix -TargetKeySeparator $TargetKeySeparator
 }
 
 $updatedRegistry = [pscustomobject]@{

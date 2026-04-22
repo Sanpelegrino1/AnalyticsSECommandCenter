@@ -1,0 +1,184 @@
+﻿openapi: 3.0.3
+components:
+  schemas:
+    projects:
+      type: object
+      properties:
+        project_id:
+          type: string
+        contract_id:
+          type: string
+        customer_name:
+          type: string
+        customer_state:
+          type: string
+        city:
+          type: string
+        signed_date:
+          type: string
+          format: date
+        affiliate_id:
+          type: string
+        project_status:
+          type: string
+        cancellation_flag:
+          type: boolean
+        cancellation_date:
+          type: string
+          format: date
+        cancellation_reason:
+          type: string
+        first_customer_update_date:
+          type: string
+          format: date
+        install_scheduled_date:
+          type: string
+          format: date
+        install_completed_date:
+          type: string
+          format: date
+        pto_date:
+          type: string
+          format: date
+        system_size_kw:
+          type: number
+        roof_type:
+          type: string
+        roof_complexity:
+          type: string
+        battery_flag:
+          type: boolean
+        quoted_revenue:
+          type: number
+        affiliate_equipment_cost_estimate:
+          type: number
+        sunrun_equipment_cost_estimate:
+          type: number
+        affiliate_commission:
+          type: number
+        estimated_margin_before_direct_pay:
+          type: number
+        estimated_margin_after_direct_pay:
+          type: number
+        signed_not_installed_flag:
+          type: boolean
+    affiliates:
+      type: object
+      properties:
+        affiliate_id:
+          type: string
+        affiliate_name:
+          type: string
+        region:
+          type: string
+        affiliate_tier:
+          type: string
+        avg_cycle_time_days:
+          type: number
+        cancellation_rate:
+          type: number
+    distributors:
+      type: object
+      properties:
+        distributor_id:
+          type: string
+        distributor_name:
+          type: string
+        avg_release_days:
+          type: number
+        negotiated_pricing_tier:
+          type: string
+        reliability_score:
+          type: number
+    milestones:
+      type: object
+      properties:
+        milestone_id:
+          type: string
+        project_id:
+          type: string
+        milestone_name:
+          type: string
+        planned_date:
+          type: string
+          format: date
+        actual_date:
+          type: string
+          format: date
+        status:
+          type: string
+        days_late:
+          type: number
+        owner_type:
+          type: string
+        delay_reason:
+          type: string
+    bom_lines:
+      type: object
+      properties:
+        bom_line_id:
+          type: string
+        project_id:
+          type: string
+        item_category:
+          type: string
+        manufacturer:
+          type: string
+        sku:
+          type: string
+        quantity:
+          type: number
+        unit_cost_affiliate_rate:
+          type: number
+        unit_cost_sunrun_rate:
+          type: number
+        extended_cost_affiliate_rate:
+          type: number
+        extended_cost_sunrun_rate:
+          type: number
+        product_name:
+          type: string
+        wattage_w:
+          type: number
+        warranty_years:
+          type: number
+        efficiency_percentage:
+          type: number
+        is_smart_enabled:
+          type: boolean
+    procurement_orders:
+      type: object
+      properties:
+        procurement_order_id:
+          type: string
+        project_id:
+          type: string
+        distributor_id:
+          type: string
+        order_date:
+          type: string
+          format: date
+        payment_sent_date:
+          type: string
+          format: date
+        materials_release_date:
+          type: string
+          format: date
+        ship_date:
+          type: string
+          format: date
+        delivery_date:
+          type: string
+          format: date
+        payment_status:
+          type: string
+        order_status:
+          type: string
+        total_cost_affiliate_rate:
+          type: number
+        total_cost_sunrun_rate:
+          type: number
+        procurement_savings:
+          type: number
+        direct_pay_flag:
+          type: boolean

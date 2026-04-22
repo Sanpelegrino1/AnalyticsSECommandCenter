@@ -53,6 +53,12 @@ powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-upload-
 powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-get-job.ps1 -TargetKey orders-demo -JobId <job-id>
 ```
 
+6. If a previous attempt left the job in `Open` or `UploadComplete`, abort it before rerunning the upload.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-abort-job.ps1 -TargetKey orders-demo -JobId <job-id>
+```
+
 ## Validation
 
 - The upload script returns a job state of `JobComplete`.
@@ -64,10 +70,11 @@ powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-get-job
 - `Open` or `UploadComplete` never transitions: auth or processing issue, or the wait timeout is too short.
 - `Failed`: the CSV shape or field values do not match the configured data stream.
 - `401` or `403`: local secrets or connected-app scopes are incorrect.
-- `404`: wrong tenant endpoint or wrong job id.
+- `404`: wrong tenant endpoint, stale `objectEndpoint`, or a missing data stream in the current org.
 
 ## Cleanup or Rollback
 
 - Remove bad local secrets from `.env.local` or user environment variables.
+- Use `data-cloud-get-job.ps1` to inspect the failed or stuck job, then `data-cloud-abort-job.ps1` if it is stuck in `Open` or `UploadComplete`.
 - Fix the CSV or the data stream mapping, then rerun the upload with a new job.
-- Update `notes/registries/data-cloud-targets.json` if the connector name or tenant endpoint changed.
+- Update `notes/registries/data-cloud-targets.json` if the connector name, tenant endpoint, or `objectEndpoint` changed.

@@ -8,29 +8,19 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
-$resolvedCsvPath = (Resolve-Path $CsvPath).Path
-$fileInfo = Get-Item -Path $resolvedCsvPath
-$rows = @(Import-Csv -Path $resolvedCsvPath | Select-Object -First $SampleRows)
+. (Join-Path $PSScriptRoot 'DataCloud.Common.ps1')
 
-$headers = @()
-if ($rows.Count -gt 0) {
-    $headers = @($rows[0].PSObject.Properties.Name)
-} else {
-    $headerLine = Get-Content -Path $resolvedCsvPath -TotalCount 1
-    if (-not [string]::IsNullOrWhiteSpace($headerLine)) {
-        $headers = @($headerLine.Split(',') | ForEach-Object { $_.Trim('"') })
-    }
-}
-
-$lineCount = (Get-Content -Path $resolvedCsvPath | Measure-Object -Line).Lines
+$csvProfile = Get-DataCloudCsvProfile -CsvPath $CsvPath -SampleRows $SampleRows -AllowHeaderOnly -ContextLabel 'CSV inspection'
 
 $result = [pscustomobject]@{
-    csvPath = $resolvedCsvPath
-    sizeBytes = $fileInfo.Length
-    lineCount = $lineCount
-    estimatedDataRows = [Math]::Max($lineCount - 1, 0)
-    headers = $headers
-    sampleRows = $rows
+    csvPath = $csvProfile.csvPath
+    sizeBytes = $csvProfile.sizeBytes
+    lineCount = $csvProfile.lineCount
+    estimatedDataRows = $csvProfile.estimatedDataRows
+    headers = $csvProfile.headers
+    hasDuplicateHeaders = $false
+    duplicateHeaders = @()
+    sampleRows = $csvProfile.sampleRows
 }
 
 Write-Output $result

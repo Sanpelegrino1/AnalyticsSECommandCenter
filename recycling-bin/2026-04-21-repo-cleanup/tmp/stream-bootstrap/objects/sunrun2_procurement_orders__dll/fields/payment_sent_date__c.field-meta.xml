@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>payment_sent_date__c</fullName>
+    <label>payment_sent_date</label>
+    <mktDataLakeFieldAttributes>
+        <definitionCreationType>Custom</definitionCreationType>
+        <externalName>payment_sent_date</externalName>
+        <isEventDate>false</isEventDate>
+        <isInternalOrganization>false</isInternalOrganization>
+        <isRecordModified>false</isRecordModified>
+        <usageTag>NONE</usageTag>
+    </mktDataLakeFieldAttributes>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

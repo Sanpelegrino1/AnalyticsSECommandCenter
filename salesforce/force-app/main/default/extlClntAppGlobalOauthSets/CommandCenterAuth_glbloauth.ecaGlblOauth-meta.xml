@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExtlClntAppGlobalOauthSettings xmlns="http://soap.sforce.com/2006/04/metadata">
-    <callbackUrl>http://localhost:1717/OauthRedirect</callbackUrl>
+    <callbackUrl>http://localhost:1718/OauthRedirect</callbackUrl>
     <consumerKey>CommandCenterAuthClient20260417A9F3D7K2M8Q4R6T1V5X</consumerKey>
     <externalClientApplication>CommandCenterAuth</externalClientApplication>
     <isClientCredentialsFlowEnabled>false</isClientCredentialsFlowEnabled>

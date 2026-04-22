@@ -1,0 +1,83 @@
+{
+  "pattern": "z_layout",
+  "pattern_args": {},
+  "workspace_label": "Layout Test Z — Retail operational",
+  "metrics": [
+    "Total_Amount_mtc",
+    "Average_Order_Amount_mtc",
+    "Distinct_Customers_mtc",
+    "Distinct_Products_Sold_mtc",
+    "Units_Sold_mtc",
+    "Items_Per_Order_mtc"
+  ],
+  "filters": [
+    { "fieldName": "Store_Name" },
+    { "fieldName": "Region" },
+    { "fieldName": "Store_Type" },
+    { "fieldName": "Product_Family1" },
+    { "fieldName": "order_type" },
+    { "fieldName": "order_date" }
+  ],
+  "visualizations": [
+    {
+      "template": "multi_series_line",
+      "name": "ZLayout_Sales_Trend_by_Family",
+      "label": "Sales trend — total amount over order date by product family",
+      "fields": {
+        "date": "order_date",
+        "measure": "total_amount",
+        "color_dim": "Product_Family1"
+      },
+      "overrides": { "hide_legends": true }
+    },
+    {
+      "template": "market_share_donut",
+      "name": "ZLayout_Revenue_Share_Region",
+      "label": "Revenue by region",
+      "fields": { "category": "Region", "amount": "total_amount" },
+      "overrides": { "hide_legends": true }
+    },
+    {
+      "template": "flow_package_three_level",
+      "name": "ZLayout_Sales_Flow",
+      "label": "Sales flow — product family to store type to region (amount on links)",
+      "fields": {
+        "level1": "Product_Family1",
+        "level2": "Store_Type",
+        "level3": "Region",
+        "link_measure": "total_amount"
+      },
+      "overrides": { "hide_legends": true, "flow_link_legend_visible": false }
+    },
+    {
+      "template": "heatmap_grid",
+      "name": "ZLayout_Store_Type_Region_Heat",
+      "label": "Sales heatmap — total amount by store type and region",
+      "fields": {
+        "row_dim": "Store_Type",
+        "col_dim": "Region",
+        "measure": "total_amount"
+      },
+      "overrides": {
+        "hide_legends": true,
+        "palette": { "start": "#5DADE2", "middle": "#F39C12", "end": "#48C9B0" }
+      }
+    },
+    {
+      "template": "geomap_advanced",
+      "name": "ZLayout_Store_Map",
+      "label": "Store performance map — sized by total sales, store name labels",
+      "fields": {
+        "latitude": "Latitude",
+        "longitude": "Longitude",
+        "measure": "total_amount",
+        "label_dim": "Store_Name"
+      },
+      "overrides": {
+        "hide_legends": true,
+        "map_color_legend_visible": false,
+        "map_point_size_px": 48
+      }
+    }
+  ]
+}

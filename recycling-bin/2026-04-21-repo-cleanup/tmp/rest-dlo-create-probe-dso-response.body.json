@@ -1,0 +1,9 @@
+{
+  "name": "Probe_Sunrun_DSO__dll",
+  "label": "Probe Sunrun DSO",
+  "category": "Other",
+  "dataSource": {
+    "sourceType": "DATA_SOURCE_OBJECT",
+    "sourceId": "9XDKZ0000000001AAA"
+  }
+}

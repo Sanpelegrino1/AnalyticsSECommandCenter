@@ -1,0 +1,308 @@
+﻿{
+    "generatedAt":  "2026-04-20T09:57:30Z",
+    "manifestPath":  "C:\\Users\\andrew.hill\\AnalyticsSECommandCenter\\Demos\\Sunrun Demo\\manifest.json",
+    "targetOrg":  "STORM_TABLEAU_NEXT_DC",
+    "sourceName":  "sunrun_ingest_api",
+    "connector":  {
+                      "id":  "1WMKZ000000Govf4AC",
+                      "name":  "sunrun_ingest_api",
+                      "status":  "resolved-existing"
+                  },
+    "localMetadata":  {
+                          "status":  "generated",
+                          "outputRoot":  "C:\\Users\\andrew.hill\\AnalyticsSECommandCenter\\tmp\\validation-stream-projects-endpoint",
+                          "deployedByThisScript":  false,
+                          "generatedTables":  [
+                                                  {
+                                                      "tableName":  "projects",
+                                                      "objectName":  "sunrun2_projects",
+                                                      "objectNameOverridden":  false,
+                                                      "transportObjectName":  "sunrun2_projects",
+                                                      "dataSourceObjectName":  "sunrun2_projects_dll",
+                                                      "dataLakeObjectName":  "sunrun2_projects__dll",
+                                                      "streamLabel":  "sunrun2_projects",
+                                                      "csvPath":  "C:\\Users\\andrew.hill\\AnalyticsSECommandCenter\\Demos\\Sunrun Demo\\projects.csv",
+                                                      "lineCount":  30001,
+                                                      "estimatedDataRows":  30000,
+                                                      "fields":  [
+                                                                     {
+                                                                         "name":  "project_id",
+                                                                         "apiName":  "project_id",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "contract_id",
+                                                                         "apiName":  "contract_id",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "customer_name",
+                                                                         "apiName":  "customer_name",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "customer_state",
+                                                                         "apiName":  "customer_state",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "city",
+                                                                         "apiName":  "city",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "signed_date",
+                                                                         "apiName":  "signed_date",
+                                                                         "schema":  {
+                                                                                        "type":  "string",
+                                                                                        "format":  "date"
+                                                                                    },
+                                                                         "dataType":  "F",
+                                                                         "customFieldType":  "Date"
+                                                                     },
+                                                                     {
+                                                                         "name":  "affiliate_id",
+                                                                         "apiName":  "affiliate_id",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "project_status",
+                                                                         "apiName":  "project_status",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "cancellation_flag",
+                                                                         "apiName":  "cancellation_flag",
+                                                                         "schema":  {
+                                                                                        "type":  "boolean"
+                                                                                    },
+                                                                         "dataType":  "B",
+                                                                         "customFieldType":  "Checkbox"
+                                                                     },
+                                                                     {
+                                                                         "name":  "cancellation_date",
+                                                                         "apiName":  "cancellation_date",
+                                                                         "schema":  {
+                                                                                        "type":  "string",
+                                                                                        "format":  "date"
+                                                                                    },
+                                                                         "dataType":  "F",
+                                                                         "customFieldType":  "Date"
+                                                                     },
+                                                                     {
+                                                                         "name":  "cancellation_reason",
+                                                                         "apiName":  "cancellation_reason",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "first_customer_update_date",
+                                                                         "apiName":  "first_customer_update_date",
+                                                                         "schema":  {
+                                                                                        "type":  "string",
+                                                                                        "format":  "date"
+                                                                                    },
+                                                                         "dataType":  "F",
+                                                                         "customFieldType":  "Date"
+                                                                     },
+                                                                     {
+                                                                         "name":  "install_scheduled_date",
+                                                                         "apiName":  "install_scheduled_date",
+                                                                         "schema":  {
+                                                                                        "type":  "string",
+                                                                                        "format":  "date"
+                                                                                    },
+                                                                         "dataType":  "F",
+                                                                         "customFieldType":  "Date"
+                                                                     },
+                                                                     {
+                                                                         "name":  "install_completed_date",
+                                                                         "apiName":  "install_completed_date",
+                                                                         "schema":  {
+                                                                                        "type":  "string",
+                                                                                        "format":  "date"
+                                                                                    },
+                                                                         "dataType":  "F",
+                                                                         "customFieldType":  "Date"
+                                                                     },
+                                                                     {
+                                                                         "name":  "pto_date",
+                                                                         "apiName":  "pto_date",
+                                                                         "schema":  {
+                                                                                        "type":  "string",
+                                                                                        "format":  "date"
+                                                                                    },
+                                                                         "dataType":  "F",
+                                                                         "customFieldType":  "Date"
+                                                                     },
+                                                                     {
+                                                                         "name":  "system_size_kw",
+                                                                         "apiName":  "system_size_kw",
+                                                                         "schema":  {
+                                                                                        "type":  "number"
+                                                                                    },
+                                                                         "dataType":  "N",
+                                                                         "customFieldType":  "Number"
+                                                                     },
+                                                                     {
+                                                                         "name":  "roof_type",
+                                                                         "apiName":  "roof_type",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "roof_complexity",
+                                                                         "apiName":  "roof_complexity",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "battery_flag",
+                                                                         "apiName":  "battery_flag",
+                                                                         "schema":  {
+                                                                                        "type":  "boolean"
+                                                                                    },
+                                                                         "dataType":  "B",
+                                                                         "customFieldType":  "Checkbox"
+                                                                     },
+                                                                     {
+                                                                         "name":  "quoted_revenue",
+                                                                         "apiName":  "quoted_revenue",
+                                                                         "schema":  {
+                                                                                        "type":  "number"
+                                                                                    },
+                                                                         "dataType":  "N",
+                                                                         "customFieldType":  "Number"
+                                                                     },
+                                                                     {
+                                                                         "name":  "affiliate_equipment_cost_estimate",
+                                                                         "apiName":  "affiliate_equipment_cost_estimate",
+                                                                         "schema":  {
+                                                                                        "type":  "number"
+                                                                                    },
+                                                                         "dataType":  "N",
+                                                                         "customFieldType":  "Number"
+                                                                     },
+                                                                     {
+                                                                         "name":  "sunrun_equipment_cost_estimate",
+                                                                         "apiName":  "sunrun_equipment_cost_estimate",
+                                                                         "schema":  {
+                                                                                        "type":  "number"
+                                                                                    },
+                                                                         "dataType":  "N",
+                                                                         "customFieldType":  "Number"
+                                                                     },
+                                                                     {
+                                                                         "name":  "affiliate_commission",
+                                                                         "apiName":  "affiliate_commission",
+                                                                         "schema":  {
+                                                                                        "type":  "number"
+                                                                                    },
+                                                                         "dataType":  "N",
+                                                                         "customFieldType":  "Number"
+                                                                     },
+                                                                     {
+                                                                         "name":  "estimated_margin_before_direct_pay",
+                                                                         "apiName":  "estimated_margin_before_direct_pay",
+                                                                         "schema":  {
+                                                                                        "type":  "number"
+                                                                                    },
+                                                                         "dataType":  "N",
+                                                                         "customFieldType":  "Number"
+                                                                     },
+                                                                     {
+                                                                         "name":  "estimated_margin_after_direct_pay",
+                                                                         "apiName":  "estimated_margin_after_direct_pay",
+                                                                         "schema":  {
+                                                                                        "type":  "number"
+                                                                                    },
+                                                                         "dataType":  "N",
+                                                                         "customFieldType":  "Number"
+                                                                     },
+                                                                     {
+                                                                         "name":  "signed_not_installed_flag",
+                                                                         "apiName":  "signed_not_installed_flag",
+                                                                         "schema":  {
+                                                                                        "type":  "boolean"
+                                                                                    },
+                                                                         "dataType":  "B",
+                                                                         "customFieldType":  "Checkbox"
+                                                                     }
+                                                                 ],
+                                                      "primaryKeys":  "project_id",
+                                                      "dataStreamDefinition":  "sunrun2_projects"
+                                                  }
+                                              ]
+                      },
+    "schemaRegistration":  {
+                               "created":  [
+
+                                           ],
+                               "reused":  [
+                                              "sunrun2_projects"
+                                          ]
+                           },
+    "streamProvisioning":  {
+                               "allActive":  true,
+                               "streams":  [
+                                               {
+                                                   "tableName":  "projects",
+                                                   "desiredObjectName":  "sunrun2_projects",
+                                                   "resolvedObjectName":  "sunrun2_projects",
+                                                   "streamLabel":  "sunrun2_projects",
+                                                   "streamName":  "sunrun2_projects_sunrun2_projects_A91ABE55",
+                                                   "action":  "reused",
+                                                   "csvPath":  "C:\\Users\\andrew.hill\\AnalyticsSECommandCenter\\Demos\\Sunrun Demo\\projects.csv",
+                                                   "dataLakeObjectName":  "sunrun2_projects_sunrun2_projec_A91ABE55__dll",
+                                                   "dataLakeObjectStatus":  "ACTIVE"
+                                               }
+                                           ]
+                           },
+    "registrySync":  {
+                         "updatedCount":  1,
+                         "updatedKeys":  [
+                                             "sunrun-projects"
+                                         ]
+                     },
+    "manualStepsRemaining":  [
+                                 "The Ingest API connector itself must already exist in Data Cloud. This script resolves and uses an existing connector; it does not create one from scratch.",
+                                 "The generated metadata under salesforce/generated remains local source until you deploy it separately with the Salesforce metadata workflow."
+                             ]
+}

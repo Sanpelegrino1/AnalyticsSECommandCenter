@@ -1,0 +1,1 @@
+{"actions":[{"id":"1;a","descriptor":"aura://SentOsSetupServiceController/ACTION$getDataSourceObjectConfiguration","callingDescriptor":"markup://one:one","params":{"dataSourceApiName":"sunrun_ingest_api","objectApiName":"sunrun_projects","clientOptions":{}}}]}

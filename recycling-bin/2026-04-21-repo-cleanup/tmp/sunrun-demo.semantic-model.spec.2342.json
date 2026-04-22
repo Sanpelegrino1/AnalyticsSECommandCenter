@@ -1,0 +1,655 @@
+﻿{
+    "SemanticModelSpec":  {
+                              "targetKey":  "sunrun-demo-sdm",
+                              "targetOrg":  "STORM_TABLEAU_NEXT",
+                              "workspace":  {
+                                                "workspaceId":  "1DyKZ000000kA8f0AE",
+                                                "workspaceDeveloperName":  "Juju_Demo",
+                                                "workspaceLabel":  "Juju Demo"
+                                            },
+                              "model":  {
+                                            "apiName":  "Sunrun_Residential_Solar_Operations_Semantic_Model_20260420_2342",
+                                            "label":  "Sunrun Residential Solar Operations Semantic Model 20260420 2342",
+                                            "description":  "",
+                                            "dataSpace":  "default",
+                                            "primaryObjectApiName":  "sunrun2_projects_sunrun2_projec_A91ABE55__dll",
+                                            "objectApiNames":  [
+                                                                   "sunrun2_projects_sunrun2_projec_A91ABE55__dll",
+                                                                   "sunrun2_affiliates_sunrun2_affi_AA53CD4C__dll",
+                                                                   "sunrun2_distributors_sunrun2_di_AA542184__dll",
+                                                                   "sunrun2_milestones_sunrun2_mile_AA54748E__dll",
+                                                                   "sunrun2_bom_lines_sunrun2_bom_l_AA54C824__dll",
+                                                                   "sunrun2_procurement_orders_sunr_AA55200D__dll"
+                                                               ],
+                                            "objectMappings":  [
+                                                                   {
+                                                                       "tableName":  "projects",
+                                                                       "objectApiName":  "sunrun2_projects_sunrun2_projec_A91ABE55__dll",
+                                                                       "label":  "Projects",
+                                                                       "primaryKeyFields":  [
+                                                                                                "project_id__c"
+                                                                                            ],
+                                                                       "fields":  [
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "project_id__c",
+                                                                                          "sourceFieldName":  "project_id",
+                                                                                          "label":  "project_id",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "contract_id__c",
+                                                                                          "sourceFieldName":  "contract_id",
+                                                                                          "label":  "contract_id",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "customer_name__c",
+                                                                                          "sourceFieldName":  "customer_name",
+                                                                                          "label":  "customer_name",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "customer_state__c",
+                                                                                          "sourceFieldName":  "customer_state",
+                                                                                          "label":  "customer_state",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "city__c",
+                                                                                          "sourceFieldName":  "city",
+                                                                                          "label":  "city",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "signed_date__c",
+                                                                                          "sourceFieldName":  "signed_date",
+                                                                                          "label":  "signed_date",
+                                                                                          "customFieldType":  "Date",
+                                                                                          "dataType":  "F"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "affiliate_id__c",
+                                                                                          "sourceFieldName":  "affiliate_id",
+                                                                                          "label":  "affiliate_id",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "project_status__c",
+                                                                                          "sourceFieldName":  "project_status",
+                                                                                          "label":  "project_status",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "cancellation_flag__c",
+                                                                                          "sourceFieldName":  "cancellation_flag",
+                                                                                          "label":  "cancellation_flag",
+                                                                                          "customFieldType":  "Checkbox",
+                                                                                          "dataType":  "B"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "cancellation_date__c",
+                                                                                          "sourceFieldName":  "cancellation_date",
+                                                                                          "label":  "cancellation_date",
+                                                                                          "customFieldType":  "Date",
+                                                                                          "dataType":  "F"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "cancellation_reason__c",
+                                                                                          "sourceFieldName":  "cancellation_reason",
+                                                                                          "label":  "cancellation_reason",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "first_customer_update_date__c",
+                                                                                          "sourceFieldName":  "first_customer_update_date",
+                                                                                          "label":  "first_customer_update_date",
+                                                                                          "customFieldType":  "Date",
+                                                                                          "dataType":  "F"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "install_scheduled_date__c",
+                                                                                          "sourceFieldName":  "install_scheduled_date",
+                                                                                          "label":  "install_scheduled_date",
+                                                                                          "customFieldType":  "Date",
+                                                                                          "dataType":  "F"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "install_completed_date__c",
+                                                                                          "sourceFieldName":  "install_completed_date",
+                                                                                          "label":  "install_completed_date",
+                                                                                          "customFieldType":  "Date",
+                                                                                          "dataType":  "F"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "pto_date__c",
+                                                                                          "sourceFieldName":  "pto_date",
+                                                                                          "label":  "pto_date",
+                                                                                          "customFieldType":  "Date",
+                                                                                          "dataType":  "F"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "system_size_kw__c",
+                                                                                          "sourceFieldName":  "system_size_kw",
+                                                                                          "label":  "system_size_kw",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "roof_type__c",
+                                                                                          "sourceFieldName":  "roof_type",
+                                                                                          "label":  "roof_type",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "roof_complexity__c",
+                                                                                          "sourceFieldName":  "roof_complexity",
+                                                                                          "label":  "roof_complexity",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "battery_flag__c",
+                                                                                          "sourceFieldName":  "battery_flag",
+                                                                                          "label":  "battery_flag",
+                                                                                          "customFieldType":  "Checkbox",
+                                                                                          "dataType":  "B"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "quoted_revenue__c",
+                                                                                          "sourceFieldName":  "quoted_revenue",
+                                                                                          "label":  "quoted_revenue",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "affiliate_equipment_cost_estimate__c",
+                                                                                          "sourceFieldName":  "affiliate_equipment_cost_estimate",
+                                                                                          "label":  "affiliate_equipment_cost_estimate",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "sunrun_equipment_cost_estimate__c",
+                                                                                          "sourceFieldName":  "sunrun_equipment_cost_estimate",
+                                                                                          "label":  "sunrun_equipment_cost_estimate",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "affiliate_commission__c",
+                                                                                          "sourceFieldName":  "affiliate_commission",
+                                                                                          "label":  "affiliate_commission",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "estimated_margin_before_direct_pay__c",
+                                                                                          "sourceFieldName":  "estimated_margin_before_direct_pay",
+                                                                                          "label":  "estimated_margin_before_direct_pay",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "estimated_margin_after_direct_pay__c",
+                                                                                          "sourceFieldName":  "estimated_margin_after_direct_pay",
+                                                                                          "label":  "estimated_margin_after_direct_pay",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "signed_not_installed_flag__c",
+                                                                                          "sourceFieldName":  "signed_not_installed_flag",
+                                                                                          "label":  "signed_not_installed_flag",
+                                                                                          "customFieldType":  "Checkbox",
+                                                                                          "dataType":  "B"
+                                                                                      }
+                                                                                  ]
+                                                                   },
+                                                                   {
+                                                                       "tableName":  "affiliates",
+                                                                       "objectApiName":  "sunrun2_affiliates_sunrun2_affi_AA53CD4C__dll",
+                                                                       "label":  "Affiliates",
+                                                                       "primaryKeyFields":  [
+                                                                                                "affiliate_id__c"
+                                                                                            ],
+                                                                       "fields":  [
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "affiliate_id__c",
+                                                                                          "sourceFieldName":  "affiliate_id",
+                                                                                          "label":  "affiliate_id",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "affiliate_name__c",
+                                                                                          "sourceFieldName":  "affiliate_name",
+                                                                                          "label":  "affiliate_name",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "region__c",
+                                                                                          "sourceFieldName":  "region",
+                                                                                          "label":  "region",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "affiliate_tier__c",
+                                                                                          "sourceFieldName":  "affiliate_tier",
+                                                                                          "label":  "affiliate_tier",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "avg_cycle_time_days__c",
+                                                                                          "sourceFieldName":  "avg_cycle_time_days",
+                                                                                          "label":  "avg_cycle_time_days",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "cancellation_rate__c",
+                                                                                          "sourceFieldName":  "cancellation_rate",
+                                                                                          "label":  "cancellation_rate",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      }
+                                                                                  ]
+                                                                   },
+                                                                   {
+                                                                       "tableName":  "distributors",
+                                                                       "objectApiName":  "sunrun2_distributors_sunrun2_di_AA542184__dll",
+                                                                       "label":  "Distributors",
+                                                                       "primaryKeyFields":  [
+                                                                                                "distributor_id__c"
+                                                                                            ],
+                                                                       "fields":  [
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "distributor_id__c",
+                                                                                          "sourceFieldName":  "distributor_id",
+                                                                                          "label":  "distributor_id",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "distributor_name__c",
+                                                                                          "sourceFieldName":  "distributor_name",
+                                                                                          "label":  "distributor_name",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "avg_release_days__c",
+                                                                                          "sourceFieldName":  "avg_release_days",
+                                                                                          "label":  "avg_release_days",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "negotiated_pricing_tier__c",
+                                                                                          "sourceFieldName":  "negotiated_pricing_tier",
+                                                                                          "label":  "negotiated_pricing_tier",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "reliability_score__c",
+                                                                                          "sourceFieldName":  "reliability_score",
+                                                                                          "label":  "reliability_score",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      }
+                                                                                  ]
+                                                                   },
+                                                                   {
+                                                                       "tableName":  "milestones",
+                                                                       "objectApiName":  "sunrun2_milestones_sunrun2_mile_AA54748E__dll",
+                                                                       "label":  "Milestones",
+                                                                       "primaryKeyFields":  [
+                                                                                                "milestone_id__c"
+                                                                                            ],
+                                                                       "fields":  [
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "milestone_id__c",
+                                                                                          "sourceFieldName":  "milestone_id",
+                                                                                          "label":  "milestone_id",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "project_id__c",
+                                                                                          "sourceFieldName":  "project_id",
+                                                                                          "label":  "project_id",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "milestone_name__c",
+                                                                                          "sourceFieldName":  "milestone_name",
+                                                                                          "label":  "milestone_name",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "planned_date__c",
+                                                                                          "sourceFieldName":  "planned_date",
+                                                                                          "label":  "planned_date",
+                                                                                          "customFieldType":  "Date",
+                                                                                          "dataType":  "F"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "actual_date__c",
+                                                                                          "sourceFieldName":  "actual_date",
+                                                                                          "label":  "actual_date",
+                                                                                          "customFieldType":  "Date",
+                                                                                          "dataType":  "F"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "status__c",
+                                                                                          "sourceFieldName":  "status",
+                                                                                          "label":  "status",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "days_late__c",
+                                                                                          "sourceFieldName":  "days_late",
+                                                                                          "label":  "days_late",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "owner_type__c",
+                                                                                          "sourceFieldName":  "owner_type",
+                                                                                          "label":  "owner_type",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "delay_reason__c",
+                                                                                          "sourceFieldName":  "delay_reason",
+                                                                                          "label":  "delay_reason",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      }
+                                                                                  ]
+                                                                   },
+                                                                   {
+                                                                       "tableName":  "bom_lines",
+                                                                       "objectApiName":  "sunrun2_bom_lines_sunrun2_bom_l_AA54C824__dll",
+                                                                       "label":  "Bom Lines",
+                                                                       "primaryKeyFields":  [
+                                                                                                "bom_line_id__c"
+                                                                                            ],
+                                                                       "fields":  [
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "bom_line_id__c",
+                                                                                          "sourceFieldName":  "bom_line_id",
+                                                                                          "label":  "bom_line_id",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "project_id__c",
+                                                                                          "sourceFieldName":  "project_id",
+                                                                                          "label":  "project_id",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "item_category__c",
+                                                                                          "sourceFieldName":  "item_category",
+                                                                                          "label":  "item_category",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "manufacturer__c",
+                                                                                          "sourceFieldName":  "manufacturer",
+                                                                                          "label":  "manufacturer",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "sku__c",
+                                                                                          "sourceFieldName":  "sku",
+                                                                                          "label":  "sku",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "quantity__c",
+                                                                                          "sourceFieldName":  "quantity",
+                                                                                          "label":  "quantity",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "unit_cost_affiliate_rate__c",
+                                                                                          "sourceFieldName":  "unit_cost_affiliate_rate",
+                                                                                          "label":  "unit_cost_affiliate_rate",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "unit_cost_sunrun_rate__c",
+                                                                                          "sourceFieldName":  "unit_cost_sunrun_rate",
+                                                                                          "label":  "unit_cost_sunrun_rate",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "extended_cost_affiliate_rate__c",
+                                                                                          "sourceFieldName":  "extended_cost_affiliate_rate",
+                                                                                          "label":  "extended_cost_affiliate_rate",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "extended_cost_sunrun_rate__c",
+                                                                                          "sourceFieldName":  "extended_cost_sunrun_rate",
+                                                                                          "label":  "extended_cost_sunrun_rate",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "product_name__c",
+                                                                                          "sourceFieldName":  "product_name",
+                                                                                          "label":  "product_name",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "wattage_w__c",
+                                                                                          "sourceFieldName":  "wattage_w",
+                                                                                          "label":  "wattage_w",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "warranty_years__c",
+                                                                                          "sourceFieldName":  "warranty_years",
+                                                                                          "label":  "warranty_years",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "efficiency_percentage__c",
+                                                                                          "sourceFieldName":  "efficiency_percentage",
+                                                                                          "label":  "efficiency_percentage",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "is_smart_enabled__c",
+                                                                                          "sourceFieldName":  "is_smart_enabled",
+                                                                                          "label":  "is_smart_enabled",
+                                                                                          "customFieldType":  "Checkbox",
+                                                                                          "dataType":  "B"
+                                                                                      }
+                                                                                  ]
+                                                                   },
+                                                                   {
+                                                                       "tableName":  "procurement_orders",
+                                                                       "objectApiName":  "sunrun2_procurement_orders_sunr_AA55200D__dll",
+                                                                       "label":  "Procurement Orders",
+                                                                       "primaryKeyFields":  [
+                                                                                                "procurement_order_id__c"
+                                                                                            ],
+                                                                       "fields":  [
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "procurement_order_id__c",
+                                                                                          "sourceFieldName":  "procurement_order_id",
+                                                                                          "label":  "procurement_order_id",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "project_id__c",
+                                                                                          "sourceFieldName":  "project_id",
+                                                                                          "label":  "project_id",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "distributor_id__c",
+                                                                                          "sourceFieldName":  "distributor_id",
+                                                                                          "label":  "distributor_id",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "order_date__c",
+                                                                                          "sourceFieldName":  "order_date",
+                                                                                          "label":  "order_date",
+                                                                                          "customFieldType":  "Date",
+                                                                                          "dataType":  "F"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "payment_sent_date__c",
+                                                                                          "sourceFieldName":  "payment_sent_date",
+                                                                                          "label":  "payment_sent_date",
+                                                                                          "customFieldType":  "Date",
+                                                                                          "dataType":  "F"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "materials_release_date__c",
+                                                                                          "sourceFieldName":  "materials_release_date",
+                                                                                          "label":  "materials_release_date",
+                                                                                          "customFieldType":  "Date",
+                                                                                          "dataType":  "F"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "ship_date__c",
+                                                                                          "sourceFieldName":  "ship_date",
+                                                                                          "label":  "ship_date",
+                                                                                          "customFieldType":  "Date",
+                                                                                          "dataType":  "F"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "delivery_date__c",
+                                                                                          "sourceFieldName":  "delivery_date",
+                                                                                          "label":  "delivery_date",
+                                                                                          "customFieldType":  "Date",
+                                                                                          "dataType":  "F"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "payment_status__c",
+                                                                                          "sourceFieldName":  "payment_status",
+                                                                                          "label":  "payment_status",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "order_status__c",
+                                                                                          "sourceFieldName":  "order_status",
+                                                                                          "label":  "order_status",
+                                                                                          "customFieldType":  "Text",
+                                                                                          "dataType":  "S"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "total_cost_affiliate_rate__c",
+                                                                                          "sourceFieldName":  "total_cost_affiliate_rate",
+                                                                                          "label":  "total_cost_affiliate_rate",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "total_cost_sunrun_rate__c",
+                                                                                          "sourceFieldName":  "total_cost_sunrun_rate",
+                                                                                          "label":  "total_cost_sunrun_rate",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "procurement_savings__c",
+                                                                                          "sourceFieldName":  "procurement_savings",
+                                                                                          "label":  "procurement_savings",
+                                                                                          "customFieldType":  "Number",
+                                                                                          "dataType":  "N"
+                                                                                      },
+                                                                                      {
+                                                                                          "dataObjectFieldName":  "direct_pay_flag__c",
+                                                                                          "sourceFieldName":  "direct_pay_flag",
+                                                                                          "label":  "direct_pay_flag",
+                                                                                          "customFieldType":  "Checkbox",
+                                                                                          "dataType":  "B"
+                                                                                      }
+                                                                                  ]
+                                                                   }
+                                                               ],
+                                            "relationshipDefinitions":  [
+                                                                            {
+                                                                                "sourceTable":  "projects",
+                                                                                "sourceField":  "affiliate_id__c",
+                                                                                "targetTable":  "affiliates",
+                                                                                "targetField":  "affiliate_id__c",
+                                                                                "direction":  "many_to_one",
+                                                                                "required":  true
+                                                                            },
+                                                                            {
+                                                                                "sourceTable":  "milestones",
+                                                                                "sourceField":  "project_id__c",
+                                                                                "targetTable":  "projects",
+                                                                                "targetField":  "project_id__c",
+                                                                                "direction":  "many_to_one",
+                                                                                "required":  true
+                                                                            },
+                                                                            {
+                                                                                "sourceTable":  "bom_lines",
+                                                                                "sourceField":  "project_id__c",
+                                                                                "targetTable":  "projects",
+                                                                                "targetField":  "project_id__c",
+                                                                                "direction":  "many_to_one",
+                                                                                "required":  true
+                                                                            },
+                                                                            {
+                                                                                "sourceTable":  "procurement_orders",
+                                                                                "sourceField":  "project_id__c",
+                                                                                "targetTable":  "projects",
+                                                                                "targetField":  "project_id__c",
+                                                                                "direction":  "many_to_one",
+                                                                                "required":  true
+                                                                            },
+                                                                            {
+                                                                                "sourceTable":  "procurement_orders",
+                                                                                "sourceField":  "distributor_id__c",
+                                                                                "targetTable":  "distributors",
+                                                                                "targetField":  "distributor_id__c",
+                                                                                "direction":  "many_to_one",
+                                                                                "required":  true
+                                                                            }
+                                                                        ]
+                                        }
+                          }
+}

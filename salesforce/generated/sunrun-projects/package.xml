@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>sunrun_ingest_api</members>
+        <name>DataConnectorIngestApi</name>
+    </types>
+    <types>
+        <members>sunrun_ingest_api</members>
+        <name>DataSource</name>
+    </types>
+    <types>
+        <members>projects_dll</members>
+        <name>DataSourceObject</name>
+    </types>
+    <types>
+        <members>projects</members>
+        <name>DataStreamDefinition</name>
+    </types>
+    <types>
+        <members>sunrun_ingest_api</members>
+        <name>ExternalDataConnector</name>
+    </types>
+    <types>
+        <members>projects__dll</members>
+        <name>MktDataLakeObject</name>
+    </types>
+    <types>
+        <members>projects</members>
+        <name>MktDataTranObject</name>
+    </types>
+    <types>
+        <members>projects_map_projects</members>
+        <name>ObjectSourceTargetMap</name>
+    </types>
+    <version>66.0</version>
+</Package>

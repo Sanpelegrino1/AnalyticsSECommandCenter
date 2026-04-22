@@ -1,0 +1,519 @@
+{
+  "schemaVersion": "JUJU_MANIFEST_DOWNLOAD_V1",
+  "jobId": "14526245-d0f8-4dd7-9179-536913b5cea6",
+  "title": "TNS Sales Pipeline and Quota Performance",
+  "datasetMode": "normalized",
+  "createdAt": 1776759109681,
+  "completedAt": 1776759220095,
+  "summary": {
+    "manifestStats": {
+      "rowCount": null,
+      "columnCount": null
+    },
+    "csvFiles": [
+      "Geography.csv",
+      "Manager.csv",
+      "SalesRep.csv",
+      "ProductFamily.csv",
+      "Product.csv",
+      "Account.csv",
+      "LeadIntelligence.csv",
+      "Quota.csv",
+      "Opportunity.csv"
+    ],
+    "csvDownloadFileName": "Geography_dataset.zip",
+    "tableauPackageFileName": "TNS_Sales_Pipeline_and_Quota_Performance.tdsx",
+    "publishStatus": {
+      "target": "tableau_cloud",
+      "status": "completed",
+      "startedAt": 1776759623865,
+      "finishedAt": 1776759626032,
+      "destinationId": "f2c7ad52-ed8a-4c9a-b1f7-43ea97863467",
+      "destinationName": "User Workspaces / Andrew Hill",
+      "publishName": "TNS Sales Pipeline and Quota Performance",
+      "assetId": null,
+      "assetName": "TNS Sales Pipeline and Quota Performance",
+      "assetUrl": null,
+      "errorCode": null,
+      "errorMessage": null
+    }
+  },
+  "storiesText": "# Pipeline Coverage\n\nNarrative\nEnsuring there is enough ACV in the pipeline to hit quarterly targets by comparing open opportunity ACV against rep quotas.\n\nExpected Outcome\nDashboard showing ACV monthly bookings with coverage ratios against quota targets.\n\nFields Involved\n- acv\n  Annual Contract Value.\n- opp_stage\n  Current stage of the opportunity.\n- probability_percent\n  Probability of winning the deal.\n- close_date\n  Date the opportunity was closed or is expected to close.\n- rep_id\n  Foreign key to Sales Rep.\n\n---\n\n# Churn Risk\n\nNarrative\nMonitoring when contracts approach termination dates without a corresponding renewal opportunity.\n\nExpected Outcome\nList of accounts with high churn risk and upcoming contract end dates.\n\nFields Involved\n- account_name\n  Name of the customer account.\n- churn_risk_status\n  Current assessment of churn risk.\n- contract_end_date\n  Date the current master contract ends.\n- account_id\n  Foreign key to Account.\n\n---\n\n# Cross-Sell Effectiveness\n\nNarrative\nTracking how many 'Communications' clients are moving into 'Payment Orchestration' or 'Managed Security' services.\n\nExpected Outcome\nMatrix showing accounts and their penetration across different business units.\n\nFields Involved\n- account_id\n  Foreign key to Account.\n- vertical\n  Industry vertical of the account.\n- product_family_name\n  Name of the product family.\n- business_unit\n  Business unit owning the product family.\n- acv\n  Annual Contract Value.\n\n---\n\n# Operational Lag\n\nNarrative\nMeasuring the time from 'Closed Won' to 'First Activation' to track Revenue Recognition time-to-value.\n\nExpected Outcome\nAverage days between close date and activation date by product.\n\nFields Involved\n- opportunity_id\n  Unique identifier for the sales opportunity.\n- create_date\n  Date the opportunity was created.\n- close_date\n  Date the opportunity was closed or is expected to close.\n- activation_date\n  Date the service was activated for revenue recognition.",
+  "manifest": {
+    "datasetIdentity": "TNS Sales Pipeline and Quota Performance",
+    "rowCounts": {
+      "Opportunity": 10000,
+      "Quota": 1200,
+      "Account": 125,
+      "Geography": 50,
+      "SalesRep": 150,
+      "Manager": 20,
+      "Product": 80,
+      "ProductFamily": 5,
+      "LeadIntelligence": 8000
+    },
+    "fileInventory": {
+      "Opportunity": "Opportunity.csv",
+      "Quota": "Quota.csv",
+      "Account": "Account.csv",
+      "Geography": "Geography.csv",
+      "SalesRep": "SalesRep.csv",
+      "Manager": "Manager.csv",
+      "Product": "Product.csv",
+      "ProductFamily": "ProductFamily.csv",
+      "LeadIntelligence": "LeadIntelligence.csv"
+    },
+    "checksPerformed": [
+      "Primary keys unique",
+      "Foreign keys resolve",
+      "Formulas hold (TCV, MRR)",
+      "Hierarchy coherence (Region, BU, Manager)"
+    ],
+    "storyEffectsApplied": [
+      "Pipeline Coverage: Boosted ACV for top reps",
+      "Churn Risk: Increased support tickets for high risk accounts",
+      "Cross-Sell Effectiveness: Increased upsell_acv for multi-BU accounts",
+      "Operational Lag: Set activation_date 14-45 days after close_date for Won deals"
+    ],
+    "storyVisibilityChecks": [
+      "Verified top reps have 3x quota pipeline",
+      "Verified high churn risk accounts have >15 tickets",
+      "Verified multi-BU accounts have higher upsell_acv",
+      "Verified activation_date is populated only for Won deals"
+    ],
+    "warnings": [],
+    "publishContract": {
+      "datasetShape": "relational",
+      "topology": {
+        "shape": "multi_fact_shared_dimensions"
+      },
+      "rootTableId": "Opportunity",
+      "tables": [
+        {
+          "id": "Opportunity",
+          "tableName": "Opportunity",
+          "fileName": "Opportunity.csv",
+          "tableRole": "fact",
+          "primaryKey": [
+            "opportunity_id"
+          ],
+          "fields": [
+            {
+              "name": "opportunity_id"
+            },
+            {
+              "name": "account_id"
+            },
+            {
+              "name": "rep_id"
+            },
+            {
+              "name": "product_id"
+            },
+            {
+              "name": "lead_id"
+            },
+            {
+              "name": "create_date"
+            },
+            {
+              "name": "close_date"
+            },
+            {
+              "name": "activation_date"
+            },
+            {
+              "name": "opp_stage"
+            },
+            {
+              "name": "probability_percent"
+            },
+            {
+              "name": "acv"
+            },
+            {
+              "name": "nrr"
+            },
+            {
+              "name": "tcv"
+            },
+            {
+              "name": "won_lost_reason"
+            },
+            {
+              "name": "discount_percent"
+            },
+            {
+              "name": "margin_percent"
+            },
+            {
+              "name": "contract_term_months"
+            },
+            {
+              "name": "mrr"
+            },
+            {
+              "name": "estimated_transaction_volume"
+            },
+            {
+              "name": "implementation_cost"
+            },
+            {
+              "name": "upsell_acv"
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fieldName": "account_id",
+              "referencesTable": "Account",
+              "referencesField": "account_id"
+            },
+            {
+              "fieldName": "rep_id",
+              "referencesTable": "SalesRep",
+              "referencesField": "rep_id"
+            },
+            {
+              "fieldName": "product_id",
+              "referencesTable": "Product",
+              "referencesField": "product_id"
+            },
+            {
+              "fieldName": "lead_id",
+              "referencesTable": "LeadIntelligence",
+              "referencesField": "lead_id"
+            }
+          ]
+        },
+        {
+          "id": "Quota",
+          "tableName": "Quota",
+          "fileName": "Quota.csv",
+          "tableRole": "fact",
+          "primaryKey": [
+            "quota_id"
+          ],
+          "fields": [
+            {
+              "name": "quota_id"
+            },
+            {
+              "name": "rep_id"
+            },
+            {
+              "name": "quota_quarter_date"
+            },
+            {
+              "name": "quota_target"
+            },
+            {
+              "name": "quota_attainment_percent"
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fieldName": "rep_id",
+              "referencesTable": "SalesRep",
+              "referencesField": "rep_id"
+            }
+          ]
+        },
+        {
+          "id": "Account",
+          "tableName": "Account",
+          "fileName": "Account.csv",
+          "tableRole": "dimension",
+          "primaryKey": [
+            "account_id"
+          ],
+          "fields": [
+            {
+              "name": "account_id"
+            },
+            {
+              "name": "account_name"
+            },
+            {
+              "name": "parent_account"
+            },
+            {
+              "name": "vertical"
+            },
+            {
+              "name": "account_tier"
+            },
+            {
+              "name": "churn_risk_status"
+            },
+            {
+              "name": "contract_end_date"
+            },
+            {
+              "name": "geography_id"
+            },
+            {
+              "name": "csat_score"
+            },
+            {
+              "name": "support_tickets_ytd"
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fieldName": "geography_id",
+              "referencesTable": "Geography",
+              "referencesField": "geography_id"
+            }
+          ]
+        },
+        {
+          "id": "Geography",
+          "tableName": "Geography",
+          "fileName": "Geography.csv",
+          "tableRole": "dimension",
+          "primaryKey": [
+            "geography_id"
+          ],
+          "fields": [
+            {
+              "name": "geography_id"
+            },
+            {
+              "name": "region"
+            },
+            {
+              "name": "sub_region"
+            },
+            {
+              "name": "country"
+            },
+            {
+              "name": "office_location"
+            },
+            {
+              "name": "compliance_zone"
+            }
+          ],
+          "foreignKeys": []
+        },
+        {
+          "id": "SalesRep",
+          "tableName": "SalesRep",
+          "fileName": "SalesRep.csv",
+          "tableRole": "dimension",
+          "primaryKey": [
+            "rep_id"
+          ],
+          "fields": [
+            {
+              "name": "rep_id"
+            },
+            {
+              "name": "rep_name"
+            },
+            {
+              "name": "manager_id"
+            },
+            {
+              "name": "rep_tenure_years"
+            },
+            {
+              "name": "rep_specialty"
+            },
+            {
+              "name": "rep_status"
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fieldName": "manager_id",
+              "referencesTable": "Manager",
+              "referencesField": "manager_id"
+            }
+          ]
+        },
+        {
+          "id": "Manager",
+          "tableName": "Manager",
+          "fileName": "Manager.csv",
+          "tableRole": "dimension",
+          "primaryKey": [
+            "manager_id"
+          ],
+          "fields": [
+            {
+              "name": "manager_id"
+            },
+            {
+              "name": "manager_name"
+            },
+            {
+              "name": "department"
+            },
+            {
+              "name": "director_name"
+            },
+            {
+              "name": "region_focus"
+            },
+            {
+              "name": "manager_tenure_years"
+            }
+          ],
+          "foreignKeys": []
+        },
+        {
+          "id": "Product",
+          "tableName": "Product",
+          "fileName": "Product.csv",
+          "tableRole": "dimension",
+          "primaryKey": [
+            "product_id"
+          ],
+          "fields": [
+            {
+              "name": "product_id"
+            },
+            {
+              "name": "product_name"
+            },
+            {
+              "name": "product_family_id"
+            },
+            {
+              "name": "transaction_unit_uom"
+            },
+            {
+              "name": "pricing_model"
+            },
+            {
+              "name": "is_active_product"
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fieldName": "product_family_id",
+              "referencesTable": "ProductFamily",
+              "referencesField": "product_family_id"
+            }
+          ]
+        },
+        {
+          "id": "ProductFamily",
+          "tableName": "ProductFamily",
+          "fileName": "ProductFamily.csv",
+          "tableRole": "dimension",
+          "primaryKey": [
+            "product_family_id"
+          ],
+          "fields": [
+            {
+              "name": "product_family_id"
+            },
+            {
+              "name": "product_family_name"
+            },
+            {
+              "name": "business_unit"
+            },
+            {
+              "name": "vp_of_product"
+            },
+            {
+              "name": "core_market"
+            }
+          ],
+          "foreignKeys": []
+        },
+        {
+          "id": "LeadIntelligence",
+          "tableName": "LeadIntelligence",
+          "fileName": "LeadIntelligence.csv",
+          "tableRole": "dimension",
+          "primaryKey": [
+            "lead_id"
+          ],
+          "fields": [
+            {
+              "name": "lead_id"
+            },
+            {
+              "name": "mql_source"
+            },
+            {
+              "name": "bombora_surge_topic"
+            },
+            {
+              "name": "lead_score"
+            },
+            {
+              "name": "campaign_name"
+            },
+            {
+              "name": "lead_status"
+            }
+          ],
+          "foreignKeys": []
+        }
+      ],
+      "joinPaths": [
+        {
+          "id": "join_opp_account",
+          "sourceTableId": "Opportunity",
+          "sourceField": "account_id",
+          "targetTableId": "Account",
+          "targetField": "account_id"
+        },
+        {
+          "id": "join_opp_rep",
+          "sourceTableId": "Opportunity",
+          "sourceField": "rep_id",
+          "targetTableId": "SalesRep",
+          "targetField": "rep_id"
+        },
+        {
+          "id": "join_opp_product",
+          "sourceTableId": "Opportunity",
+          "sourceField": "product_id",
+          "targetTableId": "Product",
+          "targetField": "product_id"
+        },
+        {
+          "id": "join_opp_lead",
+          "sourceTableId": "Opportunity",
+          "sourceField": "lead_id",
+          "targetTableId": "LeadIntelligence",
+          "targetField": "lead_id"
+        },
+        {
+          "id": "join_quota_rep",
+          "sourceTableId": "Quota",
+          "sourceField": "rep_id",
+          "targetTableId": "SalesRep",
+          "targetField": "rep_id"
+        },
+        {
+          "id": "join_account_geo",
+          "sourceTableId": "Account",
+          "sourceField": "geography_id",
+          "targetTableId": "Geography",
+          "targetField": "geography_id"
+        },
+        {
+          "id": "join_rep_manager",
+          "sourceTableId": "SalesRep",
+          "sourceField": "manager_id",
+          "targetTableId": "Manager",
+          "targetField": "manager_id"
+        },
+        {
+          "id": "join_product_pf",
+          "sourceTableId": "Product",
+          "sourceField": "product_family_id",
+          "targetTableId": "ProductFamily",
+          "targetField": "product_family_id"
+        }
+      ]
+    }
+  }
+}

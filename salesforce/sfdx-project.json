@@ -7,6 +7,7 @@
   ],
   "name": "pulse-digest-builder-salesforce-workspace",
   "namespace": "",
+  "oauthLocalPort": 1718,
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "66.0",
   "packageAliases": {}

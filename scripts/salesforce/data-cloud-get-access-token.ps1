@@ -14,6 +14,7 @@ $context = Get-DataCloudAccessContext -TargetKey $TargetKey
 $result = [ordered]@{
     targetKey = $context.Config.TargetKey
     tokenSource = $context.TokenSource
+    salesforceAlias = $context.Config.SalesforceAlias
     tenantEndpoint = $context.TenantEndpoint
     sourceName = $context.Config.SourceName
     objectName = $context.Config.ObjectName

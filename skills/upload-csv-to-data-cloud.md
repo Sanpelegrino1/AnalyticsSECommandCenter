@@ -23,6 +23,7 @@ Bulk-upload CSV data into a configured Salesforce Data Cloud ingestion target us
 3. Confirm auth resolves with `scripts/salesforce/data-cloud-get-access-token.ps1`.
 4. Upload with `scripts/salesforce/data-cloud-upload-csv.ps1`.
 5. If needed, inspect the job with `scripts/salesforce/data-cloud-get-job.ps1` or `scripts/salesforce/data-cloud-list-jobs.ps1`.
+6. If a previous job is stuck in `Open` or `UploadComplete`, abort it with `scripts/salesforce/data-cloud-abort-job.ps1` before rerunning the upload.
 
 ## Validation
 
@@ -33,9 +34,11 @@ Bulk-upload CSV data into a configured Salesforce Data Cloud ingestion target us
 
 - Job fails because CSV headers, required fields, or value formats do not match the data stream.
 - Auth fails because the connected app, refresh token, or direct Data Cloud token is not valid.
-- Wrong tenant endpoint or connector metadata causes job creation or lookup failures.
+- Wrong tenant endpoint, stale `objectEndpoint`, or connector metadata causes job creation or lookup failures.
 
 ## Cleanup or Rollback
 
+- Inspect failed or stuck jobs with `scripts/salesforce/data-cloud-get-job.ps1`.
+- Abort stuck `Open` or `UploadComplete` jobs with `scripts/salesforce/data-cloud-abort-job.ps1`.
 - Fix the CSV or target definition and rerun the upload as a new job.
 - Remove bad local secrets or stale target metadata.

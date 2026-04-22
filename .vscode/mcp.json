@@ -1,0 +1,15 @@
+{
+  "servers": {
+    "slackShared": {
+      "type": "http",
+      "url": "${input:slack-mcp-server-url}"
+    }
+  },
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "slack-mcp-server-url",
+      "description": "Slack shared MCP bridge URL, not the Slack OAuth helper page or callback URL"
+    }
+  ]
+}

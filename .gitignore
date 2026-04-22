@@ -1,6 +1,7 @@
 .env
 .env.local
 .env.*.local
+.sfdx/
 tmp/*
 !tmp/.gitkeep
 notes/registries/*.snapshot.json

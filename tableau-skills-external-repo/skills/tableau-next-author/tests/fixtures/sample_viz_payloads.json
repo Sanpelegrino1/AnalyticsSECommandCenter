@@ -1,0 +1,178 @@
+{
+  "valid_bar_chart": {
+    "name": "Test_Bar_Chart",
+    "label": "Test Bar Chart",
+    "dataSource": {
+      "name": "Test_SDM",
+      "label": "Test SDM",
+      "type": "SemanticModel"
+    },
+    "workspace": {
+      "name": "Test_Workspace",
+      "label": "Test Workspace"
+    },
+    "interactions": [],
+    "fields": {
+      "F1": {
+        "type": "Field",
+        "displayCategory": "Discrete",
+        "role": "Dimension",
+        "objectName": "Opportunity",
+        "fieldName": "StageName"
+      },
+      "F2": {
+        "type": "Field",
+        "displayCategory": "Continuous",
+        "role": "Measure",
+        "objectName": "Opportunity",
+        "fieldName": "Amount",
+        "function": "Sum"
+      }
+    },
+    "visualSpecification": {
+      "columns": ["F1"],
+      "rows": [],
+      "measureValues": [],
+      "mode": "Visualization",
+      "referenceLines": {},
+      "forecasts": {},
+      "marks": {
+        "panes": {
+          "type": "Bar",
+          "stack": {
+            "isAutomatic": true,
+            "isStacked": true
+          },
+          "encodings": [
+            {
+              "type": "Label",
+              "fieldKey": "F2"
+            }
+          ],
+        },
+        "headers": {
+          "encodings": [],
+          "isAutomatic": true,
+          "stack": {"isAutomatic": true, "isStacked": false},
+          "type": "Text"
+        }
+      },
+      "legends": {},
+      "style": {
+        "fit": "Entire",
+        "fonts": {
+          "actionableHeaders": {"fontSize": 12},
+          "axisTickLabels": {"fontSize": 11},
+          "fieldLabels": {"fontSize": 11},
+          "headers": {"fontSize": 12},
+          "legendLabels": {"fontSize": 11},
+          "markLabels": {"fontSize": 11},
+          "marks": {"fontSize": 11}
+        },
+        "lines": {
+          "axisLine": {"width": 1},
+          "fieldLabelDividerLine": {"width": 1},
+          "separatorLine": {"width": 1},
+          "zeroLine": {"width": 1}
+        },
+        "axis": {
+          "fields": {
+            "F2": {
+              "defaults": {
+                "format": {
+                  "type": "Number",
+                  "precision": 0
+                }
+              }
+            }
+          }
+        },
+        "encodings": {
+          "fields": {
+            "F2": {
+              "defaults": {
+                "format": {
+                  "type": "Number",
+                  "precision": 0
+                }
+              }
+            }
+          }
+        },
+        "headers": {
+          "fields": {
+            "F1": {
+              "hiddenValues": [],
+              "isVisible": true,
+              "showMissingValues": false
+            }
+          },
+          "columns": {},
+          "rows": {}
+        },
+        "fieldLabels": {
+          "columns": {},
+          "rows": {}
+        },
+        "marks": {
+          "fields": {},
+          "headers": {
+            "color": {"color": ""},
+            "isAutomaticSize": true,
+            "label": {
+              "canOverlapLabels": false,
+              "marksToLabel": {"type": "All"},
+              "showMarkLabels": false
+            },
+            "range": {"reverse": true},
+            "size": {"isAutomatic": true, "type": "Pixel", "value": 13}
+          },
+          "panes": {
+            "range": {
+              "reverse": true
+            }
+          }
+        },
+        "shading": {
+          "backgroundColor": "#FFFFFF",
+          "banding": true
+        },
+        "referenceLines": {},
+        "showDataPlaceholder": false,
+        "title": {
+          "isVisible": true
+        }
+      }
+    },
+    "view": {
+      "label": "default",
+      "name": "Test_Bar_Chart_default",
+      "viewSpecification": {
+        "filter": {"filters": []},
+        "sortOrders": {
+          "columns": [],
+          "fields": {},
+          "rows": []
+        }
+      }
+    }
+  },
+  "invalid_missing_fields": {
+    "name": "Invalid_Chart",
+    "label": "Invalid Chart"
+  },
+  "invalid_wrong_structure": {
+    "name": "Invalid_Chart",
+    "label": "Invalid Chart",
+    "dataSource": {},
+    "workspace": {},
+    "fields": {},
+    "visualSpecification": {
+      "marks": {
+        "panes": {
+          "type": "Bar"
+        }
+      }
+    }
+  }
+}

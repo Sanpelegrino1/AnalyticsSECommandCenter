@@ -1,0 +1,2547 @@
+{
+    "label": "C360 Metrics: Full View",
+    "layouts": [
+        {
+            "columnCount": 72,
+            "name": "default",
+            "pages": [
+                {
+                    "label": "First Section",
+                    "name": "b6495471-7b7d-47fe-9ef6-06e523522bcc",
+                    "widgets": [
+                        {
+                            "colspan": 8,
+                            "column": 36,
+                            "name": "filter_2",
+                            "row": 3,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 8,
+                            "column": 45,
+                            "name": "filter_3",
+                            "row": 3,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 8,
+                            "column": 54,
+                            "name": "filter_4",
+                            "row": 3,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 8,
+                            "column": 63,
+                            "name": "filter_5",
+                            "row": 3,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 1,
+                            "name": "text_2",
+                            "row": 4,
+                            "rowspan": 4
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_2",
+                            "row": 54,
+                            "rowspan": 20
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 2,
+                            "name": "metric_5",
+                            "row": 59,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 19,
+                            "name": "metric_6",
+                            "row": 59,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 36,
+                            "name": "metric_7",
+                            "row": 59,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 8,
+                            "column": 27,
+                            "name": "filter_1",
+                            "row": 3,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 17,
+                            "column": 53,
+                            "name": "metric_8",
+                            "row": 59,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 2,
+                            "name": "button_2",
+                            "row": 55,
+                            "rowspan": 3
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_3",
+                            "row": 11,
+                            "rowspan": 41
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 2,
+                            "name": "metric_9",
+                            "row": 16,
+                            "rowspan": 34
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 19,
+                            "name": "metric_10",
+                            "row": 16,
+                            "rowspan": 34
+                        },
+                        {
+                            "colspan": 17,
+                            "column": 53,
+                            "name": "metric_12",
+                            "row": 16,
+                            "rowspan": 34
+                        },
+                        {
+                            "colspan": 13,
+                            "column": 3,
+                            "name": "button_3",
+                            "row": 12,
+                            "rowspan": 3
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_4",
+                            "row": 76,
+                            "rowspan": 20
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 2,
+                            "name": "metric_13",
+                            "row": 81,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 19,
+                            "name": "metric_14",
+                            "row": 81,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 36,
+                            "name": "metric_15",
+                            "row": 81,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 17,
+                            "column": 53,
+                            "name": "metric_16",
+                            "row": 81,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 2,
+                            "name": "button_4",
+                            "row": 77,
+                            "rowspan": 3
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_5",
+                            "row": 98,
+                            "rowspan": 20
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 2,
+                            "name": "metric_17",
+                            "row": 103,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 19,
+                            "name": "metric_18",
+                            "row": 103,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 36,
+                            "name": "metric_19",
+                            "row": 103,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 17,
+                            "column": 53,
+                            "name": "metric_20",
+                            "row": 103,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 2,
+                            "name": "button_5",
+                            "row": 99,
+                            "rowspan": 3
+                        },
+                        {
+                            "colspan": 72,
+                            "column": 0,
+                            "name": "container_6",
+                            "row": 121,
+                            "rowspan": 1
+                        },
+                        {
+                            "colspan": 1,
+                            "column": 2,
+                            "name": "button_9",
+                            "row": 13,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 36,
+                            "name": "metric_11",
+                            "row": 16,
+                            "rowspan": 34
+                        }
+                    ]
+                },
+                {
+                    "label": "Second Section",
+                    "name": "c6d51e27-d001-4abe-99a7-32085533267d",
+                    "widgets": [
+                        {
+                            "colspan": 8,
+                            "column": 27,
+                            "name": "filter_1",
+                            "row": 3,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 8,
+                            "column": 36,
+                            "name": "filter_2",
+                            "row": 3,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 8,
+                            "column": 45,
+                            "name": "filter_3",
+                            "row": 3,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 8,
+                            "column": 63,
+                            "name": "filter_5",
+                            "row": 3,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 2,
+                            "name": "metric_1",
+                            "row": 16,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 19,
+                            "name": "metric_2",
+                            "row": 16,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 36,
+                            "name": "metric_3",
+                            "row": 16,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_1",
+                            "row": 11,
+                            "rowspan": 20
+                        },
+                        {
+                            "colspan": 17,
+                            "column": 53,
+                            "name": "metric_4",
+                            "row": 16,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 2,
+                            "name": "button_1",
+                            "row": 12,
+                            "rowspan": 3
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 1,
+                            "name": "text_2",
+                            "row": 4,
+                            "rowspan": 4
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_7",
+                            "row": 33,
+                            "rowspan": 41
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 2,
+                            "name": "metric_21",
+                            "row": 38,
+                            "rowspan": 34
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 19,
+                            "name": "metric_22",
+                            "row": 38,
+                            "rowspan": 34
+                        },
+                        {
+                            "colspan": 8,
+                            "column": 54,
+                            "name": "filter_4",
+                            "row": 3,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 36,
+                            "name": "metric_23",
+                            "row": 38,
+                            "rowspan": 34
+                        },
+                        {
+                            "colspan": 17,
+                            "column": 53,
+                            "name": "metric_24",
+                            "row": 38,
+                            "rowspan": 34
+                        },
+                        {
+                            "colspan": 14,
+                            "column": 3,
+                            "name": "button_6",
+                            "row": 34,
+                            "rowspan": 3
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 2,
+                            "name": "metric_13",
+                            "row": 81,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 19,
+                            "name": "metric_14",
+                            "row": 81,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 36,
+                            "name": "metric_15",
+                            "row": 81,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 17,
+                            "column": 53,
+                            "name": "metric_16",
+                            "row": 81,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 2,
+                            "name": "button_4",
+                            "row": 77,
+                            "rowspan": 3
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_5",
+                            "row": 98,
+                            "rowspan": 20
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 2,
+                            "name": "metric_17",
+                            "row": 103,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 19,
+                            "name": "metric_18",
+                            "row": 103,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 36,
+                            "name": "metric_19",
+                            "row": 103,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_4",
+                            "row": 76,
+                            "rowspan": 20
+                        },
+                        {
+                            "colspan": 17,
+                            "column": 53,
+                            "name": "metric_20",
+                            "row": 103,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 72,
+                            "column": 0,
+                            "name": "container_6",
+                            "row": 121,
+                            "rowspan": 1
+                        },
+                        {
+                            "colspan": 1,
+                            "column": 2,
+                            "name": "button_10",
+                            "row": 35,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 2,
+                            "name": "button_5",
+                            "row": 99,
+                            "rowspan": 3
+                        }
+                    ]
+                },
+                {
+                    "label": "Third Section",
+                    "name": "b08cd796-eaf7-4791-84e6-bf8c279a96a6",
+                    "widgets": [
+                        {
+                            "colspan": 16,
+                            "column": 36,
+                            "name": "metric_7",
+                            "row": 38,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 17,
+                            "column": 53,
+                            "name": "metric_8",
+                            "row": 38,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 2,
+                            "name": "button_2",
+                            "row": 34,
+                            "rowspan": 3
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_8",
+                            "row": 55,
+                            "rowspan": 41
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 2,
+                            "name": "metric_25",
+                            "row": 60,
+                            "rowspan": 34
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 19,
+                            "name": "metric_26",
+                            "row": 60,
+                            "rowspan": 34
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 36,
+                            "name": "metric_27",
+                            "row": 60,
+                            "rowspan": 34
+                        },
+                        {
+                            "colspan": 17,
+                            "column": 53,
+                            "name": "metric_28",
+                            "row": 60,
+                            "rowspan": 34
+                        },
+                        {
+                            "colspan": 14,
+                            "column": 3,
+                            "name": "button_7",
+                            "row": 56,
+                            "rowspan": 3
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_5",
+                            "row": 98,
+                            "rowspan": 20
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 2,
+                            "name": "metric_17",
+                            "row": 103,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 19,
+                            "name": "metric_18",
+                            "row": 103,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 36,
+                            "name": "metric_19",
+                            "row": 103,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 17,
+                            "column": 53,
+                            "name": "metric_20",
+                            "row": 103,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 2,
+                            "name": "button_5",
+                            "row": 99,
+                            "rowspan": 3
+                        },
+                        {
+                            "colspan": 72,
+                            "column": 0,
+                            "name": "container_6",
+                            "row": 121,
+                            "rowspan": 1
+                        },
+                        {
+                            "colspan": 1,
+                            "column": 2,
+                            "name": "button_9",
+                            "row": 57,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 19,
+                            "name": "metric_6",
+                            "row": 38,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 8,
+                            "column": 27,
+                            "name": "filter_1",
+                            "row": 3,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 8,
+                            "column": 36,
+                            "name": "filter_2",
+                            "row": 3,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 8,
+                            "column": 45,
+                            "name": "filter_3",
+                            "row": 3,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 8,
+                            "column": 54,
+                            "name": "filter_4",
+                            "row": 3,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 8,
+                            "column": 63,
+                            "name": "filter_5",
+                            "row": 3,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 2,
+                            "name": "metric_1",
+                            "row": 16,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 19,
+                            "name": "metric_2",
+                            "row": 16,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 36,
+                            "name": "metric_3",
+                            "row": 16,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_1",
+                            "row": 11,
+                            "rowspan": 20
+                        },
+                        {
+                            "colspan": 17,
+                            "column": 53,
+                            "name": "metric_4",
+                            "row": 16,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 2,
+                            "name": "button_1",
+                            "row": 12,
+                            "rowspan": 3
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 1,
+                            "name": "text_2",
+                            "row": 4,
+                            "rowspan": 4
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_2",
+                            "row": 33,
+                            "rowspan": 20
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 2,
+                            "name": "metric_5",
+                            "row": 38,
+                            "rowspan": 13
+                        }
+                    ]
+                },
+                {
+                    "label": "Fourth Section",
+                    "name": "a97d2923-e152-4582-b710-3978784db417",
+                    "widgets": [
+                        {
+                            "colspan": 8,
+                            "column": 27,
+                            "name": "filter_1",
+                            "row": 3,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 8,
+                            "column": 36,
+                            "name": "filter_2",
+                            "row": 3,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 8,
+                            "column": 45,
+                            "name": "filter_3",
+                            "row": 3,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 8,
+                            "column": 54,
+                            "name": "filter_4",
+                            "row": 3,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 8,
+                            "column": 63,
+                            "name": "filter_5",
+                            "row": 3,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 2,
+                            "name": "metric_1",
+                            "row": 16,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 19,
+                            "name": "metric_2",
+                            "row": 16,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 36,
+                            "name": "metric_3",
+                            "row": 16,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_1",
+                            "row": 11,
+                            "rowspan": 20
+                        },
+                        {
+                            "colspan": 17,
+                            "column": 53,
+                            "name": "metric_4",
+                            "row": 16,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 2,
+                            "name": "button_1",
+                            "row": 12,
+                            "rowspan": 3
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 1,
+                            "name": "text_2",
+                            "row": 4,
+                            "rowspan": 4
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_2",
+                            "row": 33,
+                            "rowspan": 20
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 2,
+                            "name": "metric_5",
+                            "row": 38,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 36,
+                            "name": "metric_7",
+                            "row": 38,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 17,
+                            "column": 53,
+                            "name": "metric_8",
+                            "row": 38,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 2,
+                            "name": "button_2",
+                            "row": 34,
+                            "rowspan": 3
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_4",
+                            "row": 55,
+                            "rowspan": 20
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 2,
+                            "name": "metric_13",
+                            "row": 60,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 19,
+                            "name": "metric_14",
+                            "row": 60,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 36,
+                            "name": "metric_15",
+                            "row": 60,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 17,
+                            "column": 53,
+                            "name": "metric_16",
+                            "row": 60,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 19,
+                            "name": "metric_6",
+                            "row": 38,
+                            "rowspan": 13
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 2,
+                            "name": "button_4",
+                            "row": 56,
+                            "rowspan": 3
+                        },
+                        {
+                            "colspan": 72,
+                            "column": 0,
+                            "name": "container_6",
+                            "row": 121,
+                            "rowspan": 1
+                        },
+                        {
+                            "colspan": 14,
+                            "column": 3,
+                            "name": "button_8",
+                            "row": 78,
+                            "rowspan": 3
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 36,
+                            "name": "metric_31",
+                            "row": 82,
+                            "rowspan": 34
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_9",
+                            "row": 77,
+                            "rowspan": 41
+                        },
+                        {
+                            "colspan": 17,
+                            "column": 53,
+                            "name": "metric_32",
+                            "row": 82,
+                            "rowspan": 34
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 2,
+                            "name": "metric_29",
+                            "row": 82,
+                            "rowspan": 34
+                        },
+                        {
+                            "colspan": 1,
+                            "column": 2,
+                            "name": "button_9",
+                            "row": 79,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 16,
+                            "column": 19,
+                            "name": "metric_30",
+                            "row": 82,
+                            "rowspan": 34
+                        }
+                    ]
+                }
+            ],
+            "rowHeight": 10,
+            "style": {
+                "backgroundColor": "#f3f3f3",
+                "cellSpacingX": 0,
+                "cellSpacingY": 0,
+                "gutterColor": "#ffffff"
+            }
+        }
+    ],
+    "name": "C360_Metrics_Full_View",
+    "style": {
+        "widgetStyle": {
+            "backgroundColor": "#ffffff",
+            "borderColor": "#cccccc",
+            "borderEdges": [],
+            "borderRadius": 0,
+            "borderWidth": 1
+        }
+    },
+    "templateSource": {
+        "assetName": "C360_Metrics_Full_View",
+        "name": "sfdc_internal__C360_Metrics_Overview"
+    },
+    "widgets": {
+        "metric_32": {
+            "actions": [],
+            "name": "metric_32",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_31": {
+            "actions": [],
+            "name": "metric_31",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_30": {
+            "actions": [],
+            "name": "metric_30",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "button_2": {
+            "actions": [
+                {
+                    "actionType": "navigate",
+                    "eventType": "click",
+                    "parameters": {
+                        "destination": {
+                            "target": "c6d51e27-d001-4abe-99a7-32085533267d",
+                            "type": "page"
+                        }
+                    }
+                }
+            ],
+            "name": "button_2",
+            "parameters": {
+                "alignmentX": "left",
+                "alignmentY": "center",
+                "fontSize": 14,
+                "text": "〉Second Section",
+                "widgetStyle": {
+                    "borderEdges": [],
+                    "fontColor": "#03234D",
+                    "textStyle": []
+                }
+            },
+            "status": "Ok",
+            "type": "button"
+        },
+        "button_1": {
+            "actions": [
+                {
+                    "actionType": "navigate",
+                    "eventType": "click",
+                    "parameters": {
+                        "destination": {
+                            "target": "b6495471-7b7d-47fe-9ef6-06e523522bcc",
+                            "type": "page"
+                        }
+                    }
+                }
+            ],
+            "name": "button_1",
+            "parameters": {
+                "alignmentX": "left",
+                "alignmentY": "center",
+                "fontSize": 14,
+                "text": "〉First Section",
+                "widgetStyle": {
+                    "borderEdges": [],
+                    "fontColor": "#03234D",
+                    "textStyle": []
+                }
+            },
+            "status": "Ok",
+            "type": "button"
+        },
+        "button_4": {
+            "actions": [
+                {
+                    "actionType": "navigate",
+                    "eventType": "click",
+                    "parameters": {
+                        "destination": {
+                            "target": "b08cd796-eaf7-4791-84e6-bf8c279a96a6",
+                            "type": "page"
+                        }
+                    }
+                }
+            ],
+            "name": "button_4",
+            "parameters": {
+                "alignmentX": "left",
+                "alignmentY": "center",
+                "fontSize": 14,
+                "text": "〉Third Section",
+                "widgetStyle": {
+                    "borderEdges": [],
+                    "fontColor": "#03234D",
+                    "textStyle": []
+                }
+            },
+            "status": "Ok",
+            "type": "button"
+        },
+        "button_3": {
+            "actions": [
+                {
+                    "actionType": "navigate",
+                    "eventType": "click",
+                    "parameters": {
+                        "destination": {
+                            "target": "b6495471-7b7d-47fe-9ef6-06e523522bcc",
+                            "type": "page"
+                        }
+                    }
+                }
+            ],
+            "name": "button_3",
+            "parameters": {
+                "alignmentX": "left",
+                "alignmentY": "center",
+                "fontSize": 14,
+                "text": "First Section",
+                "widgetStyle": {
+                    "borderEdges": [],
+                    "fontColor": "#022AC0",
+                    "textStyle": [
+                        "underline"
+                    ]
+                }
+            },
+            "status": "Ok",
+            "type": "button"
+        },
+        "container_1": {
+            "actions": [],
+            "name": "container_1",
+            "parameters": {
+                "widgetStyle": {
+                    "borderEdges": [],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "container"
+        },
+        "container_2": {
+            "actions": [],
+            "name": "container_2",
+            "parameters": {
+                "widgetStyle": {
+                    "borderEdges": [],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "container"
+        },
+        "container_3": {
+            "actions": [],
+            "name": "container_3",
+            "parameters": {
+                "widgetStyle": {
+                    "borderEdges": [],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "container"
+        },
+        "container_4": {
+            "actions": [],
+            "name": "container_4",
+            "parameters": {
+                "widgetStyle": {
+                    "borderEdges": [],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "container"
+        },
+        "container_5": {
+            "actions": [],
+            "name": "container_5",
+            "parameters": {
+                "widgetStyle": {
+                    "borderEdges": [],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "container"
+        },
+        "container_6": {
+            "actions": [],
+            "name": "container_6",
+            "parameters": {
+                "widgetStyle": {
+                    "backgroundColor": "#f3f3f3",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "container"
+        },
+        "button_9": {
+            "actions": [
+                {
+                    "actionType": "navigate",
+                    "eventType": "click",
+                    "parameters": {
+                        "destination": {
+                            "target": "a97d2923-e152-4582-b710-3978784db417",
+                            "type": "page"
+                        }
+                    }
+                }
+            ],
+            "name": "button_9",
+            "parameters": {
+                "alignmentX": "left",
+                "alignmentY": "center",
+                "fontSize": 16,
+                "text": "﹀"
+            },
+            "status": "Ok",
+            "type": "button"
+        },
+        "text_2": {
+            "actions": [],
+            "name": "text_2",
+            "parameters": {
+                "conditionalFormattingRules": [],
+                "content": [
+                    {
+                        "attributes": {
+                            "color": "#03234d",
+                            "size": "20px"
+                        },
+                        "insert": "Dashboard Title",
+                        "rules": []
+                    },
+                    {
+                        "attributes": {
+                            "align": "left"
+                        },
+                        "insert": "\n",
+                        "rules": []
+                    }
+                ],
+                "widgetStyle": {
+                    "backgroundColor": "#f3f3f3",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "text"
+        },
+        "container_7": {
+            "actions": [],
+            "name": "container_7",
+            "parameters": {
+                "widgetStyle": {
+                    "borderEdges": [],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "container"
+        },
+        "container_8": {
+            "actions": [],
+            "name": "container_8",
+            "parameters": {
+                "widgetStyle": {
+                    "borderEdges": [],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "container"
+        },
+        "container_9": {
+            "actions": [],
+            "name": "container_9",
+            "parameters": {
+                "widgetStyle": {
+                    "borderEdges": [],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "container"
+        },
+        "button_6": {
+            "actions": [
+                {
+                    "actionType": "navigate",
+                    "eventType": "click",
+                    "parameters": {
+                        "destination": {
+                            "target": "c6d51e27-d001-4abe-99a7-32085533267d",
+                            "type": "page"
+                        }
+                    }
+                }
+            ],
+            "name": "button_6",
+            "parameters": {
+                "alignmentX": "left",
+                "alignmentY": "center",
+                "fontSize": 14,
+                "text": "Second Section",
+                "widgetStyle": {
+                    "borderEdges": [],
+                    "fontColor": "#022AC0",
+                    "textStyle": [
+                        "underline"
+                    ]
+                }
+            },
+            "status": "Ok",
+            "type": "button"
+        },
+        "button_5": {
+            "actions": [
+                {
+                    "actionType": "navigate",
+                    "eventType": "click",
+                    "parameters": {
+                        "destination": {
+                            "target": "a97d2923-e152-4582-b710-3978784db417",
+                            "type": "page"
+                        }
+                    }
+                }
+            ],
+            "name": "button_5",
+            "parameters": {
+                "alignmentX": "left",
+                "alignmentY": "center",
+                "fontSize": 14,
+                "text": "〉Fourth Section",
+                "widgetStyle": {
+                    "borderEdges": [],
+                    "fontColor": "#03234D",
+                    "textStyle": []
+                }
+            },
+            "status": "Ok",
+            "type": "button"
+        },
+        "button_8": {
+            "actions": [
+                {
+                    "actionType": "navigate",
+                    "eventType": "click",
+                    "parameters": {
+                        "destination": {
+                            "target": "a97d2923-e152-4582-b710-3978784db417",
+                            "type": "page"
+                        }
+                    }
+                }
+            ],
+            "name": "button_8",
+            "parameters": {
+                "alignmentX": "left",
+                "alignmentY": "center",
+                "fontSize": 14,
+                "text": "Fourth Section",
+                "widgetStyle": {
+                    "borderEdges": [],
+                    "fontColor": "#022AC0",
+                    "textStyle": [
+                        "underline"
+                    ]
+                }
+            },
+            "status": "Ok",
+            "type": "button"
+        },
+        "button_7": {
+            "actions": [
+                {
+                    "actionType": "navigate",
+                    "eventType": "click",
+                    "parameters": {
+                        "destination": {
+                            "target": "b08cd796-eaf7-4791-84e6-bf8c279a96a6",
+                            "type": "page"
+                        }
+                    }
+                }
+            ],
+            "name": "button_7",
+            "parameters": {
+                "alignmentX": "left",
+                "alignmentY": "center",
+                "fontSize": 14,
+                "text": "Third Section",
+                "widgetStyle": {
+                    "borderEdges": [],
+                    "fontColor": "#022AC0",
+                    "textStyle": [
+                        "underline"
+                    ]
+                }
+            },
+            "status": "Ok",
+            "type": "button"
+        },
+        "filter_2": {
+            "actions": [],
+            "name": "filter_2",
+            "parameters": {
+                "filterOption": {
+                    "dataType": "",
+                    "fieldName": "",
+                    "objectName": "",
+                    "selectionType": "multiple"
+                },
+                "isLabelHidden": false,
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "viewType": "list",
+                "widgetStyle": {
+                    "backgroundColor": "#f3f3f3",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "filter"
+        },
+        "filter_1": {
+            "actions": [],
+            "name": "filter_1",
+            "parameters": {
+                "filterOption": {
+                    "dataType": "",
+                    "fieldName": "",
+                    "objectName": "",
+                    "selectionType": "multiple"
+                },
+                "isLabelHidden": false,
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "viewType": "list",
+                "widgetStyle": {
+                    "backgroundColor": "#f3f3f3",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "filter"
+        },
+        "filter_5": {
+            "actions": [],
+            "name": "filter_5",
+            "parameters": {
+                "filterOption": {
+                    "dataType": "",
+                    "fieldName": "",
+                    "objectName": "",
+                    "selectionType": "multiple"
+                },
+                "isLabelHidden": false,
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "viewType": "list",
+                "widgetStyle": {
+                    "backgroundColor": "#f3f3f3",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "filter"
+        },
+        "filter_4": {
+            "actions": [],
+            "name": "filter_4",
+            "parameters": {
+                "filterOption": {
+                    "dataType": "",
+                    "fieldName": "",
+                    "objectName": "",
+                    "selectionType": "multiple"
+                },
+                "isLabelHidden": false,
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "viewType": "list",
+                "widgetStyle": {
+                    "backgroundColor": "#f3f3f3",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "filter"
+        },
+        "filter_3": {
+            "actions": [],
+            "name": "filter_3",
+            "parameters": {
+                "filterOption": {
+                    "dataType": "",
+                    "fieldName": "",
+                    "objectName": "",
+                    "selectionType": "multiple"
+                },
+                "isLabelHidden": false,
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "viewType": "list",
+                "widgetStyle": {
+                    "backgroundColor": "#f3f3f3",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "filter"
+        },
+        "metric_11": {
+            "actions": [],
+            "name": "metric_11",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_10": {
+            "actions": [],
+            "name": "metric_10",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_15": {
+            "actions": [],
+            "name": "metric_15",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": false
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_14": {
+            "actions": [],
+            "name": "metric_14",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": false
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_13": {
+            "actions": [],
+            "name": "metric_13",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": false
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_12": {
+            "actions": [],
+            "name": "metric_12",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_19": {
+            "actions": [],
+            "name": "metric_19",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_18": {
+            "actions": [],
+            "name": "metric_18",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_17": {
+            "actions": [],
+            "name": "metric_17",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_16": {
+            "actions": [],
+            "name": "metric_16",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": false
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_22": {
+            "actions": [],
+            "name": "metric_22",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_21": {
+            "actions": [],
+            "name": "metric_21",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_20": {
+            "actions": [],
+            "name": "metric_20",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_9": {
+            "actions": [],
+            "name": "metric_9",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_8": {
+            "actions": [],
+            "name": "metric_8",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": false
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_7": {
+            "actions": [],
+            "name": "metric_7",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": false
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_6": {
+            "actions": [],
+            "name": "metric_6",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": false
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_26": {
+            "actions": [],
+            "name": "metric_26",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_5": {
+            "actions": [],
+            "name": "metric_5",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": false
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_25": {
+            "actions": [],
+            "name": "metric_25",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_4": {
+            "actions": [],
+            "name": "metric_4",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": false
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_24": {
+            "actions": [],
+            "name": "metric_24",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_3": {
+            "actions": [],
+            "name": "metric_3",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": false
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_23": {
+            "actions": [],
+            "name": "metric_23",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_2": {
+            "actions": [],
+            "name": "metric_2",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": false
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "button_10": {
+            "actions": [
+                {
+                    "actionType": "navigate",
+                    "eventType": "click",
+                    "parameters": {
+                        "destination": {
+                            "target": "c6d51e27-d001-4abe-99a7-32085533267d",
+                            "type": "page"
+                        }
+                    }
+                }
+            ],
+            "name": "button_10",
+            "parameters": {
+                "alignmentX": "left",
+                "alignmentY": "center",
+                "fontSize": 16,
+                "text": "﹀"
+            },
+            "status": "Ok",
+            "type": "button"
+        },
+        "metric_1": {
+            "actions": [],
+            "name": "metric_1",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": false
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_29": {
+            "actions": [],
+            "name": "metric_29",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_28": {
+            "actions": [],
+            "name": "metric_28",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_27": {
+            "actions": [],
+            "name": "metric_27",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        }
+    },
+    "workspaceIdOrApiName": "{{WORKSPACE_API_NAME}}"
+}

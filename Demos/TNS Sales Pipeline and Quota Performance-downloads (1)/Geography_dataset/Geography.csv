@@ -1,0 +1,51 @@
+geography_id,region,sub_region,country,office_location,compliance_zone
+GEO-001,APAC,UK & Ireland,Mexico,Tokyo,HIPAA
+GEO-002,Americas,Nordics,Brazil,Tokyo,GDPR
+GEO-003,APAC,UK & Ireland,India,Munich,GDPR
+GEO-004,Americas,North America,USA,London,GDPR
+GEO-005,APAC,Southern Europe,Thailand,Melbourne,Standard
+GEO-006,Americas,Greater China,Hong Kong,Singapore,GDPR
+GEO-007,Americas,Greater China,Hong Kong,Dublin,CCPA
+GEO-008,Americas,Middle East,Sweden,San Francisco,Standard
+GEO-009,Americas,Middle East,New Zealand,Sydney,HIPAA
+GEO-010,Americas,Greater China,Austria,Mumbai,Standard
+GEO-011,Americas,Middle East,New Zealand,Sydney,CCPA
+GEO-012,APAC,UK & Ireland,Mexico,Melbourne,CCPA
+GEO-013,EMEA,LATAM,Canada,Hong Kong,GDPR
+GEO-014,EMEA,Africa,China,Melbourne,HIPAA
+GEO-015,Americas,Middle East,New Zealand,London,HIPAA
+GEO-016,APAC,UK & Ireland,India,Melbourne,CCPA
+GEO-017,APAC,Southern Europe,Ireland,Paris,Standard
+GEO-018,EMEA,DACH,Vietnam,Stockholm,GDPR
+GEO-019,Americas,North America,Spain,Munich,HIPAA
+GEO-020,Americas,Nordics,South Korea,Mumbai,HIPAA
+GEO-021,Americas,Greater China,Hong Kong,Mumbai,Standard
+GEO-022,Americas,Middle East,Sweden,London,HIPAA
+GEO-023,APAC,ASEAN,Singapore,Stockholm,CCPA
+GEO-024,Americas,Greater China,Austria,Singapore,GDPR
+GEO-025,Americas,Nordics,South Korea,Chicago,Standard
+GEO-026,APAC,UK & Ireland,UAE,Munich,Standard
+GEO-027,APAC,ANZ,Germany,Melbourne,GDPR
+GEO-028,APAC,ANZ,Taiwan,San Francisco,HIPAA
+GEO-029,EMEA,DACH,South Africa,New York,HIPAA
+GEO-030,APAC,Southern Europe,Thailand,Mumbai,GDPR
+GEO-031,APAC,ANZ,Germany,Chicago,HIPAA
+GEO-032,Americas,North America,Malaysia,Stockholm,Standard
+GEO-033,Americas,North America,Spain,Mumbai,HIPAA
+GEO-034,Americas,North America,USA,Mumbai,GDPR
+GEO-035,Americas,Greater China,Austria,Singapore,CCPA
+GEO-036,Americas,Greater China,Austria,Dublin,Standard
+GEO-037,Americas,Nordics,South Korea,Dublin,Standard
+GEO-038,APAC,ANZ,Taiwan,Mumbai,Standard
+GEO-039,Americas,Nordics,Brazil,San Francisco,HIPAA
+GEO-040,Americas,Nordics,South Korea,London,GDPR
+GEO-041,Americas,North America,USA,San Francisco,GDPR
+GEO-042,EMEA,LATAM,Indonesia,London,HIPAA
+GEO-043,APAC,ASEAN,France,Dubai,CCPA
+GEO-044,APAC,ASEAN,France,Singapore,Standard
+GEO-045,EMEA,DACH,UK,San Francisco,Standard
+GEO-046,EMEA,Japan,Japan,Paris,GDPR
+GEO-047,APAC,UK & Ireland,Mexico,Munich,HIPAA
+GEO-048,Americas,Nordics,Brazil,London,Standard
+GEO-049,Americas,Greater China,Austria,Dublin,Standard
+GEO-050,Americas,North America,Spain,Singapore,GDPR

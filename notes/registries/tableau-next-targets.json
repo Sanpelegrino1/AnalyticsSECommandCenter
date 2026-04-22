@@ -1,0 +1,41 @@
+﻿{
+    "defaultTargetKey":  "",
+    "targets":  [
+                    {
+                        "key":  "agentserver-demo-sdm",
+                        "targetOrg":  "AgentServer",
+                        "workspaceId":  "1DyWt0000001INtKAM",
+                        "workspaceDeveloperName":  "Demo",
+                        "workspaceLabel":  "Demo",
+                        "purpose":  "AgentServer Demo workspace for TNS SDM",
+                        "notes":  "",
+                        "createdAt":  "2026-04-21T16:27:02Z",
+                        "updatedAt":  "2026-04-21T16:27:02Z",
+                        "lastValidatedUtc":  "2026-04-21T16:27:02Z"
+                    },
+                    {
+                        "key":  "juju-demo-sdm",
+                        "targetOrg":  "STORM_TABLEAU_NEXT",
+                        "workspaceId":  "1DyKZ000000kA8f0AE",
+                        "workspaceDeveloperName":  "Juju_Demo",
+                        "workspaceLabel":  "Juju Demo",
+                        "purpose":  "",
+                        "notes":  "",
+                        "createdAt":  "2026-04-20T10:13:11Z",
+                        "updatedAt":  "2026-04-21T11:03:25Z",
+                        "lastValidatedUtc":  "2026-04-21T11:03:25Z"
+                    },
+                    {
+                        "key":  "sunrun-demo-sdm",
+                        "targetOrg":  "STORM_TABLEAU_NEXT",
+                        "workspaceId":  "1DyKZ000000kA8f0AE",
+                        "workspaceDeveloperName":  "Juju_Demo",
+                        "workspaceLabel":  "Juju Demo",
+                        "purpose":  "",
+                        "notes":  "",
+                        "createdAt":  "2026-04-20T23:03:46Z",
+                        "updatedAt":  "2026-04-20T23:31:25Z",
+                        "lastValidatedUtc":  "2026-04-20T23:31:25Z"
+                    }
+                ]
+}

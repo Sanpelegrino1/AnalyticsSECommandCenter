@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectSourceTargetMap xmlns="http://soap.sforce.com/2006/04/metadata">
+    <creationType>Custom</creationType>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Company_Names_Sheet1csv__dll.Company_Name__c</sourceField>
+        <targetField>Company_Names_Sheet1csv__dlm.Company_Name__c</targetField>
+    </fieldSourceTargetMaps>
+    <masterLabel>Company_Names_Sheet1csv_map_Company_Names_Sheet1csv_1775113435684</masterLabel>
+    <sourceObjectName>Company_Names_Sheet1csv__dll</sourceObjectName>
+    <targetObjectName>Company_Names_Sheet1csv__dlm</targetObjectName>
+</ObjectSourceTargetMap>

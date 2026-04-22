@@ -1,0 +1,11 @@
+HTTP/1.1 302 Found
+Date: Sun, 19 Apr 2026 03:57:14 GMT
+Vary: Accept-Encoding
+X-Content-Type-Options: nosniff
+Content-Security-Policy: upgrade-insecure-requests
+Strict-Transport-Security: max-age=63072000; includeSubDomains
+X-Robots-Tag: none
+Cache-Control: no-cache,must-revalidate,max-age=0,no-store,private
+Location: https://storm-8bdc14a63d953e.my.salesforce.com/services/data/v66.0/connect/industries/fileBasedDataImports/entities
+Content-Length: 0
+

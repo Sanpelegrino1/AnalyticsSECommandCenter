@@ -1,0 +1,81 @@
+product_id,product_name,product_family_id,transaction_unit_uom,pricing_model,is_active_product
+PRD-001,Comm Pro,PF-003,Flat Fee,Subscription,false
+PRD-002,Comm Max,PF-005,Flat Fee,Usage-Based,false
+PRD-003,Comm Lite,PF-005,Flat Fee,Usage-Based,false
+PRD-004,Comm Enterprise,PF-002,Per API Call,Hybrid,false
+PRD-005,Comm Plus,PF-002,Flat Fee,Subscription,false
+PRD-006,Pay Pro,PF-004,Flat Fee,Usage-Based,true
+PRD-007,Pay Max,PF-004,Per User,Subscription,false
+PRD-008,Pay Lite,PF-001,Flat Fee,Subscription,false
+PRD-009,Pay Enterprise,PF-001,Per API Call,Usage-Based,true
+PRD-010,Pay Plus,PF-001,Flat Fee,Usage-Based,false
+PRD-011,Secur Pro,PF-005,Flat Fee,Hybrid,true
+PRD-012,Secur Max,PF-003,Flat Fee,Usage-Based,false
+PRD-013,Secur Lite,PF-005,Per User,Hybrid,true
+PRD-014,Secur Enterprise,PF-002,Per GB,Subscription,true
+PRD-015,Secur Plus,PF-004,Per User,Hybrid,true
+PRD-016,Cloud Pro,PF-004,Per API Call,Hybrid,false
+PRD-017,Cloud Max,PF-001,Per User,Usage-Based,true
+PRD-018,Cloud Lite,PF-003,Per GB,Usage-Based,false
+PRD-019,Cloud Enterprise,PF-002,Per API Call,Hybrid,false
+PRD-020,Cloud Plus,PF-005,Per API Call,Subscription,true
+PRD-021,Data Pro,PF-001,Flat Fee,Hybrid,true
+PRD-022,Data Max,PF-004,Per API Call,Subscription,false
+PRD-023,Data Lite,PF-003,Flat Fee,Usage-Based,true
+PRD-024,Data Enterprise,PF-004,Per GB,Hybrid,true
+PRD-025,Data Plus,PF-001,Flat Fee,Usage-Based,false
+PRD-026,Net Pro,PF-004,Per GB,Usage-Based,false
+PRD-027,Net Max,PF-002,Flat Fee,Usage-Based,true
+PRD-028,Net Lite,PF-002,Flat Fee,Hybrid,false
+PRD-029,Net Enterprise,PF-005,Per GB,Hybrid,false
+PRD-030,Net Plus,PF-001,Flat Fee,Usage-Based,true
+PRD-031,Sys Pro,PF-005,Per User,Hybrid,false
+PRD-032,Sys Max,PF-003,Per API Call,Hybrid,false
+PRD-033,Sys Lite,PF-002,Per API Call,Hybrid,false
+PRD-034,Sys Enterprise,PF-002,Per User,Hybrid,true
+PRD-035,Sys Plus,PF-003,Flat Fee,Subscription,false
+PRD-036,Web Pro,PF-002,Per User,Usage-Based,false
+PRD-037,Web Max,PF-004,Per API Call,Subscription,true
+PRD-038,Web Lite,PF-005,Per GB,Hybrid,false
+PRD-039,Web Enterprise,PF-002,Per GB,Usage-Based,false
+PRD-040,Web Plus,PF-003,Per User,Usage-Based,true
+PRD-041,App Pro,PF-002,Per API Call,Hybrid,false
+PRD-042,App Max,PF-005,Per GB,Subscription,false
+PRD-043,App Lite,PF-001,Per GB,Hybrid,true
+PRD-044,App Enterprise,PF-004,Per GB,Hybrid,false
+PRD-045,App Plus,PF-005,Flat Fee,Hybrid,false
+PRD-046,Mob Pro,PF-001,Per API Call,Usage-Based,true
+PRD-047,Mob Max,PF-005,Per GB,Hybrid,true
+PRD-048,Mob Lite,PF-001,Flat Fee,Hybrid,false
+PRD-049,Mob Enterprise,PF-004,Per User,Subscription,true
+PRD-050,Mob Plus,PF-001,Per GB,Usage-Based,true
+PRD-051,Tech Pro,PF-001,Per API Call,Hybrid,true
+PRD-052,Tech Max,PF-004,Flat Fee,Usage-Based,false
+PRD-053,Tech Lite,PF-005,Per API Call,Usage-Based,true
+PRD-054,Tech Enterprise,PF-004,Flat Fee,Usage-Based,true
+PRD-055,Tech Plus,PF-003,Per API Call,Usage-Based,false
+PRD-056,Info Pro,PF-002,Per GB,Subscription,false
+PRD-057,Info Max,PF-005,Per GB,Subscription,false
+PRD-058,Info Lite,PF-003,Per API Call,Subscription,false
+PRD-059,Info Enterprise,PF-001,Per API Call,Hybrid,true
+PRD-060,Info Plus,PF-001,Per GB,Subscription,true
+PRD-061,Cyber Pro,PF-005,Per API Call,Subscription,true
+PRD-062,Cyber Max,PF-005,Per API Call,Subscription,false
+PRD-063,Cyber Lite,PF-002,Per User,Usage-Based,true
+PRD-064,Cyber Enterprise,PF-002,Per GB,Subscription,true
+PRD-065,Cyber Plus,PF-001,Per API Call,Subscription,false
+PRD-066,Auto Pro,PF-002,Per GB,Subscription,true
+PRD-067,Auto Max,PF-003,Per User,Subscription,false
+PRD-068,Auto Lite,PF-005,Per User,Hybrid,true
+PRD-069,Auto Enterprise,PF-004,Flat Fee,Usage-Based,true
+PRD-070,Auto Plus,PF-004,Per API Call,Hybrid,true
+PRD-071,Intell Pro,PF-005,Per GB,Usage-Based,true
+PRD-072,Intell Max,PF-001,Flat Fee,Usage-Based,false
+PRD-073,Intell Lite,PF-001,Flat Fee,Hybrid,false
+PRD-074,Intell Enterprise,PF-001,Per User,Usage-Based,true
+PRD-075,Intell Plus,PF-001,Per API Call,Usage-Based,false
+PRD-076,Smart Pro,PF-004,Per GB,Usage-Based,false
+PRD-077,Smart Max,PF-001,Per User,Hybrid,true
+PRD-078,Smart Lite,PF-004,Flat Fee,Subscription,false
+PRD-079,Smart Enterprise,PF-003,Flat Fee,Usage-Based,false
+PRD-080,Smart Plus,PF-001,Per GB,Usage-Based,false

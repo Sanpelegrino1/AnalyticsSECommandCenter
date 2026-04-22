@@ -1,0 +1,1 @@
+{"actions":[{"id":"1;a","descriptor":"aura://CdpDataLakeObjectController/ACTION$getDataLakeObjectPaginated","callingDescriptor":"markup://one:one","params":{"limit":5,"offset":0,"orderBy":"label","clientOptions":{}}}]}

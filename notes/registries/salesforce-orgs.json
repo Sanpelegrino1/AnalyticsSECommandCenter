@@ -1,12 +1,34 @@
 ﻿{
-    "defaultAlias":  "STORM_TABLEAU_NEXT",
+    "defaultAlias":  "AgentServer",
     "orgs":  [
                  {
                      "alias":  "STORM_TABLEAU_NEXT",
                      "loginUrl":  "https://storm-8bdc14a63d953e.my.salesforce.com",
+                     "purpose":  "",
+                     "notes":  "",
+                     "lastValidatedUtc":  "2026-04-18T06:48:06Z"
+                 },
+                 {
+                     "alias":  "STORM_TABLEAU_NEXT_DC",
+                     "loginUrl":  "https://storm-8bdc14a63d953e.my.salesforce.com",
                      "purpose":  "Data Cloud ingestion auth",
                      "notes":  "",
-                     "lastValidatedUtc":  "2026-04-17T20:33:12Z"
+                     "lastValidatedUtc":  "2026-04-18T07:31:03Z"
+                 },
+                 {
+                     "alias":  "AgentServer",
+                     "loginUrl":  "https://storm-c08c1cbd301824.my.salesforce.com",
+                     "purpose":  "Host Agents",
+                     "notes":  "owned by Andrew Hill",
+                     "lastValidatedUtc":  "2026-04-21T08:25:52Z",
+                     "dataCloudClientId":  "CommandCenterAuth00DWt00000H84sfMAB"
+                 },
+                 {
+                     "alias":  "AGENTSERVER_AUTH",
+                     "loginUrl":  "https://storm-c08c1cbd301824.my.salesforce.com",
+                     "purpose":  "Data Cloud ingestion auth",
+                     "notes":  "",
+                     "lastValidatedUtc":  "2026-04-21T17:15:10Z"
                  }
              ]
 }

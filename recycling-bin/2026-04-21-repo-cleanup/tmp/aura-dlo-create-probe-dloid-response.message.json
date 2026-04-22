@@ -1,0 +1,1 @@
+{"actions":[{"id":"1;a","descriptor":"aura://CdpDataLakeObjectController/ACTION$postCreateDataLakeObject","callingDescriptor":"markup://one:one","params":{"name":"Probe_CompanyNames_DLO__dll","label":"Probe Company Names DLO","category":"Other","dataSource":{"sourceType":"DATA_STREAM","sourceId":"0gOKZ000000XmPJ2A0"},"clientOptions":{}}}]}

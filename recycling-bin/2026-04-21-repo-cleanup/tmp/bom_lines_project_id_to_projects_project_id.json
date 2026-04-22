@@ -1,0 +1,12 @@
+﻿{
+    "label":  "bom_lines.project_id -\u003e projects.project_id",
+    "apiName":  "bom_lines_project_id_to_projects_project_id",
+    "rightSemanticDefinitionApiName":  "Projects5",
+    "criteria":  [
+                     {
+                         "rightSemanticFieldApiName":  "project_id7",
+                         "leftSemanticFieldApiName":  "project_id7"
+                     }
+                 ],
+    "leftSemanticDefinitionApiName":  "Bom_Lines5"
+}

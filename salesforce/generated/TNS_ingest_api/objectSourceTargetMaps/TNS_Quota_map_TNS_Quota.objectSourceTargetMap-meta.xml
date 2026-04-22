@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ObjectSourceTargetMap xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <creationType>Custom</creationType>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>TNS_Quota.quota_id__c</sourceField>
+        <sourceFormula>quota_id</sourceFormula>
+        <targetField>TNS_Quota__dll.quota_id__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>TNS_Quota.rep_id__c</sourceField>
+        <sourceFormula>rep_id</sourceFormula>
+        <targetField>TNS_Quota__dll.rep_id__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>TNS_Quota.quota_quarter_date__c</sourceField>
+        <sourceFormula>quota_quarter_date</sourceFormula>
+        <targetField>TNS_Quota__dll.quota_quarter_date__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>TNS_Quota.quota_target__c</sourceField>
+        <sourceFormula>quota_target</sourceFormula>
+        <targetField>TNS_Quota__dll.quota_target__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>TNS_Quota.quota_attainment_percent__c</sourceField>
+        <sourceFormula>quota_attainment_percent</sourceFormula>
+        <targetField>TNS_Quota__dll.quota_attainment_percent__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;TNS_Quota&quot;</sourceFormula>
+        <targetField>TNS_Quota__dll.DataSourceObject__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;TNS_ingest_api&quot;</sourceFormula>
+        <targetField>TNS_Quota__dll.DataSource__c</targetField>
+    </fieldSourceTargetMaps>
+    <masterLabel>TNS_Quota_map_TNS_Quota</masterLabel>
+    <sourceObjectName>TNS_Quota</sourceObjectName>
+    <targetObjectName>TNS_Quota__dll</targetObjectName>
+</ObjectSourceTargetMap>

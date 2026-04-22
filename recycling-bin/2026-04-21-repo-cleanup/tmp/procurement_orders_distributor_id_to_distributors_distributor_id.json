@@ -1,0 +1,12 @@
+﻿{
+    "label":  "procurement_orders.distributor_id -\u003e distributors.distributor_id",
+    "apiName":  "procurement_orders_distributor_id_to_distributors_distributor_id",
+    "rightSemanticDefinitionApiName":  "Distributors5",
+    "criteria":  [
+                     {
+                         "rightSemanticFieldApiName":  "distributor_id6",
+                         "leftSemanticFieldApiName":  "distributor_id6"
+                     }
+                 ],
+    "leftSemanticDefinitionApiName":  "Procurement_Orders5"
+}

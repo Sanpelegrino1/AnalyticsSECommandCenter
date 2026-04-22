@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>materials_release_date__c</fullName>
+    <label>materials_release_date</label>
+    <mktDataLakeFieldAttributes>
+        <definitionCreationType>Custom</definitionCreationType>
+        <externalName>materials_release_date</externalName>
+        <isEventDate>false</isEventDate>
+        <isInternalOrganization>false</isInternalOrganization>
+        <isRecordModified>false</isRecordModified>
+        <usageTag>NONE</usageTag>
+    </mktDataLakeFieldAttributes>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,1 @@
+POST https://storm-8bdc14a63d953e.my.salesforce.com/services/data/v66.0/ssot/data-lake-objects

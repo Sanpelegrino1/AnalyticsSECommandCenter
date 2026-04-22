@@ -1,0 +1,23 @@
+{
+  "skill_name": "tableau-record-access-shares",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Share my Tableau workspace with everyone",
+      "expected_output": "POST to /tableau/records/{recordId}/shares with accessRequestItems containing userOrGroupId: ALL_USERS, accessType: Viewer or Editor",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "How do I remove access for a user from a workspace?",
+      "expected_output": "DELETE /tableau/records/{recordId}/shares/{userOrGroupId}",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "List who has access to my Tableau dashboard",
+      "expected_output": "GET /tableau/records/{recordId}/shares, explain how to get recordId",
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ObjectSourceTargetMap xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <creationType>Custom</creationType>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>distributors.distributor_id__c</sourceField>
+        <sourceFormula>distributor_id</sourceFormula>
+        <targetField>distributors__dll.distributor_id__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>distributors.distributor_name__c</sourceField>
+        <sourceFormula>distributor_name</sourceFormula>
+        <targetField>distributors__dll.distributor_name__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>distributors.avg_release_days__c</sourceField>
+        <sourceFormula>avg_release_days</sourceFormula>
+        <targetField>distributors__dll.avg_release_days__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>distributors.negotiated_pricing_tier__c</sourceField>
+        <sourceFormula>negotiated_pricing_tier</sourceFormula>
+        <targetField>distributors__dll.negotiated_pricing_tier__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>distributors.reliability_score__c</sourceField>
+        <sourceFormula>reliability_score</sourceFormula>
+        <targetField>distributors__dll.reliability_score__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;distributors&quot;</sourceFormula>
+        <targetField>distributors__dll.DataSourceObject__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;phase3_default_validation&quot;</sourceFormula>
+        <targetField>distributors__dll.DataSource__c</targetField>
+    </fieldSourceTargetMaps>
+    <masterLabel>distributors_map_distributors</masterLabel>
+    <sourceObjectName>distributors</sourceObjectName>
+    <targetObjectName>distributors__dll</targetObjectName>
+</ObjectSourceTargetMap>

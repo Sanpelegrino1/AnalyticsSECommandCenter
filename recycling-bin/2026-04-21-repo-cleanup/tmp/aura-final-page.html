@@ -1,0 +1,129 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+<script src="/jslibrary/1333042116260/sfdc/Security.js"></script><script>ClientHash.prototype.needsClientHash('sid_Client','Z000002apmsZ00000Q6Qah','66.203.115.15','/servlet/servlet.ClientHashValidator?ResponseRequestedURL=%2Fsecur%2FcontentDoor%3FstartURL%3Dhttps%253A%252F%252Fstorm-8bdc14a63d953e.lightning.force.com%252Flightning%252Fsetup%252FDataCloudIngestion%252Fhome%26sid%3D00DKZ00000Q6Qah%2521AR8AQOK.M9heaeaOkjNMXnnOuxoda9eAcio7LsRBEAa.Tpp8jK4gguRUd4Jq7axAT3FhUxdnqHIecoq1JInKLqFB.2Vf4nCX%26skipRedirect%3D1%26lm%3DeyJlbmMiOiJBMjU2R0NNIiwiYXVkIjoiMDBES1owMDAwMFE2UWFoIiwia2lkIjoie1widFwiOlwiMDBES1owMDAwMFE2UWFoXCIsXCJ2XCI6XCIwMkdLWjAwMDAwMFUya2NcIixcImFcIjpcImNvbnRlbnRkb29ydXNlcnRyYW5zaWVudGtleWVuY3J5cHRcIixcInVcIjpcIjAwNUtaMDAwMDAyYXBtc1wifSIsImNyaXQiOlsiaWF0Il0sImlhdCI6MTc3NjU3MTU2ODkzOSwiZXhwIjowfQ%253D%253D..huGejjDRARBVBrU2.tjB-u_p9lHEZ_GEVnEETnw%253D%253D.cteCjoSJNFmAAvzmKNg06A%253D%253D');</script><script type='text/javascript'>function sendStatus(status, responseTime, options = {}) {
+    const statusData = {
+        status: status,
+        responseTime: responseTime,
+        ...(options.httpStatus !== undefined && { httpStatus: options.httpStatus }),
+        ...(options.httpStatusText !== undefined && { httpStatusText: options.httpStatusText }),
+        ...(options.error !== undefined && { error: options.error })
+    };
+    
+    fetch('/services/session/status', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(statusData)
+    }).catch(() => {});
+}
+
+function checkConnectivityPromise() {
+    const url = "https://login-canary.salesforce.com/ping.jsp";
+    const startTime = Date.now();
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 3000);
+    
+    void fetch(url, {
+        method: 'GET',
+        mode: 'no-cors',
+        signal: controller.signal
+    })
+    .then(response => {
+        clearTimeout(timeoutId);
+        const endTime = Date.now();
+        const responseTime = endTime - startTime;
+        sendStatus('connected', responseTime, {
+            httpStatus: response.status,
+            httpStatusText: response.statusText
+        });
+    })
+    .catch(error => {
+        clearTimeout(timeoutId);
+        const endTime = Date.now();
+        const responseTime = endTime - startTime;
+        sendStatus('failed', responseTime, {
+            error: error.message
+        });
+    });
+}
+checkConnectivityPromise();</script><script type='text/javascript'>
+if (window.location.replace){ 
+window.location.replace('https://storm-8bdc14a63d953e.lightning.force.com/lightning/setup/DataCloudIngestion/home');
+} else {;
+window.location.href ='https://storm-8bdc14a63d953e.lightning.force.com/lightning/setup/DataCloudIngestion/home';
+} 
+</script>
+</head>
+<body>
+<noscript>
+You do not have Javascript enabled. Javascript is required to use salesforce.com. Please enable Javascript, then click <a href="https://storm-8bdc14a63d953e.lightning.force.com/lightning/setup/DataCloudIngestion/home">here</a> to continue.
+</noscript>
+<!-- service is in read write mode -->
+</body>
+</html>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+</head>
+<body>
+<script>var tm=null;function lhdoredir(){tm&&(window.clearTimeout(tm),tm=null);window.location.replace?window.location.replace("https://storm-8bdc14a63d953e.lightning.force.com/lightning/setup/DataCloudIngestion/home"):window.location.href="https://storm-8bdc14a63d953e.lightning.force.com/lightning/setup/DataCloudIngestion/home"}window.setTimeout?tm=window.setTimeout(lhdoredir,1E3):lhdoredir();var SFDCSessionVars={"ll":false,"uid":"005KZ000002apms","server":"https:\/\/login.salesforce.com\/login\/sessionserver212.html","act":"u","pwp":false,"host":"login.salesforce.com","oid":"00DKZ00000Q6Qah","exp":1776600370000};SFDCSessionVars.callback=lhdoredir;</script><script src="/jslibrary/1763683972260/sfdc/SfdcSessionBase208.js"></script><script type='text/javascript'>function sendStatus(status, responseTime, options = {}) {
+    const statusData = {
+        status: status,
+        responseTime: responseTime,
+        ...(options.httpStatus !== undefined && { httpStatus: options.httpStatus }),
+        ...(options.httpStatusText !== undefined && { httpStatusText: options.httpStatusText }),
+        ...(options.error !== undefined && { error: options.error })
+    };
+    
+    fetch('/services/session/status', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(statusData)
+    }).catch(() => {});
+}
+
+function checkConnectivityPromise() {
+    const url = "https://login-canary.salesforce.com/ping.jsp";
+    const startTime = Date.now();
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 3000);
+    
+    void fetch(url, {
+        method: 'GET',
+        mode: 'no-cors',
+        signal: controller.signal
+    })
+    .then(response => {
+        clearTimeout(timeoutId);
+        const endTime = Date.now();
+        const responseTime = endTime - startTime;
+        sendStatus('connected', responseTime, {
+            httpStatus: response.status,
+            httpStatusText: response.statusText
+        });
+    })
+    .catch(error => {
+        clearTimeout(timeoutId);
+        const endTime = Date.now();
+        const responseTime = endTime - startTime;
+        sendStatus('failed', responseTime, {
+            error: error.message
+        });
+    });
+}
+checkConnectivityPromise();</script><noscript>
+You do not have Javascript enabled. Javascript is required to use salesforce.com. Please enable Javascript, then click <a href="https://storm-8bdc14a63d953e.lightning.force.com/lightning/setup/DataCloudIngestion/home">here</a> to continue.
+</noscript>
+<!-- service is in read write mode -->
+</body>
+</html>

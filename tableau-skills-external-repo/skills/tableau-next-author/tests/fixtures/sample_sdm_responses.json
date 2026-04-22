@@ -1,0 +1,64 @@
+{
+  "sdm_list": [
+    {
+      "apiName": "Test_SDM",
+      "label": "Test SDM"
+    },
+    {
+      "apiName": "Sales_Model",
+      "label": "Sales Model"
+    }
+  ],
+  "sdm_detail": {
+    "apiName": "Test_SDM",
+    "label": "Test SDM",
+    "semanticDataObjects": [
+      {
+        "apiName": "Opportunity",
+        "label": "Opportunity",
+        "fields": [
+          {
+            "apiName": "StageName",
+            "label": "Stage Name",
+            "type": "Text",
+            "role": "Dimension",
+            "displayCategory": "Discrete"
+          },
+          {
+            "apiName": "Amount",
+            "label": "Amount",
+            "type": "Number",
+            "role": "Measure",
+            "displayCategory": "Continuous"
+          },
+          {
+            "apiName": "CloseDate",
+            "label": "Close Date",
+            "type": "Date",
+            "role": "Dimension",
+            "displayCategory": "Discrete"
+          },
+          {
+            "apiName": "Region",
+            "label": "Region",
+            "type": "Text",
+            "role": "Dimension",
+            "displayCategory": "Discrete"
+          }
+        ]
+      }
+    ],
+    "calculatedMeasurements": [],
+    "calculatedDimensions": [],
+    "metrics": [
+      {
+        "apiName": "Total_Revenue",
+        "label": "Total Revenue"
+      },
+      {
+        "apiName": "Pipeline_Value",
+        "label": "Pipeline Value"
+      }
+    ]
+  }
+}

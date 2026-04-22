@@ -22,4 +22,5 @@ if ($WaitForTerminalState) {
     $job = Invoke-DataCloudJsonRequest -Context $context -Method Get -RelativePath ('/api/v1/ingest/jobs/{0}' -f $JobId)
 }
 
+$job = Add-DataCloudJobOperatorMetadata -TargetKey $context.Config.TargetKey -Job $job
 Write-Output $job

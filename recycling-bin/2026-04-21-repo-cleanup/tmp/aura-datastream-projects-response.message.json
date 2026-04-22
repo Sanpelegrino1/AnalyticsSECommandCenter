@@ -1,0 +1,1 @@
+{"actions":[{"id":"1;a","descriptor":"aura://CdpDataStreamsController/ACTION$getDataStreamPaginatedWithFilterAndConnectionNameFilterAndSourceObjectNameFilter","callingDescriptor":"markup://one:one","params":{"limit":5,"offset":0,"orderBy":"label","includeMappings":"true","filter":"","connectionName":"sunrun_ingest_api","sourceObjectName":"sunrun_projects","clientOptions":{}}}]}

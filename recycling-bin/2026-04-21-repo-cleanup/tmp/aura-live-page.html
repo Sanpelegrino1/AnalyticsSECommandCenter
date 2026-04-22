@@ -1,0 +1,64 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+</head>
+<body>
+<script>var tm=null;function lhdoredir(){tm&&(window.clearTimeout(tm),tm=null);window.location.replace?window.location.replace("https://storm-8bdc14a63d953e.file.force.com/secur/contentDoor?startURL=https%3A%2F%2Fstorm-8bdc14a63d953e.lightning.force.com%2Flightning%2Fsetup%2FDataCloudIngestion%2Fhome&sid=00DKZ00000Q6Qah%21AR8AQOK.M9heaeaOkjNMXnnOuxoda9eAcio7LsRBEAa.Tpp8jK4gguRUd4Jq7axAT3FhUxdnqHIecoq1JInKLqFB.2Vf4nCX&skipRedirect=1&lm=eyJlbmMiOiJBMjU2R0NNIiwiYXVkIjoiMDBES1owMDAwMFE2UWFoIiwia2lkIjoie1widFwiOlwiMDBES1owMDAwMFE2UWFoXCIsXCJ2XCI6XCIwMkdLWjAwMDAwMFUya2NcIixcImFcIjpcImNvbnRlbnRkb29ydXNlcnRyYW5zaWVudGtleWVuY3J5cHRcIixcInVcIjpcIjAwNUtaMDAwMDAyYXBtc1wifSIsImNyaXQiOlsiaWF0Il0sImlhdCI6MTc3NjU3MTU1MjEzNSwiZXhwIjowfQ%3D%3D..c4TNWXqmCVrCepd3.m9k7A4JqBckn6pyAlPQ0jQ%3D%3D.LtC5za2mo-_70omfIQHqCQ%3D%3D"):window.location.href="https://storm-8bdc14a63d953e.file.force.com/secur/contentDoor?startURL=https%3A%2F%2Fstorm-8bdc14a63d953e.lightning.force.com%2Flightning%2Fsetup%2FDataCloudIngestion%2Fhome&sid=00DKZ00000Q6Qah%21AR8AQOK.M9heaeaOkjNMXnnOuxoda9eAcio7LsRBEAa.Tpp8jK4gguRUd4Jq7axAT3FhUxdnqHIecoq1JInKLqFB.2Vf4nCX&skipRedirect=1&lm=eyJlbmMiOiJBMjU2R0NNIiwiYXVkIjoiMDBES1owMDAwMFE2UWFoIiwia2lkIjoie1widFwiOlwiMDBES1owMDAwMFE2UWFoXCIsXCJ2XCI6XCIwMkdLWjAwMDAwMFUya2NcIixcImFcIjpcImNvbnRlbnRkb29ydXNlcnRyYW5zaWVudGtleWVuY3J5cHRcIixcInVcIjpcIjAwNUtaMDAwMDAyYXBtc1wifSIsImNyaXQiOlsiaWF0Il0sImlhdCI6MTc3NjU3MTU1MjEzNSwiZXhwIjowfQ%3D%3D..c4TNWXqmCVrCepd3.m9k7A4JqBckn6pyAlPQ0jQ%3D%3D.LtC5za2mo-_70omfIQHqCQ%3D%3D"}window.setTimeout?tm=window.setTimeout(lhdoredir,1E3):lhdoredir();var SFDCSessionVars={"ll":false,"uid":"005KZ000002apms","server":"https:\/\/login.salesforce.com\/login\/sessionserver212.html","act":"u","pwp":false,"host":"login.salesforce.com","oid":"00DKZ00000Q6Qah","exp":1776600352000};SFDCSessionVars.callback=lhdoredir;</script><script src="/jslibrary/1763683972260/sfdc/SfdcSessionBase208.js"></script><script> if(window.localStorage && window.localStorage.getItem && window.localStorage.getItem('logoutUrl')){if(window.localStorage.removeItem) { window.localStorage.removeItem('logoutUrl'); }} </script><script type='text/javascript'>function sendStatus(status, responseTime, options = {}) {
+    const statusData = {
+        status: status,
+        responseTime: responseTime,
+        ...(options.httpStatus !== undefined && { httpStatus: options.httpStatus }),
+        ...(options.httpStatusText !== undefined && { httpStatusText: options.httpStatusText }),
+        ...(options.error !== undefined && { error: options.error })
+    };
+    
+    fetch('/services/session/status', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(statusData)
+    }).catch(() => {});
+}
+
+function checkConnectivityPromise() {
+    const url = "https://login-canary.salesforce.com/ping.jsp";
+    const startTime = Date.now();
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 3000);
+    
+    void fetch(url, {
+        method: 'GET',
+        mode: 'no-cors',
+        signal: controller.signal
+    })
+    .then(response => {
+        clearTimeout(timeoutId);
+        const endTime = Date.now();
+        const responseTime = endTime - startTime;
+        sendStatus('connected', responseTime, {
+            httpStatus: response.status,
+            httpStatusText: response.statusText
+        });
+    })
+    .catch(error => {
+        clearTimeout(timeoutId);
+        const endTime = Date.now();
+        const responseTime = endTime - startTime;
+        sendStatus('failed', responseTime, {
+            error: error.message
+        });
+    });
+}
+checkConnectivityPromise();</script><noscript>
+You do not have Javascript enabled. Javascript is required to use salesforce.com. Please enable Javascript, then click <a href="https://storm-8bdc14a63d953e.file.force.com/secur/contentDoor?startURL=https%3A%2F%2Fstorm-8bdc14a63d953e.lightning.force.com%2Flightning%2Fsetup%2FDataCloudIngestion%2Fhome&amp;sid=00DKZ00000Q6Qah%21AR8AQOK.M9heaeaOkjNMXnnOuxoda9eAcio7LsRBEAa.Tpp8jK4gguRUd4Jq7axAT3FhUxdnqHIecoq1JInKLqFB.2Vf4nCX&amp;skipRedirect=1&amp;lm=eyJlbmMiOiJBMjU2R0NNIiwiYXVkIjoiMDBES1owMDAwMFE2UWFoIiwia2lkIjoie1widFwiOlwiMDBES1owMDAwMFE2UWFoXCIsXCJ2XCI6XCIwMkdLWjAwMDAwMFUya2NcIixcImFcIjpcImNvbnRlbnRkb29ydXNlcnRyYW5zaWVudGtleWVuY3J5cHRcIixcInVcIjpcIjAwNUtaMDAwMDAyYXBtc1wifSIsImNyaXQiOlsiaWF0Il0sImlhdCI6MTc3NjU3MTU1MjEzNSwiZXhwIjowfQ%3D%3D..c4TNWXqmCVrCepd3.m9k7A4JqBckn6pyAlPQ0jQ%3D%3D.LtC5za2mo-_70omfIQHqCQ%3D%3D">here</a> to continue.
+</noscript>
+<!-- service is in read write mode -->
+</body>
+</html>
+
+
+

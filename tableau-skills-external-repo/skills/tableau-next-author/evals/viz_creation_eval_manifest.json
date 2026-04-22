@@ -1,0 +1,15 @@
+{
+  "skill_eval": "tableau-next-author_viz_creation",
+  "workspace_name": "testupdate",
+  "workspace_label": "testupdate",
+  "sdms": [
+    "Retail_Orders_20260409080446"
+  ],
+  "templates": "all",
+  "defaults": {
+    "auto_match": true,
+    "name_prefix": "Eval_Viz",
+    "save_payloads": "failures_only",
+    "sleep_seconds_between_posts": 0
+  }
+}

@@ -1,0 +1,13 @@
+HTTP/1.1 401 Unauthorized
+Date: Sun, 19 Apr 2026 03:53:46 GMT
+Vary: Accept-Encoding
+X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=63072000; includeSubDomains
+X-Robots-Tag: none
+Cache-Control: no-cache,must-revalidate,max-age=0,no-store,private
+Set-Cookie: BrowserId=XaNYBzujEfG-zBGiGtlH4A; domain=.force.com; path=/; expires=Mon, 19-Apr-2027 03:53:46 GMT; Max-Age=31536000; secure; SameSite=None
+Content-Type: application/json
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Transfer-Encoding: chunked
+Set-Cookie: sfdc-aura=!DBPqVMBWcCXknwiSdIxjbn6/zZT4lmSBe7tqlQJUf9PyQ92YmwYhDK4eqHpz9rYI5HfklAdyPlELEz0=; expires=Sun, 19-Apr-2026 03:56:46 GMT; path=/; SameSite=None; Secure
+

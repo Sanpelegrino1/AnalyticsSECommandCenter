@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>signed_not_installed_flag__c</fullName>
+    <label>signed_not_installed_flag</label>
+    <defaultValue>false</defaultValue>
+    <mktDataLakeFieldAttributes>
+        <definitionCreationType>Custom</definitionCreationType>
+        <externalName>signed_not_installed_flag</externalName>
+        <isEventDate>false</isEventDate>
+        <isInternalOrganization>false</isInternalOrganization>
+        <isRecordModified>false</isRecordModified>
+        <usageTag>NONE</usageTag>
+    </mktDataLakeFieldAttributes>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,24 @@
+{
+  "description": "Draft viz-spec JSON files to exercise each dashboard layout pattern against the Retail Orders SDM.",
+  "sdm_example": "Retail_Orders_20260409080446",
+  "org_example": "tc26.uat.viz",
+  "patterns": {
+    "f_layout": {
+      "spec": "../retail_vibes_dashboard_spec.json",
+      "notes": "Six filters, three metrics, five visualizations. Omit pattern key to auto-select f_layout when counts match."
+    },
+    "z_layout": { "spec": "z_layout_retail_spec.json", "requirements": "6 filters, 6 metrics, 5 visualizations" },
+    "performance_overview": {
+      "spec": "performance_overview_retail_spec.json",
+      "requirements": "3 filters, 5 metrics with primary_metric + four secondary_metrics, 5 visualizations, pages for time navigation"
+    }
+  },
+  "spec_file_fields": {
+    "pattern": "Optional. When set, create_dashboard.py uses this layout instead of auto_select_pattern.",
+    "pattern_args": "Optional. Passed to generate_dashboard_pattern (title_text, primary_metric, secondary_metrics, pages).",
+    "metrics": "List of SDM semantic metric API names (_mtc) used by the dashboard.",
+    "filters": "List of { fieldName } objects; objectName and dataType are enriched from the SDM.",
+    "visualizations": "List of viz specs (at least one required for all supported patterns)."
+  },
+  "run_template": "cd skills/tableau-next-author/scripts && export SF_ORG=YOUR_ORG && export SF_TOKEN=$(sf org display --target-org \"$SF_ORG\" --json | jq -r '.result.accessToken') && export SF_INSTANCE=$(sf org display --target-org \"$SF_ORG\" --json | jq -r '.result.instanceUrl') && python3 create_dashboard.py --org YOUR_ORG --sdm Retail_Orders_20260409080446 --workspace YOUR_WORKSPACE --name YOUR_DASH_NAME --viz-specs ../evals/layout_specs/FILENAME.json"
+}

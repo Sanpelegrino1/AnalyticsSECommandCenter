@@ -1,0 +1,149 @@
+{
+  "skill_name": "tableau-semantic-authoring",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a win rate metric on Sales_Cloud SDM. Use Close_Date as the time dimension.",
+      "expected_output": "Should create calculated field Win_Rate_clc with expression SUM([Won_Count]) / SUM([Total_Count]) using UserAgg aggregation, then create metric Win_Rate_mtc referencing that calc field with Close_Date time dimension",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Add a calculated dimension to categorize deals by size: Large (>100k), Medium (50-100k), Small (<50k)",
+      "expected_output": "Should create calculated dimension Deal_Size_Category_clc with IF/ELSEIF expression checking [Amount] thresholds, type dimension, dataType Text",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "What fields are available in the Sales_Cloud semantic model?",
+      "expected_output": "Should run discover_sdm.py --sdm Sales_Cloud --json to list all dimensions, measurements, calculated fields, and metrics",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Create a metric for revenue by region with insights enabled",
+      "expected_output": "Should create metric with --additional-dimension flag for Region, auto-generating insightsSettings with TopContributors and other insight types",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Validate this Tableau expression: SUMIF([Stage] = 'Won', [Amount])",
+      "expected_output": "Should identify SUMIF as invalid function and suggest correct alternative: SUM(IF [Stage] = 'Won' THEN [Amount] ELSE 0 END)",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Create a calc field for revenue using [Opportunity].[InvalidField] that doesn't exist",
+      "expected_output": "Agent should run discover_sdm.py first, identify field doesn't exist, inform user or suggest correct field name from SDM",
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Create a measurement called Total__Revenue__clc",
+      "expected_output": "Agent rejects or corrects to Total_Revenue_clc (no double underscores allowed per Salesforce API)",
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "Create a calculated field named 'TotalRevenue' for sum of amounts",
+      "expected_output": "Agent adds _clc suffix to produce TotalRevenue_clc",
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "Create win rate using SUM([Won])/SUM([Total]) with aggregation type Sum",
+      "expected_output": "Agent corrects to UserAgg (expression already includes aggregation functions)",
+      "files": []
+    },
+    {
+      "id": 10,
+      "prompt": "Create calc field with expression SUM([Amount]) on Sales_Cloud",
+      "expected_output": "Agent discovers SDM, finds correct table name (e.g. Opportunity_TAB_Sales_Cloud), uses qualified syntax SUM([Table_Name].[Amount])",
+      "files": []
+    },
+    {
+      "id": 11,
+      "prompt": "Create a metric Revenue_Over_Time_mtc referencing NonExistent_Revenue_clc",
+      "expected_output": "Agent identifies calc field doesn't exist, creates it first or informs user of prerequisite",
+      "files": []
+    },
+    {
+      "id": 12,
+      "prompt": "Create a quota allocation field using FIXED at fiscal quarter level on Sales_Cloud SDM",
+      "expected_output": "Should create calc field with LOD expression { FIXED [Table].[Fiscal_Quarter] : SUM([Table].[Quota_USD]) } and UserAgg aggregation",
+      "files": []
+    },
+    {
+      "id": 13,
+      "prompt": "Create a dimension that maps call reasons to categories using CASE: Benefits Inquiry to Platform, Billing Question to Regulatory, else keep original",
+      "expected_output": "Should create calculated dimension with multi-line CASE WHEN/ELSE structure mapping values",
+      "files": []
+    },
+    {
+      "id": 14,
+      "prompt": "Create a dimension showing 'Open' if Is_Open_Opportunity_clc is true, 'Won' if Is_Won_Opportunity_clc is true, else 'Lost'",
+      "expected_output": "Should create dimension with IF/ELSEIF referencing other _clc fields using unqualified syntax [Is_Open_Opportunity_clc]",
+      "files": []
+    },
+    {
+      "id": 15,
+      "prompt": "Create a dimension extracting year from Close_Date for grouping",
+      "expected_output": "Should create dimension with STR(DATEPART('year', [Table].[Close_Date])) or STR(YEAR([Table].[Close_Date])) since DATEPART returns numbers",
+      "files": []
+    },
+    {
+      "id": 16,
+      "prompt": "Create donations per donor ratio that handles nulls safely",
+      "expected_output": "Should create calc field with ZN([Total_Donations_clc]) / ZN([Donors_clc]) or IFNULL equivalent, UserAgg aggregation",
+      "files": []
+    },
+    {
+      "id": 17,
+      "prompt": "I want to create a sales velocity metric on the Sales Cloud model. Start from scratch.",
+      "expected_output": "1. Run discover_sdm.py --list or --sdm Sales_Cloud... 2. Identify needed fields (amount, dates) 3. Create calc field Sales_Velocity_clc 4. Create metric Sales_Velocity_mtc with time dimension",
+      "files": []
+    },
+    {
+      "id": 18,
+      "prompt": "Create a win rate calc field but validate the payload first before POSTing",
+      "expected_output": "Run create_calc_field.py with --dry-run flag, show payload, explain review process before actual creation",
+      "files": []
+    },
+    {
+      "id": 19,
+      "prompt": "I tried creating a field but got 'API name cannot contain double underscores'. How do I fix this?",
+      "expected_output": "Agent identifies issue, corrects name by removing double underscores, suggests re-running with corrected name",
+      "files": []
+    },
+    {
+      "id": 20,
+      "prompt": "Create Total_Revenue_clc, then create Average_Deal_Size_clc using Total_Revenue_clc divided by opportunity count",
+      "expected_output": "Two-step workflow: create Total_Revenue_clc first, then create second calc field with expression referencing [Total_Revenue_clc] using unqualified syntax",
+      "files": []
+    },
+    {
+      "id": 21,
+      "prompt": "Validate this expression: AVG((DATEDIFF('month', [Table].[Start_Date], TODAY()))/12)",
+      "expected_output": "Check function validity (AVG, DATEDIFF, TODAY supported), recommend aggregation type (Avg or UserAgg since expression has aggregation)",
+      "files": []
+    },
+    {
+      "id": 22,
+      "prompt": "What business metrics could I add to the Sales_Cloud semantic model?",
+      "expected_output": "Run discover_sdm.py, analyze existing fields, suggest complementary KPIs (conversion rate, pipeline velocity, etc.)",
+      "files": []
+    },
+    {
+      "id": 23,
+      "prompt": "Show me all metrics in Sales_Cloud with their time dimensions and additional dimensions",
+      "expected_output": "Run discover_sdm.py --sdm Sales_Cloud --json, extract and format metrics array with timeDimensionReference and additionalDimensions",
+      "files": []
+    },
+    {
+      "id": 24,
+      "prompt": "Clone Annual Contract Value into a last 60 days metric on the TNS sales pipeline model",
+      "expected_output": "Agent inspects the existing live metric first, preserves its measurementReference and timeDimensionReference, and creates a new metric with native metric filters for the 60-day window. It should not create a new calculated field unless the user explicitly asks for reusable semantic logic.",
+      "files": []
+    }
+  ]
+}

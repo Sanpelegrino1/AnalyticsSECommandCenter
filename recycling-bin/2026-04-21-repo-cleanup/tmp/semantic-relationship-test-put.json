@@ -1,0 +1,12 @@
+{
+  "apiName": "Projects_affiliate_id_to_Affiliates_affiliate_id",
+  "label": "Projects affiliate_id to Affiliates affiliate_id",
+  "leftSemanticDefinitionApiName": "Projects",
+  "rightSemanticDefinitionApiName": "Affiliates",
+  "criteria": [
+    {
+      "leftSemanticFieldApiName": "affiliate_id2",
+      "rightSemanticFieldApiName": "affiliate_id2"
+    }
+  ]
+}

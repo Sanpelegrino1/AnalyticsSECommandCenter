@@ -27,5 +27,6 @@ $response = Invoke-DataCloudJsonRequest -Context $context -Method Get -RelativeP
 if ($null -eq $response.data) {
     Write-Output @()
 } else {
-    Write-Output $response.data
+    $jobs = @($response.data | ForEach-Object { Add-DataCloudJobOperatorMetadata -TargetKey $context.Config.TargetKey -Job $_ })
+    Write-Output $jobs
 }

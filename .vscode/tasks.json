@@ -216,6 +216,104 @@
       "problemMatcher": []
     },
     {
+      "label": "Salesforce Data Cloud: Guided manifest setup",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\scripts\\salesforce\\data-cloud-guided-manifest-setup.ps1",
+        "-ManifestPath",
+        "${input:dataCloudManifestPath}",
+        "-Alias",
+        "${input:dataCloudAlias}",
+        "-LoginUrl",
+        "${input:dataCloudLoginUrl}",
+        "-TargetKeyPrefix",
+        "${input:dataCloudTargetKeyPrefix}",
+        "-SourceName",
+        "${input:dataCloudSourceName}",
+        "-ObjectNamePrefix",
+        "${input:dataCloudObjectNamePrefix}",
+        "-Category",
+        "${input:dataCloudCategory}",
+        "-Notes",
+        "${input:dataCloudNotes}",
+        "-SetDefault"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Salesforce: Orchestrate authenticated to SDM",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\scripts\\salesforce\\orchestrate-authenticated-to-sdm.ps1",
+        "-ManifestPath",
+        "${input:dataCloudManifestPath}",
+        "-TargetOrg",
+        "${input:sfAlias}",
+        "-DataCloudAlias",
+        "${input:dataCloudAlias}",
+        "-SourceName",
+        "${input:dataCloudSourceName}",
+        "-TargetKeyPrefix",
+        "${input:dataCloudTargetKeyPrefix}",
+        "-ObjectNamePrefix",
+        "${input:dataCloudObjectNamePrefix}",
+        "-TableauNextTargetKey",
+        "${input:tableauNextTargetKey}",
+        "-WorkspaceDeveloperName",
+        "${input:tableauNextWorkspaceDeveloperName}",
+        "-ModelApiName",
+        "${input:tableauNextModelApiName}",
+        "-ModelLabel",
+        "${input:tableauNextModelLabel}",
+        "-OutputPath",
+        "${workspaceFolder}\\tmp\\authenticated-to-sdm-state.json"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Salesforce: Orchestrate authenticated to SDM and apply",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\scripts\\salesforce\\orchestrate-authenticated-to-sdm.ps1",
+        "-ManifestPath",
+        "${input:dataCloudManifestPath}",
+        "-TargetOrg",
+        "${input:sfAlias}",
+        "-DataCloudAlias",
+        "${input:dataCloudAlias}",
+        "-SourceName",
+        "${input:dataCloudSourceName}",
+        "-TargetKeyPrefix",
+        "${input:dataCloudTargetKeyPrefix}",
+        "-ObjectNamePrefix",
+        "${input:dataCloudObjectNamePrefix}",
+        "-TableauNextTargetKey",
+        "${input:tableauNextTargetKey}",
+        "-WorkspaceDeveloperName",
+        "${input:tableauNextWorkspaceDeveloperName}",
+        "-ModelApiName",
+        "${input:tableauNextModelApiName}",
+        "-ModelLabel",
+        "${input:tableauNextModelLabel}",
+        "-ApplySemanticModel",
+        "-OutputPath",
+        "${workspaceFolder}\\tmp\\authenticated-to-sdm-apply-state.json"
+      ],
+      "problemMatcher": []
+    },
+    {
       "label": "Tableau: Auth status",
       "type": "shell",
       "command": "powershell",
@@ -254,6 +352,109 @@
         "${workspaceFolder}\\scripts\\tableau\\list-content.ps1",
         "-TargetKey",
         "${input:tableauTargetKey}"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Tableau Next: List workspaces",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\scripts\\tableau\\list-next-workspaces.ps1",
+        "-TargetOrg",
+        "${input:sfAlias}"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Tableau Next: List semantic models",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\scripts\\tableau\\list-next-semantic-models.ps1",
+        "-TargetOrg",
+        "${input:sfAlias}"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Tableau Next: Register target",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\scripts\\tableau\\register-next-target.ps1",
+        "-TargetKey",
+        "${input:tableauNextTargetKey}",
+        "-TargetOrg",
+        "${input:sfAlias}",
+        "-WorkspaceId",
+        "${input:tableauNextWorkspaceId}",
+        "-SemanticModelId",
+        "${input:tableauNextSemanticModelId}"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Tableau Next: Inspect target",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\scripts\\tableau\\inspect-next-target.ps1",
+        "-TargetKey",
+        "${input:tableauNextTargetKey}"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Tableau Next: Inspect semantic model",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\scripts\\tableau\\inspect-next-semantic-model.ps1",
+        "-TargetKey",
+        "${input:tableauNextTargetKey}",
+        "-SemanticModelId",
+        "${input:tableauNextSemanticModelInspectId}"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Tableau Next: Build semantic-model request",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\scripts\\tableau\\upsert-next-semantic-model.ps1",
+        "-TargetKey",
+        "${input:tableauNextTargetKey}",
+        "-ModelApiName",
+        "${input:tableauNextModelApiName}",
+        "-ModelLabel",
+        "${input:tableauNextModelLabel}",
+        "-ObjectApiName",
+        "${input:tableauNextObjectApiNames}",
+        "-PrimaryObjectApiName",
+        "${input:tableauNextPrimaryObjectApiName}",
+        "-OutputPath",
+        "${workspaceFolder}\\tmp\\tableau-next-sdm.request.json",
+        "-Json"
       ],
       "problemMatcher": []
     },
@@ -320,781 +521,118 @@
       "default": ""
     },
     {
+      "id": "dataCloudManifestPath",
+      "type": "promptString",
+      "description": "Path to the manifest.json file for a multi-table dataset",
+      "default": "${workspaceFolder}\\Demos\\Sunrun Demo\\manifest.json"
+    },
+    {
+      "id": "dataCloudAlias",
+      "type": "promptString",
+      "description": "Dedicated Data Cloud auth alias",
+      "default": "STORM_TABLEAU_NEXT_DC"
+    },
+    {
+      "id": "dataCloudLoginUrl",
+      "type": "promptString",
+      "description": "Salesforce login or My Domain URL for Data Cloud auth",
+      "default": "https://storm-8bdc14a63d953e.my.salesforce.com"
+    },
+    {
+      "id": "dataCloudTargetKeyPrefix",
+      "type": "promptString",
+      "description": "Prefix for generated Data Cloud target keys",
+      "default": "sunrun"
+    },
+    {
+      "id": "dataCloudSourceName",
+      "type": "promptString",
+      "description": "Shared Data Cloud sourceName for the dataset",
+      "default": "sunrun_ingest_api"
+    },
+    {
+      "id": "dataCloudObjectNamePrefix",
+      "type": "promptString",
+      "description": "Prefix for generated Data Cloud object names",
+      "default": "sunrun"
+    },
+    {
+      "id": "dataCloudTenantEndpoint",
+      "type": "promptString",
+      "description": "Tenant endpoint if already known; leave blank to derive during auth/validation",
+      "default": ""
+    },
+    {
+      "id": "dataCloudCategory",
+      "type": "promptString",
+      "description": "Category label for generated targets",
+      "default": "Sunrun Residential Solar Operations"
+    },
+    {
+      "id": "dataCloudNotes",
+      "type": "promptString",
+      "description": "Non-secret notes to store with generated targets",
+      "default": "Guided manifest setup"
+    },
+    {
       "id": "tableauTargetKey",
       "type": "promptString",
       "description": "Tableau target key from notes/registries/tableau-targets.json",
       "default": "default"
+    },
+    {
+      "id": "tableauNextTargetKey",
+      "type": "promptString",
+      "description": "Tableau Next target key",
+      "default": "juju-demo-sdm"
+    },
+    {
+      "id": "tableauNextWorkspaceId",
+      "type": "promptString",
+      "description": "Tableau Next workspace id",
+      "default": "1DyKZ000000kA8f0AE"
+    },
+    {
+      "id": "tableauNextWorkspaceDeveloperName",
+      "type": "promptString",
+      "description": "Tableau Next workspace developer name",
+      "default": "Juju_Demo"
+    },
+    {
+      "id": "tableauNextSemanticModelId",
+      "type": "promptString",
+      "description": "Existing Tableau Next semantic model id (optional)",
+      "default": ""
+    },
+    {
+      "id": "tableauNextSemanticModelInspectId",
+      "type": "promptString",
+      "description": "Semantic model id to inspect when the target does not already pin one",
+      "default": ""
+    },
+    {
+      "id": "tableauNextModelApiName",
+      "type": "promptString",
+      "description": "Semantic model API name",
+      "default": "Juju_Demo_Semantic"
+    },
+    {
+      "id": "tableauNextModelLabel",
+      "type": "promptString",
+      "description": "Semantic model label",
+      "default": "Juju Demo Semantic"
+    },
+    {
+      "id": "tableauNextObjectApiNames",
+      "type": "promptString",
+      "description": "Comma-separated Data Cloud object API names",
+      "default": "sunrun2_projects,sunrun2_affiliates"
+    },
+    {
+      "id": "tableauNextPrimaryObjectApiName",
+      "type": "promptString",
+      "description": "Primary Data Cloud object API name",
+      "default": "sunrun2_projects"
     }
   ]
 }
-  *** Add File: c:\Users\Andrew Hill\CommandCenter\notes\registries\data-cloud-targets.json
-  {
-    "defaultTargetKey": "",
-    "targets": []
-  }
-  *** Add File: c:\Users\Andrew Hill\CommandCenter\scripts\salesforce\DataCloud.Common.ps1
-  Set-StrictMode -Version Latest
-  $ErrorActionPreference = 'Stop'
-
-  . (Join-Path $PSScriptRoot '..\common\CommandCenter.Common.ps1')
-
-  function ConvertTo-FormUrlEncoded {
-    param(
-      [Parameter(Mandatory = $true)]
-      [hashtable]$Values
-    )
-
-    $pairs = foreach ($key in $Values.Keys) {
-      $value = $Values[$key]
-      if ($null -eq $value -or [string]::IsNullOrWhiteSpace([string]$value)) {
-        continue
-      }
-
-      '{0}={1}' -f [Uri]::EscapeDataString([string]$key), [Uri]::EscapeDataString([string]$value)
-    }
-
-    return ($pairs -join '&')
-  }
-
-  function Normalize-DataCloudUrl {
-    param(
-      [string]$Value
-    )
-
-    if ([string]::IsNullOrWhiteSpace($Value)) {
-      return ''
-    }
-
-    $trimmed = $Value.Trim()
-    if ($trimmed -match '^https?://') {
-      return $trimmed.TrimEnd('/')
-    }
-
-    return ('https://{0}' -f $trimmed.Trim('/')).TrimEnd('/')
-  }
-
-  function Get-DataCloudRegistryPath {
-    return Resolve-CommandCenterPath 'notes/registries/data-cloud-targets.json'
-  }
-
-  function Get-DataCloudRegistry {
-    $registryPath = Get-DataCloudRegistryPath
-    $registry = Read-JsonFile -Path $registryPath
-
-    if ($null -eq $registry) {
-      return [pscustomobject]@{
-        defaultTargetKey = ''
-        targets = @()
-      }
-    }
-
-    if ($null -eq $registry.targets) {
-      $registry | Add-Member -NotePropertyName 'targets' -NotePropertyValue @() -Force
-    }
-
-    if ($null -eq $registry.defaultTargetKey) {
-      $registry | Add-Member -NotePropertyName 'defaultTargetKey' -NotePropertyValue '' -Force
-    }
-
-    return $registry
-  }
-
-  function Save-DataCloudRegistry {
-    param(
-      [Parameter(Mandatory = $true)]
-      [object]$Registry
-    )
-
-    Write-JsonFile -Path (Get-DataCloudRegistryPath) -Value $Registry
-  }
-
-  function Get-DataCloudTargetConfiguration {
-    param(
-      [string]$TargetKey
-    )
-
-    Import-CommandCenterEnv
-    $registry = Get-DataCloudRegistry
-
-    $resolvedTargetKey = $TargetKey
-    if ([string]::IsNullOrWhiteSpace($resolvedTargetKey)) {
-      if (-not [string]::IsNullOrWhiteSpace($env:DATACLOUD_DEFAULT_TARGET)) {
-        $resolvedTargetKey = $env:DATACLOUD_DEFAULT_TARGET
-      } elseif (-not [string]::IsNullOrWhiteSpace($registry.defaultTargetKey)) {
-        $resolvedTargetKey = $registry.defaultTargetKey
-      }
-    }
-
-    $target = $null
-    if (-not [string]::IsNullOrWhiteSpace($resolvedTargetKey)) {
-      $target = @($registry.targets | Where-Object { $_.key -eq $resolvedTargetKey } | Select-Object -First 1)
-      if ($target.Count -eq 0) {
-        throw "Data Cloud target '$resolvedTargetKey' was not found in notes/registries/data-cloud-targets.json."
-      }
-
-      $target = $target[0]
-    }
-
-    return [pscustomobject]@{
-      TargetKey = $resolvedTargetKey
-      LoginUrl = if (-not [string]::IsNullOrWhiteSpace($env:DATACLOUD_LOGIN_URL)) { Normalize-DataCloudUrl -Value $env:DATACLOUD_LOGIN_URL } elseif ($null -ne $target -and -not [string]::IsNullOrWhiteSpace($target.loginUrl)) { Normalize-DataCloudUrl -Value $target.loginUrl } elseif (-not [string]::IsNullOrWhiteSpace($env:SF_LOGIN_URL)) { Normalize-DataCloudUrl -Value $env:SF_LOGIN_URL } else { 'https://login.salesforce.com' }
-      TenantEndpoint = if (-not [string]::IsNullOrWhiteSpace($env:DATACLOUD_TENANT_ENDPOINT)) { Normalize-DataCloudUrl -Value $env:DATACLOUD_TENANT_ENDPOINT } elseif ($null -ne $target -and -not [string]::IsNullOrWhiteSpace($target.tenantEndpoint)) { Normalize-DataCloudUrl -Value $target.tenantEndpoint } else { '' }
-      SourceName = if (-not [string]::IsNullOrWhiteSpace($env:DATACLOUD_SOURCE_NAME)) { $env:DATACLOUD_SOURCE_NAME } elseif ($null -ne $target) { $target.sourceName } else { '' }
-      ObjectName = if (-not [string]::IsNullOrWhiteSpace($env:DATACLOUD_OBJECT_NAME)) { $env:DATACLOUD_OBJECT_NAME } elseif ($null -ne $target) { $target.objectName } else { '' }
-      ObjectEndpoint = if (-not [string]::IsNullOrWhiteSpace($env:DATACLOUD_OBJECT_ENDPOINT)) { $env:DATACLOUD_OBJECT_ENDPOINT } elseif ($null -ne $target) { $target.objectEndpoint } else { '' }
-      SalesforceAlias = if ($null -ne $target) { $target.salesforceAlias } else { '' }
-      DataStreamLabel = if ($null -ne $target) { $target.dataStreamLabel } else { '' }
-      Category = if ($null -ne $target) { $target.category } else { '' }
-      PrimaryKey = if ($null -ne $target) { $target.primaryKey } else { '' }
-      RecordModifiedField = if ($null -ne $target) { $target.recordModifiedField } else { '' }
-      SchemaPath = if ($null -ne $target) { $target.schemaPath } else { '' }
-      Notes = if ($null -ne $target) { $target.notes } else { '' }
-      Registry = $registry
-      Target = $target
-    }
-  }
-
-  function Get-DataCloudErrorMessage {
-    param(
-      [Parameter(Mandatory = $true)]
-      [System.Management.Automation.ErrorRecord]$ErrorRecord
-    )
-
-    $message = $ErrorRecord.Exception.Message
-    $response = $ErrorRecord.Exception.Response
-    if ($null -eq $response) {
-      return $message
-    }
-
-    try {
-      $stream = $response.GetResponseStream()
-      if ($null -eq $stream) {
-        return $message
-      }
-
-      $reader = New-Object System.IO.StreamReader($stream)
-      $body = $reader.ReadToEnd()
-      if ([string]::IsNullOrWhiteSpace($body)) {
-        return $message
-      }
-
-      return "$message`n$body"
-    } catch {
-      return $message
-    }
-  }
-
-  function Get-DataCloudAccessContext {
-    param(
-      [string]$TargetKey
-    )
-
-    $config = Get-DataCloudTargetConfiguration -TargetKey $TargetKey
-
-    if (-not [string]::IsNullOrWhiteSpace($env:DATACLOUD_ACCESS_TOKEN)) {
-      if ([string]::IsNullOrWhiteSpace($config.TenantEndpoint)) {
-        throw 'DATACLOUD_ACCESS_TOKEN is set, but no tenant endpoint is available. Set DATACLOUD_TENANT_ENDPOINT or register the target with tenantEndpoint.'
-      }
-
-      return [pscustomobject]@{
-        AccessToken = $env:DATACLOUD_ACCESS_TOKEN
-        TenantEndpoint = $config.TenantEndpoint
-        Config = $config
-        TokenSource = 'direct-datacloud-token'
-      }
-    }
-
-    $salesforceAccessToken = $env:DATACLOUD_SF_ACCESS_TOKEN
-    $tokenExchangeUrl = ''
-
-    if ([string]::IsNullOrWhiteSpace($salesforceAccessToken)) {
-      if ([string]::IsNullOrWhiteSpace($env:DATACLOUD_CLIENT_ID) -or [string]::IsNullOrWhiteSpace($env:DATACLOUD_REFRESH_TOKEN)) {
-        throw 'No usable Data Cloud auth configuration was found. Set DATACLOUD_ACCESS_TOKEN and DATACLOUD_TENANT_ENDPOINT, or set DATACLOUD_CLIENT_ID and DATACLOUD_REFRESH_TOKEN for token exchange.'
-      }
-
-      $tokenRequestBody = @{
-        grant_type = 'refresh_token'
-        client_id = $env:DATACLOUD_CLIENT_ID
-        refresh_token = $env:DATACLOUD_REFRESH_TOKEN
-      }
-
-      if (-not [string]::IsNullOrWhiteSpace($env:DATACLOUD_CLIENT_SECRET)) {
-        $tokenRequestBody.client_secret = $env:DATACLOUD_CLIENT_SECRET
-      }
-
-      $salesforceTokenUrl = '{0}/services/oauth2/token' -f $config.LoginUrl
-
-      try {
-        $salesforceResponse = Invoke-RestMethod -Method Post -Uri $salesforceTokenUrl -ContentType 'application/x-www-form-urlencoded' -Body (ConvertTo-FormUrlEncoded -Values $tokenRequestBody)
-      } catch {
-        throw (Get-DataCloudErrorMessage -ErrorRecord $_)
-      }
-
-      $salesforceAccessToken = $salesforceResponse.access_token
-      $tokenExchangeUrl = if (-not [string]::IsNullOrWhiteSpace($env:DATACLOUD_TOKEN_EXCHANGE_URL)) { $env:DATACLOUD_TOKEN_EXCHANGE_URL } else { $salesforceResponse.instance_url }
-    } else {
-      $tokenExchangeUrl = $env:DATACLOUD_TOKEN_EXCHANGE_URL
-    }
-
-    if ([string]::IsNullOrWhiteSpace($tokenExchangeUrl)) {
-      throw 'A token exchange URL was not available. Set DATACLOUD_TOKEN_EXCHANGE_URL or use the refresh-token flow so the exchange URL comes back from Salesforce OAuth.'
-    }
-
-    $exchangeBody = @{
-      grant_type = 'urn:salesforce:grant-type:external:cdp'
-      subject_token = $salesforceAccessToken
-      subject_token_type = 'urn:ietf:params:oauth:token-type:access_token'
-    }
-
-    try {
-      $exchangeResponse = Invoke-RestMethod -Method Post -Uri $tokenExchangeUrl -ContentType 'application/x-www-form-urlencoded' -Body (ConvertTo-FormUrlEncoded -Values $exchangeBody)
-    } catch {
-      throw (Get-DataCloudErrorMessage -ErrorRecord $_)
-    }
-
-    $tenantEndpoint = if (-not [string]::IsNullOrWhiteSpace($config.TenantEndpoint)) {
-      $config.TenantEndpoint
-    } else {
-      Normalize-DataCloudUrl -Value $exchangeResponse.instance_url
-    }
-
-    if ([string]::IsNullOrWhiteSpace($tenantEndpoint)) {
-      throw 'Unable to determine the Data Cloud tenant endpoint. Register the target with tenantEndpoint or set DATACLOUD_TENANT_ENDPOINT.'
-    }
-
-    $resolvedConfig = [pscustomobject]@{
-      TargetKey = $config.TargetKey
-      LoginUrl = $config.LoginUrl
-      TenantEndpoint = $tenantEndpoint
-      SourceName = $config.SourceName
-      ObjectName = $config.ObjectName
-      ObjectEndpoint = $config.ObjectEndpoint
-      SalesforceAlias = $config.SalesforceAlias
-      DataStreamLabel = $config.DataStreamLabel
-      Category = $config.Category
-      PrimaryKey = $config.PrimaryKey
-      RecordModifiedField = $config.RecordModifiedField
-      SchemaPath = $config.SchemaPath
-      Notes = $config.Notes
-      Registry = $config.Registry
-      Target = $config.Target
-    }
-
-    return [pscustomobject]@{
-      AccessToken = $exchangeResponse.access_token
-      TenantEndpoint = $tenantEndpoint
-      Config = $resolvedConfig
-      TokenSource = 'salesforce-token-exchange'
-    }
-  }
-
-  function Invoke-DataCloudJsonRequest {
-    param(
-      [Parameter(Mandatory = $true)]
-      [object]$Context,
-      [Parameter(Mandatory = $true)]
-      [ValidateSet('Get', 'Post', 'Patch', 'Delete')]
-      [string]$Method,
-      [Parameter(Mandatory = $true)]
-      [string]$RelativePath,
-      [hashtable]$Query,
-      [object]$Body
-    )
-
-    $uri = '{0}{1}' -f $Context.TenantEndpoint, $RelativePath
-    if ($null -ne $Query -and $Query.Count -gt 0) {
-      $queryString = ConvertTo-FormUrlEncoded -Values $Query
-      if (-not [string]::IsNullOrWhiteSpace($queryString)) {
-        $uri = '{0}?{1}' -f $uri, $queryString
-      }
-    }
-
-    $headers = @{ Authorization = 'Bearer {0}' -f $Context.AccessToken }
-
-    try {
-      if ($PSBoundParameters.ContainsKey('Body')) {
-        return Invoke-RestMethod -Method $Method -Uri $uri -Headers $headers -ContentType 'application/json' -Body ($Body | ConvertTo-Json -Depth 10)
-      }
-
-      return Invoke-RestMethod -Method $Method -Uri $uri -Headers $headers
-    } catch {
-      throw (Get-DataCloudErrorMessage -ErrorRecord $_)
-    }
-  }
-
-  function Wait-DataCloudJobState {
-    param(
-      [Parameter(Mandatory = $true)]
-      [object]$Context,
-      [Parameter(Mandatory = $true)]
-      [string]$JobId,
-      [int]$PollSeconds = 15,
-      [int]$TimeoutSeconds = 900
-    )
-
-    $deadline = (Get-Date).ToUniversalTime().AddSeconds($TimeoutSeconds)
-    do {
-      $job = Invoke-DataCloudJsonRequest -Context $Context -Method Get -RelativePath ('/api/v1/ingest/jobs/{0}' -f $JobId)
-      if (@('JobComplete', 'Failed', 'Aborted') -contains $job.state) {
-        return $job
-      }
-
-      Start-Sleep -Seconds $PollSeconds
-    } while ((Get-Date).ToUniversalTime() -lt $deadline)
-
-    throw "Timed out waiting for Data Cloud job '$JobId' to reach a terminal state."
-  }
-  *** Add File: c:\Users\Andrew Hill\CommandCenter\scripts\salesforce\data-cloud-register-target.ps1
-  [CmdletBinding()]
-  param(
-    [Parameter(Mandatory = $true)]
-    [string]$TargetKey,
-    [Parameter(Mandatory = $true)]
-    [string]$SourceName,
-    [Parameter(Mandatory = $true)]
-    [string]$ObjectName,
-    [string]$TenantEndpoint,
-    [string]$ObjectEndpoint,
-    [string]$SalesforceAlias,
-    [string]$DataStreamLabel,
-    [string]$Category,
-    [string]$PrimaryKey,
-    [string]$RecordModifiedField,
-    [string]$SchemaPath,
-    [string]$Notes,
-    [switch]$SetDefault
-  )
-
-  Set-StrictMode -Version Latest
-  $ErrorActionPreference = 'Stop'
-
-  . (Join-Path $PSScriptRoot 'DataCloud.Common.ps1')
-
-  function New-CompactTargetRecord {
-    param(
-      [Parameter(Mandatory = $true)]
-      [hashtable]$Values
-    )
-
-    $record = [ordered]@{}
-    foreach ($key in $Values.Keys) {
-      $value = $Values[$key]
-      if ($null -eq $value) {
-        continue
-      }
-
-      if ($value -is [string] -and [string]::IsNullOrWhiteSpace($value)) {
-        continue
-      }
-
-      $record[$key] = $value
-    }
-
-    return [pscustomobject]$record
-  }
-
-  $registry = Get-DataCloudRegistry
-  $existingTargets = @($registry.targets)
-  $existingTarget = @($existingTargets | Where-Object { $_.key -eq $TargetKey } | Select-Object -First 1)
-  $createdAt = if ($existingTarget.Count -gt 0 -and -not [string]::IsNullOrWhiteSpace($existingTarget[0].createdAt)) { $existingTarget[0].createdAt } else { Get-UtcTimestamp }
-
-  $targetRecord = New-CompactTargetRecord -Values @{
-    key = $TargetKey
-    salesforceAlias = $SalesforceAlias
-    tenantEndpoint = if ([string]::IsNullOrWhiteSpace($TenantEndpoint)) { '' } else { Normalize-DataCloudUrl -Value $TenantEndpoint }
-    sourceName = $SourceName
-    objectName = $ObjectName
-    objectEndpoint = $ObjectEndpoint
-    dataStreamLabel = $DataStreamLabel
-    category = $Category
-    primaryKey = $PrimaryKey
-    recordModifiedField = $RecordModifiedField
-    schemaPath = $SchemaPath
-    notes = $Notes
-    createdAt = $createdAt
-    updatedAt = Get-UtcTimestamp
-  }
-
-  $updatedTargets = @($existingTargets | Where-Object { $_.key -ne $TargetKey }) + $targetRecord
-  $updatedRegistry = [pscustomobject]@{
-    defaultTargetKey = if ($SetDefault) { $TargetKey } elseif (-not [string]::IsNullOrWhiteSpace($registry.defaultTargetKey)) { $registry.defaultTargetKey } else { '' }
-    targets = @($updatedTargets | Sort-Object key)
-  }
-
-  Save-DataCloudRegistry -Registry $updatedRegistry
-  Write-Output $targetRecord
-  *** Add File: c:\Users\Andrew Hill\CommandCenter\scripts\salesforce\data-cloud-get-access-token.ps1
-  [CmdletBinding()]
-  param(
-    [string]$TargetKey,
-    [switch]$ShowToken,
-    [switch]$AsJson
-  )
-
-  Set-StrictMode -Version Latest
-  $ErrorActionPreference = 'Stop'
-
-  . (Join-Path $PSScriptRoot 'DataCloud.Common.ps1')
-
-  $context = Get-DataCloudAccessContext -TargetKey $TargetKey
-  $result = [ordered]@{
-    targetKey = $context.Config.TargetKey
-    tokenSource = $context.TokenSource
-    tenantEndpoint = $context.TenantEndpoint
-    sourceName = $context.Config.SourceName
-    objectName = $context.Config.ObjectName
-  }
-
-  if ($ShowToken) {
-    $result.accessToken = $context.AccessToken
-  }
-
-  $output = [pscustomobject]$result
-  if ($AsJson) {
-    $output | ConvertTo-Json -Depth 10
-  } else {
-    Write-Output $output
-  }
-  *** Add File: c:\Users\Andrew Hill\CommandCenter\scripts\salesforce\data-cloud-inspect-csv.ps1
-  [CmdletBinding()]
-  param(
-    [Parameter(Mandatory = $true)]
-    [string]$CsvPath,
-    [int]$SampleRows = 5
-  )
-
-  Set-StrictMode -Version Latest
-  $ErrorActionPreference = 'Stop'
-
-  $resolvedCsvPath = (Resolve-Path $CsvPath).Path
-  $fileInfo = Get-Item -Path $resolvedCsvPath
-  $rows = @(Import-Csv -Path $resolvedCsvPath | Select-Object -First $SampleRows)
-
-  $headers = @()
-  if ($rows.Count -gt 0) {
-    $headers = @($rows[0].PSObject.Properties.Name)
-  } else {
-    $headerLine = Get-Content -Path $resolvedCsvPath -TotalCount 1
-    if (-not [string]::IsNullOrWhiteSpace($headerLine)) {
-      $headers = @($headerLine.Split(',') | ForEach-Object { $_.Trim('"') })
-    }
-  }
-
-  $lineCount = (Get-Content -Path $resolvedCsvPath | Measure-Object -Line).Lines
-
-  $result = [pscustomobject]@{
-    csvPath = $resolvedCsvPath
-    sizeBytes = $fileInfo.Length
-    lineCount = $lineCount
-    estimatedDataRows = [Math]::Max($lineCount - 1, 0)
-    headers = $headers
-    sampleRows = $rows
-  }
-
-  Write-Output $result
-  *** Add File: c:\Users\Andrew Hill\CommandCenter\scripts\salesforce\data-cloud-upload-csv.ps1
-  [CmdletBinding()]
-  param(
-    [string]$TargetKey,
-    [Parameter(Mandatory = $true)]
-    [string]$CsvPath,
-    [ValidateSet('upsert', 'delete')]
-    [string]$Operation = 'upsert',
-    [bool]$WaitForCompletion = $true,
-    [int]$PollSeconds = 15,
-    [int]$TimeoutSeconds = 900
-  )
-
-  Set-StrictMode -Version Latest
-  $ErrorActionPreference = 'Stop'
-
-  . (Join-Path $PSScriptRoot 'DataCloud.Common.ps1')
-
-  $context = Get-DataCloudAccessContext -TargetKey $TargetKey
-  $config = $context.Config
-
-  if ([string]::IsNullOrWhiteSpace($config.SourceName)) {
-    throw 'A Data Cloud sourceName is required. Register the target or set DATACLOUD_SOURCE_NAME.'
-  }
-
-  if ([string]::IsNullOrWhiteSpace($config.ObjectName)) {
-    throw 'A Data Cloud objectName is required. Register the target or set DATACLOUD_OBJECT_NAME.'
-  }
-
-  $resolvedCsvPath = (Resolve-Path $CsvPath).Path
-  $fileInfo = Get-Item -Path $resolvedCsvPath
-  if ($fileInfo.Length -gt 150MB) {
-    throw 'Data Cloud bulk uploads require each CSV file to be 150 MB or smaller.'
-  }
-
-  Write-Host ('Creating Data Cloud bulk job for target {0}...' -f $(if ([string]::IsNullOrWhiteSpace($config.TargetKey)) { '<env>' } else { $config.TargetKey }))
-  $job = Invoke-DataCloudJsonRequest -Context $context -Method Post -RelativePath '/api/v1/ingest/jobs' -Body @{
-    object = $config.ObjectName
-    sourceName = $config.SourceName
-    operation = $Operation
-  }
-
-  $uploadUri = '{0}/api/v1/ingest/jobs/{1}/batches' -f $context.TenantEndpoint, $job.id
-  Write-Host ('Uploading {0} ({1} bytes) to job {2}...' -f $resolvedCsvPath, $fileInfo.Length, $job.id)
-  try {
-    Invoke-WebRequest -UseBasicParsing -Method Put -Uri $uploadUri -Headers @{ Authorization = 'Bearer {0}' -f $context.AccessToken } -ContentType 'text/csv' -InFile $resolvedCsvPath | Out-Null
-  } catch {
-    throw (Get-DataCloudErrorMessage -ErrorRecord $_)
-  }
-
-  Write-Host ('Closing job {0} for processing...' -f $job.id)
-  $closeResponse = Invoke-DataCloudJsonRequest -Context $context -Method Patch -RelativePath ('/api/v1/ingest/jobs/{0}' -f $job.id) -Body @{ state = 'UploadComplete' }
-
-  $finalJob = $closeResponse
-  if ($WaitForCompletion) {
-    Write-Host ('Waiting for job {0} to complete...' -f $job.id)
-    $finalJob = Wait-DataCloudJobState -Context $context -JobId $job.id -PollSeconds $PollSeconds -TimeoutSeconds $TimeoutSeconds
-  }
-
-  if ($finalJob.state -eq 'Failed') {
-    throw ('Data Cloud ingestion job {0} failed. Inspect the job with data-cloud-get-job.ps1.' -f $job.id)
-  }
-
-  Write-Output $finalJob
-  *** Add File: c:\Users\Andrew Hill\CommandCenter\scripts\salesforce\data-cloud-list-jobs.ps1
-  [CmdletBinding()]
-  param(
-    [string]$TargetKey,
-    [string]$States,
-    [int]$Limit = 20,
-    [int]$Offset = 0,
-    [string]$OrderBy = 'systemModstamp'
-  )
-
-  Set-StrictMode -Version Latest
-  $ErrorActionPreference = 'Stop'
-
-  . (Join-Path $PSScriptRoot 'DataCloud.Common.ps1')
-
-  $context = Get-DataCloudAccessContext -TargetKey $TargetKey
-  $query = @{
-    limit = $Limit
-    offset = $Offset
-    orderBy = $OrderBy
-  }
-
-  if (-not [string]::IsNullOrWhiteSpace($States)) {
-    $query.states = $States
-  }
-
-  $response = Invoke-DataCloudJsonRequest -Context $context -Method Get -RelativePath '/api/v1/ingest/jobs' -Query $query
-  if ($null -eq $response.data) {
-    Write-Output @()
-  } else {
-    Write-Output $response.data
-  }
-  *** Add File: c:\Users\Andrew Hill\CommandCenter\scripts\salesforce\data-cloud-get-job.ps1
-  [CmdletBinding()]
-  param(
-    [string]$TargetKey,
-    [Parameter(Mandatory = $true)]
-    [string]$JobId,
-    [bool]$WaitForTerminalState = $false,
-    [int]$PollSeconds = 15,
-    [int]$TimeoutSeconds = 900
-  )
-
-  Set-StrictMode -Version Latest
-  $ErrorActionPreference = 'Stop'
-
-  . (Join-Path $PSScriptRoot 'DataCloud.Common.ps1')
-
-  $context = Get-DataCloudAccessContext -TargetKey $TargetKey
-
-  if ($WaitForTerminalState) {
-    Write-Host ('Waiting for Data Cloud job {0} to reach a terminal state...' -f $JobId)
-    $job = Wait-DataCloudJobState -Context $context -JobId $JobId -PollSeconds $PollSeconds -TimeoutSeconds $TimeoutSeconds
-  } else {
-    $job = Invoke-DataCloudJsonRequest -Context $context -Method Get -RelativePath ('/api/v1/ingest/jobs/{0}' -f $JobId)
-  }
-
-  Write-Output $job
-  *** Add File: c:\Users\Andrew Hill\CommandCenter\playbooks\data-cloud-upload-csv.md
-  # Upload CSV to Data Cloud
-
-  ## Purpose
-
-  Use this playbook when you need to bulk-ingest a CSV file into an already configured Salesforce Data Cloud Ingestion API target.
-
-  ## Inputs
-
-  - Data Cloud target key from `notes/registries/data-cloud-targets.json`
-  - CSV file path
-  - Local auth secrets in `.env.local` or user environment variables
-
-  ## Prerequisites
-
-  - A Data Cloud Ingestion API connector already exists.
-  - The target object endpoint and connector name are known.
-  - A Data Cloud Ingestion API data stream already exists for the object.
-  - The CSV header row matches the fields defined in the data stream.
-  - The CSV file is 150 MB or smaller.
-  - One of these local auth patterns is available:
-    - `DATACLOUD_ACCESS_TOKEN` plus `DATACLOUD_TENANT_ENDPOINT`
-    - `DATACLOUD_CLIENT_ID` plus `DATACLOUD_REFRESH_TOKEN`, and `DATACLOUD_CLIENT_SECRET` if the connected app requires it
-
-  ## Exact Steps
-
-  1. Inspect the CSV before upload.
-
-  ```powershell
-  powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-inspect-csv.ps1 -CsvPath .\tmp\orders.csv
-  ```
-
-  2. Register the target if it is not already in the registry.
-
-  ```powershell
-  powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-register-target.ps1 -TargetKey orders-demo -SourceName ecomm_api -ObjectName Orders -TenantEndpoint https://your-tenant.c360a.salesforce.com -SetDefault
-  ```
-
-  3. Confirm auth resolves without printing the access token.
-
-  ```powershell
-  powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-get-access-token.ps1 -TargetKey orders-demo
-  ```
-
-  4. Upload the CSV and wait for completion.
-
-  ```powershell
-  powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-upload-csv.ps1 -TargetKey orders-demo -CsvPath .\tmp\orders.csv
-  ```
-
-  5. If the upload fails, inspect the job directly.
-
-  ```powershell
-  powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-get-job.ps1 -TargetKey orders-demo -JobId <job-id>
-  ```
-
-  ## Validation
-
-  - The upload script returns a job state of `JobComplete`.
-  - `scripts/salesforce/data-cloud-list-jobs.ps1` shows the job in a completed state.
-  - The target data stream shows the ingested records in Data Cloud.
-
-  ## Failure Modes
-
-  - `Open` or `UploadComplete` never transitions: auth or processing issue, or the wait timeout is too short.
-  - `Failed`: the CSV shape or field values do not match the configured data stream.
-  - `401` or `403`: local secrets or connected-app scopes are incorrect.
-  - `404`: wrong tenant endpoint or wrong job id.
-
-  ## Cleanup or Rollback
-
-  - Remove bad local secrets from `.env.local` or user environment variables.
-  - Fix the CSV or the data stream mapping, then rerun the upload with a new job.
-  - Update `notes/registries/data-cloud-targets.json` if the connector name or tenant endpoint changed.
-  *** Add File: c:\Users\Andrew Hill\CommandCenter\playbooks\set-up-data-cloud-ingestion-target.md
-  # Set Up Data Cloud Ingestion Target
-
-  ## Purpose
-
-  Use this playbook when a new CSV source needs a durable Data Cloud ingestion target that future uploads can reuse.
-
-  ## Inputs
-
-  - Salesforce org or Data Cloud tenant where the ingestion target will live
-  - Business-friendly target name
-  - CSV sample file
-  - Target object name
-  - Connector name
-
-  ## Prerequisites
-
-  - Data Cloud is provisioned in the target org.
-  - You can create or coordinate creation of an Ingestion API connector.
-  - You can create or coordinate creation of the matching Ingestion API data stream.
-  - You know where the object endpoint download is stored.
-
-  ## Exact Steps
-
-  1. Inspect the CSV to capture the header row and rough row count.
-
-  ```powershell
-  powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-inspect-csv.ps1 -CsvPath .\tmp\sample.csv
-  ```
-
-  2. In Data Cloud, create or update the Ingestion API connector and download the object endpoints.
-
-  3. In Data Cloud, create the Ingestion API data stream for the object and map the fields so the CSV header row matches the stream.
-
-  4. Register the non-secret target metadata in the repo.
-
-  ```powershell
-  powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-register-target.ps1 -TargetKey sample-target -SourceName sample_api -ObjectName SampleObject -TenantEndpoint https://your-tenant.c360a.salesforce.com -ObjectEndpoint /api/v1/ingest/sources/sample_api/SampleObject -Notes "CSV demo source"
-  ```
-
-  5. Add the local auth secrets to `.env.local`.
-
-  6. Validate the auth and target metadata.
-
-  ```powershell
-  powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-get-access-token.ps1 -TargetKey sample-target
-  ```
-
-  7. Run a small upload using the same target.
-
-  ## Validation
-
-  - The target exists in `notes/registries/data-cloud-targets.json`.
-  - The auth script returns the expected tenant endpoint.
-  - A small CSV upload finishes with `JobComplete`.
-
-  ## Failure Modes
-
-  - The connector exists but the object or field names do not match the CSV.
-  - The tenant endpoint is wrong or missing.
-  - The local auth secrets cannot exchange into a Data Cloud access token.
-
-  ## Cleanup or Rollback
-
-  - Remove stale target entries from `notes/registries/data-cloud-targets.json`.
-  - Rotate or remove bad secrets from `.env.local`.
-  - Delete or archive invalid sample CSV files from `tmp/`.
-  *** Add File: c:\Users\Andrew Hill\CommandCenter\skills\upload-csv-to-data-cloud.md
-  # Upload CSV to Data Cloud
-
-  ## Purpose
-
-  Bulk-upload CSV data into a configured Salesforce Data Cloud ingestion target using the Ingestion API job flow.
-
-  ## Required Inputs
-
-  - Target key from `notes/registries/data-cloud-targets.json`
-  - CSV path
-  - Local Data Cloud auth secrets in `.env.local` or user environment variables
-
-  ## Prerequisites
-
-  - The Data Cloud target is already configured and registered.
-  - The CSV header row matches the data stream fields.
-  - The file is 150 MB or smaller.
-
-  ## Exact Steps
-
-  1. Inspect the CSV with `scripts/salesforce/data-cloud-inspect-csv.ps1`.
-  2. Confirm the target metadata with `scripts/salesforce/data-cloud-register-target.ps1` or by reading the registry.
-  3. Confirm auth resolves with `scripts/salesforce/data-cloud-get-access-token.ps1`.
-  4. Upload with `scripts/salesforce/data-cloud-upload-csv.ps1`.
-  5. If needed, inspect the job with `scripts/salesforce/data-cloud-get-job.ps1` or `scripts/salesforce/data-cloud-list-jobs.ps1`.
-
-  ## Validation
-
-  - The upload command returns `JobComplete`.
-  - The data stream reflects the expected records.
-
-  ## Failure Modes
-
-  - Job fails because CSV headers, required fields, or value formats do not match the data stream.
-  - Auth fails because the connected app, refresh token, or direct Data Cloud token is not valid.
-  - Wrong tenant endpoint or connector metadata causes job creation or lookup failures.
-
-  ## Cleanup or Rollback
-
-  - Fix the CSV or target definition and rerun the upload as a new job.
-  - Remove bad local secrets or stale target metadata.
-  *** End Patch

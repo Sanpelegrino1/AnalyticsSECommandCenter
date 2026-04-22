@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataStreamDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <areHeadersIncludedInFile>false</areHeadersIncludedInFile>
+    <bulkIngest>false</bulkIngest>
+    <creationType>Custom</creationType>
+    <dataConnector>UploadedFiles</dataConnector>
+    <dataConnectorType>UploadedFiles</dataConnectorType>
+    <dataPlatformDataSetItemName>CONNECTORSFRAMEWORK</dataPlatformDataSetItemName>
+    <dataSource>UploadedFiles</dataSource>
+    <isLimitedToNewFiles>false</isLimitedToNewFiles>
+    <isMissingFileFailure>false</isMissingFileFailure>
+    <masterLabel>B2B SaaS Customer Renewals</masterLabel>
+    <mktDataLakeObject>B2B_SaaS_Customer_Renewalscsv__dll</mktDataLakeObject>
+    <mktDataTranObject>B2B_SaaS_Customer_Renewalscsv</mktDataTranObject>
+    <parameters>
+        <fullName>B2B_SaaS_Customer_Renewalscsv_delimiter</fullName>
+        <paramName>delimiter</paramName>
+        <value>,</value>
+    </parameters>
+    <parameters>
+        <fullName>B2B_SaaS_Customer_Renewalscsv_fileName</fullName>
+        <paramName>fileName</paramName>
+        <value>B2B_SaaS_Customer_Renewals.csv</value>
+    </parameters>
+    <parameters>
+        <fullName>B2B_SaaS_Customer_Renewalscsv_fileType</fullName>
+        <paramName>fileType</paramName>
+        <value>CSV</value>
+    </parameters>
+    <parameters>
+        <fullName>B2B_SaaS_Customer_Renewalscsv_importDirectory</fullName>
+        <paramName>importDirectory</paramName>
+        <value>005KZ000002apmsYAA/2026-03-31T05:45:52:312Z</value>
+    </parameters>
+    <parameters>
+        <fullName>B2B_SaaS_Customer_Renewalscsv_isDataStreamConfigValid</fullName>
+        <paramName>isDataStreamConfigValid</paramName>
+        <value>true</value>
+    </parameters>
+    <parameters>
+        <fullName>B2B_SaaS_Customer_Renewalscsv_parentDirectory</fullName>
+        <paramName>parentDirectory</paramName>
+        <value>s3://aws-prod21-useast2-cdp2-lakehouse-2/sfdrive/a360-prod21-0f25efad5b3e4f4d8424778e5a2e8f67/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload</value>
+    </parameters>
+</DataStreamDefinition>

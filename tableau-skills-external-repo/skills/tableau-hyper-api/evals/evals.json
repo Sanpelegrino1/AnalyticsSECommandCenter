@@ -1,0 +1,70 @@
+{
+  "skill_name": "writing-hyper-api-code",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a Python script that reads a CSV file of sales data and writes it to a .hyper file with columns for Date, Product, Quantity, and Revenue.",
+      "expected_output": "A Python script using tableauhyperapi with HyperProcess/Connection context managers, a TableDefinition with SqlType.date(), SqlType.text(), SqlType.int(), SqlType.double(), and a COPY FROM command with FORMAT csv and HEADER option.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I have an existing .hyper file and I need to update all rows in the Customers table where Segment is 'Consumer' to set their Loyalty Points to 1000. Show me how.",
+      "expected_output": "A Python script that opens the existing file with CreateMode.NONE, uses execute_command with an UPDATE statement, and uses escape_name/escape_string_literal for safe SQL construction. Should NOT use CreateMode.CREATE_AND_REPLACE (would destroy existing data).",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Write code to load a pandas DataFrame with geospatial coordinates into a Hyper file, storing the locations as Tableau geography type.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "I have 4 tables in PostgreSQL (Orders, Customers, Products, and Order_Details). Show me how to use the Hyper API to create a single denormalized Hyper file by joining these tables in SQL.",
+      "expected_output": "Uses psycopg2 to execute a JOIN query across the 4 tables, then iterates over results using tableauhyperapi.Inserter with a TableDefinition that represents the joined flat schema. Should use context managers for both DB connection and Hyper API objects.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "I want to load 4 PostgreSQL tables (Orders, Customers, Products, and Order_Details) into a single .hyper file as separate tables. How do I do this using the Hyper API?",
+      "expected_output": "A script that defines 4 separate TableDefinition objects and performs 4 independent load operations (one per table) within the same Connection and HyperProcess context. This allows Tableau to handle relationships in its logical layer.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "I need to move millions of rows from PostgreSQL to Hyper efficiently. Show me a high-performance ETL pattern using the Hyper API, such as streaming or using COPY FROM.",
+      "expected_output": "Demonstrates an optimized path such as using PostgreSQL's COPY TO STDOUT and Hyper's execute_command with COPY FROM, or using an intermediate CSV/Parquet file to leverage Hyper's high-speed bulk loader instead of row-by-row Inserter logic for large volumes.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "I have a large daily sales extract. Show me how to append only today's new records to the existing .hyper file without rebuilding the entire extract.",
+      "expected_output": "Opens the Hyper file with CreateMode.NONE, then uses tableauhyperapi.Inserter or execute_command with an INSERT INTO statement to append new rows. Stresses that CreateMode.CREATE_AND_REPLACE must NOT be used as it wipes existing data.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "My source data now includes a 'DiscountCode' column. How do I add this new column to an existing .hyper file using the Hyper API?",
+      "expected_output": "Uses connection.execute_command with an 'ALTER TABLE ... ADD COLUMN' SQL statement. Demonstrates that the Hyper API supports standard SQL for schema modifications on existing files.",
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "I have two separate .hyper files, 'January.hyper' and 'February.hyper'. Show me how to merge 'February' into 'January' using the Hyper API.",
+      "expected_output": "Uses connection.execute_command with an 'ATTACH DATABASE' statement to link the second file, followed by an 'INSERT INTO ... SELECT * FROM attached_db.table' to merge the data efficiently without round-tripping through Python objects.",
+      "files": []
+    },
+    {
+      "id": 10,
+      "prompt": "After creating a Hyper extract, I want to verify that there are no NULL values in the 'OrderID' column. How do I run this QA check using the Hyper API?",
+      "expected_output": "Uses connection.execute_scalar_query with 'SELECT COUNT(*) FROM table WHERE \"OrderID\" IS NULL' and validates that the result is 0. Demonstrates how to use Hyper as a query engine for post-ingestion validation.",
+      "files": []
+    },
+    {
+      "id": 11,
+      "prompt": "I am loading data that might have duplicate records. Show me how to use Hyper's SQL engine to ensure only unique rows are stored in the final table.",
+      "expected_output": "Uses a two-step process: loading raw data into a temporary table, then using 'INSERT INTO final_table SELECT DISTINCT * FROM temp_table' to ensure uniqueness. Leverage Hyper's optimized SQL engine for the de-duplication step.",
+      "files": []
+    }
+  ]
+}

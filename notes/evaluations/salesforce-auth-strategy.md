@@ -1,3 +1,6 @@
+# Salesforce Auth Strategy
+
+This note was archived during repo cleanup. See `recycling-bin/2026-04-21-repo-cleanup/notes/evaluations/salesforce-auth-strategy.md` for the staged historical copy.
 # Salesforce Auth Strategy Evaluation
 
 ## Question
@@ -88,6 +91,14 @@ Use this only for short-lived troubleshooting or constrained automation because 
 
 ## Operational Guidance
 
+Dependency chain for the preferred interactive Data Cloud path:
+
+1. Log in with `scripts/salesforce/login-web.ps1` using the normal org alias.
+2. Deploy `CommandCenterAuth` with `scripts/salesforce/setup-command-center-connected-app.ps1` using that normal org alias.
+3. Complete any remaining manual Salesforce Setup and Data Cloud Setup work for the org.
+4. Log in with `scripts/salesforce/data-cloud-login-web.ps1` using the separate Data Cloud alias.
+5. Validate with `scripts/salesforce/data-cloud-get-access-token.ps1 -AsJson` and confirm `tokenSource`.
+
 ### For normal org tasks
 
 Use:
@@ -106,6 +117,11 @@ Use:
 - `scripts/salesforce/data-cloud-get-access-token.ps1`
 - `scripts/salesforce/data-cloud-upload-csv.ps1`
 - `scripts/salesforce/data-cloud-upload-manifest.ps1`
+
+Operator note:
+
+- `setup-command-center-connected-app.ps1 -LaunchLogin` should be given a dedicated `-DataCloudAlias` and should not reuse the normal org alias.
+- When validation succeeds, `data-cloud-get-access-token.ps1 -AsJson` shows the active auth source through `tokenSource` and the resolved dedicated alias through `salesforceAlias`.
 
 ### Registry guidance
 

@@ -1,9 +1,3 @@
-# Upstream Evaluation Notes
+# Evaluations
 
-This folder stores fact-finding and selective-adoption assessments for external repositories reviewed against this workspace.
-
-Current evaluations:
-- `tableau-next-claude-skills.md`
-- `tableau-skills.md`
-
-These documents are planning artifacts. They do not imply adoption and should be updated or superseded if upstream repositories change.
+Active evaluation notes were staged out during the 2026-04-21 cleanup pass and now live under `recycling-bin/2026-04-21-repo-cleanup/notes/evaluations/` unless they were recreated here as current live references.

@@ -1,0 +1,1188 @@
+{
+    "label": "Performance Overview - Full Page",
+    "layouts": [
+        {
+            "columnCount": 72,
+            "name": "default",
+            "pages": [
+                {
+                    "label": "Week for Chart",
+                    "name": "12f04f31-55fd-448d-a125-50ae76346d84",
+                    "widgets": [
+                        {
+                            "colspan": 25,
+                            "column": 1,
+                            "name": "text_1",
+                            "row": 1,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 12,
+                            "column": 33,
+                            "name": "list_3",
+                            "row": 1,
+                            "rowspan": 4
+                        },
+                        {
+                            "colspan": 12,
+                            "column": 46,
+                            "name": "list_4",
+                            "row": 1,
+                            "rowspan": 4
+                        },
+                        {
+                            "colspan": 12,
+                            "column": 59,
+                            "name": "list_5",
+                            "row": 1,
+                            "rowspan": 4
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_1",
+                            "row": 6,
+                            "rowspan": 47
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 2,
+                            "name": "text_3",
+                            "row": 7,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 24,
+                            "column": 2,
+                            "name": "metric_1",
+                            "row": 10,
+                            "rowspan": 19
+                        },
+                        {
+                            "colspan": 21,
+                            "column": 27,
+                            "name": "metric_2",
+                            "row": 10,
+                            "rowspan": 9
+                        },
+                        {
+                            "colspan": 21,
+                            "column": 49,
+                            "name": "metric_4",
+                            "row": 10,
+                            "rowspan": 9
+                        },
+                        {
+                            "colspan": 21,
+                            "column": 27,
+                            "name": "metric_5",
+                            "row": 20,
+                            "rowspan": 9
+                        },
+                        {
+                            "colspan": 21,
+                            "column": 49,
+                            "name": "metric_6",
+                            "row": 20,
+                            "rowspan": 9
+                        },
+                        {
+                            "colspan": 24,
+                            "column": 2,
+                            "name": "visualization_1",
+                            "row": 32,
+                            "rowspan": 20
+                        },
+                        {
+                            "colspan": 4,
+                            "column": 65,
+                            "name": "button_1",
+                            "row": 30,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 4,
+                            "column": 61,
+                            "name": "button_2",
+                            "row": 30,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 4,
+                            "column": 57,
+                            "name": "button_3",
+                            "row": 30,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 43,
+                            "column": 27,
+                            "name": "visualization_4",
+                            "row": 32,
+                            "rowspan": 20
+                        },
+                        {
+                            "colspan": 18,
+                            "column": 27,
+                            "name": "text_2",
+                            "row": 30,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 18,
+                            "column": 2,
+                            "name": "text_4",
+                            "row": 30,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_2",
+                            "row": 54,
+                            "rowspan": 29
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 2,
+                            "name": "text_5",
+                            "row": 55,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 68,
+                            "column": 2,
+                            "name": "visualization_3",
+                            "row": 58,
+                            "rowspan": 24
+                        }
+                    ]
+                },
+                {
+                    "label": "Month for Chart",
+                    "name": "2d4c76c0-d4e7-4059-bbfe-e94823c71c5c",
+                    "widgets": [
+                        {
+                            "colspan": 25,
+                            "column": 1,
+                            "name": "text_1",
+                            "row": 1,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 12,
+                            "column": 33,
+                            "name": "list_3",
+                            "row": 1,
+                            "rowspan": 4
+                        },
+                        {
+                            "colspan": 12,
+                            "column": 46,
+                            "name": "list_4",
+                            "row": 1,
+                            "rowspan": 4
+                        },
+                        {
+                            "colspan": 12,
+                            "column": 59,
+                            "name": "list_5",
+                            "row": 1,
+                            "rowspan": 4
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_1",
+                            "row": 6,
+                            "rowspan": 47
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 2,
+                            "name": "text_3",
+                            "row": 7,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 24,
+                            "column": 2,
+                            "name": "metric_1",
+                            "row": 10,
+                            "rowspan": 19
+                        },
+                        {
+                            "colspan": 21,
+                            "column": 27,
+                            "name": "metric_2",
+                            "row": 10,
+                            "rowspan": 9
+                        },
+                        {
+                            "colspan": 21,
+                            "column": 49,
+                            "name": "metric_4",
+                            "row": 10,
+                            "rowspan": 9
+                        },
+                        {
+                            "colspan": 21,
+                            "column": 27,
+                            "name": "metric_5",
+                            "row": 20,
+                            "rowspan": 9
+                        },
+                        {
+                            "colspan": 21,
+                            "column": 49,
+                            "name": "metric_6",
+                            "row": 20,
+                            "rowspan": 9
+                        },
+                        {
+                            "colspan": 24,
+                            "column": 2,
+                            "name": "visualization_1",
+                            "row": 32,
+                            "rowspan": 20
+                        },
+                        {
+                            "colspan": 43,
+                            "column": 27,
+                            "name": "visualization_2",
+                            "row": 32,
+                            "rowspan": 20
+                        },
+                        {
+                            "colspan": 4,
+                            "column": 57,
+                            "name": "button_3",
+                            "row": 30,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 4,
+                            "column": 65,
+                            "name": "button_4",
+                            "row": 30,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 4,
+                            "column": 61,
+                            "name": "button_5",
+                            "row": 30,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 18,
+                            "column": 27,
+                            "name": "text_2",
+                            "row": 30,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 18,
+                            "column": 2,
+                            "name": "text_4",
+                            "row": 30,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_2",
+                            "row": 54,
+                            "rowspan": 29
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 2,
+                            "name": "text_5",
+                            "row": 55,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 68,
+                            "column": 2,
+                            "name": "visualization_3",
+                            "row": 58,
+                            "rowspan": 24
+                        }
+                    ]
+                },
+                {
+                    "label": "Day for Chart",
+                    "name": "b7236008-496d-46b9-a6df-570ecfc57e70",
+                    "widgets": [
+                        {
+                            "colspan": 25,
+                            "column": 1,
+                            "name": "text_1",
+                            "row": 1,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 12,
+                            "column": 33,
+                            "name": "list_3",
+                            "row": 1,
+                            "rowspan": 4
+                        },
+                        {
+                            "colspan": 12,
+                            "column": 46,
+                            "name": "list_4",
+                            "row": 1,
+                            "rowspan": 4
+                        },
+                        {
+                            "colspan": 12,
+                            "column": 59,
+                            "name": "list_5",
+                            "row": 1,
+                            "rowspan": 4
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_1",
+                            "row": 6,
+                            "rowspan": 47
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 2,
+                            "name": "text_3",
+                            "row": 7,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 24,
+                            "column": 2,
+                            "name": "metric_1",
+                            "row": 10,
+                            "rowspan": 19
+                        },
+                        {
+                            "colspan": 21,
+                            "column": 27,
+                            "name": "metric_2",
+                            "row": 10,
+                            "rowspan": 9
+                        },
+                        {
+                            "colspan": 21,
+                            "column": 49,
+                            "name": "metric_4",
+                            "row": 10,
+                            "rowspan": 9
+                        },
+                        {
+                            "colspan": 21,
+                            "column": 27,
+                            "name": "metric_5",
+                            "row": 20,
+                            "rowspan": 9
+                        },
+                        {
+                            "colspan": 21,
+                            "column": 49,
+                            "name": "metric_6",
+                            "row": 20,
+                            "rowspan": 9
+                        },
+                        {
+                            "colspan": 24,
+                            "column": 2,
+                            "name": "visualization_1",
+                            "row": 32,
+                            "rowspan": 20
+                        },
+                        {
+                            "colspan": 4,
+                            "column": 65,
+                            "name": "button_1",
+                            "row": 30,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 4,
+                            "column": 57,
+                            "name": "button_6",
+                            "row": 30,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 4,
+                            "column": 61,
+                            "name": "button_5",
+                            "row": 30,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 43,
+                            "column": 27,
+                            "name": "visualization_6",
+                            "row": 32,
+                            "rowspan": 20
+                        },
+                        {
+                            "colspan": 18,
+                            "column": 27,
+                            "name": "text_2",
+                            "row": 30,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 18,
+                            "column": 2,
+                            "name": "text_4",
+                            "row": 30,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_2",
+                            "row": 54,
+                            "rowspan": 29
+                        },
+                        {
+                            "colspan": 15,
+                            "column": 2,
+                            "name": "text_5",
+                            "row": 55,
+                            "rowspan": 2
+                        },
+                        {
+                            "colspan": 68,
+                            "column": 2,
+                            "name": "visualization_3",
+                            "row": 58,
+                            "rowspan": 24
+                        }
+                    ]
+                }
+            ],
+            "rowHeight": 10,
+            "style": {
+                "backgroundColor": "#f3f3f3",
+                "cellSpacingX": 0,
+                "cellSpacingY": 8,
+                "gutterColor": "#ffffff"
+            }
+        }
+    ],
+    "name": "Performance_Overview_Full_Page",
+    "style": {
+        "widgetStyle": {
+            "backgroundColor": "#ffffff",
+            "borderColor": "#cccccc",
+            "borderEdges": [],
+            "borderRadius": 0,
+            "borderWidth": 1
+        }
+    },
+    "templateSource": {
+        "assetName": "Performance_Overview_Full_Page",
+        "name": "sfdc_internal__Performance_Overview"
+    },
+    "widgets": {
+        "visualization_2": {
+            "actions": [],
+            "name": "visualization_2",
+            "parameters": {
+                "legendPosition": "Bottom",
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 12
+                }
+            },
+            "status": "Ok",
+            "type": "visualization"
+        },
+        "visualization_1": {
+            "actions": [],
+            "name": "visualization_1",
+            "parameters": {
+                "legendPosition": "Bottom",
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 12
+                }
+            },
+            "status": "Ok",
+            "type": "visualization"
+        },
+        "visualization_4": {
+            "actions": [],
+            "name": "visualization_4",
+            "parameters": {
+                "legendPosition": "Bottom",
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 12
+                }
+            },
+            "status": "Ok",
+            "type": "visualization"
+        },
+        "visualization_3": {
+            "actions": [],
+            "name": "visualization_3",
+            "parameters": {
+                "legendPosition": "Right",
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                }
+            },
+            "status": "Ok",
+            "type": "visualization"
+        },
+        "visualization_6": {
+            "actions": [],
+            "name": "visualization_6",
+            "parameters": {
+                "legendPosition": "Bottom",
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 12
+                }
+            },
+            "status": "Ok",
+            "type": "visualization"
+        },
+        "button_2": {
+            "actions": [
+                {
+                    "actionType": "navigate",
+                    "eventType": "click",
+                    "parameters": {
+                        "destination": {
+                            "target": "12f04f31-55fd-448d-a125-50ae76346d84",
+                            "type": "page"
+                        }
+                    }
+                }
+            ],
+            "name": "button_2",
+            "parameters": {
+                "alignmentX": "center",
+                "alignmentY": "center",
+                "fontSize": 16,
+                "text": "Week",
+                "widgetStyle": {
+                    "backgroundColor": "#066AFE",
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "fontColor": "#ffffff",
+                    "textStyle": []
+                }
+            },
+            "status": "Ok",
+            "type": "button"
+        },
+        "button_1": {
+            "actions": [
+                {
+                    "actionType": "navigate",
+                    "eventType": "click",
+                    "parameters": {
+                        "destination": {
+                            "target": "2d4c76c0-d4e7-4059-bbfe-e94823c71c5c",
+                            "type": "page"
+                        }
+                    }
+                }
+            ],
+            "name": "button_1",
+            "parameters": {
+                "alignmentX": "center",
+                "alignmentY": "center",
+                "fontSize": 16,
+                "text": "Month",
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "right",
+                        "top",
+                        "bottom"
+                    ],
+                    "fontColor": "#0250D9",
+                    "textStyle": []
+                }
+            },
+            "status": "Ok",
+            "type": "button"
+        },
+        "button_4": {
+            "actions": [
+                {
+                    "actionType": "navigate",
+                    "eventType": "click",
+                    "parameters": {
+                        "destination": {
+                            "target": "2d4c76c0-d4e7-4059-bbfe-e94823c71c5c",
+                            "type": "page"
+                        }
+                    }
+                }
+            ],
+            "name": "button_4",
+            "parameters": {
+                "alignmentX": "center",
+                "alignmentY": "center",
+                "fontSize": 16,
+                "text": "Month",
+                "widgetStyle": {
+                    "backgroundColor": "#066AFE",
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "right",
+                        "top",
+                        "bottom"
+                    ],
+                    "fontColor": "#ffffff",
+                    "textStyle": []
+                }
+            },
+            "status": "Ok",
+            "type": "button"
+        },
+        "container_1": {
+            "actions": [],
+            "name": "container_1",
+            "parameters": {
+                "widgetStyle": {
+                    "borderEdges": [],
+                    "borderRadius": 16
+                }
+            },
+            "status": "Ok",
+            "type": "container"
+        },
+        "button_3": {
+            "actions": [
+                {
+                    "actionType": "navigate",
+                    "eventType": "click",
+                    "parameters": {
+                        "destination": {
+                            "target": "b7236008-496d-46b9-a6df-570ecfc57e70",
+                            "type": "page"
+                        }
+                    }
+                }
+            ],
+            "name": "button_3",
+            "parameters": {
+                "alignmentX": "center",
+                "alignmentY": "center",
+                "fontSize": 16,
+                "text": "Day",
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "left",
+                        "top",
+                        "bottom"
+                    ],
+                    "fontColor": "#0250D9",
+                    "textStyle": []
+                }
+            },
+            "status": "Ok",
+            "type": "button"
+        },
+        "container_2": {
+            "actions": [],
+            "name": "container_2",
+            "parameters": {
+                "widgetStyle": {
+                    "borderEdges": [],
+                    "borderRadius": 16
+                }
+            },
+            "status": "Ok",
+            "type": "container"
+        },
+        "text_3": {
+            "actions": [],
+            "name": "text_3",
+            "parameters": {
+                "conditionalFormattingRules": [],
+                "content": [
+                    {
+                        "attributes": {
+                            "color": "#03234d",
+                            "size": "20px"
+                        },
+                        "insert": "Section Header",
+                        "rules": []
+                    },
+                    {
+                        "attributes": {
+                            "align": "left"
+                        },
+                        "insert": "\n",
+                        "rules": []
+                    }
+                ]
+            },
+            "status": "Ok",
+            "type": "text"
+        },
+        "text_2": {
+            "actions": [],
+            "name": "text_2",
+            "parameters": {
+                "conditionalFormattingRules": [],
+                "content": [
+                    {
+                        "attributes": {
+                            "color": "#1e1e1e",
+                            "size": "20px"
+                        },
+                        "insert": "Records Leaderboard",
+                        "rules": []
+                    },
+                    {
+                        "attributes": {
+                            "align": "left"
+                        },
+                        "insert": "\n",
+                        "rules": []
+                    }
+                ]
+            },
+            "status": "Ok",
+            "type": "text"
+        },
+        "list_4": {
+            "actions": [],
+            "label": "ACCESS_DENIED_059b2af98c",
+            "name": "list_4",
+            "parameters": {
+                "filterOption": {
+                    "dataType": "",
+                    "fieldName": "",
+                    "objectName": "",
+                    "selectionType": "multiple"
+                },
+                "isLabelHidden": false,
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "viewType": "list",
+                "widgetStyle": {
+                    "backgroundColor": "#f3f3f3",
+                    "borderColor": "#f3f3f3",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "filter"
+        },
+        "text_5": {
+            "actions": [],
+            "name": "text_5",
+            "parameters": {
+                "conditionalFormattingRules": [],
+                "content": [
+                    {
+                        "attributes": {
+                            "color": "#03234d",
+                            "size": "20px"
+                        },
+                        "insert": "Section Header",
+                        "rules": []
+                    },
+                    {
+                        "attributes": {
+                            "align": "left"
+                        },
+                        "insert": "\n",
+                        "rules": []
+                    }
+                ]
+            },
+            "status": "Ok",
+            "type": "text"
+        },
+        "list_3": {
+            "actions": [],
+            "label": "ACCESS_DENIED_059b2af98c",
+            "name": "list_3",
+            "parameters": {
+                "filterOption": {
+                    "dataType": "",
+                    "fieldName": "",
+                    "objectName": "",
+                    "selectionType": "multiple"
+                },
+                "isLabelHidden": false,
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "viewType": "list",
+                "widgetStyle": {
+                    "backgroundColor": "#f3f3f3",
+                    "borderColor": "#f3f3f3",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "filter"
+        },
+        "text_4": {
+            "actions": [],
+            "name": "text_4",
+            "parameters": {
+                "conditionalFormattingRules": [],
+                "content": [
+                    {
+                        "attributes": {
+                            "color": "#1e1e1e",
+                            "size": "20px"
+                        },
+                        "insert": "Metric Breakdown",
+                        "rules": []
+                    },
+                    {
+                        "attributes": {
+                            "align": "left"
+                        },
+                        "insert": "\n",
+                        "rules": []
+                    }
+                ]
+            },
+            "status": "Ok",
+            "type": "text"
+        },
+        "button_6": {
+            "actions": [
+                {
+                    "actionType": "navigate",
+                    "eventType": "click",
+                    "parameters": {
+                        "destination": {
+                            "target": "b7236008-496d-46b9-a6df-570ecfc57e70",
+                            "type": "page"
+                        }
+                    }
+                }
+            ],
+            "name": "button_6",
+            "parameters": {
+                "alignmentX": "center",
+                "alignmentY": "center",
+                "fontSize": 16,
+                "text": "Day",
+                "widgetStyle": {
+                    "backgroundColor": "#066AFE",
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "left",
+                        "top",
+                        "bottom"
+                    ],
+                    "fontColor": "#ffffff",
+                    "textStyle": []
+                }
+            },
+            "status": "Ok",
+            "type": "button"
+        },
+        "list_5": {
+            "actions": [],
+            "label": "ACCESS_DENIED_059b2af98c",
+            "name": "list_5",
+            "parameters": {
+                "filterOption": {
+                    "dataType": "",
+                    "fieldName": "",
+                    "objectName": "",
+                    "selectionType": "multiple"
+                },
+                "isLabelHidden": false,
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "viewType": "list",
+                "widgetStyle": {
+                    "backgroundColor": "#f3f3f3",
+                    "borderColor": "#f3f3f3",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "filter"
+        },
+        "button_5": {
+            "actions": [
+                {
+                    "actionType": "navigate",
+                    "eventType": "click",
+                    "parameters": {
+                        "destination": {
+                            "target": "12f04f31-55fd-448d-a125-50ae76346d84",
+                            "type": "page"
+                        }
+                    }
+                }
+            ],
+            "name": "button_5",
+            "parameters": {
+                "alignmentX": "center",
+                "alignmentY": "center",
+                "fontSize": 16,
+                "text": "Week",
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "fontColor": "#0250D9",
+                    "textStyle": []
+                }
+            },
+            "status": "Ok",
+            "type": "button"
+        },
+        "text_1": {
+            "actions": [],
+            "name": "text_1",
+            "parameters": {
+                "conditionalFormattingRules": [],
+                "content": [
+                    {
+                        "attributes": {
+                            "color": "#042339",
+                            "size": "42px"
+                        },
+                        "insert": "Dashboard Name",
+                        "rules": []
+                    },
+                    {
+                        "attributes": {
+                            "align": "left"
+                        },
+                        "insert": "\n",
+                        "rules": []
+                    }
+                ],
+                "widgetStyle": {
+                    "backgroundColor": "#f3f3f3",
+                    "borderColor": "#f3f3f3",
+                    "borderEdges": [
+                        "all"
+                    ]
+                }
+            },
+            "status": "Ok",
+            "type": "text"
+        },
+        "metric_6": {
+            "actions": [],
+            "name": "metric_6",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": false
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 12
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_5": {
+            "actions": [],
+            "name": "metric_5",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": false
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 12
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_4": {
+            "actions": [],
+            "name": "metric_4",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": false
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 12
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_2": {
+            "actions": [],
+            "name": "metric_2",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": false
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 12
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_1": {
+            "actions": [],
+            "name": "metric_1",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": true,
+                            "insights": false
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 12
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        }
+    },
+    "workspaceIdOrApiName": "{{WORKSPACE_API_NAME}}"
+}

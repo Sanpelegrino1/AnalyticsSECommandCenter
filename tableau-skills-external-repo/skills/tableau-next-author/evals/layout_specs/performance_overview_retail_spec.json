@@ -1,0 +1,88 @@
+{
+  "pattern": "performance_overview",
+  "pattern_args": {
+    "primary_metric": "Total_Amount_mtc",
+    "secondary_metrics": [
+      "Average_Order_Amount_mtc",
+      "Distinct_Customers_mtc",
+      "Distinct_Products_Sold_mtc",
+      "Units_Sold_mtc"
+    ],
+    "pages": ["Week", "Month", "Day"]
+  },
+  "workspace_label": "Layout Test Performance",
+  "metrics": [
+    "Total_Amount_mtc",
+    "Average_Order_Amount_mtc",
+    "Distinct_Customers_mtc",
+    "Distinct_Products_Sold_mtc",
+    "Units_Sold_mtc"
+  ],
+  "filters": [
+    { "fieldName": "Region" },
+    { "fieldName": "Store_Type" },
+    { "fieldName": "order_date" }
+  ],
+  "visualizations": [
+    {
+      "template": "multi_series_line",
+      "name": "PPerf_Sales_Trend_by_Family",
+      "label": "Total sales over time by product family",
+      "fields": {
+        "date": "order_date",
+        "measure": "total_amount",
+        "color_dim": "Product_Family1"
+      },
+      "overrides": { "hide_legends": true }
+    },
+    {
+      "template": "market_share_donut",
+      "name": "PPerf_Revenue_Share_Region",
+      "label": "Revenue share by region",
+      "fields": { "category": "Region", "amount": "total_amount" },
+      "overrides": { "hide_legends": true }
+    },
+    {
+      "template": "flow_package_three_level",
+      "name": "PPerf_Sales_Flow",
+      "label": "Sales flow by product family, store format, and region",
+      "fields": {
+        "level1": "Product_Family1",
+        "level2": "Store_Type",
+        "level3": "Region",
+        "link_measure": "total_amount"
+      },
+      "overrides": { "hide_legends": true, "flow_link_legend_visible": false }
+    },
+    {
+      "template": "heatmap_grid",
+      "name": "PPerf_Store_Type_Region_Heat",
+      "label": "Total sales by store format and region",
+      "fields": {
+        "row_dim": "Store_Type",
+        "col_dim": "Region",
+        "measure": "total_amount"
+      },
+      "overrides": {
+        "hide_legends": true,
+        "palette": { "start": "#5DADE2", "middle": "#F39C12", "end": "#48C9B0" }
+      }
+    },
+    {
+      "template": "geomap_advanced",
+      "name": "PPerf_Store_Map",
+      "label": "Store locations sized by total sales",
+      "fields": {
+        "latitude": "Latitude",
+        "longitude": "Longitude",
+        "measure": "total_amount",
+        "label_dim": "Store_Name"
+      },
+      "overrides": {
+        "hide_legends": true,
+        "map_color_legend_visible": false,
+        "map_point_size_px": 48
+      }
+    }
+  ]
+}

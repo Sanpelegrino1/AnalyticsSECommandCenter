@@ -7,9 +7,67 @@ $ErrorActionPreference = 'Stop'
 
 . (Join-Path $PSScriptRoot '..\common\CommandCenter.Common.ps1')
 
+function Resolve-CommandPath {
+    param([string]$Name)
+
+    $command = Get-Command $Name -ErrorAction SilentlyContinue | Select-Object -First 1
+    if ($command -and $command.Source -and (Test-Path $command.Source)) {
+        if (-not ($Name -eq 'python' -and $command.Source -like '*\WindowsApps\python.exe')) {
+            return $command.Source
+        }
+    }
+
+    $candidates = switch ($Name) {
+        'git' { @('C:\Program Files\Git\cmd\git.exe') }
+        'code' { @((Join-Path $env:LOCALAPPDATA 'Programs\Microsoft VS Code\bin\code.cmd')) }
+        'sf' {
+            @(
+                'C:\Program Files\Salesforce CLI\bin\sf.cmd',
+                'C:\Program Files\sfdx\bin\sf.cmd',
+                'C:\Program Files\sfdx\client\bin\sf.cmd',
+                (Join-Path $env:LOCALAPPDATA 'sf\bin\sf.cmd')
+            )
+        }
+        'sfdx' {
+            @(
+                'C:\Program Files\Salesforce CLI\bin\sfdx.cmd',
+                'C:\Program Files\sfdx\bin\sfdx.cmd',
+                'C:\Program Files\sfdx\client\bin\sfdx.cmd',
+                (Join-Path $env:LOCALAPPDATA 'sf\bin\sfdx.cmd')
+            )
+        }
+        'node' {
+            @(
+                'C:\Program Files\nodejs\node.exe',
+                (Join-Path $env:LOCALAPPDATA 'Programs\nodejs-lts\node.exe'),
+                (Join-Path $env:LOCALAPPDATA 'Programs\nodejs\node.exe')
+            )
+        }
+        'python' {
+            @(
+                (Join-Path $env:LOCALAPPDATA 'Programs\Python\Python312\python.exe'),
+                (Join-Path $env:LOCALAPPDATA 'Programs\Python\Python311\python.exe'),
+                'C:\Program Files\Python312\python.exe',
+                'C:\Program Files\Python311\python.exe'
+            )
+        }
+        'curl.exe' { @('C:\Windows\System32\curl.exe') }
+        'winget' { @((Join-Path $env:LOCALAPPDATA 'Microsoft\WindowsApps\winget.exe')) }
+        default { @() }
+    }
+
+    foreach ($candidate in $candidates) {
+        if ($candidate -and (Test-Path $candidate)) {
+            return $candidate
+        }
+    }
+
+    return $null
+}
+
 function Test-Command {
     param([string]$Name)
-    return [bool](Get-Command $Name -ErrorAction SilentlyContinue)
+    return [bool](Resolve-CommandPath -Name $Name)
 }
 
 function Get-JavaInstallationInfo {
@@ -29,7 +87,10 @@ function Get-JavaInstallationInfo {
     foreach ($root in @(
         'C:\Program Files\Eclipse Adoptium',
         'C:\Program Files\Java',
-        'C:\Program Files\Zulu'
+        'C:\Program Files\Zulu',
+        (Join-Path $env:LOCALAPPDATA 'Programs\Eclipse Adoptium'),
+        (Join-Path $env:LOCALAPPDATA 'Programs\Java'),
+        (Join-Path $env:LOCALAPPDATA 'Programs\Zulu')
     )) {
         if (-not (Test-Path $root)) {
             continue
@@ -78,13 +139,9 @@ function Get-CodeExtensions {
     $extensions = New-Object System.Collections.Generic.List[string]
 
     $vsCodeRoot = Join-Path $env:LOCALAPPDATA 'Programs\Microsoft VS Code'
-    if (Test-Path $vsCodeRoot) {
-        foreach ($candidate in @(Get-ChildItem $vsCodeRoot -Directory -ErrorAction SilentlyContinue)) {
-            $builtinCopilotPath = Join-Path $candidate.FullName 'resources\app\extensions\copilot'
-            if (Test-Path $builtinCopilotPath) {
-                $extensions.Add('github.copilot')
-            }
-        }
+    $builtinCopilotPath = Join-Path $vsCodeRoot 'resources\app\extensions\copilot'
+    if (Test-Path $builtinCopilotPath) {
+        $extensions.Add('github.copilot')
     }
 
     $extensionsDirectory = Join-Path $env:USERPROFILE '.vscode\extensions'
@@ -92,9 +149,9 @@ function Get-CodeExtensions {
         $userExtensions = Get-ChildItem -Path $extensionsDirectory -Directory |
             ForEach-Object {
                 if ($_.Name -match '^(?<id>.+?)-\d') {
-                    $Matches['id']
+                    $Matches['id'].ToLowerInvariant()
                 } else {
-                    $_.Name
+                    $_.Name.ToLowerInvariant()
                 }
             }
 
@@ -103,13 +160,14 @@ function Get-CodeExtensions {
         }
     }
 
-    if (-not (Test-Command -Name 'code')) {
+    $codePath = Resolve-CommandPath -Name 'code'
+    if (-not $codePath) {
         return @($extensions | Select-Object -Unique)
     }
 
-    $output = & code --list-extensions 2>$null
+    $output = & $codePath --list-extensions 2>$null
     foreach ($extension in @($output)) {
-        $extensions.Add($extension)
+        $extensions.Add($extension.ToLowerInvariant())
     }
 
     return @($extensions | Select-Object -Unique)
@@ -138,11 +196,9 @@ function Get-NodeInstallationInfo {
         }
     }
 
-    if (Test-Command -Name 'node') {
-        $nodeCommand = Get-Command node -ErrorAction SilentlyContinue | Select-Object -First 1
-        if ($nodeCommand) {
-            $nodeCandidates.Add($nodeCommand.Source)
-        }
+    $nodeCommandPath = Resolve-CommandPath -Name 'node'
+    if ($nodeCommandPath) {
+        $nodeCandidates.Add($nodeCommandPath)
     }
 
     $best = $null
@@ -194,9 +250,12 @@ function Install-WingetPackage {
         [string]$Id
     )
 
-    Assert-CommandAvailable -Name 'winget' -Hint 'Install App Installer or enable winget before using -InstallMissing.'
+    $wingetPath = Resolve-CommandPath -Name 'winget'
+    if (-not $wingetPath) {
+        throw 'Install App Installer or enable winget before using -InstallMissing.'
+    }
 
-    & winget install --id $Id -e --source winget --accept-package-agreements --accept-source-agreements --silent
+    & $wingetPath install --id $Id -e --source winget --accept-package-agreements --accept-source-agreements --silent
     if ($LASTEXITCODE -ne 0) {
         throw "winget install failed for package '$Id'."
     }
@@ -213,7 +272,9 @@ function Ensure-Extension {
         $InstalledExtensions = @()
     }
 
-    if ($InstalledExtensions -contains $Id) {
+    $normalizedId = $Id.ToLowerInvariant()
+
+    if ($InstalledExtensions -contains $normalizedId) {
         return $true
     }
 
@@ -221,16 +282,20 @@ function Ensure-Extension {
         return $false
     }
 
-    Assert-CommandAvailable -Name 'code' -Hint 'VS Code command line integration is required to install extensions automatically.'
-    & code --install-extension $Id --force
+    $codePath = Resolve-CommandPath -Name 'code'
+    if (-not $codePath) {
+        throw 'VS Code command line integration is required to install extensions automatically.'
+    }
+
+    & $codePath --install-extension $Id --force
     return ($LASTEXITCODE -eq 0)
 }
 
 $checks = @(
     @{ Name = 'Git'; Command = 'git'; PackageId = 'Git.Git'; Required = $true },
     @{ Name = 'VS Code'; Command = 'code'; PackageId = 'Microsoft.VisualStudioCode'; Required = $true },
-    @{ Name = 'Salesforce CLI'; Command = 'sf'; PackageId = 'Salesforce.cli'; Required = $true },
-    @{ Name = 'sfdx compatibility'; Command = 'sfdx'; PackageId = ''; Required = $false },
+    @{ Name = 'Salesforce CLI'; Command = 'sf'; PackageId = 'OpenCLICollective.salesforce-cli'; Required = $true },
+    @{ Name = 'sfdx compatibility'; Command = 'sfdx'; PackageId = 'Salesforce.sfdx-cli'; Required = $false },
     @{ Name = 'Node.js LTS'; Command = 'node'; PackageId = 'OpenJS.NodeJS.LTS'; Required = $true },
     @{ Name = 'Python 3.11+'; Command = 'python'; PackageId = 'Python.Python.3.12'; Required = $true },
     @{ Name = 'curl.exe'; Command = 'curl.exe'; PackageId = ''; Required = $true },
@@ -254,7 +319,8 @@ foreach ($check in $checks) {
     })
 }
 
-$pythonVersion = if (Test-Command -Name 'python') { (& python --version 2>&1) } else { '' }
+$pythonPath = Resolve-CommandPath -Name 'python'
+$pythonVersion = if ($pythonPath) { (& $pythonPath --version 2>&1) } else { '' }
 $pythonValid = $false
 if ($pythonVersion -match 'Python\s+(?<major>\d+)\.(?<minor>\d+)') {
     $pythonValid = ([int]$Matches['major'] -gt 3) -or (([int]$Matches['major'] -eq 3) -and ([int]$Matches['minor'] -ge 11))
@@ -287,8 +353,7 @@ $results.Add([pscustomobject]@{
 })
 
 $requiredExtensions = @(
-    'GitHub.copilot',
-    'GitHub.copilot-chat',
+    'github.copilot-chat',
     'salesforce.salesforcedx-vscode',
     'humao.rest-client',
     'redhat.vscode-xml',

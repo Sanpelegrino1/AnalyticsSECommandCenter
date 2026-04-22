@@ -1,0 +1,20 @@
+{
+  "skill_name": "tableau-next-package-deploy",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Package the Sales_Dashboard from my dev org and save it to tableauNext/",
+      "expected_output": "Package JSON saved to tableauNext/Sales_Dashboard_package.json; agent runs package workflow with correct org and dashboard name"
+    },
+    {
+      "id": 2,
+      "prompt": "Deploy the Executive_Overview_package.json to the QA org",
+      "expected_output": "Deployment to QA org; agent validates first (or uses dry-run), then deploys; reports workspace/dashboard on success"
+    },
+    {
+      "id": 3,
+      "prompt": "How do I migrate dashboards from dev to prod?",
+      "expected_output": "Agent triggers skill; explains package-from-dev then deploy-to-prod workflow; suggests validation step; points to examples or scripts"
+    }
+  ]
+}

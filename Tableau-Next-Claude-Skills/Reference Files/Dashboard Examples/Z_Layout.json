@@ -1,0 +1,907 @@
+{
+    "label": "Z Layout",
+    "layouts": [
+        {
+            "columnCount": 72,
+            "name": "default",
+            "pages": [
+                {
+                    "label": "Page 1",
+                    "name": "b6495471-7b7d-47fe-9ef6-06e523522bcc",
+                    "widgets": [
+                        {
+                            "colspan": 22,
+                            "column": 49,
+                            "name": "container_4",
+                            "row": 110,
+                            "rowspan": 41
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_5",
+                            "row": 153,
+                            "rowspan": 57
+                        },
+                        {
+                            "colspan": 22,
+                            "column": 1,
+                            "name": "metric_4",
+                            "row": 29,
+                            "rowspan": 19
+                        },
+                        {
+                            "colspan": 23,
+                            "column": 24,
+                            "name": "metric_5",
+                            "row": 29,
+                            "rowspan": 19
+                        },
+                        {
+                            "colspan": 23,
+                            "column": 48,
+                            "name": "metric_6",
+                            "row": 29,
+                            "rowspan": 19
+                        },
+                        {
+                            "colspan": 11,
+                            "column": 1,
+                            "name": "filter_1",
+                            "row": 1,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 11,
+                            "column": 13,
+                            "name": "filter_2",
+                            "row": 1,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 11,
+                            "column": 25,
+                            "name": "filter_3",
+                            "row": 1,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 11,
+                            "column": 37,
+                            "name": "filter_4",
+                            "row": 1,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 11,
+                            "column": 49,
+                            "name": "filter_5",
+                            "row": 1,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 10,
+                            "column": 61,
+                            "name": "filter_6",
+                            "row": 1,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 22,
+                            "column": 1,
+                            "name": "metric_1",
+                            "row": 8,
+                            "rowspan": 19
+                        },
+                        {
+                            "colspan": 45,
+                            "column": 2,
+                            "name": "text_1",
+                            "row": 51,
+                            "rowspan": 5
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "visualization_1",
+                            "row": 56,
+                            "rowspan": 41
+                        },
+                        {
+                            "colspan": 23,
+                            "column": 24,
+                            "name": "metric_2",
+                            "row": 8,
+                            "rowspan": 19
+                        },
+                        {
+                            "colspan": 23,
+                            "column": 48,
+                            "name": "metric_3",
+                            "row": 8,
+                            "rowspan": 19
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "text_2",
+                            "row": 101,
+                            "rowspan": 6
+                        },
+                        {
+                            "colspan": 22,
+                            "column": 2,
+                            "name": "text_6",
+                            "row": 111,
+                            "rowspan": 3
+                        },
+                        {
+                            "colspan": 21,
+                            "column": 26,
+                            "name": "text_7",
+                            "row": 111,
+                            "rowspan": 3
+                        },
+                        {
+                            "colspan": 20,
+                            "column": 50,
+                            "name": "text_8",
+                            "row": 111,
+                            "rowspan": 3
+                        },
+                        {
+                            "colspan": 23,
+                            "column": 1,
+                            "name": "visualization_2",
+                            "row": 114,
+                            "rowspan": 37
+                        },
+                        {
+                            "colspan": 23,
+                            "column": 25,
+                            "name": "visualization_3",
+                            "row": 114,
+                            "rowspan": 37
+                        },
+                        {
+                            "colspan": 22,
+                            "column": 49,
+                            "name": "visualization_4",
+                            "row": 114,
+                            "rowspan": 37
+                        },
+                        {
+                            "colspan": 68,
+                            "column": 2,
+                            "name": "visualization_5",
+                            "row": 155,
+                            "rowspan": 53
+                        },
+                        {
+                            "colspan": 70,
+                            "column": 1,
+                            "name": "container_1",
+                            "row": 50,
+                            "rowspan": 47
+                        },
+                        {
+                            "colspan": 23,
+                            "column": 1,
+                            "name": "container_2",
+                            "row": 110,
+                            "rowspan": 41
+                        },
+                        {
+                            "colspan": 23,
+                            "column": 25,
+                            "name": "container_3",
+                            "row": 110,
+                            "rowspan": 41
+                        }
+                    ]
+                }
+            ],
+            "rowHeight": 10,
+            "style": {
+                "backgroundColor": "#f3f3f3",
+                "cellSpacingX": 0,
+                "cellSpacingY": 0,
+                "gutterColor": "#ffffff"
+            }
+        }
+    ],
+    "name": "Z_Layout",
+    "style": {
+        "widgetStyle": {
+            "backgroundColor": "#ffffff",
+            "borderColor": "#cccccc",
+            "borderEdges": [],
+            "borderRadius": 0,
+            "borderWidth": 1
+        }
+    },
+    "widgets": {
+        "visualization_2": {
+            "actions": [],
+            "name": "visualization_2",
+            "parameters": {
+                "legendPosition": "Top",
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [],
+                    "borderRadius": 16
+                }
+            },
+            "status": "Ok",
+            "type": "visualization"
+        },
+        "visualization_1": {
+            "actions": [],
+            "name": "visualization_1",
+            "parameters": {
+                "legendPosition": "Bottom",
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [],
+                    "borderRadius": 16
+                }
+            },
+            "status": "Ok",
+            "type": "visualization"
+        },
+        "visualization_4": {
+            "actions": [],
+            "name": "visualization_4",
+            "parameters": {
+                "legendPosition": "Top",
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [],
+                    "borderRadius": 16
+                }
+            },
+            "status": "Ok",
+            "type": "visualization"
+        },
+        "visualization_3": {
+            "actions": [],
+            "name": "visualization_3",
+            "parameters": {
+                "legendPosition": "Right",
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [],
+                    "borderRadius": 16
+                }
+            },
+            "status": "Ok",
+            "type": "visualization"
+        },
+        "visualization_5": {
+            "actions": [],
+            "name": "visualization_5",
+            "parameters": {
+                "legendPosition": "Right",
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                }
+            },
+            "status": "Ok",
+            "type": "visualization"
+        },
+        "container_1": {
+            "actions": [],
+            "name": "container_1",
+            "parameters": {
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 16
+                }
+            },
+            "status": "Ok",
+            "type": "container"
+        },
+        "container_2": {
+            "actions": [],
+            "name": "container_2",
+            "parameters": {
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 16
+                }
+            },
+            "status": "Ok",
+            "type": "container"
+        },
+        "container_3": {
+            "actions": [],
+            "name": "container_3",
+            "parameters": {
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 16
+                }
+            },
+            "status": "Ok",
+            "type": "container"
+        },
+        "container_4": {
+            "actions": [],
+            "name": "container_4",
+            "parameters": {
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 16
+                }
+            },
+            "status": "Ok",
+            "type": "container"
+        },
+        "container_5": {
+            "actions": [],
+            "name": "container_5",
+            "parameters": {
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 16
+                }
+            },
+            "status": "Ok",
+            "type": "container"
+        },
+        "text_2": {
+            "actions": [],
+            "name": "text_2",
+            "parameters": {
+                "conditionalFormattingRules": [],
+                "content": [
+                    {
+                        "attributes": {
+                            "color": "#03234d",
+                            "size": "24px"
+                        },
+                        "insert": "Details",
+                        "rules": []
+                    },
+                    {
+                        "insert": "\n",
+                        "rules": []
+                    },
+                    {
+                        "attributes": {
+                            "color": "#2e2e2e",
+                            "size": "16px"
+                        },
+                        "insert": "Section Subheader",
+                        "rules": []
+                    },
+                    {
+                        "attributes": {
+                            "align": "left"
+                        },
+                        "insert": "\n",
+                        "rules": []
+                    }
+                ],
+                "widgetStyle": {
+                    "backgroundColor": "#f3f3f3",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "text"
+        },
+        "text_7": {
+            "actions": [],
+            "name": "text_7",
+            "parameters": {
+                "conditionalFormattingRules": [],
+                "content": [
+                    {
+                        "attributes": {
+                            "color": "#2e2e2e",
+                            "size": "18px"
+                        },
+                        "insert": "",
+                        "rules": []
+                    },
+                    {
+                        "attributes": {
+                            "align": "left"
+                        },
+                        "insert": "\n",
+                        "rules": []
+                    }
+                ],
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "text"
+        },
+        "text_6": {
+            "actions": [],
+            "name": "text_6",
+            "parameters": {
+                "conditionalFormattingRules": [],
+                "content": [
+                    {
+                        "attributes": {
+                            "color": "#03234d",
+                            "size": "18px"
+                        },
+                        "insert": "",
+                        "rules": []
+                    },
+                    {
+                        "attributes": {
+                            "align": "left"
+                        },
+                        "insert": "\n",
+                        "rules": []
+                    }
+                ],
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "text"
+        },
+        "text_8": {
+            "actions": [],
+            "name": "text_8",
+            "parameters": {
+                "conditionalFormattingRules": [],
+                "content": [
+                    {
+                        "attributes": {
+                            "color": "#2e2e2e",
+                            "size": "18px"
+                        },
+                        "insert": "",
+                        "rules": []
+                    },
+                    {
+                        "attributes": {
+                            "align": "left"
+                        },
+                        "insert": "\n",
+                        "rules": []
+                    }
+                ],
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "text"
+        },
+        "text_1": {
+            "actions": [],
+            "name": "text_1",
+            "parameters": {
+                "conditionalFormattingRules": [],
+                "content": [
+                    {
+                        "attributes": {
+                            "size": "20px"
+                        },
+                        "insert": "Title/ Time + Name",
+                        "rules": []
+                    },
+                    {
+                        "insert": "\n",
+                        "rules": []
+                    },
+                    {
+                        "attributes": {
+                            "color": "#5c5c5c",
+                            "size": "14px"
+                        },
+                        "insert": "Section Subheader",
+                        "rules": []
+                    },
+                    {
+                        "attributes": {
+                            "align": "left"
+                        },
+                        "insert": "\n",
+                        "rules": []
+                    }
+                ],
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "text"
+        },
+        "filter_2": {
+            "actions": [],
+            "label": "ACCESS_DENIED_d5e18f7988",
+            "name": "filter_2",
+            "parameters": {
+                "filterOption": {
+                    "dataType": "",
+                    "fieldName": "",
+                    "objectName": "",
+                    "selectionType": "multiple"
+                },
+                "isLabelHidden": false,
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "viewType": "list",
+                "widgetStyle": {
+                    "backgroundColor": "#f3f3f3",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "filter"
+        },
+        "filter_1": {
+            "actions": [],
+            "label": "ACCESS_DENIED_701d021d08",
+            "name": "filter_1",
+            "parameters": {
+                "filterOption": {
+                    "dataType": "",
+                    "fieldName": "",
+                    "objectName": "",
+                    "selectionType": "multiple"
+                },
+                "isLabelHidden": false,
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "viewType": "list",
+                "widgetStyle": {
+                    "backgroundColor": "#f3f3f3",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "filter"
+        },
+        "filter_6": {
+            "actions": [],
+            "label": "ACCESS_DENIED_1190baa403",
+            "name": "filter_6",
+            "parameters": {
+                "filterOption": {
+                    "dataType": "",
+                    "fieldName": "",
+                    "objectName": "",
+                    "selectionType": "multiple"
+                },
+                "isLabelHidden": false,
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "viewType": "list",
+                "widgetStyle": {
+                    "backgroundColor": "#f3f3f3",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "filter"
+        },
+        "filter_5": {
+            "actions": [],
+            "label": "ACCESS_DENIED_217bb98d6b",
+            "name": "filter_5",
+            "parameters": {
+                "filterOption": {
+                    "dataType": "",
+                    "fieldName": "",
+                    "objectName": "",
+                    "selectionType": "multiple"
+                },
+                "isLabelHidden": false,
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "viewType": "list",
+                "widgetStyle": {
+                    "backgroundColor": "#f3f3f3",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "filter"
+        },
+        "filter_4": {
+            "actions": [],
+            "label": "ACCESS_DENIED_dc2d793ae4",
+            "name": "filter_4",
+            "parameters": {
+                "filterOption": {
+                    "dataType": "",
+                    "fieldName": "",
+                    "objectName": "",
+                    "selectionType": "multiple"
+                },
+                "isLabelHidden": false,
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "viewType": "list",
+                "widgetStyle": {
+                    "backgroundColor": "#f3f3f3",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "filter"
+        },
+        "filter_3": {
+            "actions": [],
+            "label": "ACCESS_DENIED_c0785f27d2",
+            "name": "filter_3",
+            "parameters": {
+                "filterOption": {
+                    "dataType": "",
+                    "fieldName": "",
+                    "objectName": "",
+                    "selectionType": "multiple"
+                },
+                "isLabelHidden": false,
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "viewType": "list",
+                "widgetStyle": {
+                    "backgroundColor": "#f3f3f3",
+                    "borderEdges": []
+                }
+            },
+            "status": "Ok",
+            "type": "filter"
+        },
+        "metric_6": {
+            "actions": [],
+            "name": "metric_6",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_5": {
+            "actions": [],
+            "name": "metric_5",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_4": {
+            "actions": [],
+            "name": "metric_4",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_3": {
+            "actions": [],
+            "name": "metric_3",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#c9c9c9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_2": {
+            "actions": [],
+            "name": "metric_2",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        },
+        "metric_1": {
+            "actions": [],
+            "name": "metric_1",
+            "parameters": {
+                "metricOption": {
+                    "layout": {
+                        "componentVisibility": {
+                            "details": true,
+                            "title": true,
+                            "value": true,
+                            "comparison": true,
+                            "chart": false,
+                            "insights": true
+                        }
+                    },
+                    "sdmApiName": "{{SDM_API_NAME}}",
+                    "sdmId": "{{SDM_ID}}"
+                },
+                "receiveFilterSource": {
+                    "filterMode": "all",
+                    "widgetIds": []
+                },
+                "widgetStyle": {
+                    "borderColor": "#C9C9C9",
+                    "borderEdges": [
+                        "all"
+                    ],
+                    "borderRadius": 20
+                }
+            },
+            "status": "Ok",
+            "type": "metric"
+        }
+    },
+    "workspaceIdOrApiName": "{{WORKSPACE_API_NAME}}"
+}

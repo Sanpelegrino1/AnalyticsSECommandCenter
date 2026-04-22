@@ -1,0 +1,1 @@
+../../tableau-next-author/scripts/discover_sdm.py
