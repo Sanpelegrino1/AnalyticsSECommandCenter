@@ -1631,6 +1631,55 @@ vol_region = create_visualization(
                           pane_dict=pane_format("F1", decimals=0, fmt_type="Currency"),
                           reverse_range=True, dim_row_keys=["F2"]),
 )
+
+# Optional revenue and pipeline comparison visualizations:
+# Use these when the story is about conversion quality, forecast realism, or funnel health.
+# Assumptions:
+#   Expected_Revenue_clc = projected value of open pipeline
+#   Closed_Won_Revenue_clc = booked revenue from won deals
+#   Pipeline_Balance_clc = point-in-time outstanding pipeline at month-end
+
+exp_vs_won_trend = create_visualization(
+    label="Expected Revenue vs Closed Won — Monthly Trend", name=f"{model_api_name}_exp_vs_won_trend",
+    sdm_name=model_api_name, workspace_name=workspace_name,
+    fields_dict={
+        "F1": calc_measure("Expected_Revenue_clc", "Expected Revenue ($)"),
+        "F2": calc_measure("Closed_Won_Revenue_clc", "Closed Won Revenue ($)"),
+        "F3": calc_dim("Activity_Date_clc", "Month", is_date=True),
+    },
+    rows=["F1", "F2"], columns=["F3"], mark_type="Line",
+    style=build_viz_style(axis_dict={**axis_number("F1", "Revenue"), **axis_date("F3")},
+                          pane_dict={**pane_format("F1", decimals=0, fmt_type="Currency"),
+                                     **pane_format("F2", decimals=0, fmt_type="Currency")},
+                          reverse_range=False),
+)
+
+pipeline_vs_won_region = create_visualization(
+    label="Pipeline vs Closed Won by Region", name=f"{model_api_name}_pipeline_vs_won_region",
+    sdm_name=model_api_name, workspace_name=workspace_name,
+    fields_dict={
+        "F1": calc_measure("Pipeline_Balance_clc", "Pipeline ($)"),
+        "F2": calc_measure("Closed_Won_Revenue_clc", "Closed Won ($)"),
+        "F3": raw_dim(fld(fact_sdo, "region__c"), fact_sdo, "Region"),
+    },
+    rows=["F3"], columns=["F1", "F2"], mark_type="Bar",
+    style=build_viz_style(axis_dict=axis_number("F1", "Revenue / Pipeline"),
+                          pane_dict={**pane_format("F1", decimals=0, fmt_type="Currency"),
+                                     **pane_format("F2", decimals=0, fmt_type="Currency")},
+                          reverse_range=True, dim_row_keys=["F3"]),
+)
+
+pipeline_coverage_trend = create_visualization(
+    label="Pipeline Coverage Ratio — Monthly Trend", name=f"{model_api_name}_pipeline_coverage_trend",
+    sdm_name=model_api_name, workspace_name=workspace_name,
+    fields_dict={
+        "F1": calc_measure("Pipeline_Coverage_Ratio_clc", "Pipeline Coverage Ratio"),
+        "F2": calc_dim("Activity_Date_clc", "Month", is_date=True),
+    },
+    rows=["F1"], columns=["F2"], mark_type="Line",
+    style=build_viz_style(axis_dict={**axis_number("F1", "Coverage Ratio", decimals=2), **axis_date("F2")},
+                          pane_dict=pane_format("F1", decimals=2, fmt_type="Number"), reverse_range=False),
+)
 ```
 
 **Confirmed working mark types**: `"Bar"`, `"Line"`, `"Area"`, `"Circle"` (scatter). `"Pie"` → rejected.
@@ -1797,6 +1846,34 @@ for vname, vapi, vid, col, row, colspan, rowspan in viz_grid:
     if vid:
         widgets_dict[vname] = dash_viz(vname, vapi, vid)
         page_cells.append(dash_pos(vname, col, row, colspan, rowspan))
+
+# Revenue and pipeline dashboard packs:
+# Choose one of these layouts when the user story centers on forecast reliability,
+# pipeline sufficiency, or conversion from expected revenue into closed won revenue.
+#
+# 1. Revenue Conversion Overview
+#    Metrics: Expected Revenue, Closed Won Revenue, Win Rate, Revenue Gap
+#    Visuals: exp_vs_won_trend, pipeline_vs_won_region
+#
+# 2. Pipeline Coverage Review
+#    Metrics: Pipeline Balance, Closed Won Revenue, Pipeline Coverage Ratio, Avg Deal Size
+#    Visuals: pipeline_coverage_trend, pipeline_vs_won_region
+#
+# 3. Forecast vs Execution
+#    Metrics: Expected Revenue, Closed Won Revenue, Forecast Accuracy %, Open Pipeline
+#    Visuals: exp_vs_won_trend plus one stage or region breakdown
+#
+# Example 2x2 dashboard substitution for a revenue-conversion story:
+# metrics_to_show = [
+#     ("metric_1", "expected_revenue", metric_ids["Expected Revenue"]),
+#     ("metric_2", "closed_won_revenue", metric_ids["Closed Won Revenue"]),
+#     ("metric_3", "win_rate", metric_ids["Win Rate"]),
+#     ("metric_4", "revenue_gap", metric_ids["Revenue Gap"]),
+# ]
+# viz_grid = [
+#     ("viz_1", (exp_vs_won_trend.get("apiName") or exp_vs_won_trend.get("name")) if exp_vs_won_trend else "", exp_vs_won_trend["id"] if exp_vs_won_trend else "", 0, 17, 18, 13),
+#     ("viz_2", (pipeline_vs_won_region.get("apiName") or pipeline_vs_won_region.get("name")) if pipeline_vs_won_region else "", pipeline_vs_won_region["id"] if pipeline_vs_won_region else "", 18, 17, 18, 13),
+# ]
 
 # POST dashboard
 DASH_NAME = f"{WORKSPACE_NAME}_dashboard"

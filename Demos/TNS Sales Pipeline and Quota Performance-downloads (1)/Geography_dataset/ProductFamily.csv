@@ -1,6 +1,0 @@
-product_family_id,product_family_name,business_unit,vp_of_product,core_market
-PF-001,CommSuite,Communications,George VP,Mid-Market
-PF-002,PayFlow,Payment Orchestration,Fiona VP,Small Business
-PF-003,SecurEdge,Managed Security,Ian VP,Small Business
-PF-004,CloudCore,Communications,Julia VP,Small Business
-PF-005,DataSync,Payment Orchestration,Fiona VP,Small Business

@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MktDataTranObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <connector>sunrun_ingest_api</connector>
+    <creationType>Custom</creationType>
+    <dataSource>sunrun_ingest_api</dataSource>
+    <dataSourceObject>desktop_mf_Fact_Orders_dll</dataSourceObject>
+    <masterLabel>Desktop - Fact_Orders</masterLabel>
+    <mktDataTranFields>
+        <fullName>Order ID</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Order ID</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Order ID</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>1</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Order Customer ID</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Order Customer ID</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Order Customer ID</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Order Product ID</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Order Product ID</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Order Product ID</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Order Location ID</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Order Location ID</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Order Location ID</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Order Date Key</fullName>
+        <creationType>Custom</creationType>
+        <datatype>F</datatype>
+        <externalName>Order Date Key</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Order Date Key</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Ship Date Key</fullName>
+        <creationType>Custom</creationType>
+        <datatype>F</datatype>
+        <externalName>Ship Date Key</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Ship Date Key</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Ship Mode</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Ship Mode</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Ship Mode</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Order Quantity</fullName>
+        <creationType>Custom</creationType>
+        <datatype>N</datatype>
+        <externalName>Order Quantity</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Order Quantity</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Sales</fullName>
+        <creationType>Custom</creationType>
+        <datatype>N</datatype>
+        <externalName>Sales</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Sales</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Discount</fullName>
+        <creationType>Custom</creationType>
+        <datatype>N</datatype>
+        <externalName>Discount</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Discount</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Profit</fullName>
+        <creationType>Custom</creationType>
+        <datatype>N</datatype>
+        <externalName>Profit</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Profit</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <objectCategory>Salesforce_SFDCReferenceModel_0_93.Engagement</objectCategory>
+</MktDataTranObject>

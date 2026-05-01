@@ -1,0 +1,1012 @@
+﻿{
+    "generatedAt":  "2026-04-24T06:11:19Z",
+    "manifestPath":  "C:\\Users\\andrew.hill\\Desktop\\manifest.json",
+    "targetOrg":  "STORM_TABLEAU_NEXT",
+    "sourceName":  "sunrun_ingest_api",
+    "connector":  {
+                      "id":  "1WMKZ000000Govf4AC",
+                      "name":  "sunrun_ingest_api",
+                      "status":  "resolved-existing"
+                  },
+    "localMetadata":  {
+                          "status":  "generated",
+                          "outputRoot":  "C:\\Users\\andrew.hill\\AnalyticsSECommandCenter\\salesforce\\generated\\sunrun_ingest_api\\desktop-mf",
+                          "deployedByThisScript":  false,
+                          "generatedTables":  [
+                                                  {
+                                                      "tableName":  "Dim_Date",
+                                                      "objectName":  "Desktop - Dim_Date",
+                                                      "objectNameOverridden":  true,
+                                                      "transportObjectName":  "Desktop___Dim_Date",
+                                                      "dataSourceObjectName":  "Desktop___Dim_Date_dll",
+                                                      "dataLakeObjectName":  "Desktop___Dim_Date__dll",
+                                                      "streamLabel":  "Desktop - Dim_Date",
+                                                      "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Dim_Date.csv",
+                                                      "lineCount":  1461,
+                                                      "estimatedDataRows":  1460,
+                                                      "fields":  [
+                                                                     {
+                                                                         "name":  "Date Key",
+                                                                         "apiName":  "Date_Key",
+                                                                         "schema":  {
+                                                                                        "type":  "string",
+                                                                                        "format":  "date"
+                                                                                    },
+                                                                         "dataType":  "F",
+                                                                         "customFieldType":  "Date"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Year",
+                                                                         "apiName":  "Year",
+                                                                         "schema":  {
+                                                                                        "type":  "number"
+                                                                                    },
+                                                                         "dataType":  "N",
+                                                                         "customFieldType":  "Number"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Month",
+                                                                         "apiName":  "Month",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     }
+                                                                 ],
+                                                      "primaryKeys":  "Date Key",
+                                                      "dataStreamDefinition":  "Desktop___Dim_Date"
+                                                  },
+                                                  {
+                                                      "tableName":  "Dim_Customer",
+                                                      "objectName":  "Desktop - Dim_Customer",
+                                                      "objectNameOverridden":  true,
+                                                      "transportObjectName":  "Desktop___Dim_Customer",
+                                                      "dataSourceObjectName":  "Desktop___Dim_Customer_dll",
+                                                      "dataLakeObjectName":  "Desktop___Dim_Customer__dll",
+                                                      "streamLabel":  "Desktop - Dim_Customer",
+                                                      "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Dim_Customer.csv",
+                                                      "lineCount":  1501,
+                                                      "estimatedDataRows":  1500,
+                                                      "fields":  [
+                                                                     {
+                                                                         "name":  "Customer ID",
+                                                                         "apiName":  "Customer_ID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Customer Name",
+                                                                         "apiName":  "Customer_Name",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Segment",
+                                                                         "apiName":  "Segment",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Customer Loyalty Tier",
+                                                                         "apiName":  "Customer_Loyalty_Tier",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Customer Acquisition Channel",
+                                                                         "apiName":  "Customer_Acquisition_Channel",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     }
+                                                                 ],
+                                                      "primaryKeys":  "Customer ID",
+                                                      "dataStreamDefinition":  "Desktop___Dim_Customer"
+                                                  },
+                                                  {
+                                                      "tableName":  "Dim_Location",
+                                                      "objectName":  "Desktop - Dim_Location",
+                                                      "objectNameOverridden":  true,
+                                                      "transportObjectName":  "Desktop___Dim_Location",
+                                                      "dataSourceObjectName":  "Desktop___Dim_Location_dll",
+                                                      "dataLakeObjectName":  "Desktop___Dim_Location__dll",
+                                                      "streamLabel":  "Desktop - Dim_Location",
+                                                      "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Dim_Location.csv",
+                                                      "lineCount":  501,
+                                                      "estimatedDataRows":  500,
+                                                      "fields":  [
+                                                                     {
+                                                                         "name":  "LocationID",
+                                                                         "apiName":  "LocationID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Country/Region",
+                                                                         "apiName":  "Country_Region",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Region",
+                                                                         "apiName":  "Region",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "State/Province",
+                                                                         "apiName":  "State_Province",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "City",
+                                                                         "apiName":  "City",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Location Type",
+                                                                         "apiName":  "Location_Type",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Climate Zone",
+                                                                         "apiName":  "Climate_Zone",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     }
+                                                                 ],
+                                                      "primaryKeys":  "LocationID",
+                                                      "dataStreamDefinition":  "Desktop___Dim_Location"
+                                                  },
+                                                  {
+                                                      "tableName":  "Dim_Supplier",
+                                                      "objectName":  "Desktop - Dim_Supplier",
+                                                      "objectNameOverridden":  true,
+                                                      "transportObjectName":  "Desktop___Dim_Supplier",
+                                                      "dataSourceObjectName":  "Desktop___Dim_Supplier_dll",
+                                                      "dataLakeObjectName":  "Desktop___Dim_Supplier__dll",
+                                                      "streamLabel":  "Desktop - Dim_Supplier",
+                                                      "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Dim_Supplier.csv",
+                                                      "lineCount":  51,
+                                                      "estimatedDataRows":  50,
+                                                      "fields":  [
+                                                                     {
+                                                                         "name":  "SupplierID",
+                                                                         "apiName":  "SupplierID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "SupplierName",
+                                                                         "apiName":  "SupplierName",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Supplier Rating",
+                                                                         "apiName":  "Supplier_Rating",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Supplier Region",
+                                                                         "apiName":  "Supplier_Region",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Supplier Payment Terms",
+                                                                         "apiName":  "Supplier_Payment_Terms",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Supplier Risk Level",
+                                                                         "apiName":  "Supplier_Risk_Level",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     }
+                                                                 ],
+                                                      "primaryKeys":  "SupplierID",
+                                                      "dataStreamDefinition":  "Desktop___Dim_Supplier"
+                                                  },
+                                                  {
+                                                      "tableName":  "Dim_Product",
+                                                      "objectName":  "Desktop - Dim_Product",
+                                                      "objectNameOverridden":  true,
+                                                      "transportObjectName":  "Desktop___Dim_Product",
+                                                      "dataSourceObjectName":  "Desktop___Dim_Product_dll",
+                                                      "dataLakeObjectName":  "Desktop___Dim_Product__dll",
+                                                      "streamLabel":  "Desktop - Dim_Product",
+                                                      "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Dim_Product.csv",
+                                                      "lineCount":  801,
+                                                      "estimatedDataRows":  800,
+                                                      "fields":  [
+                                                                     {
+                                                                         "name":  "Product ID",
+                                                                         "apiName":  "Product_ID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Product Name",
+                                                                         "apiName":  "Product_Name",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Category",
+                                                                         "apiName":  "Category",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Sub-Category",
+                                                                         "apiName":  "Sub_Category",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Standard Cost",
+                                                                         "apiName":  "Standard_Cost",
+                                                                         "schema":  {
+                                                                                        "type":  "number"
+                                                                                    },
+                                                                         "dataType":  "N",
+                                                                         "customFieldType":  "Number"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Product Line",
+                                                                         "apiName":  "Product_Line",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Packaging Type",
+                                                                         "apiName":  "Packaging_Type",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Product Supplier ID",
+                                                                         "apiName":  "Product_Supplier_ID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     }
+                                                                 ],
+                                                      "primaryKeys":  "Product ID",
+                                                      "dataStreamDefinition":  "Desktop___Dim_Product"
+                                                  },
+                                                  {
+                                                      "tableName":  "Dim_Facility",
+                                                      "objectName":  "Desktop - Dim_Facility",
+                                                      "objectNameOverridden":  true,
+                                                      "transportObjectName":  "Desktop___Dim_Facility",
+                                                      "dataSourceObjectName":  "Desktop___Dim_Facility_dll",
+                                                      "dataLakeObjectName":  "Desktop___Dim_Facility__dll",
+                                                      "streamLabel":  "Desktop - Dim_Facility",
+                                                      "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Dim_Facility.csv",
+                                                      "lineCount":  16,
+                                                      "estimatedDataRows":  15,
+                                                      "fields":  [
+                                                                     {
+                                                                         "name":  "FacilityID",
+                                                                         "apiName":  "FacilityID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Facility Name",
+                                                                         "apiName":  "Facility_Name",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Facility Type",
+                                                                         "apiName":  "Facility_Type",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Facility Manager",
+                                                                         "apiName":  "Facility_Manager",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Operating Hours",
+                                                                         "apiName":  "Operating_Hours",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Facility Certification",
+                                                                         "apiName":  "Facility_Certification",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Security Level",
+                                                                         "apiName":  "Security_Level",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Facility Location ID",
+                                                                         "apiName":  "Facility_Location_ID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     }
+                                                                 ],
+                                                      "primaryKeys":  "FacilityID",
+                                                      "dataStreamDefinition":  "Desktop___Dim_Facility"
+                                                  },
+                                                  {
+                                                      "tableName":  "Dim_Warehouse_Zone",
+                                                      "objectName":  "Desktop - Dim_Warehouse_Zone",
+                                                      "objectNameOverridden":  true,
+                                                      "transportObjectName":  "Desktop___Dim_Warehouse_Zone",
+                                                      "dataSourceObjectName":  "Desktop___Dim_Warehouse_Zone_dll",
+                                                      "dataLakeObjectName":  "Desktop___Dim_Warehouse_Zone__dll",
+                                                      "streamLabel":  "Desktop - Dim_Warehouse_Zone",
+                                                      "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Dim_Warehouse_Zone.csv",
+                                                      "lineCount":  21,
+                                                      "estimatedDataRows":  20,
+                                                      "fields":  [
+                                                                     {
+                                                                         "name":  "ZoneID",
+                                                                         "apiName":  "ZoneID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Zone Temperature Type",
+                                                                         "apiName":  "Zone_Temperature_Type",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Zone Max Capacity",
+                                                                         "apiName":  "Zone_Max_Capacity",
+                                                                         "schema":  {
+                                                                                        "type":  "number"
+                                                                                    },
+                                                                         "dataType":  "N",
+                                                                         "customFieldType":  "Number"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Zone Automation Level",
+                                                                         "apiName":  "Zone_Automation_Level",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     }
+                                                                 ],
+                                                      "primaryKeys":  "ZoneID",
+                                                      "dataStreamDefinition":  "Desktop___Dim_Warehouse_Zone"
+                                                  },
+                                                  {
+                                                      "tableName":  "Fact_Orders",
+                                                      "objectName":  "Desktop - Fact_Orders",
+                                                      "objectNameOverridden":  true,
+                                                      "transportObjectName":  "Desktop___Fact_Orders",
+                                                      "dataSourceObjectName":  "Desktop___Fact_Orders_dll",
+                                                      "dataLakeObjectName":  "Desktop___Fact_Orders__dll",
+                                                      "streamLabel":  "Desktop - Fact_Orders",
+                                                      "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Fact_Orders.csv",
+                                                      "lineCount":  25001,
+                                                      "estimatedDataRows":  25000,
+                                                      "fields":  [
+                                                                     {
+                                                                         "name":  "Order ID",
+                                                                         "apiName":  "Order_ID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Order Customer ID",
+                                                                         "apiName":  "Order_Customer_ID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Order Product ID",
+                                                                         "apiName":  "Order_Product_ID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Order Location ID",
+                                                                         "apiName":  "Order_Location_ID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Order Date Key",
+                                                                         "apiName":  "Order_Date_Key",
+                                                                         "schema":  {
+                                                                                        "type":  "string",
+                                                                                        "format":  "date"
+                                                                                    },
+                                                                         "dataType":  "F",
+                                                                         "customFieldType":  "Date"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Ship Date Key",
+                                                                         "apiName":  "Ship_Date_Key",
+                                                                         "schema":  {
+                                                                                        "type":  "string",
+                                                                                        "format":  "date"
+                                                                                    },
+                                                                         "dataType":  "F",
+                                                                         "customFieldType":  "Date"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Ship Mode",
+                                                                         "apiName":  "Ship_Mode",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Order Quantity",
+                                                                         "apiName":  "Order_Quantity",
+                                                                         "schema":  {
+                                                                                        "type":  "number"
+                                                                                    },
+                                                                         "dataType":  "N",
+                                                                         "customFieldType":  "Number"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Sales",
+                                                                         "apiName":  "Sales",
+                                                                         "schema":  {
+                                                                                        "type":  "number"
+                                                                                    },
+                                                                         "dataType":  "N",
+                                                                         "customFieldType":  "Number"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Discount",
+                                                                         "apiName":  "Discount",
+                                                                         "schema":  {
+                                                                                        "type":  "number"
+                                                                                    },
+                                                                         "dataType":  "N",
+                                                                         "customFieldType":  "Number"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Profit",
+                                                                         "apiName":  "Profit",
+                                                                         "schema":  {
+                                                                                        "type":  "number"
+                                                                                    },
+                                                                         "dataType":  "N",
+                                                                         "customFieldType":  "Number"
+                                                                     }
+                                                                 ],
+                                                      "primaryKeys":  "Order ID",
+                                                      "dataStreamDefinition":  "Desktop___Fact_Orders"
+                                                  },
+                                                  {
+                                                      "tableName":  "Fact_Returns",
+                                                      "objectName":  "Desktop - Fact_Returns",
+                                                      "objectNameOverridden":  true,
+                                                      "transportObjectName":  "Desktop___Fact_Returns",
+                                                      "dataSourceObjectName":  "Desktop___Fact_Returns_dll",
+                                                      "dataLakeObjectName":  "Desktop___Fact_Returns__dll",
+                                                      "streamLabel":  "Desktop - Fact_Returns",
+                                                      "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Fact_Returns.csv",
+                                                      "lineCount":  2001,
+                                                      "estimatedDataRows":  2000,
+                                                      "fields":  [
+                                                                     {
+                                                                         "name":  "ReturnID",
+                                                                         "apiName":  "ReturnID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Return Product ID",
+                                                                         "apiName":  "Return_Product_ID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Return Location ID",
+                                                                         "apiName":  "Return_Location_ID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Return Customer ID",
+                                                                         "apiName":  "Return_Customer_ID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Return Date Key",
+                                                                         "apiName":  "Return_Date_Key",
+                                                                         "schema":  {
+                                                                                        "type":  "string",
+                                                                                        "format":  "date"
+                                                                                    },
+                                                                         "dataType":  "F",
+                                                                         "customFieldType":  "Date"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Return Reason",
+                                                                         "apiName":  "Return_Reason",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Return Quantity",
+                                                                         "apiName":  "Return_Quantity",
+                                                                         "schema":  {
+                                                                                        "type":  "number"
+                                                                                    },
+                                                                         "dataType":  "N",
+                                                                         "customFieldType":  "Number"
+                                                                     }
+                                                                 ],
+                                                      "primaryKeys":  "ReturnID",
+                                                      "dataStreamDefinition":  "Desktop___Fact_Returns"
+                                                  },
+                                                  {
+                                                      "tableName":  "Fact_Production",
+                                                      "objectName":  "Desktop - Fact_Production",
+                                                      "objectNameOverridden":  true,
+                                                      "transportObjectName":  "Desktop___Fact_Production",
+                                                      "dataSourceObjectName":  "Desktop___Fact_Production_dll",
+                                                      "dataLakeObjectName":  "Desktop___Fact_Production__dll",
+                                                      "streamLabel":  "Desktop - Fact_Production",
+                                                      "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Fact_Production.csv",
+                                                      "lineCount":  8001,
+                                                      "estimatedDataRows":  8000,
+                                                      "fields":  [
+                                                                     {
+                                                                         "name":  "ProductionID",
+                                                                         "apiName":  "ProductionID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Production Product ID",
+                                                                         "apiName":  "Production_Product_ID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Production Facility ID",
+                                                                         "apiName":  "Production_Facility_ID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Production Location ID",
+                                                                         "apiName":  "Production_Location_ID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Production Date Key",
+                                                                         "apiName":  "Production_Date_Key",
+                                                                         "schema":  {
+                                                                                        "type":  "string",
+                                                                                        "format":  "date"
+                                                                                    },
+                                                                         "dataType":  "F",
+                                                                         "customFieldType":  "Date"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Units Produced",
+                                                                         "apiName":  "Units_Produced",
+                                                                         "schema":  {
+                                                                                        "type":  "number"
+                                                                                    },
+                                                                         "dataType":  "N",
+                                                                         "customFieldType":  "Number"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Defect Count",
+                                                                         "apiName":  "Defect_Count",
+                                                                         "schema":  {
+                                                                                        "type":  "number"
+                                                                                    },
+                                                                         "dataType":  "N",
+                                                                         "customFieldType":  "Number"
+                                                                     }
+                                                                 ],
+                                                      "primaryKeys":  "ProductionID",
+                                                      "dataStreamDefinition":  "Desktop___Fact_Production"
+                                                  },
+                                                  {
+                                                      "tableName":  "Fact_Inventory",
+                                                      "objectName":  "Desktop - Fact_Inventory",
+                                                      "objectNameOverridden":  true,
+                                                      "transportObjectName":  "Desktop___Fact_Inventory",
+                                                      "dataSourceObjectName":  "Desktop___Fact_Inventory_dll",
+                                                      "dataLakeObjectName":  "Desktop___Fact_Inventory__dll",
+                                                      "streamLabel":  "Desktop - Fact_Inventory",
+                                                      "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Fact_Inventory.csv",
+                                                      "lineCount":  50001,
+                                                      "estimatedDataRows":  50000,
+                                                      "fields":  [
+                                                                     {
+                                                                         "name":  "InventoryID",
+                                                                         "apiName":  "InventoryID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Inventory Product ID",
+                                                                         "apiName":  "Inventory_Product_ID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Inventory Facility ID",
+                                                                         "apiName":  "Inventory_Facility_ID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Inventory Zone ID",
+                                                                         "apiName":  "Inventory_Zone_ID",
+                                                                         "schema":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                         "dataType":  "S",
+                                                                         "customFieldType":  "Text"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Snapshot Date Key",
+                                                                         "apiName":  "Snapshot_Date_Key",
+                                                                         "schema":  {
+                                                                                        "type":  "string",
+                                                                                        "format":  "date"
+                                                                                    },
+                                                                         "dataType":  "F",
+                                                                         "customFieldType":  "Date"
+                                                                     },
+                                                                     {
+                                                                         "name":  "Quantity On Hand",
+                                                                         "apiName":  "Quantity_On_Hand",
+                                                                         "schema":  {
+                                                                                        "type":  "number"
+                                                                                    },
+                                                                         "dataType":  "N",
+                                                                         "customFieldType":  "Number"
+                                                                     }
+                                                                 ],
+                                                      "primaryKeys":  "InventoryID",
+                                                      "dataStreamDefinition":  "Desktop___Fact_Inventory"
+                                                  }
+                                              ]
+                      },
+    "schemaRegistration":  {
+                               "created":  [
+
+                                           ],
+                               "reused":  [
+                                              "desktop_mf_Dim_Date",
+                                              "desktop_mf_Dim_Customer",
+                                              "desktop_mf_Dim_Location",
+                                              "desktop_mf_Dim_Supplier",
+                                              "desktop_mf_Dim_Product",
+                                              "desktop_mf_Dim_Facility",
+                                              "desktop_mf_Dim_Warehouse_Zone",
+                                              "desktop_mf_Fact_Orders",
+                                              "desktop_mf_Fact_Returns",
+                                              "desktop_mf_Fact_Production",
+                                              "desktop_mf_Fact_Inventory"
+                                          ]
+                           },
+    "streamProvisioning":  {
+                               "allActive":  true,
+                               "streams":  [
+                                               {
+                                                   "tableName":  "Dim_Date",
+                                                   "desiredObjectName":  "desktop_mf_Dim_Date",
+                                                   "resolvedObjectName":  "Desktop - Dim_Date",
+                                                   "streamLabel":  "Desktop - Dim_Date",
+                                                   "streamName":  "desktop_mf_Dim_Date_desktop_mf_Dim_Date_BE195740",
+                                                   "action":  "created",
+                                                   "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Dim_Date.csv",
+                                                   "dataLakeObjectName":  "desktop_mf_Dim_Date_desktop_mf_BE195740__dll",
+                                                   "dataLakeObjectStatus":  "ACTIVE"
+                                               },
+                                               {
+                                                   "tableName":  "Dim_Customer",
+                                                   "desiredObjectName":  "desktop_mf_Dim_Customer",
+                                                   "resolvedObjectName":  "Desktop - Dim_Customer",
+                                                   "streamLabel":  "Desktop - Dim_Customer",
+                                                   "streamName":  "desktop_mf_Dim_Customer_desktop_mf_Dim_Customer_BE19A9F6",
+                                                   "action":  "created",
+                                                   "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Dim_Customer.csv",
+                                                   "dataLakeObjectName":  "desktop_mf_Dim_Customer_desktop_BE19A9F6__dll",
+                                                   "dataLakeObjectStatus":  "ACTIVE"
+                                               },
+                                               {
+                                                   "tableName":  "Dim_Location",
+                                                   "desiredObjectName":  "desktop_mf_Dim_Location",
+                                                   "resolvedObjectName":  "Desktop - Dim_Location",
+                                                   "streamLabel":  "Desktop - Dim_Location",
+                                                   "streamName":  "desktop_mf_Dim_Location_desktop_mf_Dim_Location_BE1A0085",
+                                                   "action":  "created",
+                                                   "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Dim_Location.csv",
+                                                   "dataLakeObjectName":  "desktop_mf_Dim_Location_desktop_BE1A0085__dll",
+                                                   "dataLakeObjectStatus":  "ACTIVE"
+                                               },
+                                               {
+                                                   "tableName":  "Dim_Supplier",
+                                                   "desiredObjectName":  "desktop_mf_Dim_Supplier",
+                                                   "resolvedObjectName":  "Desktop - Dim_Supplier",
+                                                   "streamLabel":  "Desktop - Dim_Supplier",
+                                                   "streamName":  "desktop_mf_Dim_Supplier_desktop_mf_Dim_Supplier_BE1A582C",
+                                                   "action":  "created",
+                                                   "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Dim_Supplier.csv",
+                                                   "dataLakeObjectName":  "desktop_mf_Dim_Supplier_desktop_BE1A582C__dll",
+                                                   "dataLakeObjectStatus":  "ACTIVE"
+                                               },
+                                               {
+                                                   "tableName":  "Dim_Product",
+                                                   "desiredObjectName":  "desktop_mf_Dim_Product",
+                                                   "resolvedObjectName":  "Desktop - Dim_Product",
+                                                   "streamLabel":  "Desktop - Dim_Product",
+                                                   "streamName":  "desktop_mf_Dim_Product_desktop_mf_Dim_Product_BE1AB1EF",
+                                                   "action":  "created",
+                                                   "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Dim_Product.csv",
+                                                   "dataLakeObjectName":  "desktop_mf_Dim_Product_desktop_BE1AB1EF__dll",
+                                                   "dataLakeObjectStatus":  "ACTIVE"
+                                               },
+                                               {
+                                                   "tableName":  "Dim_Facility",
+                                                   "desiredObjectName":  "desktop_mf_Dim_Facility",
+                                                   "resolvedObjectName":  "Desktop - Dim_Facility",
+                                                   "streamLabel":  "Desktop - Dim_Facility",
+                                                   "streamName":  "desktop_mf_Dim_Facility_desktop_mf_Dim_Facility_BE1B0BF4",
+                                                   "action":  "created",
+                                                   "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Dim_Facility.csv",
+                                                   "dataLakeObjectName":  "desktop_mf_Dim_Facility_desktop_BE1B0BF4__dll",
+                                                   "dataLakeObjectStatus":  "ACTIVE"
+                                               },
+                                               {
+                                                   "tableName":  "Dim_Warehouse_Zone",
+                                                   "desiredObjectName":  "desktop_mf_Dim_Warehouse_Zone",
+                                                   "resolvedObjectName":  "Desktop - Dim_Warehouse_Zone",
+                                                   "streamLabel":  "Desktop - Dim_Warehouse_Zone",
+                                                   "streamName":  "desktop_mf_Dim_Warehouse_Zone_desktop_mf_Dim_Warehouse_Zone_BE1B6335",
+                                                   "action":  "created",
+                                                   "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Dim_Warehouse_Zone.csv",
+                                                   "dataLakeObjectName":  "desktop_mf_Dim_Warehouse_Zone_d_BE1B6335__dll",
+                                                   "dataLakeObjectStatus":  "ACTIVE"
+                                               },
+                                               {
+                                                   "tableName":  "Fact_Orders",
+                                                   "desiredObjectName":  "desktop_mf_Fact_Orders",
+                                                   "resolvedObjectName":  "Desktop - Fact_Orders",
+                                                   "streamLabel":  "Desktop - Fact_Orders",
+                                                   "streamName":  "desktop_mf_Fact_Orders_desktop_mf_Fact_Orders_BE1BB900",
+                                                   "action":  "created",
+                                                   "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Fact_Orders.csv",
+                                                   "dataLakeObjectName":  "desktop_mf_Fact_Orders_desktop_BE1BB900__dll",
+                                                   "dataLakeObjectStatus":  "ACTIVE"
+                                               },
+                                               {
+                                                   "tableName":  "Fact_Returns",
+                                                   "desiredObjectName":  "desktop_mf_Fact_Returns",
+                                                   "resolvedObjectName":  "Desktop - Fact_Returns",
+                                                   "streamLabel":  "Desktop - Fact_Returns",
+                                                   "streamName":  "desktop_mf_Fact_Returns_desktop_mf_Fact_Returns_BE1C1251",
+                                                   "action":  "created",
+                                                   "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Fact_Returns.csv",
+                                                   "dataLakeObjectName":  "desktop_mf_Fact_Returns_desktop_BE1C1251__dll",
+                                                   "dataLakeObjectStatus":  "ACTIVE"
+                                               },
+                                               {
+                                                   "tableName":  "Fact_Production",
+                                                   "desiredObjectName":  "desktop_mf_Fact_Production",
+                                                   "resolvedObjectName":  "Desktop - Fact_Production",
+                                                   "streamLabel":  "Desktop - Fact_Production",
+                                                   "streamName":  "desktop_mf_Fact_Production_desktop_mf_Fact_Production_BE1C6AF3",
+                                                   "action":  "created",
+                                                   "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Fact_Production.csv",
+                                                   "dataLakeObjectName":  "desktop_mf_Fact_Production_desk_BE1C6AF3__dll",
+                                                   "dataLakeObjectStatus":  "ACTIVE"
+                                               },
+                                               {
+                                                   "tableName":  "Fact_Inventory",
+                                                   "desiredObjectName":  "desktop_mf_Fact_Inventory",
+                                                   "resolvedObjectName":  "Desktop - Fact_Inventory",
+                                                   "streamLabel":  "Desktop - Fact_Inventory",
+                                                   "streamName":  "desktop_mf_Fact_Inventory_desktop_mf_Fact_Inventory_BE1CC51F",
+                                                   "action":  "created",
+                                                   "csvPath":  "C:\\Users\\andrew.hill\\Desktop\\Fact_Inventory.csv",
+                                                   "dataLakeObjectName":  "desktop_mf_Fact_Inventory_deskt_BE1CC51F__dll",
+                                                   "dataLakeObjectStatus":  "ACTIVE"
+                                               }
+                                           ]
+                           },
+    "registrySync":  {
+                         "updatedCount":  11,
+                         "updatedKeys":  [
+                                             "desktop-mf-Dim_Date",
+                                             "desktop-mf-Dim_Customer",
+                                             "desktop-mf-Dim_Location",
+                                             "desktop-mf-Dim_Supplier",
+                                             "desktop-mf-Dim_Product",
+                                             "desktop-mf-Dim_Facility",
+                                             "desktop-mf-Dim_Warehouse_Zone",
+                                             "desktop-mf-Fact_Orders",
+                                             "desktop-mf-Fact_Returns",
+                                             "desktop-mf-Fact_Production",
+                                             "desktop-mf-Fact_Inventory"
+                                         ]
+                     },
+    "manualStepsRemaining":  [
+                                 "The Ingest API connector itself must already exist in Data Cloud. This script resolves and uses an existing connector; it does not create one from scratch.",
+                                 "The generated metadata under salesforce/generated remains local source until you deploy it separately with the Salesforce metadata workflow."
+                             ]
+}

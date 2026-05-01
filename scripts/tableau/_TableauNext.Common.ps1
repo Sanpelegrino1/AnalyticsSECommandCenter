@@ -395,6 +395,24 @@ function Invoke-TableauNextQuery {
 
     $sfCommand = Get-RequiredCommandPath -Name 'sf' -Hint 'Install Salesforce CLI or run the bootstrap script.'
     $response = & $sfCommand data query --target-org $TargetOrg --query $Query --json | ConvertFrom-Json
+    if ($null -eq $response) {
+        throw 'Salesforce CLI returned no response for Tableau Next query.'
+    }
+
+    if ($response.PSObject.Properties.Name -contains 'status' -and [int]$response.status -ne 0) {
+        $message = if ($response.PSObject.Properties.Name -contains 'message' -and -not [string]::IsNullOrWhiteSpace([string]$response.message)) {
+            [string]$response.message
+        } else {
+            'Salesforce CLI query failed.'
+        }
+
+        throw $message
+    }
+
+    if (-not ($response.PSObject.Properties.Name -contains 'result') -or $null -eq $response.result) {
+        throw 'Salesforce CLI query response did not include a result payload.'
+    }
+
     return @($response.result.records | Select-Object -ExcludeProperty attributes)
 }
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description>This topic is selected when the user requests the creation or management of proactive alerts for key metrics.</description>
+    <developerName>p_16jWt000000UwGH_Data_Alert_Management</developerName>
+    <genAiFunctions>
+        <functionName>svc_emp_intelligence__GetRelevantTicketsByDescription</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If the user requests assistance with alert creation or management, use svc_emp_intelligence__GetRelevantTicketsByDescription to retrieve relevant records.</description>
+        <developerName>instruction_0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_0</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <localDeveloperName>p_16jWt000000UwGH_Data_Alert_Management</localDeveloperName>
+    <masterLabel>Data Alert Management</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to only manage and create proactive alerts for key metrics. You cannot analyze metrics or create calculated fields.</scope>
+</GenAiPlugin>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description>This topic is selected when users need to analyze data, understand metrics, identify trends, or summarize dashboards using Tableau Next.</description>
+    <developerName>p_16jbm000001U1u9_Data_Analysis</developerName>
+    <genAiFunctions>
+        <functionName>Analytics__SummarizeDashboard</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Analytics__AnalyzeMetric</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If the query involves summarizing a dashboard, use Analytics__SummarizeDashboard.</description>
+        <developerName>instruction_0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_0</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the query involves analyzing metrics or trends, use Analytics__AnalyzeMetric.</description>
+        <developerName>instruction_1</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_1</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <localDeveloperName>p_16jbm000001U1u9_Data_Analysis</localDeveloperName>
+    <masterLabel>Data Analysis</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to only assist users with analyzing data, providing insights into metrics, trends, and dashboards using Tableau Next. You cannot create new dashboards or handle unrelated data requests.</scope>
+</GenAiPlugin>

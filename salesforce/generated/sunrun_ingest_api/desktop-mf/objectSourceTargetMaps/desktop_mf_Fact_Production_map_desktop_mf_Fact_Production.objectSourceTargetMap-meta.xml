@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ObjectSourceTargetMap xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <creationType>Custom</creationType>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Fact_Production.ProductionID__c</sourceField>
+        <sourceFormula>ProductionID</sourceFormula>
+        <targetField>desktop_mf_Fact_Production__dll.ProductionID__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Fact_Production.Production_Product_ID__c</sourceField>
+        <sourceFormula>Production Product ID</sourceFormula>
+        <targetField>desktop_mf_Fact_Production__dll.Production_Product_ID__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Fact_Production.Production_Facility_ID__c</sourceField>
+        <sourceFormula>Production Facility ID</sourceFormula>
+        <targetField>desktop_mf_Fact_Production__dll.Production_Facility_ID__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Fact_Production.Production_Location_ID__c</sourceField>
+        <sourceFormula>Production Location ID</sourceFormula>
+        <targetField>desktop_mf_Fact_Production__dll.Production_Location_ID__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Fact_Production.Production_Date_Key__c</sourceField>
+        <sourceFormula>Production Date Key</sourceFormula>
+        <targetField>desktop_mf_Fact_Production__dll.Production_Date_Key__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Fact_Production.Units_Produced__c</sourceField>
+        <sourceFormula>Units Produced</sourceFormula>
+        <targetField>desktop_mf_Fact_Production__dll.Units_Produced__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Fact_Production.Defect_Count__c</sourceField>
+        <sourceFormula>Defect Count</sourceFormula>
+        <targetField>desktop_mf_Fact_Production__dll.Defect_Count__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;desktop_mf_Fact_Production&quot;</sourceFormula>
+        <targetField>desktop_mf_Fact_Production__dll.DataSourceObject__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;sunrun_ingest_api&quot;</sourceFormula>
+        <targetField>desktop_mf_Fact_Production__dll.DataSource__c</targetField>
+    </fieldSourceTargetMaps>
+    <masterLabel>desktop_mf_Fact_Production_map_desktop_mf_Fact_Production</masterLabel>
+    <sourceObjectName>desktop_mf_Fact_Production</sourceObjectName>
+    <targetObjectName>desktop_mf_Fact_Production__dll</targetObjectName>
+</ObjectSourceTargetMap>

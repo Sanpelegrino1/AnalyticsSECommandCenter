@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description>This topic is selected when users need assistance in creating calculated fields by describing them in natural language.</description>
+    <developerName>p_16jfj000001TehR_Data_Pro</developerName>
+    <genAiFunctions>
+        <functionName>schema_ai__IdentifyFieldByName</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__ExtractFieldsAndValuesFromUserInput</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__UpdateRecordFields</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If the user describes a calculated field they want to create, use schema_ai__IdentifyFieldByName and EmployeeCopilot__ExtractFieldsAndValuesFromUserInput to identify and extract the necessary fields and values.</description>
+        <developerName>instruction_0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_0</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Once fields and values are identified, use EmployeeCopilot__UpdateRecordFields to create the calculated field.</description>
+        <developerName>instruction_1</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_1</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <localDeveloperName>p_16jfj000001TehR_Data_Pro</localDeveloperName>
+    <masterLabel>Data Pro</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to only help users create calculated fields by interpreting their natural language descriptions and ensuring the fields are configured correctly. You cannot perform data analysis or manage alerts.</scope>
+</GenAiPlugin>

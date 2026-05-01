@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description>Handles requests to create derived metrics or dimensions in natural language and attach them to a semantic model or Data Cloud DMO. This topic is selected when users want to define new calculated fields or modify existing ones.</description>
+    <developerName>p_16jfj000001TktJ_Calculated_Fields</developerName>
+    <genAiFunctions>
+        <functionName>SvcCopilotTmpl__CreateCase</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>schema_ai__IdentifyObjectByName</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If the user provides a request for a calculated field, use the &apos;SvcCopilotTmpl__CreateCase&apos; action to create the field.</description>
+        <developerName>instruction_0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_0</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the user wants to attach the calculated field to a specific model, identify the appropriate model using the &apos;schema_ai__IdentifyObjectByName&apos; action.</description>
+        <developerName>instruction_1</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_1</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <localDeveloperName>p_16jfj000001TktJ_Calculated_Fields</localDeveloperName>
+    <masterLabel>Calculated Fields</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to only create or modify calculated fields based on user input. Generate formulas in Tableau Next calculation syntax and attach them to the most relevant semantic model or Data Cloud DMO. You cannot publish calculated fields without explicit user consent.</scope>
+</GenAiPlugin>

@@ -193,8 +193,179 @@ function Get-SalesforceOrgAccessContext {
     }
 }
 
+function Get-SalesforceOrgRegistryPath {
+    return Resolve-CommandCenterPath 'notes/registries/salesforce-orgs.json'
+}
+
+function Get-SalesforceOrgRegistry {
+    $registry = Read-JsonFile -Path (Get-SalesforceOrgRegistryPath)
+    if ($null -eq $registry) {
+        return [pscustomobject]@{
+            defaultAlias = ''
+            orgs = @()
+        }
+    }
+
+    if ($null -eq $registry.orgs) {
+        $registry | Add-Member -NotePropertyName 'orgs' -NotePropertyValue @() -Force
+    }
+
+    if ($null -eq $registry.defaultAlias) {
+        $registry | Add-Member -NotePropertyName 'defaultAlias' -NotePropertyValue '' -Force
+    }
+
+    return $registry
+}
+
+function Get-SalesforceOrgRegistryRecord {
+    param(
+        [string]$Alias,
+        [string]$LoginUrl,
+        [string]$InstanceUrl
+    )
+
+    $registry = Get-SalesforceOrgRegistry
+    $orgs = @($registry.orgs)
+    if ($orgs.Count -eq 0) {
+        return $null
+    }
+
+    if (-not [string]::IsNullOrWhiteSpace($Alias)) {
+        $aliasMatch = @($orgs | Where-Object { [string]$_.alias -eq $Alias } | Select-Object -First 1)
+        if ($aliasMatch.Count -gt 0) {
+            return $aliasMatch[0]
+        }
+    }
+
+    $candidateUrls = @()
+    foreach ($url in @($LoginUrl, $InstanceUrl)) {
+        if (-not [string]::IsNullOrWhiteSpace($url)) {
+            $candidateUrls += (Normalize-DataCloudUrl -Value $url)
+        }
+    }
+
+    foreach ($candidateUrl in @($candidateUrls | Select-Object -Unique)) {
+        $urlMatch = @($orgs | Where-Object { (Normalize-DataCloudUrl -Value ([string]$_.loginUrl)) -eq $candidateUrl } | Select-Object -First 1)
+        if ($urlMatch.Count -gt 0) {
+            return $urlMatch[0]
+        }
+    }
+
+    return $null
+}
+
 function Get-DataCloudRegistryPath {
     return Resolve-CommandCenterPath 'notes/registries/data-cloud-targets.json'
+}
+
+function Get-DataCloudIngestApiConnectors {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$InstanceUrl,
+        [Parameter(Mandatory = $true)]
+        [string]$AccessToken
+    )
+
+    $uri = '{0}/services/data/v62.0/ssot/connections?connectorType=IngestApi&limit=200' -f $InstanceUrl.TrimEnd('/')
+    $headers = @{ Authorization = 'Bearer {0}' -f $AccessToken }
+
+    try {
+        $response = Invoke-RestMethod -Method Get -Uri $uri -Headers $headers
+    } catch {
+        throw (Get-DataCloudErrorMessage -ErrorRecord $_)
+    }
+
+    return @($response.connections)
+}
+
+function Resolve-DataCloudSourceNamePreference {
+    param(
+        [string]$PreferredSourceName,
+        [string]$SalesforceAlias,
+        [string]$LoginUrl,
+        [string]$InstanceUrl,
+        [string]$AccessToken,
+        [object]$RegistrationHints,
+        [object]$DatasetDefaults,
+        [switch]$AllowConnectorDiscovery,
+        [switch]$AllowDatasetFallback = $true
+    )
+
+    if (-not [string]::IsNullOrWhiteSpace($PreferredSourceName)) {
+        return [pscustomobject]@{
+            SourceName = $PreferredSourceName
+            ResolutionSource = 'explicit'
+        }
+    }
+
+    if (-not [string]::IsNullOrWhiteSpace($env:DATACLOUD_SOURCE_NAME)) {
+        return [pscustomobject]@{
+            SourceName = [string]$env:DATACLOUD_SOURCE_NAME
+            ResolutionSource = 'env:DATACLOUD_SOURCE_NAME'
+        }
+    }
+
+    $orgRecord = Get-SalesforceOrgRegistryRecord -Alias $SalesforceAlias -LoginUrl $LoginUrl -InstanceUrl $InstanceUrl
+    if ($null -ne $orgRecord) {
+        $orgSourceName = [string](Get-OptionalObjectPropertyValue -InputObject $orgRecord -PropertyName 'dataCloudSourceName')
+        if (-not [string]::IsNullOrWhiteSpace($orgSourceName)) {
+            return [pscustomobject]@{
+                SourceName = $orgSourceName
+                ResolutionSource = 'salesforce-org-registry'
+            }
+        }
+    }
+
+    $hintSourceName = [string](Get-OptionalObjectPropertyValue -InputObject $RegistrationHints -PropertyName 'SourceName')
+    if (-not [string]::IsNullOrWhiteSpace($hintSourceName)) {
+        return [pscustomobject]@{
+            SourceName = $hintSourceName
+            ResolutionSource = 'manifest-registration-hints'
+        }
+    }
+
+    if ($AllowConnectorDiscovery -and -not [string]::IsNullOrWhiteSpace($InstanceUrl) -and -not [string]::IsNullOrWhiteSpace($AccessToken)) {
+        $connectors = @(Get-DataCloudIngestApiConnectors -InstanceUrl $InstanceUrl -AccessToken $AccessToken)
+        $connectedConnectors = @($connectors | Where-Object { [string]$_.status -eq 'CONNECTED' })
+        if ($connectedConnectors.Count -eq 1) {
+            return [pscustomobject]@{
+                SourceName = [string]$connectedConnectors[0].name
+                ResolutionSource = 'org-connector-discovery'
+                ConnectorNames = @($connectors | ForEach-Object { [string]$_.name })
+            }
+        }
+
+        if ($connectors.Count -eq 1) {
+            return [pscustomobject]@{
+                SourceName = [string]$connectors[0].name
+                ResolutionSource = 'org-connector-discovery'
+                ConnectorNames = @($connectors | ForEach-Object { [string]$_.name })
+            }
+        }
+
+        if ($connectedConnectors.Count -gt 1 -or $connectors.Count -gt 1) {
+            return [pscustomobject]@{
+                SourceName = ''
+                ResolutionSource = 'ambiguous-org-connectors'
+                ConnectorNames = @($(if ($connectedConnectors.Count -gt 0) { $connectedConnectors } else { $connectors }) | ForEach-Object { [string]$_.name })
+            }
+        }
+    }
+
+    if ($AllowDatasetFallback) {
+        $datasetSourceName = [string](Get-OptionalObjectPropertyValue -InputObject $DatasetDefaults -PropertyName 'SourceName')
+        if (-not [string]::IsNullOrWhiteSpace($datasetSourceName)) {
+            return [pscustomobject]@{
+                SourceName = $datasetSourceName
+                ResolutionSource = 'dataset-derived-fallback'
+            }
+        }
+    }
+
+    return [pscustomobject]@{
+        SourceName = ''
+        ResolutionSource = 'unresolved'
+    }
 }
 
 function Get-DataCloudRegistry {
@@ -512,13 +683,16 @@ function Get-DataCloudCsvProfile {
     }
 
     $blankHeaders = New-Object System.Collections.Generic.List[string]
+    $sanitizedHeaders = New-Object System.Collections.Generic.List[string]
     for ($index = 0; $index -lt $headers.Count; $index++) {
         if ([string]::IsNullOrWhiteSpace($headers[$index])) {
             $blankHeaders.Add([string]($index + 1)) | Out-Null
             continue
         }
 
-        Assert-ValidFieldName -FieldName $headers[$index] -ContextLabel 'Header'
+        $safeHeaderName = New-MetadataSafeName -Value $headers[$index] -MaxLength 37
+        Assert-ValidFieldName -FieldName $safeHeaderName -ContextLabel 'Header API'
+        $sanitizedHeaders.Add($safeHeaderName) | Out-Null
     }
 
     if ($blankHeaders.Count -gt 0) {
@@ -526,6 +700,7 @@ function Get-DataCloudCsvProfile {
     }
 
     Assert-NoCaseInsensitiveDuplicates -Values $headers -Kind 'header'
+    Assert-NoCaseInsensitiveDuplicates -Values $sanitizedHeaders.ToArray() -Kind 'header API'
 
     $sampleRowsData = @(Import-Csv -Path $resolvedCsvPath | Select-Object -First $SampleRows)
     if ($sampleRowsData.Count -eq 0 -and -not $AllowHeaderOnly) {
@@ -603,23 +778,169 @@ function ConvertTo-DataCloudCompatibleManifest {
         [object]$Manifest
     )
 
-    $filesProperty = $Manifest.PSObject.Properties['files']
-    if ($null -ne $filesProperty -and $null -ne $filesProperty.Value -and @($filesProperty.Value).Count -gt 0) {
-        return $Manifest
+    function Get-ManifestJoinGraphEntries {
+        param(
+            [Parameter(Mandatory = $true)]
+            [object]$JoinGraphValue
+        )
+
+        $entries = New-Object System.Collections.Generic.List[object]
+        foreach ($property in @($JoinGraphValue.PSObject.Properties)) {
+            if ($null -eq $property -or [string]::IsNullOrWhiteSpace([string]$property.Name) -or $null -eq $property.Value) {
+                continue
+            }
+
+            $primaryKeyValue = Get-OptionalObjectPropertyValue -InputObject $property.Value -PropertyName 'primaryKey'
+            $foreignKeysValue = Get-OptionalObjectPropertyValue -InputObject $property.Value -PropertyName 'foreignKeys'
+            $entries.Add([pscustomobject]@{
+                tableName = [string]$property.Name
+                primaryKey = @($primaryKeyValue)
+                foreignKeys = @($foreignKeysValue)
+            }) | Out-Null
+        }
+
+        return @($entries.ToArray())
     }
 
-    $publishContractProperty = $Manifest.PSObject.Properties['publishContract']
-    $publishContract = if ($null -ne $publishContractProperty) { $publishContractProperty.Value } else { $null }
-    $publishContractTablesProperty = if ($null -ne $publishContract) { $publishContract.PSObject.Properties['tables'] } else { $null }
-    $tables = @($(if ($null -ne $publishContractTablesProperty) { $publishContractTablesProperty.Value } else { $null }))
+    function Get-ManifestRootTableName {
+        param(
+            [Parameter(Mandatory = $true)]
+            [object[]]$JoinGraphEntries,
+            [object]$PublishContract
+        )
+
+        if ($null -ne $PublishContract) {
+            $rootTableProperty = $PublishContract.PSObject.Properties['rootTable']
+            if ($null -ne $rootTableProperty -and -not [string]::IsNullOrWhiteSpace([string]$rootTableProperty.Value)) {
+                return [string]$rootTableProperty.Value
+            }
+        }
+
+        $factTable = @($JoinGraphEntries | Where-Object { [string]$_.tableName -like 'fact_*' } | Select-Object -First 1)
+        if ($factTable.Count -gt 0) {
+            return [string]$factTable[0].tableName
+        }
+
+        $rankedByForeignKeys = @(
+            $JoinGraphEntries |
+                Sort-Object -Property @{ Expression = { @($_.foreignKeys).Count } ; Descending = $true }, @{ Expression = { [string]$_.tableName } }
+        )
+        if ($rankedByForeignKeys.Count -gt 0) {
+            return [string]$rankedByForeignKeys[0].tableName
+        }
+
+        return ''
+    }
+
+    $filesProperty = $Manifest.PSObject.Properties['files']
+    if ($null -ne $filesProperty -and $null -ne $filesProperty.Value -and @($filesProperty.Value).Count -gt 0) {
+        $firstFileEntry = @($filesProperty.Value | Select-Object -First 1)
+        if ($firstFileEntry.Count -gt 0 -and -not [string]::IsNullOrWhiteSpace([string](Get-OptionalObjectPropertyValue -InputObject $firstFileEntry[0] -PropertyName 'tableName')) -and -not [string]::IsNullOrWhiteSpace([string](Get-OptionalObjectPropertyValue -InputObject $firstFileEntry[0] -PropertyName 'fileName'))) {
+            return $Manifest
+        }
+    }
+
+    $publishContract = Get-OptionalObjectPropertyValue -InputObject $Manifest -PropertyName 'publishContract'
+    if ($publishContract -is [string] -and [string]::IsNullOrWhiteSpace([string]$publishContract)) {
+        $publishContract = $null
+    }
+
+    $topLevelTables = @(
+        foreach ($table in @(Get-OptionalObjectPropertyValue -InputObject $Manifest -PropertyName 'tables')) {
+            if ($null -ne $table -and -not ($table -is [string] -and [string]::IsNullOrWhiteSpace($table))) {
+                $table
+            }
+        }
+    )
+
+    $publishContractTables = if ($null -ne $publishContract) {
+        @(Get-OptionalObjectPropertyValue -InputObject $publishContract -PropertyName 'tables')
+    } else {
+        @()
+    }
+
+    $tables = @(
+        foreach ($table in $publishContractTables) {
+            if ($null -ne $table -and -not ($table -is [string] -and [string]::IsNullOrWhiteSpace($table))) {
+                $table
+            }
+        }
+    )
+    if ($tables.Count -eq 0 -and $topLevelTables.Count -gt 0) {
+        $tables = @($topLevelTables)
+    }
     if ($tables.Count -eq 0) {
+        $joinGraphProperty = $Manifest.PSObject.Properties['joinGraph']
+        $joinGraphEntries = if ($null -ne $joinGraphProperty -and $null -ne $joinGraphProperty.Value) { @(Get-ManifestJoinGraphEntries -JoinGraphValue $joinGraphProperty.Value) } else { @() }
+        if ($joinGraphEntries.Count -eq 0) {
+            return $Manifest
+        }
+
+        $files = @(
+            foreach ($entry in $joinGraphEntries) {
+                [pscustomobject]@{
+                    tableName = [string]$entry.tableName
+                    fileName = '{0}.csv' -f [string]$entry.tableName
+                }
+            }
+        )
+
+        $relationships = @(
+            foreach ($entry in $joinGraphEntries) {
+                foreach ($foreignKey in @($entry.foreignKeys)) {
+                    $referenceValue = [string](Get-OptionalObjectPropertyValue -InputObject $foreignKey -PropertyName 'references')
+                    if ([string]::IsNullOrWhiteSpace($referenceValue) -or -not $referenceValue.Contains('.')) {
+                        continue
+                    }
+
+                    $referenceParts = $referenceValue.Split('.', 2)
+                    if ($referenceParts.Count -ne 2 -or [string]::IsNullOrWhiteSpace($referenceParts[0]) -or [string]::IsNullOrWhiteSpace($referenceParts[1])) {
+                        continue
+                    }
+
+                    [pscustomobject]@{
+                        sourceTable = [string]$entry.tableName
+                        sourceField = [string](Get-OptionalObjectPropertyValue -InputObject $foreignKey -PropertyName 'field')
+                        targetTable = [string]$referenceParts[0]
+                        targetField = [string]$referenceParts[1]
+                        direction = 'many_to_one'
+                        required = $true
+                    }
+                }
+            }
+        )
+
+        $rootTableName = Get-ManifestRootTableName -JoinGraphEntries $joinGraphEntries -PublishContract $publishContract
+        $datasetNameProperty = $Manifest.PSObject.Properties['datasetName']
+        $datasetIdentityProperty = $Manifest.PSObject.Properties['datasetIdentity']
+        if (($null -eq $datasetNameProperty -or [string]::IsNullOrWhiteSpace([string]$datasetNameProperty.Value)) -and $null -ne $datasetIdentityProperty -and -not [string]::IsNullOrWhiteSpace([string]$datasetIdentityProperty.Value)) {
+            $Manifest | Add-Member -NotePropertyName 'datasetName' -NotePropertyValue ([string]$datasetIdentityProperty.Value) -Force
+        }
+
+        $Manifest | Add-Member -NotePropertyName 'files' -NotePropertyValue $files -Force
+        $Manifest | Add-Member -NotePropertyName 'joinGraph' -NotePropertyValue $joinGraphEntries -Force
+
+        if ($null -eq $publishContract) {
+            $publishContract = [pscustomobject]@{}
+            $Manifest | Add-Member -NotePropertyName 'publishContract' -NotePropertyValue $publishContract -Force
+        }
+
+        if (-not [string]::IsNullOrWhiteSpace($rootTableName)) {
+            $publishContract | Add-Member -NotePropertyName 'rootTable' -NotePropertyValue $rootTableName -Force
+        }
+
+        $relationshipsProperty = $publishContract.PSObject.Properties['relationships']
+        if (($null -eq $relationshipsProperty -or $null -eq $relationshipsProperty.Value -or @($relationshipsProperty.Value).Count -eq 0) -and $relationships.Count -gt 0) {
+            $publishContract | Add-Member -NotePropertyName 'relationships' -NotePropertyValue $relationships -Force
+        }
+
         return $Manifest
     }
 
     $tableNameById = @{}
     foreach ($table in $tables) {
-        $tableId = [string]$table.id
-        $tableName = [string]$table.tableName
+        $tableId = [string](Get-OptionalObjectPropertyValue -InputObject $table -PropertyName 'id')
+        $tableName = [string](Get-OptionalObjectPropertyValue -InputObject $table -PropertyName 'tableName')
         if (-not [string]::IsNullOrWhiteSpace($tableId) -and -not [string]::IsNullOrWhiteSpace($tableName)) {
             $tableNameById[$tableId] = $tableName
         }
@@ -630,9 +951,15 @@ function ConvertTo-DataCloudCompatibleManifest {
 
     $files = @(
         foreach ($table in $tables) {
+            $tableName = [string](Get-OptionalObjectPropertyValue -InputObject $table -PropertyName 'tableName')
+            $fileName = [string](Get-OptionalObjectPropertyValue -InputObject $table -PropertyName 'fileName')
+            if ([string]::IsNullOrWhiteSpace($fileName) -and -not [string]::IsNullOrWhiteSpace($tableName)) {
+                $fileName = '{0}.csv' -f $tableName
+            }
+
             [pscustomobject]@{
-                tableName = [string]$table.tableName
-                fileName = [string]$table.fileName
+                tableName = $tableName
+                fileName = $fileName
             }
         }
     )
@@ -640,25 +967,68 @@ function ConvertTo-DataCloudCompatibleManifest {
     $joinGraph = @(
         foreach ($table in $tables) {
             [pscustomobject]@{
-                tableName = [string]$table.tableName
-                primaryKey = @($table.primaryKey)
+                tableName = [string](Get-OptionalObjectPropertyValue -InputObject $table -PropertyName 'tableName')
+                primaryKey = @((Get-OptionalObjectPropertyValue -InputObject $table -PropertyName 'primaryKey'))
             }
         }
     )
 
+    $publishContractJoinPaths = if ($null -ne $publishContract) {
+        @(Get-OptionalObjectPropertyValue -InputObject $publishContract -PropertyName 'joinPaths')
+    } else {
+        @()
+    }
+
+    $joinPaths = @(
+        foreach ($joinPath in $publishContractJoinPaths) {
+            if ($null -ne $joinPath -and -not ($joinPath -is [string] -and [string]::IsNullOrWhiteSpace($joinPath))) {
+                $joinPath
+            }
+        }
+    )
+    if ($joinPaths.Count -eq 0) {
+        $joinPaths = @(
+            foreach ($joinPath in @(Get-OptionalObjectPropertyValue -InputObject $Manifest -PropertyName 'joinPaths')) {
+                if ($null -ne $joinPath -and -not ($joinPath -is [string] -and [string]::IsNullOrWhiteSpace($joinPath))) {
+                    $joinPath
+                }
+            }
+        )
+    }
+
     $relationships = @(
-        foreach ($joinPath in @($(if ($null -ne $publishContract) { $publishContract.joinPaths } else { $null }))) {
-            $sourceTableName = if ($tableNameById.ContainsKey([string]$joinPath.sourceTableId)) { $tableNameById[[string]$joinPath.sourceTableId] } else { [string]$joinPath.sourceTableId }
-            $targetTableName = if ($tableNameById.ContainsKey([string]$joinPath.targetTableId)) { $tableNameById[[string]$joinPath.targetTableId] } else { [string]$joinPath.targetTableId }
+        foreach ($joinPath in $joinPaths) {
+            $sourceTableKey = [string](Get-OptionalObjectPropertyValue -InputObject $joinPath -PropertyName 'sourceTableId')
+            if ([string]::IsNullOrWhiteSpace($sourceTableKey)) {
+                $sourceTableKey = [string](Get-OptionalObjectPropertyValue -InputObject $joinPath -PropertyName 'fromTable')
+            }
+
+            $targetTableKey = [string](Get-OptionalObjectPropertyValue -InputObject $joinPath -PropertyName 'targetTableId')
+            if ([string]::IsNullOrWhiteSpace($targetTableKey)) {
+                $targetTableKey = [string](Get-OptionalObjectPropertyValue -InputObject $joinPath -PropertyName 'toTable')
+            }
+
+            $sourceTableName = if ($tableNameById.ContainsKey($sourceTableKey)) { $tableNameById[$sourceTableKey] } else { $sourceTableKey }
+            $targetTableName = if ($tableNameById.ContainsKey($targetTableKey)) { $tableNameById[$targetTableKey] } else { $targetTableKey }
             if ([string]::IsNullOrWhiteSpace($sourceTableName) -or [string]::IsNullOrWhiteSpace($targetTableName)) {
                 continue
             }
 
+            $sourceFieldValue = [string](Get-OptionalObjectPropertyValue -InputObject $joinPath -PropertyName 'sourceField')
+            if ([string]::IsNullOrWhiteSpace($sourceFieldValue)) {
+                $sourceFieldValue = [string](Get-OptionalObjectPropertyValue -InputObject $joinPath -PropertyName 'fromField')
+            }
+
+            $targetFieldValue = [string](Get-OptionalObjectPropertyValue -InputObject $joinPath -PropertyName 'targetField')
+            if ([string]::IsNullOrWhiteSpace($targetFieldValue)) {
+                $targetFieldValue = [string](Get-OptionalObjectPropertyValue -InputObject $joinPath -PropertyName 'toField')
+            }
+
             [pscustomobject]@{
                 sourceTable = $sourceTableName
-                sourceField = [string]$joinPath.sourceField
+                sourceField = $sourceFieldValue
                 targetTable = $targetTableName
-                targetField = [string]$joinPath.targetField
+                targetField = $targetFieldValue
                 direction = 'many_to_one'
                 required = $true
             }
@@ -667,13 +1037,19 @@ function ConvertTo-DataCloudCompatibleManifest {
 
     $rootTableName = ''
     if ($null -ne $publishContract) {
-        $rootTableProperty = $publishContract.PSObject.Properties['rootTable']
-        $rootTableIdProperty = $publishContract.PSObject.Properties['rootTableId']
-        if ($null -ne $rootTableProperty -and -not [string]::IsNullOrWhiteSpace([string]$rootTableProperty.Value)) {
-            $rootTableName = [string]$rootTableProperty.Value
-        } elseif ($null -ne $rootTableIdProperty -and -not [string]::IsNullOrWhiteSpace([string]$rootTableIdProperty.Value)) {
-            $rootTableKey = [string]$rootTableIdProperty.Value
+        $rootTableValue = [string](Get-OptionalObjectPropertyValue -InputObject $publishContract -PropertyName 'rootTable')
+        $rootTableIdValue = [string](Get-OptionalObjectPropertyValue -InputObject $publishContract -PropertyName 'rootTableId')
+        if (-not [string]::IsNullOrWhiteSpace($rootTableValue)) {
+            $rootTableName = $rootTableValue
+        } elseif (-not [string]::IsNullOrWhiteSpace($rootTableIdValue)) {
+            $rootTableKey = $rootTableIdValue
             $rootTableName = if ($tableNameById.ContainsKey($rootTableKey)) { $tableNameById[$rootTableKey] } else { $rootTableKey }
+        }
+    }
+    if ([string]::IsNullOrWhiteSpace($rootTableName)) {
+        $factTable = @($tables | Where-Object { [string](Get-OptionalObjectPropertyValue -InputObject $_ -PropertyName 'tableRole') -eq 'fact' } | Select-Object -First 1)
+        if ($factTable.Count -gt 0) {
+            $rootTableName = [string](Get-OptionalObjectPropertyValue -InputObject $factTable[0] -PropertyName 'tableName')
         }
     }
     if ([string]::IsNullOrWhiteSpace($rootTableName) -and $files.Count -gt 0) {
@@ -737,11 +1113,13 @@ function Get-DataCloudManifestDefaults {
     $manifest = $ManifestInfo.Content
     $manifestFileStem = [System.IO.Path]::GetFileNameWithoutExtension($ManifestInfo.Path)
     $manifestDirectoryName = Split-Path -Path $ManifestInfo.Directory -Leaf
+    $datasetName = [string](Get-OptionalObjectPropertyValue -InputObject $manifest -PropertyName 'datasetName')
+    $datasetIdentity = [string](Get-OptionalObjectPropertyValue -InputObject $manifest -PropertyName 'datasetIdentity')
 
-    $datasetLabel = if (-not [string]::IsNullOrWhiteSpace($manifest.datasetName)) {
-        [string]$manifest.datasetName
-    } elseif (-not [string]::IsNullOrWhiteSpace($manifest.datasetIdentity)) {
-        [string]$manifest.datasetIdentity
+    $datasetLabel = if (-not [string]::IsNullOrWhiteSpace($datasetName)) {
+        $datasetName
+    } elseif (-not [string]::IsNullOrWhiteSpace($datasetIdentity)) {
+        $datasetIdentity
     } elseif (-not [string]::IsNullOrWhiteSpace($manifestDirectoryName)) {
         $manifestDirectoryName
     } else {
@@ -766,7 +1144,7 @@ function Get-DataCloudManifestDefaults {
         DatasetKey = $datasetKey
         TargetKeyPrefix = $datasetKey
         ObjectNamePrefix = ($datasetKey -replace '-', '_')
-        SourceName = '{0}_ingest_api' -f ($datasetKey -replace '-', '_')
+        SourceName = 'command_center_ingest_api'
         ManifestPath = $ManifestInfo.RelativePath
         NotesPrefix = 'Dataset config from {0}' -f $ManifestInfo.RelativePath
     }
@@ -1050,6 +1428,15 @@ function Get-DataCloudTargetConfiguration {
     if ([string]::IsNullOrWhiteSpace($resolvedTargetKey)) {
         if (-not [string]::IsNullOrWhiteSpace($env:DATACLOUD_DEFAULT_TARGET)) {
             $resolvedTargetKey = $env:DATACLOUD_DEFAULT_TARGET
+        } elseif (-not [string]::IsNullOrWhiteSpace($env:DATACLOUD_SALESFORCE_ALIAS)) {
+            $aliasMatchedTarget = @(
+                $registry.targets |
+                    Where-Object { [string](Get-OptionalObjectPropertyValue -InputObject $_ -PropertyName 'salesforceAlias') -eq $env:DATACLOUD_SALESFORCE_ALIAS } |
+                    Select-Object -First 1
+            )
+            if ($aliasMatchedTarget.Count -gt 0) {
+                $resolvedTargetKey = [string](Get-OptionalObjectPropertyValue -InputObject $aliasMatchedTarget[0] -PropertyName 'key')
+            }
         } elseif (-not [string]::IsNullOrWhiteSpace($registry.defaultTargetKey)) {
             $resolvedTargetKey = $registry.defaultTargetKey
         }
@@ -1250,7 +1637,49 @@ function Get-DataCloudAccessContext {
         $exchangeResponse = Invoke-RestMethod -Method Post -Uri $tokenExchangeUrl -ContentType 'application/x-www-form-urlencoded' -Body (ConvertTo-FormUrlEncoded -Values $exchangeBody)
     } catch {
         $exchangeErrorMessage = Get-DataCloudErrorMessage -ErrorRecord $_
-        throw (Get-DataCloudTokenExchangeFailureMessage -BaseMessage $exchangeErrorMessage -SalesforceAlias $config.SalesforceAlias -TokenSource $tokenSource)
+
+        $shouldRetryWithRefreshToken = (
+            $tokenSource -eq 'salesforce-cli-session' -and
+            $hasRefreshTokenFlow -and
+            $exchangeErrorMessage -match 'invalid_scope'
+        )
+
+        if ($shouldRetryWithRefreshToken) {
+            $tokenRequestBody = @{
+                grant_type = 'refresh_token'
+                client_id = $env:DATACLOUD_CLIENT_ID
+                refresh_token = $env:DATACLOUD_REFRESH_TOKEN
+            }
+
+            if (-not [string]::IsNullOrWhiteSpace($env:DATACLOUD_CLIENT_SECRET)) {
+                $tokenRequestBody.client_secret = $env:DATACLOUD_CLIENT_SECRET
+            }
+
+            $salesforceTokenUrl = '{0}/services/oauth2/token' -f $config.LoginUrl
+
+            try {
+                $salesforceResponse = Invoke-RestMethod -Method Post -Uri $salesforceTokenUrl -ContentType 'application/x-www-form-urlencoded' -Body (ConvertTo-FormUrlEncoded -Values $tokenRequestBody)
+            } catch {
+                throw (Get-DataCloudErrorMessage -ErrorRecord $_)
+            }
+
+            if ($null -eq $salesforceResponse -or [string]::IsNullOrWhiteSpace([string](Get-OptionalObjectPropertyValue -InputObject $salesforceResponse -PropertyName 'access_token')) -or [string]::IsNullOrWhiteSpace([string](Get-OptionalObjectPropertyValue -InputObject $salesforceResponse -PropertyName 'instance_url'))) {
+                throw (Get-DataCloudUnexpectedResponseMessage -Operation 'Salesforce OAuth refresh-token exchange' -Response $salesforceResponse)
+            }
+
+            $salesforceAccessToken = Get-OptionalObjectPropertyValue -InputObject $salesforceResponse -PropertyName 'access_token'
+            $tokenExchangeUrl = Resolve-DataCloudTokenExchangeUrl -Value (Get-OptionalObjectPropertyValue -InputObject $salesforceResponse -PropertyName 'instance_url')
+            $tokenSource = 'refresh-token-fallback'
+
+            try {
+                $exchangeResponse = Invoke-RestMethod -Method Post -Uri $tokenExchangeUrl -ContentType 'application/x-www-form-urlencoded' -Body (ConvertTo-FormUrlEncoded -Values $exchangeBody)
+            } catch {
+                $exchangeErrorMessage = Get-DataCloudErrorMessage -ErrorRecord $_
+                throw (Get-DataCloudTokenExchangeFailureMessage -BaseMessage $exchangeErrorMessage -SalesforceAlias $config.SalesforceAlias -TokenSource $tokenSource)
+            }
+        } else {
+            throw (Get-DataCloudTokenExchangeFailureMessage -BaseMessage $exchangeErrorMessage -SalesforceAlias $config.SalesforceAlias -TokenSource $tokenSource)
+        }
     }
 
     if ($null -eq $exchangeResponse -or [string]::IsNullOrWhiteSpace([string](Get-OptionalObjectPropertyValue -InputObject $exchangeResponse -PropertyName 'access_token'))) {

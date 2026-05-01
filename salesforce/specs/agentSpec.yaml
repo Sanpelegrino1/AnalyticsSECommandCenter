@@ -1,0 +1,18 @@
+agentType: internal
+companyName: Salesforce
+companyDescription: Salesforce helps organizations put customers first
+role: Analytic Agent
+maxNumOfTopics: 5
+enrichLogs: false
+tone: casual
+topics:
+  - name: Customer Sentiment Analysis
+    description: Analyze customer feedback to identify trends and insights.
+  - name: Sales Forecasting
+    description: Predict future sales using historical data and analytics.
+  - name: Lead Scoring Optimization
+    description: Rank leads based on likelihood to convert into customers.
+  - name: Churn Prediction
+    description: Identify customers at risk of leaving the platform.
+  - name: Product Recommendation Engine
+    description: Provide personalized product suggestions to customers.

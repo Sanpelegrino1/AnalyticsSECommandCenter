@@ -26,6 +26,7 @@ Primary operational entry points:
 - `scripts/bootstrap/setup-workspace.ps1`
 - `playbooks/publish-data.md`
 - `scripts/salesforce/login-web.ps1`
+- `skills/new-org-data-cloud-to-sdm.md`
 - `scripts/salesforce/orchestrate-authenticated-to-sdm.ps1`
 - `scripts/salesforce/list-orgs.ps1`
 - `scripts/salesforce/set-default-org.ps1`
@@ -83,8 +84,12 @@ TABLEAU_PAT_SECRET=your_pat_secret
 
 Use the Data Cloud scripts to bootstrap manifest-driven schema and stream provisioning after an admin has created the Ingestion API connector, then use the bulk ingestion scripts for uploads.
 
+Treat the Ingestion API connector as org-scoped shared infrastructure, not dataset-scoped configuration.
+
 - Put Data Cloud secrets only in `.env.local` or user environment variables.
 - Store only non-secret connector and object metadata in `notes/registries/data-cloud-targets.json`.
+- Store the org's shared publish connector name in `notes/registries/salesforce-orgs.json` as `dataCloudSourceName` once it is known, so future dataset publishes do not guess a connector name from the dataset.
+- For a brand new org, the generic shared connector name should be `command_center_ingest_api`.
 - The repo supports two local auth patterns: direct `DATACLOUD_ACCESS_TOKEN` injection, or a refresh-token flow that exchanges a Salesforce token for a Data Cloud token.
 - The repo-owned auth app is `CommandCenterAuth`; the repo should not depend on pre-existing external client apps from an org.
 - Preferred interactive model: use a dedicated Salesforce CLI alias for Data Cloud publishing and let `DataCloud.Common.ps1` reuse that CLI session for token exchange.
@@ -117,6 +122,8 @@ Example upload:
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-upload-csv.ps1 -TargetKey orders-demo -CsvPath .\tmp\orders.csv
 ```
+
+The default upload path now submits the Data Cloud job and returns immediately. Use `-WaitForCompletion:$true` only when you intentionally want blocking validation on one table or one manifest run.
 
 ## Machine setup
 
@@ -170,6 +177,7 @@ Useful scripts:
 - Manifest schema draft for operator review: `scripts/salesforce/data-cloud-generate-schema.ps1`
 - Manifest-to-metadata generation into a reviewable local folder: `scripts/salesforce/data-cloud-generate-ingest-metadata.ps1`
 - Manifest bootstrap that reuses the same schema inference before live schema and stream registration, DLO activation checks, registry sync, and local provisioning-state output: `scripts/salesforce/data-cloud-create-manifest-streams.ps1`
+- Manifest-and-provisioning-report semantic-model spec builder for already-bootstrapped datasets: `scripts/salesforce/build-manifest-semantic-model-spec.ps1`
 - Bulk CSV upload and optional wait: `scripts/salesforce/data-cloud-upload-csv.ps1`
 - Manifest-based batch upload: `scripts/salesforce/data-cloud-upload-manifest.ps1`
 - Job list, job detail, and cleanup: `scripts/salesforce/data-cloud-list-jobs.ps1`, `scripts/salesforce/data-cloud-get-job.ps1`, `scripts/salesforce/data-cloud-abort-job.ps1`
@@ -193,23 +201,47 @@ New org prerequisites that must be true before this workflow will work:
 4. The repo-owned `CommandCenterAuth` external client app is deployed.
 5. The app's OAuth policy allows self-authorization for the users who will log in.
 6. The login user can authorize scopes that include `cdp_ingest_api`.
-7. A Data Cloud Ingestion API connector exists.
+7. A shared Data Cloud Ingestion API connector exists for the org.
 8. The tenant endpoint and source name are known, and the generated or live object names can be recorded in `notes/registries/data-cloud-targets.json`.
 9. If you plan to upload immediately, connector-specific `objectEndpoint` values must either already be in the registry or be discoverable by the manifest stream bootstrap.
 10. If the org uses additional security controls, localhost callback auth for Salesforce CLI must be allowed.
 
 Expected operating model:
 
+Phase 1: bootstrap the org once.
+
 1. Log into Salesforce with `scripts/salesforce/login-web.ps1` using the standard org alias.
 2. Deploy the repo-owned auth app with `scripts/salesforce/setup-command-center-connected-app.ps1` using that standard org alias.
 3. In Salesforce Setup, confirm the app is visible and that the intended users can authorize it.
-4. In Data Cloud Setup, create or validate the Ingestion API connector.
-5. Register the non-secret target metadata in `notes/registries/data-cloud-targets.json`.
+4. In Data Cloud Setup, create or validate one shared Ingestion API connector for the org.
+5. Save that connector name in `notes/registries/salesforce-orgs.json` as `dataCloudSourceName` for the org alias so later dataset publishes can reuse it automatically.
 6. Log into `scripts/salesforce/data-cloud-login-web.ps1` with a separate Data Cloud alias backed by `CommandCenterAuth`.
-7. Run `scripts/salesforce/data-cloud-get-access-token.ps1 -AsJson` and confirm the reported `tokenSource` and `salesforceAlias`.
-8. Inspect the CSV, or for a manifest dataset generate the review schema and review metadata locally.
-9. For a manifest dataset, run `scripts/salesforce/data-cloud-create-manifest-streams.ps1` to register compatible schemas, create or reconcile streams, wait for `ACTIVE` DLO status, sync matching registry targets, and emit `salesforce/generated/<sourceName>/provisioning-state.json`.
-10. Upload the CSV and wait for `JobComplete` or handle `Failed`.
+
+Phase 2: publish any new dataset through that shared connector.
+
+1. Register the non-secret target metadata in `notes/registries/data-cloud-targets.json`.
+2. Run `scripts/salesforce/data-cloud-get-access-token.ps1 -AsJson` and confirm the reported `tokenSource` and `salesforceAlias`.
+3. Inspect the CSV, or for a manifest dataset generate the review schema and review metadata locally.
+4. Run `scripts/salesforce/data-cloud-create-manifest-streams.ps1` to create or reuse streams and wait for `ACTIVE` DLOs.
+5. For Tableau Next, build the semantic-model spec from `salesforce/generated/<sourceName>/provisioning-state.json` with `scripts/salesforce/build-manifest-semantic-model-spec.ps1`, then apply it with `scripts/tableau/upsert-next-semantic-model.ps1 -Apply`.
+
+Manifest compatibility notes:
+
+- The manifest normalizer now supports both the newer nested publish-contract shape and older top-level `tables` plus `joinPaths` manifests.
+- If an older manifest omits `fileName`, the repo assumes `<tableName>.csv` in the manifest directory.
+4. For a manifest dataset, run `scripts/salesforce/data-cloud-create-manifest-streams.ps1` to register compatible schemas, create or reconcile streams, wait for `ACTIVE` DLO status, sync matching registry targets, and emit `salesforce/generated/<sourceName>/provisioning-state.json`.
+5. Upload the CSV and wait for `JobComplete` or handle `Failed`.
+
+When a script needs `SourceName`, it should prefer this order:
+
+1. Explicit `-SourceName` passed by the operator.
+2. `DATACLOUD_SOURCE_NAME` from local environment.
+3. `dataCloudSourceName` saved for the org in `notes/registries/salesforce-orgs.json`.
+4. A previously registered manifest target for the same dataset.
+5. A unique live Ingest API connector discovered in the org.
+6. Only then a dataset-derived fallback, and only when no better org-scoped signal exists.
+
+Storm still uses the legacy connector name `sunrun_ingest_api`, which is why its org registry overrides the generic default. That name is historical state, not the naming standard for new orgs.
 
 Example browser login plus immediate validation:
 

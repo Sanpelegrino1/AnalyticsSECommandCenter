@@ -4,6 +4,8 @@
 
 Use one operator-facing workflow when you have data to publish and want Command Center to drive the Data Cloud path for you, with optional Tableau Next semantic-model publication after the dataset is live.
 
+This playbook assumes the org should expose one shared Data Cloud publish connector that all datasets reuse.
+
 ## When to use it
 
 - You have a manifest-backed dataset or a CSV and want the agent to orchestrate the publishing workflow.
@@ -27,10 +29,12 @@ Use one operator-facing workflow when you have data to publish and want Command 
 
 1. Tell the agent: "I have data to publish" and provide the dataset path.
 2. Let the agent collect only the missing inputs such as alias, login URL, or naming overrides.
-3. For manifest-backed datasets, let the agent run guided manifest setup first.
-4. Let the agent run stream bootstrap when the live Data Cloud stream state is not already known to be healthy.
-5. Let the agent run the upload path.
-6. If you also want Tableau Next publication, let the agent continue into authenticated-to-SDM orchestration after the Data Cloud side is healthy.
+3. Expect the agent to treat `SourceName` as an org-scoped shared connector. The agent should first reuse the org's saved `dataCloudSourceName`, then any existing registered target rows, then a unique live connector if discovery is unambiguous.
+4. If the org is brand new, let the agent do the one-time bootstrap first: standard Salesforce auth, `CommandCenterAuth` deployment, Data Cloud auth, creation or validation of one shared Ingestion API connector, and saving that connector name for the org.
+5. For manifest-backed datasets, let the agent run guided manifest setup first.
+6. Let the agent run stream bootstrap when the live Data Cloud stream state is not already known to be healthy.
+7. Let the agent run the upload path in submit-first mode. The default should be to queue the jobs once and return the job ids immediately, not to sit on terminal-state polling for every table.
+8. If you also want Tableau Next publication, let the agent continue into authenticated-to-SDM orchestration after the Data Cloud side is healthy.
 
 ## Validation
 

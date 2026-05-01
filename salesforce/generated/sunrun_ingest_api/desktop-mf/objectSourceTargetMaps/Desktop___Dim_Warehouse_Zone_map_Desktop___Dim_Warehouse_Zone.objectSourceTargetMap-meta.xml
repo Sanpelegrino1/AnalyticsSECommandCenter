@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ObjectSourceTargetMap xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <creationType>Custom</creationType>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Dim_Warehouse_Zone.ZoneID__c</sourceField>
+        <sourceFormula>ZoneID</sourceFormula>
+        <targetField>Desktop___Dim_Warehouse_Zone__dll.ZoneID__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Dim_Warehouse_Zone.Zone_Temperature_Type__c</sourceField>
+        <sourceFormula>Zone Temperature Type</sourceFormula>
+        <targetField>Desktop___Dim_Warehouse_Zone__dll.Zone_Temperature_Type__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Dim_Warehouse_Zone.Zone_Max_Capacity__c</sourceField>
+        <sourceFormula>Zone Max Capacity</sourceFormula>
+        <targetField>Desktop___Dim_Warehouse_Zone__dll.Zone_Max_Capacity__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Dim_Warehouse_Zone.Zone_Automation_Level__c</sourceField>
+        <sourceFormula>Zone Automation Level</sourceFormula>
+        <targetField>Desktop___Dim_Warehouse_Zone__dll.Zone_Automation_Level__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;Desktop___Dim_Warehouse_Zone&quot;</sourceFormula>
+        <targetField>Desktop___Dim_Warehouse_Zone__dll.DataSourceObject__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;sunrun_ingest_api&quot;</sourceFormula>
+        <targetField>Desktop___Dim_Warehouse_Zone__dll.DataSource__c</targetField>
+    </fieldSourceTargetMaps>
+    <masterLabel>Desktop___Dim_Warehouse_Zone_map_Desktop___Dim_Warehouse_Zone</masterLabel>
+    <sourceObjectName>Desktop___Dim_Warehouse_Zone</sourceObjectName>
+    <targetObjectName>Desktop___Dim_Warehouse_Zone__dll</targetObjectName>
+</ObjectSourceTargetMap>

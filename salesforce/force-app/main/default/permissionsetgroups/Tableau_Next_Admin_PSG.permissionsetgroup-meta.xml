@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Tableau Next Admin PSG</label>
+    <description>Admin bundle for Tableau Next / Data Cloud / Agentforce. Authored by the OrgSetup skill (BUILD 1 step e).</description>
+    <permissionSets>Access_Analytics_Agent</permissionSets>
+    <permissionSets>force__CopilotSalesforceUser</permissionSets>
+    <permissionSets>force__CopilotSalesforceAdmin</permissionSets>
+    <permissionSets>force__CDPAdmin</permissionSets>
+    <permissionSets>force__TableauEinsteinAdmin</permissionSets>
+    <permissionSets>force__TableauUser</permissionSets>
+    <permissionSets>force__TableauEinsteinAnalyst</permissionSets>
+    <permissionSets>force__TableauSelfServiceAnalyst</permissionSets>
+    <permissionSets>force__SlackElevateUser</permissionSets>
+</PermissionSetGroup>

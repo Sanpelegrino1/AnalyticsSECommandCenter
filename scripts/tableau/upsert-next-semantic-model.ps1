@@ -327,6 +327,12 @@ function New-SemanticDataObjectRequest {
     }
 
     foreach ($field in @($fieldRows)) {
+        $fieldName = Get-OptionalStringValue -InputObject $field -PropertyName 'name'
+        $dataObjectFieldName = Get-OptionalStringValue -InputObject $field -PropertyName 'dataObjectFieldName'
+        if ($fieldName -eq 'Id' -or $dataObjectFieldName -eq 'Id') {
+            continue
+        }
+
         $semanticDataType = ConvertTo-SemanticDataType -Field $field
         if ([string]::IsNullOrWhiteSpace($semanticDataType)) {
             continue
@@ -543,6 +549,37 @@ function Resolve-SemanticRelationshipRequests {
     }
 
     $requests = New-Object System.Collections.Generic.List[object]
+
+    function Find-SemanticField {
+        param(
+            [Parameter(Mandatory = $true)]
+            [object[]]$Fields,
+            [Parameter(Mandatory = $true)]
+            [string]$ReferenceName
+        )
+
+        $candidates = @(
+            $ReferenceName,
+            ('{0}__c' -f $ReferenceName)
+        ) | Select-Object -Unique
+
+        foreach ($candidate in $candidates) {
+            $exactMatch = @($Fields | Where-Object { [string]$_.dataObjectFieldName -eq $candidate } | Select-Object -First 1)
+            if ($exactMatch.Count -gt 0) {
+                return $exactMatch[0]
+            }
+        }
+
+        foreach ($candidate in $candidates) {
+            $labelMatch = @($Fields | Where-Object { [string]$_.label -eq $candidate } | Select-Object -First 1)
+            if ($labelMatch.Count -gt 0) {
+                return $labelMatch[0]
+            }
+        }
+
+        return $null
+    }
+
     foreach ($relationship in @($RelationshipDefinitions)) {
         $sourceTable = Get-OptionalStringValue -InputObject $relationship -PropertyName 'sourceTable'
         $targetTable = Get-OptionalStringValue -InputObject $relationship -PropertyName 'targetTable'
@@ -560,9 +597,9 @@ function Resolve-SemanticRelationshipRequests {
 
         $leftFields = @($leftObject.semanticDimensions) + @($leftObject.semanticMeasurements)
         $rightFields = @($rightObject.semanticDimensions) + @($rightObject.semanticMeasurements)
-        $leftField = @($leftFields | Where-Object { [string]$_.dataObjectFieldName -eq $sourceField } | Select-Object -First 1)
-        $rightField = @($rightFields | Where-Object { [string]$_.dataObjectFieldName -eq $targetField } | Select-Object -First 1)
-        if ($leftField.Count -eq 0 -or $rightField.Count -eq 0) {
+        $leftField = Find-SemanticField -Fields $leftFields -ReferenceName $sourceField
+        $rightField = Find-SemanticField -Fields $rightFields -ReferenceName $targetField
+        if ($null -eq $leftField -or $null -eq $rightField) {
             throw "Unable to resolve semantic relationship fields for '$sourceTable.$sourceField' -> '$targetTable.$targetField'."
         }
 
@@ -573,8 +610,8 @@ function Resolve-SemanticRelationshipRequests {
             rightSemanticDefinitionApiName = [string]$rightObject.apiName
             criteria = @(
                 [ordered]@{
-                    leftSemanticFieldApiName = [string]$leftField[0].apiName
-                    rightSemanticFieldApiName = [string]$rightField[0].apiName
+                    leftSemanticFieldApiName = [string]$leftField.apiName
+                    rightSemanticFieldApiName = [string]$rightField.apiName
                 }
             )
         }) | Out-Null
@@ -643,8 +680,7 @@ function New-UpdateRequestBody {
         [hashtable]$RequestBody,
         [Parameter(Mandatory = $true)]
         [object]$ExistingDefinition,
-        [Parameter(Mandatory = $true)]
-        [object[]]$SemanticRelationships
+        [object[]]$SemanticRelationships = @()
     )
 
     return [ordered]@{

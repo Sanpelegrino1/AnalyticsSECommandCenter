@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ObjectSourceTargetMap xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <creationType>Custom</creationType>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Date.Date_Key__c</sourceField>
+        <sourceFormula>Date Key</sourceFormula>
+        <targetField>desktop_mf_Dim_Date__dll.Date_Key__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Date.Year__c</sourceField>
+        <sourceFormula>Year</sourceFormula>
+        <targetField>desktop_mf_Dim_Date__dll.Year__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Date.Month__c</sourceField>
+        <sourceFormula>Month</sourceFormula>
+        <targetField>desktop_mf_Dim_Date__dll.Month__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;desktop_mf_Dim_Date&quot;</sourceFormula>
+        <targetField>desktop_mf_Dim_Date__dll.DataSourceObject__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;sunrun_ingest_api&quot;</sourceFormula>
+        <targetField>desktop_mf_Dim_Date__dll.DataSource__c</targetField>
+    </fieldSourceTargetMaps>
+    <masterLabel>desktop_mf_Dim_Date_map_desktop_mf_Dim_Date</masterLabel>
+    <sourceObjectName>desktop_mf_Dim_Date</sourceObjectName>
+    <targetObjectName>desktop_mf_Dim_Date__dll</targetObjectName>
+</ObjectSourceTargetMap>

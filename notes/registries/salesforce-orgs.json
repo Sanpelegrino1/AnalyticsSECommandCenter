@@ -1,19 +1,22 @@
 ﻿{
-    "defaultAlias":  "AgentServer",
+    "defaultAlias":  "STORM_TABLEAU_NEXT_DC",
     "orgs":  [
                  {
                      "alias":  "STORM_TABLEAU_NEXT",
                      "loginUrl":  "https://storm-8bdc14a63d953e.my.salesforce.com",
-                     "purpose":  "",
+                     "purpose":  "Data Cloud ingestion auth",
                      "notes":  "",
-                     "lastValidatedUtc":  "2026-04-18T06:48:06Z"
+                     "lastValidatedUtc":  "2026-04-23T16:34:15Z",
+                     "dataCloudSourceName":  "sunrun_ingest_api",
+                     "dataCloudClientId":  "CommandCenterAuth00DKZ00000Q6Qah2AF"
                  },
                  {
                      "alias":  "STORM_TABLEAU_NEXT_DC",
                      "loginUrl":  "https://storm-8bdc14a63d953e.my.salesforce.com",
                      "purpose":  "Data Cloud ingestion auth",
                      "notes":  "",
-                     "lastValidatedUtc":  "2026-04-18T07:31:03Z"
+                     "lastValidatedUtc":  "2026-04-28T05:33:28Z",
+                     "dataCloudClientId":  "CommandCenterAuth00DKZ00000Q6Qah2AF"
                  },
                  {
                      "alias":  "AgentServer",
@@ -29,6 +32,15 @@
                      "purpose":  "Data Cloud ingestion auth",
                      "notes":  "",
                      "lastValidatedUtc":  "2026-04-21T17:15:10Z"
+                 },
+                 {
+                     "alias":  "MFG-Nexus",
+                     "loginUrl":  "https://storm-b5af005f0ad11b.my.salesforce.com",
+                     "purpose":  "Tableau Next PACE setup target (BUILD 1 via OrgSetup skill)",
+                     "notes":  "Fresh STORM org provisioned 2026-04-25; user mfg-nexus@salesforce.com; org 00Dfj00000Nl6khEAB",
+                     "lastValidatedUtc":  "2026-04-25T00:00:00Z",
+                     "dataCloudClientId":  "CommandCenterAuth00Dfj00000Nl6khEAB",
+                     "dataCloudSourceName":  "command_center_ingest_api"
                  }
              ]
 }

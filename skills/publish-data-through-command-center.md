@@ -4,6 +4,8 @@
 
 Handle the operator intent "I have data to publish" as one orchestrated workflow that collects only the missing inputs, reuses saved non-secret metadata when available, and drives the repo's Data Cloud and optional Tableau Next publishing surfaces end to end.
 
+The agent should treat Data Cloud publication as a two-phase model: one-time org bootstrap of shared publish infrastructure, then repeatable dataset publication through that shared connector.
+
 ## When to use it
 
 - The user has a CSV or manifest-backed dataset and wants the agent to take over the publishing workflow.
@@ -30,20 +32,22 @@ Handle the operator intent "I have data to publish" as one orchestrated workflow
 ## Exact steps
 
 1. Determine whether the dataset is manifest-backed or single-CSV, and prefer the manifest path when one exists.
-2. Gather only the missing inputs. Reuse saved aliases, target rows, tenant endpoint, and naming prefixes from the registries and local env when they already exist.
-3. If the standard Salesforce alias is not authenticated, run `scripts/salesforce/login-web.ps1` or the matching VS Code task first.
-4. For manifest-backed Data Cloud publication, run `scripts/salesforce/data-cloud-guided-manifest-setup.ps1` first so the manifest-derived targets are registered and the Data Cloud token exchange is validated.
-5. If the live Data Cloud streams and DLOs are not already known to be healthy, run `scripts/salesforce/data-cloud-create-manifest-streams.ps1` to reconcile schemas, streams, and accepted object identities.
-6. Run `scripts/salesforce/data-cloud-upload-manifest.ps1` for manifest-backed datasets, or `scripts/salesforce/data-cloud-upload-csv.ps1` for a configured single target.
-7. If the user also wants Tableau Next publication, run `scripts/salesforce/orchestrate-authenticated-to-sdm.ps1` after the Data Cloud side is healthy, and use `-ApplySemanticModel` only when the non-apply path is clean or the user explicitly wants live apply.
-8. Report back with the exact outputs that matter: registered target keys, resolved tenant endpoint, upload job ids and states, readiness classification, and any blockers that still require org-side action.
-9. Persist the non-secret outcomes so retries are cheaper: reuse or refresh `notes/registries/data-cloud-targets.json`, Tableau Next targets, and the local env defaults instead of asking for the same values again.
+2. Gather only the missing inputs. Reuse saved aliases, target rows, tenant endpoint, naming prefixes, and the org's shared Data Cloud connector name from the registries and local env when they already exist.
+3. Resolve the Data Cloud `sourceName` as an org-scoped shared connector, not a dataset-specific value. Prefer this order: explicit input, `DATACLOUD_SOURCE_NAME`, `notes/registries/salesforce-orgs.json` `dataCloudSourceName`, matching registered target rows, unique live connector discovery, then only a dataset-derived fallback if no better org-scoped signal exists.
+4. If the org is new, separate org bootstrap from dataset publish. Bootstrap means standard Salesforce auth, `CommandCenterAuth` deployment, Data Cloud auth, creation or validation of one shared Ingestion API connector, and saving that connector name for the org so future runs do not guess.
+5. If the standard Salesforce alias is not authenticated, run `scripts/salesforce/login-web.ps1` or the matching VS Code task first.
+6. For manifest-backed Data Cloud publication, run `scripts/salesforce/data-cloud-guided-manifest-setup.ps1` first so the manifest-derived targets are registered and the Data Cloud token exchange is validated.
+7. If the live Data Cloud streams and DLOs are not already known to be healthy, run `scripts/salesforce/data-cloud-create-manifest-streams.ps1` to reconcile schemas, streams, and accepted object identities.
+8. Run `scripts/salesforce/data-cloud-upload-manifest.ps1` for manifest-backed datasets, or `scripts/salesforce/data-cloud-upload-csv.ps1` for a configured single target. Default to submit-first behavior and only use `-WaitForCompletion:$true` when the user explicitly wants a blocking validation pass.
+9. If the user also wants Tableau Next publication, run `scripts/salesforce/orchestrate-authenticated-to-sdm.ps1` after the Data Cloud side is healthy, and use `-ApplySemanticModel` only when the non-apply path is clean or the user explicitly wants live apply.
+10. Report back with the exact outputs that matter: registered target keys, resolved tenant endpoint, upload job ids and states, readiness classification, and any blockers that still require org-side action.
+11. Persist the non-secret outcomes so retries are cheaper: reuse or refresh `notes/registries/data-cloud-targets.json`, Tableau Next targets, and `notes/registries/salesforce-orgs.json` instead of asking for the same connector or alias state again.
 
 ## Validation
 
 - Manifest setup resolves a Data Cloud token and registers one target per manifest table.
 - Stream bootstrap reports reused or created streams and `ACTIVE` DLO status when that phase is required.
-- Upload jobs reach `JobComplete` or stop with a clear object-level failure.
+- Upload jobs are submitted once with concrete job ids, and explicit wait mode is reserved for narrow validation rather than the default publication path.
 - If Tableau Next publication is requested, the orchestration state file exists and reports a readiness classification or an applied semantic model plus relationships.
 - The agent's summary names the exact next operator action only when repo-local automation is blocked by org setup or permissions.
 

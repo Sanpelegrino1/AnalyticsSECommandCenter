@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BotVersion xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>v1</fullName>
+    <articleAnswersGPTEnabled>false</articleAnswersGPTEnabled>
+    <botDialogs>
+        <botSteps>
+            <botMessages>
+                <message>Hi, I&apos;m an AI assistant. How can I help you?</message>
+                <messageIdentifier>dd3990c3-2577-4b56-9f1c-adc2e57bea84</messageIdentifier>
+            </botMessages>
+            <stepIdentifier>10a1842d-09bb-4481-9b21-138be0038816</stepIdentifier>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <stepIdentifier>1cd0cca1-6ce0-4296-adc0-a222570c1754</stepIdentifier>
+            <type>Wait</type>
+        </botSteps>
+        <developerName>Welcome</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label>Hi! I&apos;m your helpful bot.</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
+        <botSteps>
+            <botMessages>
+                <message>Sorry, it looks like something has gone wrong.</message>
+                <messageIdentifier>26af3c22-840d-4d96-b860-b8963279ab3a</messageIdentifier>
+            </botMessages>
+            <stepIdentifier>dec45e66-edf6-4c68-bcab-f763d4abe25e</stepIdentifier>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <stepIdentifier>c163d544-2ae6-498e-86ef-35918fd3c9b0</stepIdentifier>
+            <type>Wait</type>
+        </botSteps>
+        <developerName>Error_Handling</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label>Unfortunately, a system error occurred. Let us start again.</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
+        <botSteps>
+            <botMessages>
+                <message>One moment while I connect you to the next available service representative.</message>
+                <messageIdentifier>b155135c-6881-4da5-9913-0b17db9b3fc7</messageIdentifier>
+            </botMessages>
+            <stepIdentifier>e2dd15dc-4548-476d-99d6-d7d2c2a15400</stepIdentifier>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <conversationSystemMessage>
+                <type>Transfer</type>
+            </conversationSystemMessage>
+            <stepIdentifier>a5966d7e-51f8-4c02-8eb6-765715dc43a2</stepIdentifier>
+            <type>SystemMessage</type>
+        </botSteps>
+        <developerName>Transfer_To_Agent</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label>Transfer To Agent</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <citationsEnabled>false</citationsEnabled>
+    <company>Salesforce</company>
+    <conversationDefinitionPlanners>
+        <genAiPlannerName>Reckless_Analyst</genAiPlannerName>
+    </conversationDefinitionPlanners>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>ID of the semantic sub metric</description>
+        <developerName>semanticSubMetricId</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>semanticSubMetricId</label>
+        <visibility>External</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>ID or API name of the dashboard, viz, or metric on the page</description>
+        <developerName>targetEntityId</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>targetEntityId</label>
+        <visibility>External</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>Entity-specific state, like dashboard filters</description>
+        <developerName>targetEntityState</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>targetEntityState</label>
+        <visibility>External</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>One of dashboard, metric, viz</description>
+        <developerName>targetEntityType</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>targetEntityType</label>
+        <visibility>External</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>This variable may also be referred to as VerifiedCustomerId</description>
+        <developerName>VerifiedCustomerId</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>VerifiedCustomerId</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <defaultStdObjForContactIdFltrEnabled>false</defaultStdObjForContactIdFltrEnabled>
+    <entryDialog>Welcome</entryDialog>
+    <intentDisambiguationEnabled>false</intentDisambiguationEnabled>
+    <intentV3Enabled>false</intentV3Enabled>
+    <isScriptCompatibleAgent>false</isScriptCompatibleAgent>
+    <knowledgeActionEnabled>false</knowledgeActionEnabled>
+    <knowledgeFallbackEnabled>false</knowledgeFallbackEnabled>
+    <role>You are Reckless Analyst, a senior BI analyst sitting next to a business user. You have direct access to this org&apos;s Tableau Next semantic models and Data Cloud DMOs/DLOs. Your job is to answer questions about metrics, trends, segments, and performance -- and to look good doing it. Core rules: (1) Answer first. If the question is answerable with the data and tools you have, answer it on the first turn -- do not open with clarifying questions. (2) If the question is ambiguous, make the most reasonable interpretation, state the assumption in one short italic line, and answer that. Never ask two clarifying questions in a row. (3) If you genuinely cannot answer, say so in one sentence and immediately offer the closest adjacent answer you CAN give. (4) Cite your source: every numeric claim ends with the semantic model or DMO it came from. (5) Never fabricate numbers, field names, or model names -- this is the one place you are not reckless. (6) Format every response for fast scanning -- lead with a bold one-sentence answer, then a compact table or a 3-5 bullet breakdown, then one italic source line, then exactly one &quot;Next:&quot; follow-up suggestion. Never use phrases like &quot;I cannot&quot;, &quot;I&apos;m not able to&quot;, &quot;As an AI&quot;, or &quot;Unfortunately&quot;.</role>
+    <smallTalkEnabled>false</smallTalkEnabled>
+    <staticPromptsEnabled>false</staticPromptsEnabled>
+    <stopRecPrompts>false</stopRecPrompts>
+    <stopWelcomePrompts>false</stopWelcomePrompts>
+    <surfacesEnabled>false</surfacesEnabled>
+    <toneType>Casual</toneType>
+</BotVersion>

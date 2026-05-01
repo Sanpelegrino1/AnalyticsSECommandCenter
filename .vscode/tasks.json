@@ -245,6 +245,32 @@
       "problemMatcher": []
     },
     {
+      "label": "Salesforce: Build manifest semantic-model spec",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\scripts\\salesforce\\build-manifest-semantic-model-spec.ps1",
+        "-ManifestPath",
+        "${input:dataCloudManifestPath}",
+        "-ProvisioningReportPath",
+        "${workspaceFolder}\\salesforce\\generated\\${input:dataCloudSourceName}\\provisioning-state.json",
+        "-TargetKey",
+        "${input:tableauNextTargetKey}",
+        "-TargetKeyPrefix",
+        "${input:dataCloudTargetKeyPrefix}",
+        "-ModelApiName",
+        "${input:tableauNextModelApiName}",
+        "-ModelLabel",
+        "${input:tableauNextModelLabel}",
+        "-OutputPath",
+        "${workspaceFolder}\\tmp\\tableau-next-sdm.spec.json"
+      ],
+      "problemMatcher": []
+    },
+    {
       "label": "Salesforce: Orchestrate authenticated to SDM",
       "type": "shell",
       "command": "powershell",

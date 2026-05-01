@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MktDataTranObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <connector>sunrun_ingest_api</connector>
+    <creationType>Custom</creationType>
+    <dataSource>sunrun_ingest_api</dataSource>
+    <dataSourceObject>desktop_mf_Dim_Date_dll</dataSourceObject>
+    <masterLabel>Desktop - Dim_Date</masterLabel>
+    <mktDataTranFields>
+        <fullName>Date Key</fullName>
+        <creationType>Custom</creationType>
+        <datatype>F</datatype>
+        <externalName>Date Key</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Date Key</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>1</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Year</fullName>
+        <creationType>Custom</creationType>
+        <datatype>N</datatype>
+        <externalName>Year</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Year</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Month</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Month</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Month</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <objectCategory>Salesforce_SFDCReferenceModel_0_93.Engagement</objectCategory>
+</MktDataTranObject>

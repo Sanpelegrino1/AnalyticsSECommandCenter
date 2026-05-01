@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ObjectSourceTargetMap xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <creationType>Custom</creationType>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Dim_Facility.FacilityID__c</sourceField>
+        <sourceFormula>FacilityID</sourceFormula>
+        <targetField>Desktop___Dim_Facility__dll.FacilityID__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Dim_Facility.Facility_Name__c</sourceField>
+        <sourceFormula>Facility Name</sourceFormula>
+        <targetField>Desktop___Dim_Facility__dll.Facility_Name__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Dim_Facility.Facility_Type__c</sourceField>
+        <sourceFormula>Facility Type</sourceFormula>
+        <targetField>Desktop___Dim_Facility__dll.Facility_Type__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Dim_Facility.Facility_Manager__c</sourceField>
+        <sourceFormula>Facility Manager</sourceFormula>
+        <targetField>Desktop___Dim_Facility__dll.Facility_Manager__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Dim_Facility.Operating_Hours__c</sourceField>
+        <sourceFormula>Operating Hours</sourceFormula>
+        <targetField>Desktop___Dim_Facility__dll.Operating_Hours__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Dim_Facility.Facility_Certification__c</sourceField>
+        <sourceFormula>Facility Certification</sourceFormula>
+        <targetField>Desktop___Dim_Facility__dll.Facility_Certification__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Dim_Facility.Security_Level__c</sourceField>
+        <sourceFormula>Security Level</sourceFormula>
+        <targetField>Desktop___Dim_Facility__dll.Security_Level__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Dim_Facility.Facility_Location_ID__c</sourceField>
+        <sourceFormula>Facility Location ID</sourceFormula>
+        <targetField>Desktop___Dim_Facility__dll.Facility_Location_ID__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;Desktop___Dim_Facility&quot;</sourceFormula>
+        <targetField>Desktop___Dim_Facility__dll.DataSourceObject__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;sunrun_ingest_api&quot;</sourceFormula>
+        <targetField>Desktop___Dim_Facility__dll.DataSource__c</targetField>
+    </fieldSourceTargetMaps>
+    <masterLabel>Desktop___Dim_Facility_map_Desktop___Dim_Facility</masterLabel>
+    <sourceObjectName>Desktop___Dim_Facility</sourceObjectName>
+    <targetObjectName>Desktop___Dim_Facility__dll</targetObjectName>
+</ObjectSourceTargetMap>

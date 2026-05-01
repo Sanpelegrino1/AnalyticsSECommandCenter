@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ObjectSourceTargetMap xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <creationType>Custom</creationType>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>sdp_distributor.distributorId__c</sourceField>
+        <sourceFormula>distributorId</sourceFormula>
+        <targetField>sdp_distributor__dll.distributorId__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>sdp_distributor.distributorName__c</sourceField>
+        <sourceFormula>distributorName</sourceFormula>
+        <targetField>sdp_distributor__dll.distributorName__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>sdp_distributor.warehouseLocation__c</sourceField>
+        <sourceFormula>warehouseLocation</sourceFormula>
+        <targetField>sdp_distributor__dll.warehouseLocation__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;sdp_distributor&quot;</sourceFormula>
+        <targetField>sdp_distributor__dll.DataSourceObject__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;sunrun_ingest_api&quot;</sourceFormula>
+        <targetField>sdp_distributor__dll.DataSource__c</targetField>
+    </fieldSourceTargetMaps>
+    <masterLabel>sdp_distributor_map_sdp_distributor</masterLabel>
+    <sourceObjectName>sdp_distributor</sourceObjectName>
+    <targetObjectName>sdp_distributor__dll</targetObjectName>
+</ObjectSourceTargetMap>

@@ -6,6 +6,8 @@ Use this file as the first stop before running repeated operational work.
 | --- | --- | --- | --- |
 | `salesforce-org-login-and-alias-registration.md` | New org login or alias refresh | Alias, login URL, purpose, notes | Alias appears in `sf org list` and registry is updated |
 | `switch-active-salesforce-org-context.md` | Change active Salesforce org | Alias | `sf config get target-org` or org open uses the expected alias |
+| `new-org-data-cloud-to-sdm.md` | One end-to-end path for a new Salesforce org: auth bootstrap, Data Cloud ingestion, DLO creation, and base Tableau Next semantic-model publication | Org alias, login URL, dedicated Data Cloud alias, manifest path, optional naming overrides, Tableau Next workspace and model inputs | Data Cloud auth resolves, `provisioning-state.json` shows `ACTIVE` DLOs, upload jobs complete, and the SDM orchestration writes a readiness state or applied model result |
+| `stage-demo-dataset-from-downloads.md` | Find a newly downloaded dataset zip, stage it under `Demos/`, extract it, and inventory the manifest plus CSV files | Optional zip path or pattern, optional demo folder name | A `Demos/<name>/` folder exists and the returned inventory names the manifest and extracted files |
 | `run-soql-and-export-results.md` | Query org data for inspection or export | Alias, SOQL query, output path | Export file exists and record count looks correct |
 | `retrieve-or-deploy-metadata.md` | Bring down or push Salesforce metadata | Alias, manifest path or metadata name | CLI command completes successfully |
 | `upload-csv-to-data-cloud.md` | Bulk-upload CSV data into a configured Data Cloud ingestion target | Target key, CSV path, local auth secrets | Job reaches `JobComplete` or returns a diagnosable failure |

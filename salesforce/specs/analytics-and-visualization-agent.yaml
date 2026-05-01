@@ -1,0 +1,15 @@
+﻿agentType: internal
+role: Analytic Agent
+companyName: Salesforce
+companyDescription: Salesforce, the Customer Company, helps organizations of every size and industry put the customer at the center of everything they do.
+companyWebsite: https://www.salesforce.com
+maxNumOfTopics: 3
+enrichLogs: false
+tone: casual
+topics:
+  - name: Data Analysis
+    description: Analyze data using Tableau Next and answer user questions about metrics, trends, and dashboards.
+  - name: Data Alert Management
+    description: Create and manage proactive data alerts for key metrics.
+  - name: Data Pro
+    description: Help users create calculated fields by describing them in natural language.

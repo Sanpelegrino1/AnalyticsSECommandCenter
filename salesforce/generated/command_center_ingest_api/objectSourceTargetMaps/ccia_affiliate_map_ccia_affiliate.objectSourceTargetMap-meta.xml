@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ObjectSourceTargetMap xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <creationType>Custom</creationType>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>ccia_affiliate.affiliateId__c</sourceField>
+        <sourceFormula>affiliateId</sourceFormula>
+        <targetField>ccia_affiliate__dll.affiliateId__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>ccia_affiliate.affiliateName__c</sourceField>
+        <sourceFormula>affiliateName</sourceFormula>
+        <targetField>ccia_affiliate__dll.affiliateName__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>ccia_affiliate.affiliateLoyaltyScore__c</sourceField>
+        <sourceFormula>affiliateLoyaltyScore</sourceFormula>
+        <targetField>ccia_affiliate__dll.affiliateLoyaltyScore__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>ccia_affiliate.affiliateTier__c</sourceField>
+        <sourceFormula>affiliateTier</sourceFormula>
+        <targetField>ccia_affiliate__dll.affiliateTier__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>ccia_affiliate.affiliateRegion__c</sourceField>
+        <sourceFormula>affiliateRegion</sourceFormula>
+        <targetField>ccia_affiliate__dll.affiliateRegion__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;ccia_affiliate&quot;</sourceFormula>
+        <targetField>ccia_affiliate__dll.DataSourceObject__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;command_center_ingest_api&quot;</sourceFormula>
+        <targetField>ccia_affiliate__dll.DataSource__c</targetField>
+    </fieldSourceTargetMaps>
+    <masterLabel>ccia_affiliate_map_ccia_affiliate</masterLabel>
+    <sourceObjectName>ccia_affiliate</sourceObjectName>
+    <targetObjectName>ccia_affiliate__dll</targetObjectName>
+</ObjectSourceTargetMap>

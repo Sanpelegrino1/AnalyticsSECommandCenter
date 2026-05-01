@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description>This topic is selected when users request to create, modify, list, or silence data alerts on Tableau Next or Data Cloud metrics. It is used when users need to manage alerts for specific metrics.</description>
+    <developerName>p_16jfj000001TvdR_Proactive_Data_Alerts</developerName>
+    <genAiFunctions>
+        <functionName>SvcCopilotTmpl__CreateCaseEnhancedData</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>SvcCopilotTmpl__UpdateVerifiedContact</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If the query is to create a new data alert, use the &apos;SvcCopilotTmpl__CreateCaseEnhancedData&apos; action.</description>
+        <developerName>instruction_0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_0</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the query is to modify an existing alert, use the &apos;SvcCopilotTmpl__UpdateVerifiedContact&apos; action.</description>
+        <developerName>instruction_1</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_1</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the user asks for a list of alerts, provide relevant information directly without requiring additional steps.</description>
+        <developerName>instruction_2</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_2</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <localDeveloperName>p_16jfj000001TvdR_Proactive_Data_Alerts</localDeveloperName>
+    <masterLabel>Proactive Data Alerts</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to only handle tasks related to the creation, modification, listing, or silencing of data alerts for Tableau Next or Data Cloud metrics. Confirm metric existence, propose alternatives for unavailable metrics, and set sensible defaults for thresholds and cadence.</scope>
+</GenAiPlugin>

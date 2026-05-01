@@ -21,12 +21,13 @@ function New-CommandCenterAuthClientId {
     return ('CommandCenterAuth{0}' -f $safeOrgId)
 }
 
-function Set-RegisteredDataCloudClientId {
+function Set-RegisteredDataCloudDefaults {
     param(
         [Parameter(Mandatory = $true)]
         [string]$Alias,
         [Parameter(Mandatory = $true)]
-        [string]$ClientId
+        [string]$ClientId,
+        [string]$SourceName = 'command_center_ingest_api'
     )
 
     $registryPath = Resolve-CommandCenterPath 'notes/registries/salesforce-orgs.json'
@@ -41,6 +42,12 @@ function Set-RegisteredDataCloudClientId {
     }
 
     $existing[0] | Add-Member -NotePropertyName 'dataCloudClientId' -NotePropertyValue $ClientId -Force
+    $existingSourceNameProperty = $existing[0].PSObject.Properties['dataCloudSourceName']
+    $existingSourceName = if ($null -ne $existingSourceNameProperty) { [string]$existingSourceNameProperty.Value } else { '' }
+    if ([string]::IsNullOrWhiteSpace($existingSourceName)) {
+        $existing[0] | Add-Member -NotePropertyName 'dataCloudSourceName' -NotePropertyValue $SourceName -Force
+    }
+
     Write-JsonFile -Path $registryPath -Value $registry
 }
 
@@ -95,12 +102,6 @@ if ($LaunchLogin -and $DataCloudAlias -eq $TargetOrg) {
 $externalClientApplicationName = 'CommandCenterAuth'
 $salesforceRoot = Resolve-CommandCenterPath 'salesforce'
 $deployJobId = ''
-$metadataMembers = @(
-    ("ExternalClientApplication:{0}" -f $externalClientApplicationName),
-    'ExtlClntAppGlobalOauthSettings:CommandCenterAuth_glbloauth',
-    'ExtlClntAppOauthSettings:CommandCenterAuth_oauth',
-    'ExtlClntAppOauthConfigurablePolicies:CommandCenterAuth_oauthPlcy'
-)
 $metadataPaths = @(
     'force-app/main/default/externalClientApps/CommandCenterAuth.eca-meta.xml',
     'force-app/main/default/extlClntAppGlobalOauthSets/CommandCenterAuth_glbloauth.ecaGlblOauth-meta.xml',
@@ -108,12 +109,24 @@ $metadataPaths = @(
     'force-app/main/default/extlClntAppOauthPolicies/CommandCenterAuth_oauthPlcy.ecaOauthPlcy-meta.xml'
 )
 
-$orgDisplayRaw = & $sfCommand org display --target-org $TargetOrg --json 2>$null
-if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($orgDisplayRaw)) {
+# sf may be a .ps1 wrapper that emits stderr warnings the strict-mode parent
+# promotes to NativeCommandError. Merge streams and filter JSON.
+$prevEap = $ErrorActionPreference
+$ErrorActionPreference = 'Continue'
+try {
+    $orgDisplayRaw = & $sfCommand org display --target-org $TargetOrg --json 2>&1
+} finally {
+    $ErrorActionPreference = $prevEap
+}
+if ($LASTEXITCODE -ne 0 -or $null -eq $orgDisplayRaw) {
     throw "Unable to resolve Salesforce CLI auth for target org alias '$TargetOrg'. Log in with scripts/salesforce/login-web.ps1 first."
 }
-
-$orgDisplay = $orgDisplayRaw | ConvertFrom-Json
+$orgDisplayText = ($orgDisplayRaw | ForEach-Object { $_.ToString() }) -join "`n"
+$orgDisplayJsonStart = $orgDisplayText.IndexOf('{')
+if ($orgDisplayJsonStart -lt 0) {
+    throw "sf org display did not return JSON for alias '$TargetOrg'. Output: $orgDisplayText"
+}
+$orgDisplay = $orgDisplayText.Substring($orgDisplayJsonStart) | ConvertFrom-Json
 if ($null -eq $orgDisplay.result -or [string]::IsNullOrWhiteSpace($orgDisplay.result.instanceUrl) -or [string]::IsNullOrWhiteSpace($orgDisplay.result.username)) {
     throw "Salesforce CLI auth for alias '$TargetOrg' did not include an instance URL and username. Reauthorize the alias before deploying CommandCenterAuth."
 }
@@ -132,17 +145,32 @@ if ($LaunchLogin) {
     Write-Host ("Data Cloud login alias: {0}" -f $DataCloudAlias) -ForegroundColor DarkGray
 }
 
+$stagedDeploymentRoot = ''
+$oauthLinkUpdateBlocked = $false
 Push-Location $salesforceRoot
 try {
     $stagedDeploymentRoot = New-StagedCommandCenterAuthDeployment -SalesforceRoot $salesforceRoot -ClientId $commandCenterAuthClientId
     $deployArgs = @('project', 'deploy', 'start', '--target-org', $TargetOrg, '--source-dir', $stagedDeploymentRoot, '--json')
 
-    $deployResultRaw = & $sfCommand @deployArgs
-    if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($deployResultRaw)) {
+    # sf writes an update-available warning to stderr that the strict-mode
+    # parent would promote to NativeCommandError. Merge and filter the JSON
+    # out of the combined stream.
+    $prevEap = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    try {
+        $deployResultRaw = & $sfCommand @deployArgs 2>&1
+    } finally {
+        $ErrorActionPreference = $prevEap
+    }
+    if ($LASTEXITCODE -ne 0 -or $null -eq $deployResultRaw) {
         throw "CommandCenterAuth deployment command failed for '$TargetOrg'."
     }
-
-    $deployResult = $deployResultRaw | ConvertFrom-Json
+    $deployResultText = ($deployResultRaw | ForEach-Object { $_.ToString() }) -join "`n"
+    $jsonStart = $deployResultText.IndexOf('{')
+    if ($jsonStart -lt 0) {
+        throw "CommandCenterAuth deployment command did not return JSON. Output: $deployResultText"
+    }
+    $deployResult = $deployResultText.Substring($jsonStart) | ConvertFrom-Json
 
     if ($null -ne $deployResult.result) {
         $deployJobId = $deployResult.result.id
@@ -171,6 +199,12 @@ try {
 
         throw "CommandCenterAuth deployment failed for '$TargetOrg'."
     }
+
+    $oauthLinkUpdateBlocked = (@($deployResult.result.details.componentSuccesses | Where-Object {
+        $problemProperty = $_.PSObject.Properties['problem']
+        $problemText = if ($null -ne $problemProperty -and $null -ne $problemProperty.Value) { [string]$problemProperty.Value } else { '' }
+        -not [string]::IsNullOrWhiteSpace($problemText) -and $problemText -match 'couldn.t update your OAuth link'
+    }).Count -gt 0)
 } finally {
     if ($stagedDeploymentRoot -and (Test-Path $stagedDeploymentRoot)) {
         Remove-Item -Path $stagedDeploymentRoot -Recurse -Force -ErrorAction SilentlyContinue
@@ -178,11 +212,17 @@ try {
     Pop-Location
 }
 
-Set-RegisteredDataCloudClientId -Alias $TargetOrg -ClientId $commandCenterAuthClientId
-Set-CommandCenterEnvValue -Name 'DATACLOUD_CLIENT_ID' -Value $commandCenterAuthClientId
+if (-not $oauthLinkUpdateBlocked) {
+    Set-RegisteredDataCloudDefaults -Alias $TargetOrg -ClientId $commandCenterAuthClientId
+    Set-CommandCenterEnvValue -Name 'DATACLOUD_CLIENT_ID' -Value $commandCenterAuthClientId
+}
 
 Write-Host ("External client app '{0}' deployed to '{1}'." -f $externalClientApplicationName, $TargetOrg) -ForegroundColor Green
 Write-Host ("Resolved org-specific Data Cloud client id: {0}" -f $commandCenterAuthClientId) -ForegroundColor DarkGray
+if ($oauthLinkUpdateBlocked) {
+    Write-Warning 'Salesforce reported that the existing OAuth link could not be updated. Local DATACLOUD_CLIENT_ID and org registry defaults were left unchanged because the live client id may still be the previously authorized value.'
+}
+Write-Host ('Default shared Data Cloud connector name for this org: command_center_ingest_api') -ForegroundColor DarkGray
 if (-not [string]::IsNullOrWhiteSpace($deployJobId)) {
     Write-Host ("Deployment job ID: {0}" -f $deployJobId) -ForegroundColor DarkGray
 }
@@ -191,7 +231,7 @@ Write-Host 'Manual Setup still required unless the org already has it:' -Foregro
 Write-Host '- Confirm the app is visible in Setup -> External Client App Manager.' -ForegroundColor Yellow
 Write-Host '- Confirm the deployed OAuth policy allows the intended users to self-authorize the app.' -ForegroundColor Yellow
 Write-Host '- Confirm Data Cloud is provisioned and the user can authorize cdp_ingest_api.' -ForegroundColor Yellow
-Write-Host '- Create or verify the Ingestion API connector and destination data streams in Data Cloud Setup.' -ForegroundColor Yellow
+Write-Host '- Create or verify the shared Ingestion API connector `command_center_ingest_api` and the destination data streams in Data Cloud Setup.' -ForegroundColor Yellow
 
 if (-not $LaunchLogin) {
     return

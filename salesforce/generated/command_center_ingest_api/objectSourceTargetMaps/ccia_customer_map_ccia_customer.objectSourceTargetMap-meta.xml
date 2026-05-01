@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ObjectSourceTargetMap xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <creationType>Custom</creationType>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>ccia_customer.customerId__c</sourceField>
+        <sourceFormula>customerId</sourceFormula>
+        <targetField>ccia_customer__dll.customerId__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>ccia_customer.customerState__c</sourceField>
+        <sourceFormula>customerState</sourceFormula>
+        <targetField>ccia_customer__dll.customerState__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>ccia_customer.financingType__c</sourceField>
+        <sourceFormula>financingType</sourceFormula>
+        <targetField>ccia_customer__dll.financingType__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>ccia_customer.customerCity__c</sourceField>
+        <sourceFormula>customerCity</sourceFormula>
+        <targetField>ccia_customer__dll.customerCity__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>ccia_customer.averageMonthlyUtilityBill__c</sourceField>
+        <sourceFormula>averageMonthlyUtilityBill</sourceFormula>
+        <targetField>ccia_customer__dll.averageMonthlyUtilityBill__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;ccia_customer&quot;</sourceFormula>
+        <targetField>ccia_customer__dll.DataSourceObject__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;command_center_ingest_api&quot;</sourceFormula>
+        <targetField>ccia_customer__dll.DataSource__c</targetField>
+    </fieldSourceTargetMaps>
+    <masterLabel>ccia_customer_map_ccia_customer</masterLabel>
+    <sourceObjectName>ccia_customer</sourceObjectName>
+    <targetObjectName>ccia_customer__dll</targetObjectName>
+</ObjectSourceTargetMap>

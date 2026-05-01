@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MktDataTranObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <connector>sunrun_ingest_api</connector>
+    <creationType>Custom</creationType>
+    <dataSource>sunrun_ingest_api</dataSource>
+    <dataSourceObject>desktop_mf_Dim_Product_dll</dataSourceObject>
+    <masterLabel>Desktop - Dim_Product</masterLabel>
+    <mktDataTranFields>
+        <fullName>Product ID</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Product ID</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Product ID</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>1</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Product Name</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Product Name</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Product Name</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Category</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Category</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Category</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Sub-Category</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Sub-Category</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Sub-Category</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Standard Cost</fullName>
+        <creationType>Custom</creationType>
+        <datatype>N</datatype>
+        <externalName>Standard Cost</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Standard Cost</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Product Line</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Product Line</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Product Line</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Packaging Type</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Packaging Type</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Packaging Type</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Product Supplier ID</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Product Supplier ID</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Product Supplier ID</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <objectCategory>Salesforce_SFDCReferenceModel_0_93.Engagement</objectCategory>
+</MktDataTranObject>

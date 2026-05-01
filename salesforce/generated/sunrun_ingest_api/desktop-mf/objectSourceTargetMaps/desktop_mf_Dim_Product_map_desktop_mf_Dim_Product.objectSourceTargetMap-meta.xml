@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ObjectSourceTargetMap xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <creationType>Custom</creationType>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Product.Product_ID__c</sourceField>
+        <sourceFormula>Product ID</sourceFormula>
+        <targetField>desktop_mf_Dim_Product__dll.Product_ID__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Product.Product_Name__c</sourceField>
+        <sourceFormula>Product Name</sourceFormula>
+        <targetField>desktop_mf_Dim_Product__dll.Product_Name__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Product.Category__c</sourceField>
+        <sourceFormula>Category</sourceFormula>
+        <targetField>desktop_mf_Dim_Product__dll.Category__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Product.Sub_Category__c</sourceField>
+        <sourceFormula>Sub-Category</sourceFormula>
+        <targetField>desktop_mf_Dim_Product__dll.Sub_Category__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Product.Standard_Cost__c</sourceField>
+        <sourceFormula>Standard Cost</sourceFormula>
+        <targetField>desktop_mf_Dim_Product__dll.Standard_Cost__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Product.Product_Line__c</sourceField>
+        <sourceFormula>Product Line</sourceFormula>
+        <targetField>desktop_mf_Dim_Product__dll.Product_Line__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Product.Packaging_Type__c</sourceField>
+        <sourceFormula>Packaging Type</sourceFormula>
+        <targetField>desktop_mf_Dim_Product__dll.Packaging_Type__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Product.Product_Supplier_ID__c</sourceField>
+        <sourceFormula>Product Supplier ID</sourceFormula>
+        <targetField>desktop_mf_Dim_Product__dll.Product_Supplier_ID__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;desktop_mf_Dim_Product&quot;</sourceFormula>
+        <targetField>desktop_mf_Dim_Product__dll.DataSourceObject__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;sunrun_ingest_api&quot;</sourceFormula>
+        <targetField>desktop_mf_Dim_Product__dll.DataSource__c</targetField>
+    </fieldSourceTargetMaps>
+    <masterLabel>desktop_mf_Dim_Product_map_desktop_mf_Dim_Product</masterLabel>
+    <sourceObjectName>desktop_mf_Dim_Product</sourceObjectName>
+    <targetObjectName>desktop_mf_Dim_Product__dll</targetObjectName>
+</ObjectSourceTargetMap>

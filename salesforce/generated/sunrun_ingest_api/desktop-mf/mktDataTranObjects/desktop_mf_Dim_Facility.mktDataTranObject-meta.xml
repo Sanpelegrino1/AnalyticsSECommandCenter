@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MktDataTranObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <connector>sunrun_ingest_api</connector>
+    <creationType>Custom</creationType>
+    <dataSource>sunrun_ingest_api</dataSource>
+    <dataSourceObject>desktop_mf_Dim_Facility_dll</dataSourceObject>
+    <masterLabel>Desktop - Dim_Facility</masterLabel>
+    <mktDataTranFields>
+        <fullName>FacilityID</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>FacilityID</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>FacilityID</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>1</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Facility Name</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Facility Name</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Facility Name</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Facility Type</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Facility Type</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Facility Type</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Facility Manager</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Facility Manager</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Facility Manager</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Operating Hours</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Operating Hours</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Operating Hours</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Facility Certification</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Facility Certification</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Facility Certification</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Security Level</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Security Level</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Security Level</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Facility Location ID</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Facility Location ID</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Facility Location ID</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <objectCategory>Salesforce_SFDCReferenceModel_0_93.Engagement</objectCategory>
+</MktDataTranObject>

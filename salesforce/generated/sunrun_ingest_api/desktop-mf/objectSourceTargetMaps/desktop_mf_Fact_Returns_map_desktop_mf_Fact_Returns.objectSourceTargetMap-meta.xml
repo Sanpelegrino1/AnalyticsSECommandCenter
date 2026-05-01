@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ObjectSourceTargetMap xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <creationType>Custom</creationType>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Fact_Returns.ReturnID__c</sourceField>
+        <sourceFormula>ReturnID</sourceFormula>
+        <targetField>desktop_mf_Fact_Returns__dll.ReturnID__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Fact_Returns.Return_Product_ID__c</sourceField>
+        <sourceFormula>Return Product ID</sourceFormula>
+        <targetField>desktop_mf_Fact_Returns__dll.Return_Product_ID__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Fact_Returns.Return_Location_ID__c</sourceField>
+        <sourceFormula>Return Location ID</sourceFormula>
+        <targetField>desktop_mf_Fact_Returns__dll.Return_Location_ID__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Fact_Returns.Return_Customer_ID__c</sourceField>
+        <sourceFormula>Return Customer ID</sourceFormula>
+        <targetField>desktop_mf_Fact_Returns__dll.Return_Customer_ID__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Fact_Returns.Return_Date_Key__c</sourceField>
+        <sourceFormula>Return Date Key</sourceFormula>
+        <targetField>desktop_mf_Fact_Returns__dll.Return_Date_Key__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Fact_Returns.Return_Reason__c</sourceField>
+        <sourceFormula>Return Reason</sourceFormula>
+        <targetField>desktop_mf_Fact_Returns__dll.Return_Reason__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Fact_Returns.Return_Quantity__c</sourceField>
+        <sourceFormula>Return Quantity</sourceFormula>
+        <targetField>desktop_mf_Fact_Returns__dll.Return_Quantity__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;desktop_mf_Fact_Returns&quot;</sourceFormula>
+        <targetField>desktop_mf_Fact_Returns__dll.DataSourceObject__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;sunrun_ingest_api&quot;</sourceFormula>
+        <targetField>desktop_mf_Fact_Returns__dll.DataSource__c</targetField>
+    </fieldSourceTargetMaps>
+    <masterLabel>desktop_mf_Fact_Returns_map_desktop_mf_Fact_Returns</masterLabel>
+    <sourceObjectName>desktop_mf_Fact_Returns</sourceObjectName>
+    <targetObjectName>desktop_mf_Fact_Returns__dll</targetObjectName>
+</ObjectSourceTargetMap>

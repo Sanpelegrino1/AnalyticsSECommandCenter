@@ -2,15 +2,15 @@
 
 ## Purpose
 
-Use this playbook when a new CSV source needs a durable Data Cloud ingestion target that future uploads can reuse.
+Use this playbook when a new Salesforce org needs its one shared Data Cloud publish connector and the initial ingestion target pattern that later dataset publishes will reuse.
 
 ## Inputs
 
 - Salesforce org or Data Cloud tenant where the ingestion target will live
-- Business-friendly target name
+- Shared publish connector name for the org
 - CSV sample file
 - Target object name
-- Connector name
+- Optional first target object name
 
 ## Prerequisites
 
@@ -27,25 +27,27 @@ Use this playbook when a new CSV source needs a durable Data Cloud ingestion tar
 powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-inspect-csv.ps1 -CsvPath .\tmp\sample.csv
 ```
 
-2. In Data Cloud, create or update the Ingestion API connector and download the object endpoints.
+2. In Data Cloud, create or validate one shared Ingestion API connector for the org and download the object endpoints.
 
-3. In Data Cloud, create the Ingestion API data stream for the object and map the fields so the CSV header row matches the stream.
+3. Save that connector name in `notes/registries/salesforce-orgs.json` as `dataCloudSourceName` for the org alias so later dataset publishes do not guess.
 
-4. Register the non-secret target metadata in the repo.
+4. In Data Cloud, create the Ingestion API data stream for the object and map the fields so the CSV header row matches the stream.
+
+5. Register the non-secret target metadata in the repo.
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-register-target.ps1 -TargetKey sample-target -SourceName sample_api -ObjectName SampleObject -TenantEndpoint https://your-tenant.c360a.salesforce.com -ObjectEndpoint /api/v1/ingest/sources/sample_api/SampleObject -Notes "CSV demo source"
+powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-register-target.ps1 -TargetKey sample-target -SourceName command_center_ingest_api -ObjectName SampleObject -TenantEndpoint https://your-tenant.c360a.salesforce.com -ObjectEndpoint /api/v1/ingest/sources/command_center_ingest_api/SampleObject -Notes "CSV demo source"
 ```
 
-5. Add the local auth secrets to `.env.local`.
+6. Add the local auth secrets to `.env.local`.
 
-6. Validate the auth and target metadata.
+7. Validate the auth and target metadata.
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-get-access-token.ps1 -TargetKey sample-target
 ```
 
-7. Run a small upload using the same target.
+8. Run a small upload using the same target.
 
 ## Validation
 

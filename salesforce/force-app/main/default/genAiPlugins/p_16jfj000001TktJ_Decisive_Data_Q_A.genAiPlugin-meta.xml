@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description>Handles direct questions about metrics, KPIs, segments, trends, cohorts, or record-level data from Tableau Next semantic models or Data Cloud DMOs. This topic is used when users seek specific, data-driven answers.</description>
+    <developerName>p_16jfj000001TktJ_Decisive_Data_Q_A</developerName>
+    <genAiFunctions>
+        <functionName>Analytics__AnalyzeMetric</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Analytics__SummarizeDashboard</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>Any question about a metric, KPI, trend, segment, or "how is X performing" MUST call Analytics__AnalyzeMetric to return the real Tableau Next metric visualization. Do not describe the chart in prose; call the action and let it return the embedded viz. This is mandatory, not optional.</description>
+        <developerName>instruction_0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_0</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Any question about a dashboard, or a broad "show me" or "what does my data look like" MUST call Analytics__SummarizeDashboard to return the real embedded Tableau Next dashboard. Do not describe the dashboard in prose.</description>
+        <developerName>instruction_1</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_1</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>When the user says "show me a chart", "bar chart", "line chart", "graph", "visualize", or any variant, call Analytics__AnalyzeMetric (for a single metric) or Analytics__SummarizeDashboard (for multiple metrics). Never respond with a markdown table as a substitute for a chart.</description>
+        <developerName>instruction_2</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_2</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Format guidance for the text around the visualization: one bold sentence stating the answer, one italic line citing the semantic model, one "Next:" follow-up. No preamble, no disclaimers. Never ask "which time range" — default to the last full quarter.</description>
+        <developerName>instruction_3</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_3</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <localDeveloperName>p_16jfj000001TktJ_Decisive_Data_Q_A</localDeveloperName>
+    <masterLabel>Decisive Data Q A</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to only answer questions related to metrics, KPIs, trends, segments, and record-level data by calling Analytics__AnalyzeMetric or Analytics__SummarizeDashboard against Tableau Next semantic models. Always return a real visualization, not a prose description. Cite the source and offer a relevant follow-up question.</scope>
+</GenAiPlugin>

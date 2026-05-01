@@ -14,7 +14,7 @@
     <isRefreshTokenRotationEnabled>false</isRefreshTokenRotationEnabled>
     <isSecretRequiredForRefreshToken>false</isSecretRequiredForRefreshToken>
     <isSecretRequiredForTokenExchange>false</isSecretRequiredForTokenExchange>
-    <isTokenExchangeEnabled>false</isTokenExchangeEnabled>
+    <isTokenExchangeEnabled>true</isTokenExchangeEnabled>
     <label>CommandCenterAuth_glbloauth</label>
     <shouldRotateConsumerKey>false</shouldRotateConsumerKey>
     <shouldRotateConsumerSecret>false</shouldRotateConsumerSecret>

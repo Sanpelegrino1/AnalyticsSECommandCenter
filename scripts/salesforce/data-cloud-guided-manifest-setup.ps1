@@ -117,8 +117,9 @@ if ([string]::IsNullOrWhiteSpace($TargetKeyPrefix)) {
     $TargetKeyPrefix = Read-RequiredValue -Prompt 'Target key prefix' -DefaultValue $(if (-not [string]::IsNullOrWhiteSpace($registrationHints.TargetKeyPrefix)) { $registrationHints.TargetKeyPrefix } else { $datasetDefaults.TargetKeyPrefix })
 }
 
+$sourceNameResolution = Resolve-DataCloudSourceNamePreference -PreferredSourceName $SourceName -SalesforceAlias $Alias -LoginUrl $LoginUrl -RegistrationHints $registrationHints -DatasetDefaults $datasetDefaults -AllowDatasetFallback:$false
 if ([string]::IsNullOrWhiteSpace($SourceName)) {
-    $SourceName = Read-RequiredValue -Prompt 'Data Cloud sourceName shared by this dataset' -DefaultValue $(if (-not [string]::IsNullOrWhiteSpace($registrationHints.SourceName)) { $registrationHints.SourceName } else { $datasetDefaults.SourceName })
+    $SourceName = if (-not [string]::IsNullOrWhiteSpace([string]$sourceNameResolution.SourceName)) { [string]$sourceNameResolution.SourceName } else { [string]$datasetDefaults.SourceName }
 }
 
 if ([string]::IsNullOrWhiteSpace($ObjectNamePrefix)) {

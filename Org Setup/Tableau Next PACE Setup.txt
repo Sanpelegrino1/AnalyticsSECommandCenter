@@ -1,0 +1,1414 @@
+Tableau Next ICE Learning Guide
+
+Tableau Next
+
+        PACE
+
+Learning Guide
+
+                                                                                                                               0
+Tableau Next ICE Learning Guide
+
+Table of Contents
+
+Table of Contents
+BUILD 1: Create Your SDO/IDO
+BUILD 2: Build Data Streams, Data Lake Objects, and Data Models
+BUILD 3: Build Your SDM with Calculations, Parameters, Metrics,
+Descriptions, and More
+APPENDIX: Get Deeper Into DATA CLOUD
+
+WHAT'S NEW
+
+New Enhancements Added in October
+         Updates to Parameters - In Depth
+         Add a Reference Line
+         Forecasting
+         Size Encoding
+
+                                                                                                                               1
+Tableau Next ICE Learning Guide
+
+BUILD 1: Create Your SDO/IDO
+
+TIME NEEDED: 30 to 45 minutes
+
+    1. Spin up a new SDO or IDO via the STORM app in Slack and once it is ready, click the
+         login button.
+
+    2. If spinning up an IDO, do the following (some of these steps may already be
+         completed in your org):
+              a. ENABLE DATA CLOUD  From the Q Branch > Demo Wizard (found in the
+                   9-dot in the upper left of your home screen), select Data Cloud from the left
+                   sidebar and click the blue `Deploy Data Cloud Setup!' (NOTE: this takes some
+                   time to complete but you can continue on with the remaining steps).
+
+              b. ENABLE EINSTEN  In the Quick Find, select Einstein Setup and turn on.
+
+                                                                                                                               2
+Tableau Next ICE Learning Guide
+
+              c. FINISH DATA CLOUD SETUP  Click the Gear icon in the upper right corner
+                   and select Data Cloud Setup. (you may need to come back to this step if it is
+                   taking a while to show up)
+                       i. Click the `Get Started' button (takes ~30 minutes).
+
+              d. ADDED! CREATE NEW PERMISSION SET  In the Setup > Quick Find, select
+                   Permission Sets > New
+                       i. Name the permission set `Access Analytics Agent' > Save
+
+              e. CREATE NEW PERMISSION SET GROUP  In the Quick Find, select
+                   Permission Set Groups:
+                       i. Click New Permission Set Group.
+                      ii. Name the Permission Set Group Tableau Next Admin PSG and click
+                             on Save.
+                     iii. Click on Permission Sets in Group > Add Permission Set. Add the
+                             following permission sets (you can search using the letters across the top right of
+
+                                    the screen and using the >next page button at the top and bottom right. You will have
+
+                                                                                                                               3
+Tableau Next ICE Learning Guide
+                                    to select what is on one screen, add and then add more ... it does not retain selections
+
+                             from multiple pages):
+                                  1. Access Agentforce Default Agent
+                                  2. Access Analytics Agent
+                                  3. Agentforce Default Admin
+                                  4. Data Cloud Admin (may be called Data Cloud Architect)
+                                  5. Tableau Next Admin
+                                  6. Tableau Next Consumer
+                                  7. Tableau Next Platform Analyst
+                                  8. Tableau Next Self-Service Analyst
+                                  9. Slack Sales Home User
+
+                     iv. Once you are done adding permissions sets, click the <back to
+                             permission set group button on the top left and then select the
+                             Manage Assignments button (at the top). Click Add Assignments and
+                             select yourself and any other users who need this permission set using
+                             the search function > Next > Assign > Done.
+
+              f. ENABLE TABLEAU NEXT  From the Setup, search for and select Tableau
+                   Next Setup.
+                       i. Toggle the Enable Tableau Next switch to Active (step 2).
+
+                                                                                                                               4
+Tableau Next ICE Learning Guide
+
+                      ii. Scroll down and in the Recommendations section, click the `Go to
+                             Tableau Next Admin' button. Toggle the following settings (NOTE: new
+                             features continue to release so there may be other setting you want to activate):
+                                  1. Agentforce for Analytics (Enables the Analytics and Visualization
+                                       template in Agentforce on Tableau Next)
+                                  2. Concierge: Analytics Q&A (Enables the standard Data Analysis
+                                       topic and Analyze Data action in Agentforce)
+                                  3. Inspector: Proactive Alerts (Beta) (Enable the standard Data
+                                       Alert Management topic and Create Data Alert action in
+                                       Agentforce)
+                                  4. Data Pro (Beta) (Create calculated fields, by describing them in
+                                       natural language)
+                                  5. Tableau Following (Enable users to follow Metric, manage
+                                       followers)
+                                  6. Metric Insights Summary (Enables generative AI to summarize
+                                       data changes in the metric digest)
+                                  7. Enhanced Visualization Authoring UI (Enables beta features
+                                       that make building visualizations faster, smarter and more
+                                       intuitive)
+
+              g. ENABLE SEMANTIC AUTHORING AI FEATURE AND CONNECTORS (BETA) 
+                   Go back to one of your previous tabs (you are currently in the Tableau Next interface
+                   instead of Salesforce Home). From the Setup, search for and select Feature
+                   Manager in the Quick Find box. Note: Feature Manager is part of Data Cloud
+                   and is turned on once you finish the Data Cloud setup at 2c. If you have not
+                   completed that step, go back and finish!
+                       i. Click the `Enable' button for Semantic Authoring AI (you may have to
+                             do this twice to get it to enable).
+
+                                                                                                                               5
+Tableau Next ICE Learning Guide
+
+                      ii. Click the `Enable' button for Connectors (Beta) and click the check box
+                             > Enable. We are doing this so that we can connect to Heroku
+                             PostgreSQL later which houses our ICE datasets as well as all other
+                             data in the Dataverse (Q Branch).
+
+              h. SET YOUR ORG THEME (OPTIONAL)  From the Setup, search for and select
+                   Themes and Branding in the Quick Find box.
+                       i. Activate the Cosmos Theme or create a new theme based on your
+                             needs (e.g., custom org for a client > update colors, logo, etc.).
+
+              i. ENABLE AGENTFORCE  From the Setup, search for and select Agentforce
+                   Agents in the Quick Find box. Toggle the switch to ON.
+
+      j. QUICK CHECK  Is your Data Cloud finished? If not, the next steps will
+
+                   fail! Gear > Data Cloud Setup
+              k. SET UP YOUR ANALYTICS AGENT  Click the `+ New Agent' button from the
+
+                   Agentforce Agents screen to the right of your ON toggle.
+                       i. Create from a Template > select the Analytics and Visualization > Next
+                             > Next (this selects all three topics  Data Analysis, Data Alert
+                             Management, and Data Pro)
+                                                                                                                               6
+Tableau Next ICE Learning Guide
+
+                      ii. Rename the Agent if it is different from the name below (Analytics and
+                             Visualization)
+                                  1. Name  Analytics and Visualization
+                                  2. API  Analytics_and_Visualization
+                                  3. Role  Analytic Agent
+                                  4. Company  Salesforce
+
+       iii. Click Next > Create (leave defaults) > Activate
+                        TROUBLESHOOTING  If you get an error when trying to activate your
+                   Agents, simply go back and toggle your Agents OFF and then back ON. Go
+                   back into the Analytics and Visualization Agent and click the Activate button.
+
+                                                                                                                               7
+Tableau Next ICE Learning Guide
+
+              l. UPDATED! GRANT ACCESS TO YOUR ANALYTICS AGENT  From Setup,
+                   search for and select Permission Sets in the Quick Find.
+
+                  i.Click on Access Analytics Agents. In the Permission Sets, scroll down and
+                   select Agent Access > Edit > select Analytics and Visualization > Save.
+
+              m. OPTIONAL: SET UP HEROKU POSTGRESQL  From the gear, select Data
+                   Cloud Setup > Other Connectors > New > PostgreSQL > Next. Input the
+                   selections below and click the Test Connection button. If it establishes a
+                   connection, click the `Save' button.
+                       i. Connection Name: your choice
+                      ii. Connection API Name: auto fills
+                     iii. Username: u92dhi1ajn88fj
+                                                                                                                               8
+Tableau Next ICE Learning Guide
+
+                     iv. Password:
+                             p4c90c4b2e14564db61447051bc670c4e0ade9e63af890555797596
+                             8ad7d9a567
+
+                      v. Connection URL: ec2-34-239-63-69.compute-1.amazonaws.com
+                     vi. Schema: public
+                    vii. Database: d2pbagf1jq37ti
+
+You are now ready to start connecting to data and building out
+your Semantic Data Model!
+
+NOTE: Any time core asks you to build something in their org, you will have to walk
+through all of these steps to ensure the org is set up correctly.
+
+ You can now add your SDM into Tableau, create a viz, upload it back into your
+
+org and then use Concierge to answer questions about your data set. Want to learn
+more about all of the functionality? Watch this PoP session.
+
+                                                                                                                               9
+Tableau Next ICE Learning Guide
+
+BUILD 2: Build Data Streams, Data Lake Objects,
+and Data Models
+
+TIME NEEDED: 30 to 45 minutes
+
+ TERMINOLOGY (want more detail? Click here)
+
+Data Stream                      Brings in the raw data.
+
+Data Lake Object (DLO)           Stores the raw data as it arrives.
+
+Data Model (DMO)                 Transforms and organizes the raw data into a structured and usable
+                                 format for analysis and activation.
+
+Semantic Data Model (SDM)        Data Cloud layer where you can define, govern, and query all of your
+                                 business metrics. Semantic models provide a consistent way to
+                                 interpret data across Salesforce by mapping your data to familiar
+                                 business terms and standardized business logic. Tableau Semantics
+                                 also uses a Query Generator to leverage the data to answer key
+                                 business questions by sending customizable semantic queries based
+                                 on your semantic models.
+
+                 Things to Keep in Mind
+
+If you miss a step (like adding all of your fields), you can delete your Data Stream and start over.
+You will notice this as you start the process of building your DMO and only show the primary key
+listed in the fields. If this happens, you will need to first delete the in-process DMO from the list
+and then you can delete the Data Stream and start over.
+
+If you were updating data from a stream, you WILL want to pull in only the fields that you need as
+this impacts performance and DC credits. Since we are not setting up any data to update, I wasn't
+focused on it but you can choose to only pull in relevant fields.
+
+For this build we are going to connect to our Heroku PostgreSQL data and
+supplement with additional data so you can see how simple it is to customize your
+data without recreating it. You can also pull in all custom tables if that is your
+preference...generally, the process will be the same. We will also update records in
+Salesforce (later build) so you can create an Action framework in your dashboards.
+
+Below is a list of PostgreSQL tables we will connect to. We are not pulling in every
+table but you can find the schema here (you will need access to Lucidspark).
+
+                                                                                                     10
+Tableau Next ICE Learning Guide
+
+TABLE NAME                       WHAT IT CONTAINS             PRIMARY KEY CATEGORY
+
+rcg_orders                       High-level order detail      OrderID                           Engagement
+
+rcg_order_lines                  Product level order detail   Order_Line_ID Other
+
+rcg_customers                    Customer demographic data    Customer_ID                       Profile
+
+rcg_inventory                    Inventory levels by product  Product_ID                        Other
+
+rcg_products_nto (to pull in a custom product file, Detailed information related to Product_ID  Other
+use the csv found in this folder to modify your fields) each product
+
+rcg_customer_feedback            CSAT, NPS, CES, cleanliness  OrderID                           Other
+                                 score, etc.
+
+Rcg_stores                       Store listing                storeID                           Other
+
+1. From the App Launcher (9-dot on the left top corner), type in and select Data
+    Cloud in the search bar.
+    
+    We will be pulling in the tables from our team tables. If you want to pull in a
+    view or table from Dataverse, enter the name you are looking for.
+
+2. Select the Data Streams tab > New > Heroku PostgreSQL > Next
+
+3. In the Quick Find, type in `rcg' to find the list of tables and views. If you don't
+    want to make any adjustments to the data (e.g., using the NTO products) you
+    can use the view; however, it is not easy to make adjustments post-process so
+    for learning how to create connections, etc. we will be using the tables. Select
+    `rcg_orders' > Next.
+
+4. Relabel the table under the Data Lake Object Label (e.g., `Orders').
+
+                                                                                                                        11
+Tableau Next ICE Learning Guide
+
+             a. Select the appropriate Category for your table. For Orders, we will
+                  select `Engagement' but reference the table list above for each table
+                  you pull in.
+
+             b. Select the supported field you want to pull in. I typically pull them all in
+                  and just hide or remove when I set up my Semantic Data Model.
+
+             c. Once you have everything set up, click the Next button.
+
+    5. We are not going to refresh any of our data so leave all of the settings on the
+         next screen and click `Deploy'.
+
+    6. This creates your Data Lake Object. Once it has processed, on the new screen,
+         click the `Start' button under Data Mapping to create your Data Model.
+             a. Click the `Select Objects' button. Once that processes, switch from
+                  Standard Data Model to Custom Data Model > New Custom Object >
+                  Save > Save
+
+    7. Return to Data Streams and go through this process for the remaining tables
+         listed above. As you are creating your tables, you will start to notice on the
+         Data Streams when each file is completely processed. If for some reason one
+         doesn't process automatically (give it a few minutes for each) you can click
+         the dropdown carat to the right of the Data Stream and manually Refresh it.
+                                                                                                                             12
+Tableau Next ICE Learning Guide
+
+CONGRATULATIONS! You have officially set up your Data Cloud
+to build your Semantic Data Model...let's get to it!
+
+                    Did You Know?
+
+ You can move the top used apps into the dropdown to make it simple to find? From the App
+ Launcher, select View All and then reorder the top apps to the top of the list (Tableau Next, Data
+ Cloud). Other apps you may use frequently based on your use cases  (Sales, Service, Marketing,
+ CG Cloud, Sales Manager, Trade Promotion Management, Consumer Goods Cloud - Service, Field
+ Service Home...there are also Retail apps if you launch certain Qbrix in Q Branch)
+ 
+ While you are at it, you can also move where items sit on your tabs within an app. For example, to
+ access the Semantic Layer you have to go to More. Once you open it, you can drag it to the right of
+ your Data Model tab and it will stay there for easy access later on.
+
+                                                                                                                             13
+Tableau Next ICE Learning Guide
+
+BUILD 3: Build Your SDM with Calculations,
+Parameters, Metrics, Descriptions, and More
+
+TIME NEEDED: 2+ hours
+
+A Semantic Model is a container of the entities that define your business terms. The
+Semantic Model is composed of a grouping of semantic definitions tailored for a
+specific analytical use case. Semantic Models consist of one or more data objects.
+With Semantic Models, you can create flexible joins across more than four objects
+and enrich your analysis with Calculated Dimensions and Measures.
+
+You can think of it as a translation layer between the raw, messy data in your
+spreadsheet or database, where you store fields with text and numbers, and the
+business language we all speak, such as ­ Metrics and Dimensions, or Revenue and
+Regions. It serves as a trusted place where you can ask business questions of your
+data such as "what was my Revenue across Regions during the Last Year?"
+
+Concierge operates within the context of what you are currently looking at in
+Tableau Next. If you're viewing a specific dashboard, it will use the semantic model
+associated with that dashboard to understand your questions and provide answers.
+This means you can have multiple Tableau semantic models (layers) in your
+Salesforce org and still enable Concierge to answer questions correctly. The key is
+that Concierge references the semantic model tied to the specific metric or
+dashboard you are viewing to ensure accuracy
+
+You can build the Semantic Model from within Data Cloud OR Tableau Next. Since
+we are learning about Tableau Next, let's add it in the Tableau Next app. Regardless
+of where you start your SDM build, you will be able to edit it in either place;
+however, to do INLINE edits, you MUST create the SDM in Tableau Next.
+
+                 Things to Keep in Mind
+
+ Please check the current limitations of Tableau Next  click here
+ And, the limitations of Concierge  click here
+ Want to learn more? Head to this Trailhead
+ More context for those who want to dive head first into how Concierge works  click here
+
+ Need to pull in Excel files? You can do that in Tableau Next  Add > New Data ... now your
+
+ Excel file is added as a Data Stream and you can follow the same process to create a DMO
+
+ TERMINOLOGY
+
+                                                                                                                             14
+Tableau Next ICE Learning Guide
+
+Semantics  Allows you to make the most of your data through Tableau Semantics to answer
+Query      business questions. It is an API-based service that interacts with the Semantic Model
+Generator  and generates o ptimized SQL over Data Cloud objects. This API accepts a semantic
+           query as a parameter, a context of a tenant, and then internally fetches the needed
+           data-model metadata and calculates and returns the query result.
+
+ADDING YOUR TABLES TO THE SEMANTICAL MODEL
+
+    1. From the App Launcher (9-dot on the left top corner), type in and select
+         Tableau Next in the search bar.
+
+    2. Click the `New Workspace' button and enter a name for your new workspace
+         then click the `Create' button.
+
+    3. From the Home page, select your Workspace and click the `Add Existing
+         Asset' button.
+         
+         I have found the Logical View to be more reliable for connecting my tables
+         where I can use JOINS and UNIONS but this is where you can experiment if
+         you prefer. The instructions below will be creating a Logical View that is
+         connected to a few tables in the SDM.
+
+    4. Select your Customer Feedback DMO (pink) and click the `Select' button.
+             a. Add the remaining DMOs by clicking the `Add' dropdown from your
+                  workspace > Existing Asset > DMOs (all of the tables in pink that you
+                  created in the previous build).
+
+                           
+
+5. From the `Add' dropdown, select `New Semantic Model' > Select Customer
+    Feedback DMO > Select.
+
+6. ADD LOGICAL VIEW  Click `New' > Logical View and name your Logical
+    View (in this case, I am going to name mine Orders). Click the `Save' button.
+    Note: From here, you can choose which fields to pull in from each table.
+
+TABLE NAME   JOIN TO             JOIN TYPE MATCHING FIELD
+
+Order Lines  Orders              INNER  OrderID  Order_ID
+
+Products     Order Lines         RIGHT  Product_ID  Product_ID
+
+                                                                                                  15
+Tableau Next ICE Learning Guide
+
+Stores     Orders                LEFT  StoreID  Store_ID
+Customers  Orders                LEFT  CustomerID  Customer_ID
+
+7. Next, let's add `Order Lines' by hovering over your Orders table and clicking
+    the + sign > JOIN OBJECT > Order Lines > SAVE.
+         a. In the Join box, click the + button > select your matching data object
+
+     fields from each table > ADD > APPLY. 
+                  NOTE: If you don't hit the APPLY button, your match will NOT save.
+             The connector between the tables will change from dotted to solid.
+
+8. Continue to add the following tables to your LOGICAL VIEW using the table
+    join reference above.
+
+9. When you are finished adding all of these tables, click the `Close' button. We
+    will now add the additional tables in the Model view.
+
+10.Before we go any further, let's rename our Semantic Model [whatever name
+    you want].
+
+                                                                                                                        16
+Tableau Next ICE Learning Guide
+
+11.Now, let's add the remaining tables in the SDM. From the Data Objects,
+    connect the Customer Feedback DMO that you pulled in earlier to your
+    Logical View by matching on the OrderID > Add > Apply.
+
+TABLE NAME             JOIN TO          MATCHING FIELD
+
+Orders (Logical View)  Customer Feedback (DMO) OrderLines.OrderID  Order_ID
+
+12.Add another Data Object by clicking the + button in the Data Objects, select
+    the Inventory DMO (remove all fields with the exception of Inventory_Units
+    and Product_ID) > Save. Click the + sign to the right of the Orders table > Add
+    Relationship = Inventory > match on Product_ID > Add > Apply.
+
+TABLE NAME             JOIN TO          MATCHING FIELD
+
+Orders (Logical View)  Inventory (DMO)  OrderLines.Product_ID  Product_ID
+
+Your SDM should now look like this:
+
+                                                                             17
+Tableau Next ICE Learning Guide
+
+         NICE JOB! Now it is time to start creating some calculated fields, parameters,
+         and metrics!!! For this part, we are going to create some metrics to push
+         forward dates (like we do in Tableau Prep to keep our metrics fresh), create
+         some signal in your data, and create calculations like Sales, Profit, Gross
+         Margin, etc. We will also create one parameter that you will be able to use to
+         toggle your data in a visualization, and then create metrics that you can drop
+         into a dashboard or use individually on a Salesforce app or Account page.
+
+        Need to Pull in Custom Products for a Demo 
+          After You Have Built Your Semantic Layer?
+
+ You can pull in a custom product list using the CSV file above and then replace the connection to
+ your products DLO in order to use custom product lists once you have this all set up. How do you
+ do this? Here are the steps!
+
+  1. Pull in a new Data Stream with the product list you have created. I would HIGHLY suggest
+        pulling in the CSV file linked above with the same number of products as listed so you don't
+        lose data from your other files. Your ProductIDs MUST MATCH the existing ProductIDs.
+
+  2. Once your Data Stream is ready, map all of your fields (e.g., create the DMO using the same
+        process above using a custom object).
+
+  3. Go into your Data Lake Object tab and select the product DLO that is connected in your
+
+    Semantic Layer. Click the `Review' button in the Data Mapping box on the right of the screen.
+
+  4. Click the pencil icon in the upper right hand corner of the connected objects, click on
+        Custom Data Model and select the newly created DMO with the products you want to tie into.
+
+  5. Make sure all of the fields are mapped (specifically the ProductID) and Save.
+
+ At any point, you can now go in and adjust which product DMO you tie to so that you do not have
+ to create a new Semantic Layer, build out metrics, calcs, etc. You can retain as many product DMOs
+ as you need in your Data Cloud space to easily adjust to your demo needs.
+
+     Because most of our DMOs are tied to the logical view, our calculations will sit
+
+         there as well. IMPORTANT when creating the calculations below, please
+         note that your table names are likely different than mine but your fields are
+         the same so you will need to adjust your formula to pull the correct field from
+         YOUR table name (marked in red to highlight).
+
+ADDING DESCRIPTIONS TO YOUR FIELDS IN YOUR SDM
+
+This process is very important! For every field in your data that you think a business
+user might ask a question in Concierge, you need to add a description to ensure the
+
+                                                                                                                             18
+Tableau Next ICE Learning Guide
+
+LLM understands what the value is. For example, in the Customer Feedback DMO,
+we have CSAT, Customer Effort Score, and NPS that need descriptions. I am not
+going to outline every description across every table but will provide them below for
+the context of this particular DMO, as a reference.
+
+For each of these fields, click on the field in the Model to add the following
+descriptions and update the Display Name. Click Apply to save your updates.
+
+Field  Update Display            Description
+       Name to...
+
+CSAT   Customer                  Customer Satisfaction (CSAT) is a metric that gauges how
+       Satisfaction (CSAT)       satisfied customers are with a product, service, or
+                                 interaction, typically measured through post-experience
+                                 surveys
+
+NPS    Net Promoter Score Net Promoter Score (NPS) is a metric that measures
+
+       (NPS)                     customer loyalty by asking how likely they are to
+
+                                 recommend a company, product, or service to others on
+
+                                 a 0­10 scale
+
+Customer Effort Customer Effort  Customer Effort Score (CES) is a metric that measures
+                                 how easy it is for customers to get an issue resolved, a
+Score  Score (CES)               request fulfilled, or a product/service purchased
+
+Now that you have finished the Customer Feedback DMO updates, go through your
+remaining DMOs and any other files you have pulled into your SDM and ensure the
+field names are understandable and descriptions are clear on any fields that might
+be used to query a response in Concierge.
+
+This is one of the most important things you can do to your SDM. If there are any
+fields that are duplicates across DMOs, you can hide or remove the ones that won't
+be used. The cleaner your final SDM is, the better results you will have in building
+visualizations, metrics, dashboards and asking questions in Agentforce.
+
+ADDING CALCULATIONS AND PARAMETERS TO YOUR SDM
+
+                 Things to Keep in Mind
+
+ When building out calculations, metrics, and parameters, we are going to add descriptions so that
+ the SDM will work well in Concierge. We will also add descriptions to some of our fields that we
+ think business users will ask questions in Concierge against. The more context you provide, the
+ better your model will be at answering questions.
+
+                                                                                           19
+Tableau Next ICE Learning Guide
+
+For each of the calculations, parameters, and metrics you create, you will hit the
+`SAVE' button as the final step. I have left that step off for brevity.
+
+    1. CALCS TO PUSH FORWARD DATES (MaxDate and New Order Date) 
+
+             a. CREATE A CALCULATION FOR MAXDATE 
+                  Select New > Calculated Field from the top left corner of your Model
+                  and enter the following details:
+                           Name: MaxDate
+                           Field Type: Dimension
+                           Date Type: Date
+                           Advanced > Data Role: Discrete
+                           Advanced > Field Visibility: Selected
+                           Formula: { max([Orders].[NTO Orders.Order Placed Date]) }
+
+             b. CREATE A CALCULATION FOR NEW ORDER DATE 
+                  Select New >
+                  Calculated Field:
+                           Name: New Order Date
+                           Field Type: Dimension
+                           Date Type: Date
+                           Advanced > Description: This is the valid current date of the
+                           order, Order Date, Purchase Date.
+                           Advanced > Data Role: Discrete
+                           Advanced > Field Visibility: Selected
+                           Formula: DATEADD('day', DATEDIFF('day',[MaxDate],TODAY()),
+                                    [Orders].[NTO Orders.Order Placed Date])
+
+    2. CREATE OTHER CALCS...
+             a. ADD SIGNAL TO UNITS SOLD (OPTIONAL if you want to inflate the existing value) 
+                  Select New > Calculated Field:
+
+                                                                                                                             20
+Tableau Next ICE Learning Guide
+
+                           Name: Units Sold
+                           Field Type: Measure
+                           Date Type: Number
+                           Advanced > Description: Units Sold represents the total
+                           quantity of products successfully purchased by customers within
+                           a given period. It is also commonly referred to as Sales Volume,
+                           Product Sales, or Quantity Sold.
+                           Advanced > Aggregation: Sum
+                           Advanced > Decimal Place: 2
+                           Advanced > Data Role: Continuous
+                           Advanced > Sentiment: Up Is Good
+                           Advanced > Field Visibility: Selected
+                           Formula: IF DATEDIFF('day',[New Order Date], [MaxDate])<=7
+
+                                        THEN [Orders].[NTO Order Lines.Units]+2
+                                        ELSE [Orders].[NTO Order Lines.Units]
+                                        END
+             b. NEW CALC FOR DISCOUNT PERCENT (this is because the current
+                  Percent_Discount is a whole value)
+                  Select New > Calculated Field:
+                           Name: Discount Percent
+                           Field Type: Measure
+                           Date Type: Number
+                           Advanced > Description: the percent discount applied to an
+                           order (divided by 100 to make it a percent)
+                           Advanced > Aggregation: Sum
+                           Advanced > Decimal Place: 2
+                           Advanced > Data Role: Continuous
+                           Advanced > Sentiment: Up Is Neutral
+                           Advanced > Field Visibility: Selected
+                           Formula: [Orders].[NTO Order Lines.Percent_Discount]/100
+             c. ADD SIGNAL TO DISCOUNT PERCENT (OPTIONAL if you want to inflate the existing
+                  value)
+                  Select New > Calculated Field:
+                           Name: Discount
+                           Field Type: Measure
+                           Date Type: Number
+
+                                                                                                                             21
+Tableau Next ICE Learning Guide
+
+                           Advanced > Description: the discount applied to orders
+                           Advanced > Aggregation: Sum
+                           Advanced > Decimal Place: 2
+                           Advanced > Data Role: Continuous
+                           Advanced > Sentiment: Up Is Neutral
+                           Advanced > Field Visibility: Selected
+                           Formula: IF DATEDIFF('day', [New Order Date], [MaxDate])<=7
+
+                                        THEN [Discount Percent]+0.15
+                                        ELSE [Discount Percent]
+                                        END
+             d. CREATE A SALES CALCULATION 
+                  Select New > Calculated Field:
+                           Name: Sales
+                           Field Type: Measure
+                           Date Type: Number
+                           Advanced > Description: sales number expressed in currency
+                           Advanced > Aggregation: Sum
+                           Advanced > Decimal Place: 2
+                           Advanced > Data Role: Continuous
+                           Advanced > Sentiment: Up Is Good
+                           Advanced > Field Visibility: Selected
+                           Formula: (([Orders].[NTO Products.Product Price] *
+                                        [units sold])+([Orders].[NTO Products.Product Price] *
+                                        [Orders].[NTO Order Lines.Tax]))-([Orders].[NTO
+                                        Products.Product Price] * [Discount])
+             e. CREATE A COST OF GOODS SOLD CALCULATION 
+                  Select New > Calculated Field:
+                           Name: CoGS
+                           Field Type: Measure
+                           Date Type: Number
+                           Advanced > Description: cost of goods sold
+                           Advanced > Aggregation: Sum
+                           Advanced > Decimal Place: 2
+                           Advanced > Data Role: Continuous
+                           Advanced > Sentiment: Up Is Good
+                           Advanced > Field Visibility: Selected
+
+                                                                                                                             22
+Tableau Next ICE Learning Guide
+
+                           Formula:
+                           [Sales]-([Sales]*(ROUND((Random()*100)*0.55,0.20))/100)
+             f. CREATE AN INTERNAL PURCHASE PRICE CALCULATION 
+                  Select New > Calculated Field:
+                           Name: Internal Purchase Price
+                           Field Type: Measure
+                           Date Type: Number
+                           Advanced > Description: internal purchase price of product
+                           Advanced > Aggregation: Sum
+                           Advanced > Decimal Place: 2
+                           Advanced > Data Role: Continuous
+                           Advanced > Sentiment: Up Is Neutral
+                           Advanced > Field Visibility: Selected
+                           Formula:
+                           [Sales]-([Sales]*(ROUND((Random()*100)*0.35,0.10))/100)
+             g. CREATE A PROFIT CALCULATION 
+                  Select New > Calculated Field:
+                           Name: Profit
+                           Field Type: Measure
+                           Date Type: Number
+                           Advanced > Description: profit from sales
+                           Advanced > Aggregation: UserAgg
+                           Advanced > Decimal Place: 2
+                           Advanced > Data Role: Continuous
+                           Advanced > Sentiment: Up Is Good
+                           Advanced > Field Visibility: Selected
+                           Formula: SUM([Sales]) - SUM([CoGS])
+             h. CREATE A REVENUE CALCULATION 
+                  Select New > Calculated Field:
+                           Name: Revenue
+                           Field Type: Measure
+                           Date Type: Number
+                           Advanced > Description: Revenue is the total income a
+                           company or entity generates from its primary operations, such as
+                           selling goods or providing services, before any expenses, costs,
+                           or taxes are deducted.
+
+                                                                                                                             23
+Tableau Next ICE Learning Guide
+
+                           Advanced > Aggregation: Sum
+                           Advanced > Decimal Place: 2
+                           Advanced > Data Role: Continuous
+                           Advanced > Sentiment: Up Is Good
+                           Advanced > Field Visibility: Selected
+                           Formula: [Orders].[NTO Products.Product Price]*[Units Sold]
+             i. CREATE A GROSS MARGIN CALCULATION 
+                  Select New > Calculated Field:
+                           Name: Gross Margin
+                           Field Type: Measure
+                           Date Type: Number
+                           Advanced > Description: Gross margin is the percentage of
+                           revenue after subtracting the direct costs of producing its goods
+                           or services.
+                           Advanced > Aggregation: Sum
+                           Advanced > Decimal Place: 2
+                           Advanced > Data Role: Continuous
+                           Advanced > Sentiment: Up Is Good
+                           Advanced > Field Visibility: Selected
+                           Formula: IF DATEDIFF('day', [New Order Date], [MaxDate])<=7
+
+                                        THEN (([Sales] - (1.1*[Internal Purchase
+                                        Price]))/[Sales])*100
+                                        ELSE (([Sales]- ([Internal Purchase
+                                        Price]))/[Sales])*100
+                                        END
+             j. CREATE A GROSS MARGIN % CALCULATION 
+                  Select New > Calculated Field:
+                           Name: Gross Margin %
+                           Field Type: Measure
+                           Date Type: Percentage
+                           Advanced > Description: gross margin % (average)
+                           Advanced > Aggregation: Average
+                           Advanced > Decimal Place: 2
+                           Advanced > Data Role: Continuous
+                           Advanced > Sentiment: Up Is Good
+                           Advanced > Field Visibility: Selected
+
+                                                                                                                             24
+Tableau Next ICE Learning Guide
+
+                           Formula: (([Sales] - ([Internal Purchase Price])) / [Sales])
+             k. CREATE A ORDER COUNT CALCULATION 
+
+                  Select New > Calculated Field:
+                           Name: Order Count
+                           Field Type: Measure
+                           Date Type: Number
+                           Advanced > Description: the number of orders made by
+                           customers.
+                           Advanced > Aggregation: UserAgg
+                           Advanced > Decimal Place: 2
+                           Advanced > Data Role: Continuous
+                           Advanced > Sentiment: Up Is Good
+                           Advanced > Field Visibility: Selected
+                           Formula: COUNTD([Orders].[NTO Orders.OrderID])
+                           
+                           API Name  Gross_MarginPerc_clc (you need to rename this because it tries to
+
+                                        create the same name as the Gross Margin)
+
+      l. ADD SIGNAL TO THE RETURNS FLAG  
+                      Note: we are adding signal to a specific category. If your categories
+                  are different, you will need to adjust your category name.
+                  Select New > Calculated Field:
+                           Name: Returns Flag
+                           Field Type: Dimension
+                           Date Type: Text
+                           Advanced > Description: returns flag to denote how many items
+                           have been returned
+                           Advanced > Data Role: Discrete
+                           Advanced > Field Visibility: Selected
+                           Formula: IF [Orders].[NTO Order Lines.Return Flag] = "Yes"
+                                        THEN "Yes"
+                                        ELSEIF (DATEDIFF('day', [New Order Date],
+                                        [MaxDate])<=7
+                                        AND RANDOM()<0.7
+                                        AND [Orders].[NTO Products.Category]= 'Cycle') THEN
+                                        "Yes"
+                                        ELSE "No"
+                                        END
+
+                                                                                                                             25
+Tableau Next ICE Learning Guide
+
+         m.ADD A CALCULATION TO CREATE A CONCATENATED STORE NAME 
+
+     (you may also decide to pull in a CSV or XLS file that has store names) 
+                  Note: we are adding signal to a specific category. If your categories
+             are different, you will need to adjust your category name.
+             Select New > Calculated Field:
+
+                      Name: Store Name
+                      Field Type: Dimension
+                      Date Type: Text
+                      Advanced > Description: Name of Store
+                      Advanced > Data Role: Discrete
+                      Advanced > Field Visibility: Selected
+                      Formula: "NTO Store "+[Orders].[NTO Stores.Store Name]+" -
+
+                                    "+[Orders].[NTO Stores.City]
+3. CREATE PARAMETERS
+
+    When creating parameters, you have to click the pencil to edit the row and
+    click the +Add Row button to add new rows.
+
+         a. ADD A DIMENSION PARAMETER 
+             Select New > Parameter:
+             Parameter Name: Dimension
+             Data Type: Text
+             Parameter Type: List
+
+Values                           Display Name
+
+Sales                            Sales
+
+Internal Purchase Price          Internal Purchase Price
+
+CoGS                             CoGS
+
+b. ADD A REGION PARAMETER 
+    Select New > Parameter:
+    Parameter Name: Region
+    Data Type: Text
+    Parameter Type: List
+
+Values                           Display Name
+
+Midwest                          Midwest
+
+Northeast                        Northeast
+
+                                                          26
+Tableau Next ICE Learning Guide
+
+South                            South
+
+West                             West
+
+c. ADD A SELECT SEGMENTATION VIEW PARAMETER 
+    Select New > Parameter:
+    Parameter Name: Select Segmentation View
+    Data Type: Text
+    Parameter Type: List
+
+Values                           Display Name
+
+Region                           Region
+
+State                            State
+
+Account                          Account
+
+4. CREATE CALCULATIONS TO GO WITH THE PARAMETERS
+         a. ADD A CALCULATION FOR SELECTED REGION 
+             Select New > Calculated Field:
+                      Name: Selected Region
+                      Field Type: Dimension
+                      Date Type: Boolean
+                      Advanced > Description: what region did the user select to view
+                      Advanced > Data Role: Discrete
+                      Advanced > Field Visibility: Selected
+                      Formula: [Parameters].[Region Selected] = [NTO Sales].[NTO
+                                    Stores.Region]
+         b. ADD A CALCULATION FOR SELECTED DIMENSION 
+             Select New > Calculated Field:
+                      Name: Selected Dimension
+                      Field Type: Dimension
+                      Date Type: Number
+                      Advanced > Description: what dimension did the user select to
+                      view
+                      Advanced > Data Role: Discrete
+                      Advanced > Field Visibility: Selected
+                      Formula: CASE [Parameters].[Dimension]
+                                    WHEN 'Sales' THEN [Sales]
+                                    WHEN 'COGS' THEN [CoGS]
+
+                                               27
+Tableau Next ICE Learning Guide
+
+                                        WHEN 'Internal Purchase Price' THEN [Internal
+                                        Purchase Price]
+
+        END
+
+             c. HOLD ON THIS ONE ... We need to add the Account ID
+                  reconciliation file before completing this step
+                  ADD A CALCULATION FOR SELECTED SEGMENT VIEW 
+                           Select New > Calculated Field:
+                           Name: Select Segment View
+                           Field Type: Dimension
+                           Date Type: Text
+                           Advanced > Description: what segment did the user select to
+                           view
+                           Advanced > Data Role: Discrete
+                           Advanced > Field Visibility: Selected
+                           Formula: CASE [Parameters].[Select Segmentation View]
+                                        WHEN 'Account' THEN [ACCT IDS.csv].[Account Name]
+                                        WHEN 'Region' THEN [NTO Sales].[NTO
+                                        Customers.Region]
+                                        WHEN 'State' THEN [NTO Sales].[NTO Customers.State]
+                                        END
+
+LET'S CREATE SOME METRICS!
+
+Note that you can modify any of these similar to how you would in Tableau
+Pulse...these are mostly suggestions so play around with the options and make
+them your own. Click Save when done making updates to each metric. NOTE: New
+features continue to be added to Metrics and other areas within the Semantic Model
+and Tableau Next so take that into account when creating your environment.
+
+    1. METRIC FOR AVERAGE ORDER VALUE 
+          Select New > Metric:
+                   Name: Average Order Value ($)
+                   Description: Average Order Value is the average dollar amount a
+                   customer spends per transaction in a store, reflecting the typical size
+                   of a sale. It is also referred to as AOV, average ticket, average purchase
+                   value, or basket size.
+                   Measure: Sales
+                   Expand Measure Advanced Setup >
+
+                                                                                                                             28
+Tableau Next ICE Learning Guide
+
+                   Sentiment: Up Is Good
+                   Aggregation: Average
+                   Time Dimension: New Order Date
+                   Additional Dimensions: Region, State, Age, Gender, Store Name
+    2. METRIC FOR CSAT 
+          Select New > Metric:
+                   Name: Customer Satisfaction Score (CSAT)
+                   Description: Customer Satisfaction Score (CSAT) measures how
+                   satisfied customers are with a product, service, or overall experience,
+                   typically collected through short surveys after a purchase or
+                   interaction. It is sometimes referred to as Customer Satisfaction
+                   Rating.
+                   Measure: Customer Satisfaction (CSAT)
+                   Expand Measure Advanced Setup >
+                   Sentiment: Up Is Good
+                   Aggregation: Average
+                   Time Dimension: New Order Date
+                   Additional Dimensions: Region, State, Age, Gender, Store Name
+    3. METRIC FOR CUSTOMER EFFORT SCORE 
+          Select New > Metric
+                   Name: Customer Effort Score (CES)
+                   Description: Customer Effort Score (CES) measures how easy it is for a
+                   customer to resolve an issue or complete a request with a service
+                   center, focusing on the amount of effort the customer must expend. It
+                   is sometimes referred to as Customer Ease Score, Effort Rating.
+                   Measure: Customer Effort Score (CES)
+                   Expand Measure Advanced Setup >
+                   Sentiment: Up Is Good
+                   Aggregation: Average
+                   Time Dimension: New Order Date
+                   Additional Dimensions: Region, State, Age, Gender, Store Name
+    4. METRIC FOR NET PROMOTER SCORE 
+          Select New > Metric
+                   Name: Net Promoter Score (NPS)
+                   Description: Net Promoter Score measures customer loyalty by
+                   indicating how likely customers are to recommend a company to
+
+                                                                                                                             29
+Tableau Next ICE Learning Guide
+
+                   others. It is often referred to as NPS, Customer Loyalty Score, or
+                   Recommendation Score.
+                   Measure: Net Promoter Score
+                   Expand Measure Advanced Setup >
+                   Sentiment: Up Is Good
+                   Aggregation: Average
+                   Time Dimension: New Order Date
+                  Additional Dimensions: Region, State, Age, Gender, Store Name
+    5. METRIC FOR GROSS MARGIN 
+         Select New > Metric
+                   Name: Gross Margin ($)
+                   Description: Gross Margin ($) represents the dollar amount a business
+                   retains from sales after subtracting the cost of goods sold (COGS),
+                   showing how much revenue is left to cover operating expenses and
+                   profit. It is sometimes referred to as Gross Profit, Gross Income.
+                   Measure: Gross Margin
+                   Expand Measure Advanced Setup >
+                   Sentiment: Up Is Good
+                   Aggregation: Sum
+                   Aggregation Type: Choose your preference (this depends on how you
+                   want to see the data...toggle to view the difference)
+
+                   Time Dimension: New Order Date
+                   Additional Dimensions: Region, State, Category, Subcategory, Product
+                   Type, Product Name
+    6. METRIC FOR ORDERS 
+         Select New > Metric
+                   Name: Orders
+                   Description: Orders represent confirmed customer purchases of
+                   products or services, typically resulting in a transaction or shipment.
+                   They are also commonly referred to as Purchases, Transactions, or
+                   Sales Orders.
+                   Measure: Order Count
+                   Expand Measure Advanced Setup >
+                   Sentiment: Up Is Good
+
+                                                                                                                             30
+Tableau Next ICE Learning Guide
+
+                   Time Dimension: New Order Date
+                   Additional Dimensions: Region, State, Category, Subcategory, Store
+                   Name
+    7. METRIC FOR PROFIT 
+         Select New > Metric
+                   Name: Profit ($)
+                   Description: Profit is the financial gain a business realizes after
+                   subtracting all expenses from its total revenue, reflecting the
+                   company's earnings. It is also commonly referred to as Net Income,
+                   Earnings, Net Profit, or the Bottom Line.
+                   Measure: Profit
+                   Expand Measure Advanced Setup >
+                   Sentiment: Up Is Good
+
+                   Time Dimension: New Order Date
+                   Additional Dimensions: Region, State, Category, Subcategory, Product
+                   Type, Product Name
+    8. METRIC FOR RETURN UNITS 
+         Select New > Metric
+                   Name: Return Units
+                   Description: Return Units represent the quantity of products
+                   customers send back after purchase, typically due to defects,
+                   dissatisfaction, or order errors. They are also commonly referred to as
+                   Product Returns, Returned Merchandise, or Units Returned.
+                   Measure: Units Sold
+                   Filter: Returns Flag = Yes
+
+                   Expand Measure Advanced Setup >
+                   Sentiment: Up Is Bad
+                   Aggregation: Sum
+                   Aggregation Type: Choose your preference (this depends on how you
+                   want to see the data...toggle to view the difference)
+
+                   Time Dimension: New Order Date
+                   Additional Dimensions: Region, State, Category, Subcategory, Product
+                   Type, Product Name
+
+                                                                                                                             31
+Tableau Next ICE Learning Guide
+
+    9. METRIC FOR RETURNS 
+         Select New > Metric
+                   Name: Returns ($)
+                   Description: Returns ($) represents the total dollar value of products
+                   that customers have sent back, reducing overall sales revenue. It is
+                   also commonly referred to as Return Revenue, Returned Sales, or
+                   Sales Returns.
+                   Measure: Sales
+                   Filter: Returns Flag = Yes
+
+                   Expand Measure Advanced Setup >
+                   Sentiment: Up Is Bad
+                   Aggregation: Sum
+                   Aggregation Type: Choose your preference (this depends on how you
+                   want to see the data...toggle to view the difference)
+
+                   Time Dimension: New Order Date
+                   Additional Dimensions: Region, State, Category, Subcategory, Product
+                   Type, Product Name
+    10.METRIC FOR UNITS SOLD 
+         Select New > Metric
+                   Name: Units Sold
+                   Description: Units Sold represents the total quantity of products
+                   successfully purchased by customers within a given period. It is also
+                   commonly referred to as Sales Volume, Product Sales, or Quantity
+                   Sold.
+                   Measure: Units Sold
+
+                   Expand Measure Advanced Setup >
+                   Sentiment: Up Is Good
+                   Aggregation: Sum
+                   Aggregation Type: Choose your preference (this depends on how you
+                   want to see the data...toggle to view the difference)
+
+                   Time Dimension: New Order Date
+
+                                                                                                                             32
+Tableau Next ICE Learning Guide
+
+                   Additional Dimensions: Region, State, Category, Subcategory, Product
+                   Type, Product Name, Store Name
+    11.METRIC FOR TOTAL SALES 
+         Select New > Metric
+                   Name: Total Sales ($)
+                   Description: Total Sales ($) represents the overall revenue generated
+                   from all customer purchases within a given period before any
+                   deductions. It is also commonly referred to as Gross Sales, Revenue,
+                   or Total Revenue.
+                   Measure: Sales
+                   Expand Measure Advanced Setup >
+                   Sentiment: Up Is Good
+                   Aggregation: Sum
+                   Aggregation Type: Choose your preference (this depends on how you
+                   want to see the data...toggle to view the difference)
+
+                   Time Dimension: New Order Date
+                   Additional Dimensions: Region, State, Category, Subcategory, Product
+                   Type, Product Name, Store Name
+
+That was a lot but at this point, you have a good solid foundation for building
+Tableau Next dashboards and using Concierge to answer your key business
+questions! You can now test your model using the `Test Model' button in the upper
+right corner of the Semantic Model Builder (e.g., dimension = region, measurement
+= sales > RUN ; add dimension = gender > RUN...you can test out a myriad of
+dimensions and measurements)
+
+If you are feeling confident in your final setup, there is one last action you need to
+take to ensure the Concierge Agent can talk to your SDM.
+
+    1. In the Semantic Model Builder, click on the right icon that looks like a
+         clipboard in the upper left corner of the builder screen. Read through the
+         recommended guidelines and check each box. This will activate the SDM in
+         Agentforce.
+
+                                                                                                                             33
+Tableau Next ICE Learning Guide
+
+    2. If there are other criteria or business preferences that you want to provide the
+         agent, you can do that by clicking the icon to the right of the gear icon.
+
+  CONGRATULATIONS ON YOUR HARD WORK!!!! 
+
+
+Are you ready to start building your dashboards and asking questions
+in Concierge? Let's get started!
+
+                                                                                                                             34
+Tableau Next ICE Learning Guide
+
+BUILD 4: Creating Visualizations and Building
+Your Dashboard
+
+TIME NEEDED: 2+ hours
+
+It is now time to build your visualizations that will act as your building blocks for
+your dashboard that is based on the semantic model you have created.
+
+                 Things to Keep in Mind
+
+ add
+
+ WANT TO LEARN MORE?
+                   Very basic UI intro
+
+CREATE VISUALIZATIONS
+
+    1. From the App Launcher (9-dot on the left top corner), type in and select
+         Tableau Next in the search bar.
+
+    2. Create a new Workspace by selecting the `New Workspace' button in the
+         upper right corner of the TabNext screen.
+
+    3. Select Add > New Visualization
+
+From here you can add dimensions, measures, parameters, etc. to create your
+visualizations based on your preferences. This has a similar feel to OG Tableau but
+not nearly as intuitive. Below are some visualizations that I have created for a Sales
+dashboard but feel free to get creative and make your own.
+
+                                                                                                                             35
+Tableau Next ICE Learning Guide
+
+ If you have tied your data to Salesforce records, you can now create actions as well.
+             As of writing this, some visualizations with a measure (this could be my org
+         only) on the marks label are throwing errors, so if your viz isn't working, remove
+         the label mark.
+
+ VISUALIZATIONS FOR DASHBOARD 1 (note that you might not have all of the
+ fields that I have but showing these as an example)
+
+                                                            Viz Mark: Automatic
+                                                            Filters: Category
+                                                            Color Mark: Subcategory
+                                                            Columns: Category, Subcategory
+                                                            Rows: SUM(Sales)
+
+                                                            Viz Mark: Line
+                                                            Filters: New Order Date, Category
+                                                            Color Mark: Subcategory
+                                                            Detail Mark: Subcategory
+                                                            Columns: QUARTER(New Order Date)
+                                                            Rows: SUM(Sales)
+
+                                                            Viz Mark: Automatic
+                                                            Filters: Subcategory
+                                                            Color Mark: Subcategory
+                                                            Detail Mark: Product Name
+                                                            Columns: SUM(Units Sold)
+                                                            Rows: AVG(Gross Margin %)
+
+                                                                                                                             36
+Tableau Next ICE Learning Guide
+
+                                 Viz Mark: Bar
+                                 Color Mark: SUM(Units Sold)
+                                 Detail Mark: Account ID
+                                 Columns: Subcategory
+                                 Rows: Account Name
+
+                                                           Viz Mark: Automatic
+                                                           Filters: Subcategory, Parent Account
+                                                           Name
+                                                           Color Mark: Subcategory
+                                                           Detail Mark: Product Name
+                                                           Columns: SUM(Units Sold)
+                                                           Rows: Parent Account Name
+
+                                                           Viz Mark: Automatic
+                                                           Filters: Subcategory
+                                                           Color Mark: Subcategory
+                                                           Detail Mark: Product Name
+                                                           Columns: SUM(Units Sold)
+
+DASHBOARD 1 - This includes some of the metrics you built in your SDM and visualizations you
+
+built in your TabNext environment
+
+                                                              37
+Tableau Next ICE Learning Guide
+
+VISUALIZATIONS FOR DASHBOARD 2
+
+                                 Viz Mark: Donut
+                                 Filters: New Order Date, Region
+                                 Color Mark: Region
+                                 Label: Region
+                                 Angle: SUM(Sales)
+
+                                                                  38
+Tableau Next ICE Learning Guide
+
+                                 Viz Mark: Line
+                                 Filters: New Order Date, Region
+                                 Color Mark: Region
+                                 Columns: FW(New Order Date)
+                                 Rows: SUM(Sales)
+
+                                 Viz Mark: Donut
+                                 Filters: New Order Date, Region
+                                 Color Mark: Region
+                                 Label: Region
+                                 Angle: SUM(Profit)
+
+                                 Viz Mark: Line
+                                 Filters: New Order Date, Region
+                                 Color Mark: Region
+                                 Columns: FW(New Order Date)
+                                 Rows: SUM(Profit)
+
+                                 Viz Mark: Circle
+                                 Filters: Category, Region
+                                 Color Mark: SUM(Sales)
+                                 Columns: FM(New Order Date)
+                                 Rows: Region, Category
+
+                                 Viz Mark: Bar
+                                 Filters: New Order Date, Category,
+                                 Region
+                                 Columns: SUM(Sales)
+                                 Rows: Region, Category
+
+                                                                     39
+Tableau Next ICE Learning Guide  Viz Mark: Circle
+                                 Filters: Category, Region
+ DASHBOARD 2                     Color Mark: SUM(Profit)
+                                 Columns: FM(New Order Date)
+                                 Rows: Region, Category
+
+                                 Viz Mark: Bar
+                                 Filters: New Order Date, Category,
+                                 Region
+                                 Columns: SUM(Profit)
+                                 Rows: Region, Category
+
+CREATE A DASHBOARD
+
+Once you have created all of the visualizations, you are ready to put them on a
+dashboard.
+
+                                                                                                                             40
+Tableau Next ICE Learning Guide
+
+    1. From your newly created Workspace, select Add > New Dashboard.
+             a. You will be prompted to select a layout or `Create a Blank Dashboard'
+                  (button at the bottom of the screen). Select the most appropriate (it
+                  honestly doesn't matter as you will be changing things up to fit your
+                  needs anyways)...I tend to start from the F/Z Layout and I select Z
+                  option.
+
+             b. Click through each prompt including selecting your Semantic Data
+                  Model. Here you can also add any filters you know you might want to
+                  use (New Order Date, Account, etc.). The next screen allows you to add
+                  some of the metrics and visualizations...you can do that here or
+                  manually once your dashboard is created.
+
+    2. At this point, you can start moving visualizations, metrics, etc. onto your
+         dashboard.
+
+HELPFUL TIPS & TRICKS:
+     Do not leave any additional elements in your dashboard that are unused (e.g.,
+         empty filter boxes)
+
+                                                                                                                             41
+Tableau Next ICE Learning Guide
+
+APPENDIX:
+
+Slack Integration Documents
+
+Questions? Contact Austin Haag
+ Watch this video for step by step guide > click here
+ Watch this video to learn how to add the Agent into your Slack instance > click here
+
+Internal Enablement Guide: Installing Analytics Agent into Slack
+This is the one I use to set up all of the Slack correctly  click here
+Set up your Tableau Next and Slack Production Test Account
+Tableau Next EDO Demo Script: Tableau Next + Slack
+Tableau Next & Slack Internal PRFAQ
+Steps to Installing the Agent in your Slack instance (start at slide 61 for setup)
+Slack Demo Orgs: A self-guided tour
+
+Concierge
+
+See which features are unsupported by clicking here.
+
+­Get Deeper Into DATA CLOUD
+
+Data Stream:
+A data stream represents the connection and flow of data from a source system into
+Data Cloud. It defines how data is ingested, including the source, frequency, and initial
+processing rules. Think of it as the pipeline through which raw data enters the system.
+
+Data Lake Objects (DLOs):
+Once data flows through a data stream, it is stored in its raw, original format within data
+
+                                                                                                                             42
+Tableau Next ICE Learning Guide
+
+lake objects. DLOs are essentially storage containers within the data lake, holding the
+ingested data as-is, without imposing a strict schema. This allows for flexibility and the
+ability to store various data types and formats. DLOs are the first point where the raw
+data resides within the data cloud.
+
+Data Model Objects (DMOs):
+Data Model Objects represent the harmonized and standardized view of the data. After
+data is ingested into DLOs, it is then mapped to DMOs. This mapping process involves
+defining the relationships between different data points, standardizing data formats,
+and applying business rules to create a unified and structured data model. DMOs are
+the foundation for segmentation, activation, and analytical processes within the data
+cloud, providing a clean and consistent view of customer data.
+
+Semantic Data Model (SDMs):
+The Semantic Layer creates a business-friendly, abstract layer that defines the meaning
+and relationships between data elements, translating complex technical data
+structures into understandable business terms and metrics for human users and
+machines. It focuses on the meaning and context of data, rather than just its technical
+structure, to enable better understanding, consistent reporting, and more informed
+decision-making across an organization.
+
+Customer 360 Data Model:
+Data Cloud's standard canonical data model. Data ingested into Data Cloud is mapped
+to DMOs found in the Customer 360 Data Model.
+Need a full glossary of terms? Click here
+
+                                                                                                                             43
+Tableau Next ICE Learning Guide
+
+         
+
+Other helpful resources to cut through the noise:
+     5 Things Architects Should Know About Data Cloud
+     What Are the 3 Data Stream Categories in Data Cloud?
+     Making Data Cloud Work With Your Existing Salesforce CRM Data
+     Introducing Data Cloud Reports on Tableau Semantics
+     GitHub repository for Calculated Insights (if you want to create calculations farther
+         upstream in Data Cloud)
+     Create External Credentials for Google Sheets (BETA)
+     Tableau CoE - How to create custom demos for Tableau Next
+     Cindy's Agentic Analytics Workshop Doc
+     Data Generation video
+     Tableau Next Pocket Guide and FAQs
+     Salesforce Help Documentation for Tab Next
+
+                                                                                                                             44
+

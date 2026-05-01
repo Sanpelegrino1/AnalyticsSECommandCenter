@@ -28,7 +28,7 @@ The current default path generates a per-org `CommandCenterAuth` client id durin
 
 - External Client Apps are available in Setup and deployable via metadata.
 - Data Cloud is enabled.
-- An Ingestion API connector exists.
+- An Ingestion API connector exists. For a new org, prefer the generic shared name `command_center_ingest_api`.
 - If you want Command Center to create the streams, the operator knows the manifest path, source name, and object naming scheme that should be provisioned.
 - The target object's tenant endpoint, source name, object name, and object endpoint are known and will be registered in `notes/registries/data-cloud-targets.json`.
 - The deploying/admin user can authorize the `CommandCenterAuth` app.
@@ -112,7 +112,7 @@ Expected result:
 - Confirm the app is visible in External Client App Manager.
 - Confirm the OAuth policy allows the intended users to self-authorize the app.
 - Confirm Data Cloud is provisioned and the user can grant `cdp_ingest_api`.
-- Create or verify the Ingestion API connector.
+- Create or verify the shared Ingestion API connector. For a new org, prefer `command_center_ingest_api` and save it in `notes/registries/salesforce-orgs.json` as `dataCloudSourceName`.
 - Deploy any desired generated metadata from `salesforce/generated/<sourceName>/` through the Salesforce metadata workflow if you want that local source pushed into the org.
 
 ## What Is Now Automated After Auth Works

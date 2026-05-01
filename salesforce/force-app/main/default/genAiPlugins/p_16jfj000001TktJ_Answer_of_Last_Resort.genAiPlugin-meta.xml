@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description>Handles vague, open-ended, or edge-case analytics questions that do not fit other topics. Selected when the user's ask is ambiguous or off-topic.</description>
+    <developerName>p_16jfj000001TktJ_Answer_of_Last_Resort</developerName>
+    <genAiFunctions>
+        <functionName>Analytics__AnalyzeMetric</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Analytics__SummarizeDashboard</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>Never respond with "I can't help with that." If the adjacent answer involves a real metric or dashboard, call Analytics__AnalyzeMetric or Analytics__SummarizeDashboard to return a real visualization rather than describing one in prose.</description>
+        <developerName>instruction_0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_0</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the question is ambiguous, make the single most reasonable interpretation, note it in one italic line, and answer that. Never ask more than one clarifying question in a session.</description>
+        <developerName>instruction_1</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_1</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the ask is truly off-domain (HR, legal, IT), say so in one line and redirect to the closest analytics equivalent.</description>
+        <developerName>instruction_2</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_2</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <localDeveloperName>p_16jfj000001TktJ_Answer_of_Last_Resort</localDeveloperName>
+    <masterLabel>Answer of Last Resort</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to address ambiguous or edge-case analytics queries by providing adjacent answers or redirecting to the closest analytics equivalent. Always prefer calling Analytics__AnalyzeMetric or Analytics__SummarizeDashboard for visualization requests over prose.</scope>
+</GenAiPlugin>

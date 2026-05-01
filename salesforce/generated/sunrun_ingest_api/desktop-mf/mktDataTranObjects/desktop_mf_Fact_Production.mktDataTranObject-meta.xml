@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MktDataTranObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <connector>sunrun_ingest_api</connector>
+    <creationType>Custom</creationType>
+    <dataSource>sunrun_ingest_api</dataSource>
+    <dataSourceObject>desktop_mf_Fact_Production_dll</dataSourceObject>
+    <masterLabel>Desktop - Fact_Production</masterLabel>
+    <mktDataTranFields>
+        <fullName>ProductionID</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>ProductionID</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>ProductionID</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>1</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Production Product ID</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Production Product ID</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Production Product ID</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Production Facility ID</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Production Facility ID</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Production Facility ID</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Production Location ID</fullName>
+        <creationType>Custom</creationType>
+        <datatype>S</datatype>
+        <externalName>Production Location ID</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Production Location ID</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Production Date Key</fullName>
+        <creationType>Custom</creationType>
+        <datatype>F</datatype>
+        <externalName>Production Date Key</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Production Date Key</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Units Produced</fullName>
+        <creationType>Custom</creationType>
+        <datatype>N</datatype>
+        <externalName>Units Produced</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Units Produced</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <mktDataTranFields>
+        <fullName>Defect Count</fullName>
+        <creationType>Custom</creationType>
+        <datatype>N</datatype>
+        <externalName>Defect Count</externalName>
+        <isDataRequired>false</isDataRequired>
+        <length>0</length>
+        <masterLabel>Defect Count</masterLabel>
+        <precision>0</precision>
+        <primaryIndexOrder>0</primaryIndexOrder>
+        <scale>0</scale>
+        <sequence>0</sequence>
+    </mktDataTranFields>
+    <objectCategory>Salesforce_SFDCReferenceModel_0_93.Engagement</objectCategory>
+</MktDataTranObject>

@@ -21,13 +21,13 @@ Bulk-upload CSV data into a configured Salesforce Data Cloud ingestion target us
 1. Inspect the CSV with `scripts/salesforce/data-cloud-inspect-csv.ps1`.
 2. Confirm the target metadata with `scripts/salesforce/data-cloud-register-target.ps1` or by reading the registry.
 3. Confirm auth resolves with `scripts/salesforce/data-cloud-get-access-token.ps1`.
-4. Upload with `scripts/salesforce/data-cloud-upload-csv.ps1`.
+4. Upload with `scripts/salesforce/data-cloud-upload-csv.ps1`. Prefer the default submit-first path and keep `-WaitForCompletion:$true` only for narrow validation.
 5. If needed, inspect the job with `scripts/salesforce/data-cloud-get-job.ps1` or `scripts/salesforce/data-cloud-list-jobs.ps1`.
 6. If a previous job is stuck in `Open` or `UploadComplete`, abort it with `scripts/salesforce/data-cloud-abort-job.ps1` before rerunning the upload.
 
 ## Validation
 
-- The upload command returns `JobComplete`.
+- The upload command returns a concrete job id immediately, and wait mode reaches `JobComplete` only when explicitly requested.
 - The data stream reflects the expected records.
 
 ## Failure Modes

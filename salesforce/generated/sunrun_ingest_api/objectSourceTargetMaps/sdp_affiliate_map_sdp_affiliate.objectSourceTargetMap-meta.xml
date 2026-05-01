@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ObjectSourceTargetMap xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <creationType>Custom</creationType>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>sdp_affiliate.affiliateId__c</sourceField>
+        <sourceFormula>affiliateId</sourceFormula>
+        <targetField>sdp_affiliate__dll.affiliateId__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>sdp_affiliate.affiliateName__c</sourceField>
+        <sourceFormula>affiliateName</sourceFormula>
+        <targetField>sdp_affiliate__dll.affiliateName__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>sdp_affiliate.affiliateLoyaltyScore__c</sourceField>
+        <sourceFormula>affiliateLoyaltyScore</sourceFormula>
+        <targetField>sdp_affiliate__dll.affiliateLoyaltyScore__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>sdp_affiliate.affiliateTier__c</sourceField>
+        <sourceFormula>affiliateTier</sourceFormula>
+        <targetField>sdp_affiliate__dll.affiliateTier__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>sdp_affiliate.affiliateRegion__c</sourceField>
+        <sourceFormula>affiliateRegion</sourceFormula>
+        <targetField>sdp_affiliate__dll.affiliateRegion__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;sdp_affiliate&quot;</sourceFormula>
+        <targetField>sdp_affiliate__dll.DataSourceObject__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;sunrun_ingest_api&quot;</sourceFormula>
+        <targetField>sdp_affiliate__dll.DataSource__c</targetField>
+    </fieldSourceTargetMaps>
+    <masterLabel>sdp_affiliate_map_sdp_affiliate</masterLabel>
+    <sourceObjectName>sdp_affiliate</sourceObjectName>
+    <targetObjectName>sdp_affiliate__dll</targetObjectName>
+</ObjectSourceTargetMap>

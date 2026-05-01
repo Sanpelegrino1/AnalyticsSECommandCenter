@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Grants access to the Analytics and Visualization agent. Agent access is wired up by OrgSetup step (l) via SetupEntityAccess after the agent is created in step (k).</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Access Analytics Agent</label>
+</PermissionSet>

@@ -41,19 +41,25 @@ powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-registe
 powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-get-access-token.ps1 -TargetKey orders-demo
 ```
 
-4. Upload the CSV and wait for completion.
+4. Upload the CSV. The default path now submits the job and returns immediately so operators do not spend minutes waiting on tenant-side processing. Only opt into waiting when you are explicitly validating one table.
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-upload-csv.ps1 -TargetKey orders-demo -CsvPath .\tmp\orders.csv
 ```
 
-5. If the upload fails, inspect the job directly.
+5. If you need to block on one specific table, opt into waiting explicitly.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-upload-csv.ps1 -TargetKey orders-demo -CsvPath .\tmp\orders.csv -WaitForCompletion:$true
+```
+
+6. If the upload fails or stays non-terminal, inspect the job directly.
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-get-job.ps1 -TargetKey orders-demo -JobId <job-id>
 ```
 
-6. If a previous attempt left the job in `Open` or `UploadComplete`, abort it before rerunning the upload.
+7. If a previous attempt left the job in `Open` or `UploadComplete`, abort it before rerunning the upload.
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-abort-job.ps1 -TargetKey orders-demo -JobId <job-id>

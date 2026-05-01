@@ -164,6 +164,13 @@ function Get-StreamAcceptedObjectNames {
     )
 
     $names = New-Object System.Collections.Generic.List[string]
+    foreach ($propertyName in @('name', 'label')) {
+        $property = $Stream.PSObject.Properties[$propertyName]
+        if ($null -ne $property -and -not [string]::IsNullOrWhiteSpace([string]$property.Value)) {
+            $names.Add([string]$property.Value) | Out-Null
+        }
+    }
+
     foreach ($eventName in @(Get-StreamEventNames -Stream $Stream)) {
         if (-not [string]::IsNullOrWhiteSpace($eventName)) {
             $names.Add([string]$eventName) | Out-Null
@@ -190,6 +197,33 @@ function Get-StreamAcceptedObjectNames {
     }
 
     return @($names | Select-Object -Unique)
+}
+
+function Test-StreamIdentifierMatch {
+    param(
+        [string]$Candidate,
+        [string[]]$DesiredIdentifiers
+    )
+
+    if ([string]::IsNullOrWhiteSpace($Candidate)) {
+        return $false
+    }
+
+    foreach ($desiredIdentifier in @($DesiredIdentifiers)) {
+        if ([string]::IsNullOrWhiteSpace($desiredIdentifier)) {
+            continue
+        }
+
+        if ($Candidate -eq $desiredIdentifier) {
+            return $true
+        }
+
+        if ($Candidate -like ('{0}_*' -f $desiredIdentifier) -or $Candidate -like ('{0}-*' -f $desiredIdentifier)) {
+            return $true
+        }
+    }
+
+    return $false
 }
 
 function Get-ExistingStreams {
@@ -254,14 +288,22 @@ function Resolve-ExistingStream {
         [string]$DesiredObjectName
     )
 
-    $candidates = @($ExistingStreams | Where-Object { (Get-StreamAcceptedObjectNames -Stream $_) -contains $DesiredObjectName })
-    if ($candidates.Count -eq 0) {
-        $candidates = @($ExistingStreams | Where-Object { [string]$_.name -eq $DesiredStreamName })
-    }
+    $desiredIdentifiers = @($DesiredObjectName, $DesiredStreamName, $DesiredLabel) |
+        Where-Object { -not [string]::IsNullOrWhiteSpace([string]$_) } |
+        Select-Object -Unique
 
-    if ($candidates.Count -eq 0) {
-        $candidates = @($ExistingStreams | Where-Object { [string]$_.label -eq $DesiredLabel })
-    }
+    $candidates = @(
+        $ExistingStreams | Where-Object {
+            $acceptedIdentifiers = @(Get-StreamAcceptedObjectNames -Stream $_)
+            foreach ($acceptedIdentifier in $acceptedIdentifiers) {
+                if (Test-StreamIdentifierMatch -Candidate $acceptedIdentifier -DesiredIdentifiers $desiredIdentifiers) {
+                    return $true
+                }
+            }
+
+            return $false
+        }
+    )
 
     if ($candidates.Count -gt 1) {
         $candidateNames = @($candidates | ForEach-Object { [string]$_.name }) -join ', '
@@ -283,7 +325,25 @@ function Get-ResolvedStreamObjectName {
         [string]$FallbackObjectName
     )
 
-    $acceptedObjectNames = Get-StreamAcceptedObjectNames -Stream $Stream
+    $acceptedObjectNames = @(Get-StreamAcceptedObjectNames -Stream $Stream)
+    $preferredCandidate = @(
+        $acceptedObjectNames |
+            Where-Object { Test-StreamIdentifierMatch -Candidate ([string]$_) -DesiredIdentifiers @($FallbackObjectName) } |
+            Select-Object -First 1
+    )
+    if ($preferredCandidate.Count -gt 0) {
+        return $FallbackObjectName
+    }
+
+    $machineReadableCandidate = @(
+        $acceptedObjectNames |
+            Where-Object { -not [string]::IsNullOrWhiteSpace([string]$_) -and [string]$_ -match '^[A-Za-z][A-Za-z0-9_]*$' } |
+            Select-Object -First 1
+    )
+    if ($machineReadableCandidate.Count -gt 0) {
+        return [string]$machineReadableCandidate[0]
+    }
+
     if ($acceptedObjectNames.Count -gt 0) {
         return [string]$acceptedObjectNames[0]
     }
@@ -341,11 +401,15 @@ function Update-RegistryTargetsFromProvisioning {
         }
 
         $changed = $false
-        foreach ($propertyName in @('objectName', 'objectEndpoint')) {
-            if ([string]$updatedTarget[$propertyName] -ne $stream.resolvedObjectName) {
-                $updatedTarget[$propertyName] = $stream.resolvedObjectName
-                $changed = $true
-            }
+        if ([string]$updatedTarget.objectName -ne [string]$stream.resolvedObjectName) {
+            $updatedTarget.objectName = [string]$stream.resolvedObjectName
+            $changed = $true
+        }
+
+        $currentObjectEndpoint = if ($updatedTarget.Contains('objectEndpoint')) { [string]$updatedTarget['objectEndpoint'] } else { '' }
+        if (-not [string]::IsNullOrWhiteSpace([string]$stream.streamName) -and $currentObjectEndpoint -ne [string]$stream.streamName) {
+            $updatedTarget['objectEndpoint'] = [string]$stream.streamName
+            $changed = $true
         }
 
         if ($changed) {
@@ -494,9 +558,10 @@ $newSchemas = foreach ($table in @($generation.tables)) {
         schemaType = 'IngestApi'
         fields = @(
             foreach ($field in @($table.fields)) {
+                $resolvedFieldName = if ($field.PSObject.Properties['apiName'] -and -not [string]::IsNullOrWhiteSpace([string]$field.apiName)) { [string]$field.apiName } else { [string]$field.name }
                 [pscustomobject]@{
-                    name = $field.name
-                    label = $field.name
+                    name = $resolvedFieldName
+                    label = $resolvedFieldName
                     dataType = Get-SsotFieldDataType -Field $field
                 }
             }
@@ -569,8 +634,8 @@ foreach ($table in @($generation.tables)) {
             dataspaceInfo = @(@{ name = 'default' })
             dataLakeFieldInputRepresentations = @(
                 [ordered]@{
-                    name = $pkField[0].name
-                    label = $pkField[0].name
+                    name = $(if ($pkField[0].PSObject.Properties['apiName'] -and -not [string]::IsNullOrWhiteSpace([string]$pkField[0].apiName)) { [string]$pkField[0].apiName } else { [string]$pkField[0].name })
+                    label = $(if ($pkField[0].PSObject.Properties['apiName'] -and -not [string]::IsNullOrWhiteSpace([string]$pkField[0].apiName)) { [string]$pkField[0].apiName } else { [string]$pkField[0].name })
                     dataType = Get-SsotFieldDataType -Field $pkField[0]
                     isPrimaryKey = $true
                 }

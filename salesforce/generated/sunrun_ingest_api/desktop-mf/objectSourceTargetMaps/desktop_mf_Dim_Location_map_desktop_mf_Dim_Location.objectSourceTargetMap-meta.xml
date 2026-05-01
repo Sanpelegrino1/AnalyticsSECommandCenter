@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ObjectSourceTargetMap xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <creationType>Custom</creationType>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Location.LocationID__c</sourceField>
+        <sourceFormula>LocationID</sourceFormula>
+        <targetField>desktop_mf_Dim_Location__dll.LocationID__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Location.Country_Region__c</sourceField>
+        <sourceFormula>Country/Region</sourceFormula>
+        <targetField>desktop_mf_Dim_Location__dll.Country_Region__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Location.Region__c</sourceField>
+        <sourceFormula>Region</sourceFormula>
+        <targetField>desktop_mf_Dim_Location__dll.Region__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Location.State_Province__c</sourceField>
+        <sourceFormula>State/Province</sourceFormula>
+        <targetField>desktop_mf_Dim_Location__dll.State_Province__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Location.City__c</sourceField>
+        <sourceFormula>City</sourceFormula>
+        <targetField>desktop_mf_Dim_Location__dll.City__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Location.Location_Type__c</sourceField>
+        <sourceFormula>Location Type</sourceFormula>
+        <targetField>desktop_mf_Dim_Location__dll.Location_Type__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Location.Climate_Zone__c</sourceField>
+        <sourceFormula>Climate Zone</sourceFormula>
+        <targetField>desktop_mf_Dim_Location__dll.Climate_Zone__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;desktop_mf_Dim_Location&quot;</sourceFormula>
+        <targetField>desktop_mf_Dim_Location__dll.DataSourceObject__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;sunrun_ingest_api&quot;</sourceFormula>
+        <targetField>desktop_mf_Dim_Location__dll.DataSource__c</targetField>
+    </fieldSourceTargetMaps>
+    <masterLabel>desktop_mf_Dim_Location_map_desktop_mf_Dim_Location</masterLabel>
+    <sourceObjectName>desktop_mf_Dim_Location</sourceObjectName>
+    <targetObjectName>desktop_mf_Dim_Location__dll</targetObjectName>
+</ObjectSourceTargetMap>

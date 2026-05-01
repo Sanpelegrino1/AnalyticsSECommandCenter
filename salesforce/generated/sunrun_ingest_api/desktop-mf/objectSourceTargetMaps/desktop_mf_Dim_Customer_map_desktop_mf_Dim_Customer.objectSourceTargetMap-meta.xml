@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ObjectSourceTargetMap xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <creationType>Custom</creationType>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Customer.Customer_ID__c</sourceField>
+        <sourceFormula>Customer ID</sourceFormula>
+        <targetField>desktop_mf_Dim_Customer__dll.Customer_ID__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Customer.Customer_Name__c</sourceField>
+        <sourceFormula>Customer Name</sourceFormula>
+        <targetField>desktop_mf_Dim_Customer__dll.Customer_Name__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Customer.Segment__c</sourceField>
+        <sourceFormula>Segment</sourceFormula>
+        <targetField>desktop_mf_Dim_Customer__dll.Segment__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Customer.Customer_Loyalty_Tier__c</sourceField>
+        <sourceFormula>Customer Loyalty Tier</sourceFormula>
+        <targetField>desktop_mf_Dim_Customer__dll.Customer_Loyalty_Tier__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Customer.Customer_Acquisition_Channel__c</sourceField>
+        <sourceFormula>Customer Acquisition Channel</sourceFormula>
+        <targetField>desktop_mf_Dim_Customer__dll.Customer_Acquisition_Channel__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;desktop_mf_Dim_Customer&quot;</sourceFormula>
+        <targetField>desktop_mf_Dim_Customer__dll.DataSourceObject__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;sunrun_ingest_api&quot;</sourceFormula>
+        <targetField>desktop_mf_Dim_Customer__dll.DataSource__c</targetField>
+    </fieldSourceTargetMaps>
+    <masterLabel>desktop_mf_Dim_Customer_map_desktop_mf_Dim_Customer</masterLabel>
+    <sourceObjectName>desktop_mf_Dim_Customer</sourceObjectName>
+    <targetObjectName>desktop_mf_Dim_Customer__dll</targetObjectName>
+</ObjectSourceTargetMap>

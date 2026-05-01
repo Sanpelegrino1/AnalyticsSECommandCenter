@@ -6,7 +6,7 @@ param(
     [string]$TargetKeySeparator = '-',
     [ValidateSet('upsert', 'delete')]
     [string]$Operation = 'upsert',
-    [bool]$WaitForCompletion = $true,
+    [bool]$WaitForCompletion = $false,
     [int]$PollSeconds = 15,
     [int]$TimeoutSeconds = 900,
     [switch]$ContinueOnError

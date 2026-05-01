@@ -375,14 +375,17 @@ $upsertNextSemanticModelScriptPath = Join-Path $PSScriptRoot '..\tableau\upsert-
 $manifestInfo = Get-DataCloudManifestInfo -ManifestPath $ManifestPath
 $manifest = $manifestInfo.Content
 $datasetDefaults = Get-DataCloudManifestDefaults -ManifestInfo $manifestInfo
-$rootTableName = if ($null -ne $manifest.publishContract -and -not [string]::IsNullOrWhiteSpace([string]$manifest.publishContract.rootTable)) { [string]$manifest.publishContract.rootTable } else { [string]$manifest.files[0].tableName }
+$rootTableName = [string](Get-OptionalObjectPropertyValue -InputObject $manifest.publishContract -PropertyName 'rootTable')
+if ([string]::IsNullOrWhiteSpace($rootTableName)) {
+    $rootTableName = [string](Get-OptionalObjectPropertyValue -InputObject $manifest.publishContract -PropertyName 'rootTableId')
+}
+if ([string]::IsNullOrWhiteSpace($rootTableName)) {
+    $rootTableName = [string]$manifest.files[0].tableName
+}
 $registrationHints = Get-DataCloudManifestRegistrationHints -ManifestInfo $manifestInfo -Registry (Get-DataCloudRegistry) -RootTableName $rootTableName
 
 if ([string]::IsNullOrWhiteSpace($TargetKeyPrefix)) {
     $TargetKeyPrefix = if (-not [string]::IsNullOrWhiteSpace($registrationHints.TargetKeyPrefix)) { $registrationHints.TargetKeyPrefix } else { $datasetDefaults.TargetKeyPrefix }
-}
-if ([string]::IsNullOrWhiteSpace($SourceName)) {
-    $SourceName = if (-not [string]::IsNullOrWhiteSpace($registrationHints.SourceName)) { $registrationHints.SourceName } else { $datasetDefaults.SourceName }
 }
 if ([string]::IsNullOrWhiteSpace($ObjectNamePrefix)) {
     $ObjectNamePrefix = if (-not [string]::IsNullOrWhiteSpace($registrationHints.ObjectNamePrefix)) { $registrationHints.ObjectNamePrefix } else { ($TargetKeyPrefix -replace '-', '_') }
@@ -541,6 +544,17 @@ if ($state.phases.manifestTargets.status -eq 'registered') {
 if ($state.phases.dataCloudAuth.status -like 'validated*') {
     try {
         $orgContextForConnector = Get-SalesforceOrgAccessContext -Alias $(if (-not [string]::IsNullOrWhiteSpace($DataCloudAlias)) { $DataCloudAlias } else { $TargetOrg }) -LoginUrl $LoginUrl
+        if ([string]::IsNullOrWhiteSpace($SourceName)) {
+            $sourceNameResolution = Resolve-DataCloudSourceNamePreference -PreferredSourceName $SourceName -SalesforceAlias $(if (-not [string]::IsNullOrWhiteSpace($DataCloudAlias)) { $DataCloudAlias } else { $TargetOrg }) -LoginUrl $LoginUrl -InstanceUrl $orgContextForConnector.instanceUrl -AccessToken $orgContextForConnector.accessToken -RegistrationHints $registrationHints -DatasetDefaults $datasetDefaults -AllowConnectorDiscovery -AllowDatasetFallback:$false
+            $SourceName = [string]$sourceNameResolution.SourceName
+            if ([string]::IsNullOrWhiteSpace($SourceName)) {
+                $state.phases.dataCloudConnector.status = 'missing'
+                $candidateConnectorNames = @($sourceNameResolution.ConnectorNames)
+                $candidateSuffix = $(if ($candidateConnectorNames.Count -gt 0) { ' Available connectors: {0}.' -f ($candidateConnectorNames -join ', ') } else { '' })
+                Add-ReadinessBlocker -Collection $blockers -Classification 'BlockedByOrgConfiguration' -Surface 'data-cloud-connector' -Message ('No reusable shared Ingestion API connector could be resolved automatically.{0}' -f $candidateSuffix) -SuggestedAction 'Create or verify the shared org connector `command_center_ingest_api`, then save it in notes/registries/salesforce-orgs.json as dataCloudSourceName.' -PlatformBound:$true
+                throw ('No reusable shared Ingestion API connector could be resolved automatically.{0}' -f $candidateSuffix)
+            }
+        }
         $connectorSummary = Get-DataCloudConnectorSummary -InstanceUrl $orgContextForConnector.instanceUrl -AccessToken $orgContextForConnector.accessToken -SourceName $SourceName
         if ($null -eq $connectorSummary) {
             $state.phases.dataCloudConnector.status = 'missing'

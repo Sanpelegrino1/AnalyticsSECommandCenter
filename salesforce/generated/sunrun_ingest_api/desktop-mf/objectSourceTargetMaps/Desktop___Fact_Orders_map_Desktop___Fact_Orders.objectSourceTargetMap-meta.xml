@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ObjectSourceTargetMap xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <creationType>Custom</creationType>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Fact_Orders.Order_ID__c</sourceField>
+        <sourceFormula>Order ID</sourceFormula>
+        <targetField>Desktop___Fact_Orders__dll.Order_ID__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Fact_Orders.Order_Customer_ID__c</sourceField>
+        <sourceFormula>Order Customer ID</sourceFormula>
+        <targetField>Desktop___Fact_Orders__dll.Order_Customer_ID__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Fact_Orders.Order_Product_ID__c</sourceField>
+        <sourceFormula>Order Product ID</sourceFormula>
+        <targetField>Desktop___Fact_Orders__dll.Order_Product_ID__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Fact_Orders.Order_Location_ID__c</sourceField>
+        <sourceFormula>Order Location ID</sourceFormula>
+        <targetField>Desktop___Fact_Orders__dll.Order_Location_ID__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Fact_Orders.Order_Date_Key__c</sourceField>
+        <sourceFormula>Order Date Key</sourceFormula>
+        <targetField>Desktop___Fact_Orders__dll.Order_Date_Key__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Fact_Orders.Ship_Date_Key__c</sourceField>
+        <sourceFormula>Ship Date Key</sourceFormula>
+        <targetField>Desktop___Fact_Orders__dll.Ship_Date_Key__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Fact_Orders.Ship_Mode__c</sourceField>
+        <sourceFormula>Ship Mode</sourceFormula>
+        <targetField>Desktop___Fact_Orders__dll.Ship_Mode__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Fact_Orders.Order_Quantity__c</sourceField>
+        <sourceFormula>Order Quantity</sourceFormula>
+        <targetField>Desktop___Fact_Orders__dll.Order_Quantity__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Fact_Orders.Sales__c</sourceField>
+        <sourceFormula>Sales</sourceFormula>
+        <targetField>Desktop___Fact_Orders__dll.Sales__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Fact_Orders.Discount__c</sourceField>
+        <sourceFormula>Discount</sourceFormula>
+        <targetField>Desktop___Fact_Orders__dll.Discount__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>Desktop___Fact_Orders.Profit__c</sourceField>
+        <sourceFormula>Profit</sourceFormula>
+        <targetField>Desktop___Fact_Orders__dll.Profit__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;Desktop___Fact_Orders&quot;</sourceFormula>
+        <targetField>Desktop___Fact_Orders__dll.DataSourceObject__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;sunrun_ingest_api&quot;</sourceFormula>
+        <targetField>Desktop___Fact_Orders__dll.DataSource__c</targetField>
+    </fieldSourceTargetMaps>
+    <masterLabel>Desktop___Fact_Orders_map_Desktop___Fact_Orders</masterLabel>
+    <sourceObjectName>Desktop___Fact_Orders</sourceObjectName>
+    <targetObjectName>Desktop___Fact_Orders__dll</targetObjectName>
+</ObjectSourceTargetMap>

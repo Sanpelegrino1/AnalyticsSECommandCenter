@@ -126,9 +126,10 @@ function Get-TableFieldDefinitions {
 
 $manifestInfo = Get-DataCloudManifestInfo -ManifestPath $ManifestPath
 $manifest = $manifestInfo.Content
-$datasetName = if ([string]::IsNullOrWhiteSpace($manifest.datasetName)) { $SourceName } else { [string]$manifest.datasetName }
+$datasetDefaults = Get-DataCloudManifestDefaults -ManifestInfo $manifestInfo
+$datasetName = if ([string]::IsNullOrWhiteSpace($datasetDefaults.DatasetLabel)) { $SourceName } else { [string]$datasetDefaults.DatasetLabel }
 $selectedTables = if ($Tables -and $Tables.Count -gt 0) { @($Tables) } else { @($manifest.files | ForEach-Object { [string]$_.tableName }) }
-$defaultObjectCategory = 'Salesforce_SFDCReferenceModel_0_93.Engagement'
+$defaultObjectCategory = 'Other'
 $objectNameOverrides = Get-ObjectNameOverrides -OverridesPath $ObjectNameOverridesPath
 
 if ([string]::IsNullOrWhiteSpace($OutputRoot)) {

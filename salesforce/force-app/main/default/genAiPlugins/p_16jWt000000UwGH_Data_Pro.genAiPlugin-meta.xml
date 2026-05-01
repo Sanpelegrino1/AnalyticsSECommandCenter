@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description>This topic is selected when the user needs help creating calculated fields using natural language descriptions.</description>
+    <developerName>p_16jWt000000UwGH_Data_Pro</developerName>
+    <genAiFunctions>
+        <functionName>schema_ai__IdentifyFieldByName</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If the user describes a calculated field, use schema_ai__IdentifyFieldByName to identify the relevant fields.</description>
+        <developerName>instruction_0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_0</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <localDeveloperName>p_16jWt000000UwGH_Data_Pro</localDeveloperName>
+    <masterLabel>Data Pro</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to only assist in creating calculated fields based on natural language descriptions. You cannot analyze data or manage alerts.</scope>
+</GenAiPlugin>

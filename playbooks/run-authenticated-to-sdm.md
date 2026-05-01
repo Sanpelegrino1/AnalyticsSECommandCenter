@@ -43,6 +43,18 @@ powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\orchestrate-authen
 
 6. Treat the current zero-touch boundary precisely: the path is proven after a usable standard Salesforce CLI session exists. It is not yet a proven one-browser cold-start for a brand-new org because connector creation is still outside repo control.
 
+## Fast Split Path
+
+Use this when stream bootstrap is ready but the dedicated Data Cloud alias still blocks upload, or when you want a deterministic SDM build from a manifest without rerunning the full orchestration.
+
+1. Register manifest targets with `scripts/salesforce/data-cloud-register-manifest-targets.ps1`.
+2. Bootstrap streams and DLOs with `scripts/salesforce/data-cloud-create-manifest-streams.ps1`.
+3. Register or reuse a Tableau Next workspace target with `scripts/tableau/register-next-target.ps1`.
+4. Build the manifest-based semantic-model spec from the live provisioning report with `scripts/salesforce/build-manifest-semantic-model-spec.ps1`.
+5. Apply the model with `scripts/tableau/upsert-next-semantic-model.ps1 -Apply`.
+
+This split path now supports older manifest shapes that only provide top-level `tables` and `joinPaths`; the normalizer will synthesize `files`, `publishContract.relationships`, and a root table automatically.
+
 ## Readiness Classifications
 
 - `ReadyForFullAutomation`: the current run encountered no repo-local blockers and the supported semantic-model path is ready to apply.
@@ -67,6 +79,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\orchestrate-authen
 - The Ingestion API connector does not exist in the org.
 - Multiple Tableau Next workspaces are visible and no stable selector was provided.
 - The manifest join contract does not match the active Data Lake Object field set.
+- Older manifests omit `fileName` per table. The repo now falls back to `<tableName>.csv`, but mismatched on-disk file names will still break stream bootstrap.
 
 ## Cleanup or Rollback
 

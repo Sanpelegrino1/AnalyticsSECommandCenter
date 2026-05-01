@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description>This topic is selected when users ask questions about metrics, KPIs, segments, trends, cohorts, or record-level data from Tableau Next semantic models or Data Cloud DMOs. It applies when users need direct answers with supporting data and a follow-up suggestion.</description>
+    <developerName>p_16jfj000001TvdR_Decisive_Data_Q_A</developerName>
+    <genAiFunctions>
+        <functionName>Analytics__AnalyzeMetric</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Analytics__SummarizeDashboard</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>securityagent__IdentifyAnomalies</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If the query is about analyzing metrics, trends, or KPIs, use the &apos;Analytics__AnalyzeMetric&apos; action.</description>
+        <developerName>instruction_0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_0</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the query involves summarizing dashboards, use the &apos;Analytics__SummarizeDashboard&apos; action.</description>
+        <developerName>instruction_1</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_1</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the query is about identifying anomalies or outliers in data, use the &apos;securityagent__IdentifyAnomalies&apos; action.</description>
+        <developerName>instruction_2</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_2</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <localDeveloperName>p_16jfj000001TvdR_Decisive_Data_Q_A</localDeveloperName>
+    <masterLabel>Decisive Data Q A</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to only provide direct answers to questions about metrics, trends, KPIs, and data insights using Tableau Next semantic models and Data Cloud DMOs. You must cite the source of your data and include a follow-up suggestion. If a requested metric does not exist, provide the closest available metric and explain the difference.</scope>
+</GenAiPlugin>

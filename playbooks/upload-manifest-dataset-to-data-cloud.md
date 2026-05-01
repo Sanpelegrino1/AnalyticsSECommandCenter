@@ -52,15 +52,21 @@ powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-create-
 powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-get-access-token.ps1 -TargetKey sunrun-projects
 ```
 
-6. Upload the full dataset in manifest order.
+6. Upload the full dataset in manifest order. The default path now submits each table job and returns the job ids immediately instead of waiting for all tables to reach terminal states.
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-upload-manifest.ps1 -ManifestPath '.\Demos\Sunrun Demo\manifest.json' -TargetKeyPrefix sunrun
 ```
 
+7. Only use an explicit completion wait when you are validating one dataset and accept the extra latency.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\salesforce\data-cloud-upload-manifest.ps1 -ManifestPath '.\Demos\Sunrun Demo\manifest.json' -TargetKeyPrefix sunrun -WaitForCompletion:$true
+```
+
 ## Validation
 
-- Each table returns a job id and a terminal state.
+- Each table returns a job id immediately, and explicit waits return a terminal state only when requested.
 - `scripts/salesforce/data-cloud-list-jobs.ps1` shows the expected jobs for each target.
 - The expected record counts appear in Data Cloud for all uploaded tables.
 - If the registry is stale, `data-cloud-upload-manifest.ps1` now stops before upload and names the exact fields that need refreshing.

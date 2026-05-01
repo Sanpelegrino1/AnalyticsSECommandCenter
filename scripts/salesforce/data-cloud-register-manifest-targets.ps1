@@ -45,7 +45,13 @@ function New-CompactTargetRecord {
 $manifestInfo = Get-DataCloudManifestInfo -ManifestPath $ManifestPath
 $manifest = $manifestInfo.Content
 $datasetDefaults = Get-DataCloudManifestDefaults -ManifestInfo $manifestInfo
-$rootTable = if ($null -ne $manifest.publishContract -and -not [string]::IsNullOrWhiteSpace($manifest.publishContract.rootTable)) { [string]$manifest.publishContract.rootTable } else { [string]$manifest.files[0].tableName }
+$rootTable = [string](Get-OptionalObjectPropertyValue -InputObject $manifest.publishContract -PropertyName 'rootTable')
+if ([string]::IsNullOrWhiteSpace($rootTable)) {
+    $rootTable = [string](Get-OptionalObjectPropertyValue -InputObject $manifest.publishContract -PropertyName 'rootTableId')
+}
+if ([string]::IsNullOrWhiteSpace($rootTable)) {
+    $rootTable = [string]$manifest.files[0].tableName
+}
 
 $registry = Get-DataCloudRegistry
 $registrationHints = Get-DataCloudManifestRegistrationHints -ManifestInfo $manifestInfo -Registry $registry -RootTableName $rootTable -TargetKeySeparator $TargetKeySeparator -ObjectNameSeparator $ObjectNameSeparator
@@ -59,11 +65,8 @@ $resolvedTargetKeyPrefix = if ([string]::IsNullOrWhiteSpace($TargetKeyPrefix)) {
     $TargetKeyPrefix
 }
 
-$resolvedSourceName = if ([string]::IsNullOrWhiteSpace($SourceName)) {
-    if (-not [string]::IsNullOrWhiteSpace($registrationHints.SourceName)) { $registrationHints.SourceName } else { $datasetDefaults.SourceName }
-} else {
-    $SourceName
-}
+$sourceNameResolution = Resolve-DataCloudSourceNamePreference -PreferredSourceName $SourceName -SalesforceAlias $SalesforceAlias -RegistrationHints $registrationHints -DatasetDefaults $datasetDefaults
+$resolvedSourceName = [string]$sourceNameResolution.SourceName
 
 $resolvedObjectNamePrefix = if ([string]::IsNullOrWhiteSpace($ObjectNamePrefix)) {
     if (-not [string]::IsNullOrWhiteSpace($registrationHints.ObjectNamePrefix)) { $registrationHints.ObjectNamePrefix } else { $datasetDefaults.ObjectNamePrefix }

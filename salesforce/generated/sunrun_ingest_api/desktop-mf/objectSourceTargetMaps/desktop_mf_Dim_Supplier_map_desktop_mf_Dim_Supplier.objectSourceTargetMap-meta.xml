@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ObjectSourceTargetMap xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <creationType>Custom</creationType>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Supplier.SupplierID__c</sourceField>
+        <sourceFormula>SupplierID</sourceFormula>
+        <targetField>desktop_mf_Dim_Supplier__dll.SupplierID__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Supplier.SupplierName__c</sourceField>
+        <sourceFormula>SupplierName</sourceFormula>
+        <targetField>desktop_mf_Dim_Supplier__dll.SupplierName__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Supplier.Supplier_Rating__c</sourceField>
+        <sourceFormula>Supplier Rating</sourceFormula>
+        <targetField>desktop_mf_Dim_Supplier__dll.Supplier_Rating__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Supplier.Supplier_Region__c</sourceField>
+        <sourceFormula>Supplier Region</sourceFormula>
+        <targetField>desktop_mf_Dim_Supplier__dll.Supplier_Region__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Supplier.Supplier_Payment_Terms__c</sourceField>
+        <sourceFormula>Supplier Payment Terms</sourceFormula>
+        <targetField>desktop_mf_Dim_Supplier__dll.Supplier_Payment_Terms__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>Custom</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>false</isSourceFormula>
+        <sourceField>desktop_mf_Dim_Supplier.Supplier_Risk_Level__c</sourceField>
+        <sourceFormula>Supplier Risk Level</sourceFormula>
+        <targetField>desktop_mf_Dim_Supplier__dll.Supplier_Risk_Level__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;desktop_mf_Dim_Supplier&quot;</sourceFormula>
+        <targetField>desktop_mf_Dim_Supplier__dll.DataSourceObject__c</targetField>
+    </fieldSourceTargetMaps>
+    <fieldSourceTargetMaps>
+        <creationType>System</creationType>
+        <filterApplied>false</filterApplied>
+        <isSourceFormula>true</isSourceFormula>
+        <sourceField xsi:nil="true"/>
+        <sourceFormula>&quot;sunrun_ingest_api&quot;</sourceFormula>
+        <targetField>desktop_mf_Dim_Supplier__dll.DataSource__c</targetField>
+    </fieldSourceTargetMaps>
+    <masterLabel>desktop_mf_Dim_Supplier_map_desktop_mf_Dim_Supplier</masterLabel>
+    <sourceObjectName>desktop_mf_Dim_Supplier</sourceObjectName>
+    <targetObjectName>desktop_mf_Dim_Supplier__dll</targetObjectName>
+</ObjectSourceTargetMap>

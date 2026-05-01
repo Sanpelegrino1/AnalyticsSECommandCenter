@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <agentAccesses>
+        <agentName>Reckless_Analyst_Employee</agentName>
+        <enabled>true</enabled>
+    </agentAccesses>
+    <description>Grants access to run the Reckless Analyst (Employee) Agentforce agent.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Reckless Analyst Access</label>
+</PermissionSet>

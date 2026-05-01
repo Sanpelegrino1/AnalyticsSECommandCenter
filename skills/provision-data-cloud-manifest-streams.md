@@ -13,19 +13,21 @@ Register manifest-derived connector schemas, create or reconcile Data Cloud stre
 
 ## Prerequisites
 
-- `CommandCenterAuth` is already deployed and the dedicated Data Cloud alias can resolve a token.
+- `CommandCenterAuth` is deployed if you also plan to upload in the same session.
 - Data Cloud is provisioned in the target org.
 - The Ingestion API connector already exists in Data Cloud Setup.
 - The manifest files and CSV headers are the intended source of truth for schema inference.
 
 ## Exact Steps
 
-1. Confirm Data Cloud auth resolves with the dedicated alias.
-2. Run `scripts/salesforce/data-cloud-create-manifest-streams.ps1` with the manifest path, target alias, source name, and object naming inputs.
+1. Confirm the standard Salesforce org alias can reach the target org and the shared Ingestion API connector already exists.
+2. Run `scripts/salesforce/data-cloud-create-manifest-streams.ps1` with the manifest path, target org alias, source name, and object naming inputs.
 3. Let the script register any compatible missing schemas, reuse matching live schemas, create or resolve streams, and wait for `ACTIVE` DLO status.
 4. Review `salesforce/generated/<sourceName>/provisioning-state.json` for reused versus created artifacts and any registry sync.
 5. If desired, deploy the generated metadata from `salesforce/generated/<sourceName>/` separately through the Salesforce metadata workflow.
-6. Upload with `scripts/salesforce/data-cloud-upload-manifest.ps1` once the provisioning report and registry look correct.
+6. Upload with `scripts/salesforce/data-cloud-upload-manifest.ps1` once the provisioning report and registry look correct and the dedicated Data Cloud alias can resolve a token.
+
+Older manifests that only define top-level `tables` and `joinPaths` are now supported. When a table omits `fileName`, the repo derives `<tableName>.csv` automatically.
 
 ## Validation
 

@@ -8,3 +8,10 @@ notes/registries/*.snapshot.json
 *.log
 *.tmp
 *.bak
+
+# Local-only / not pushed
+Demos/
+OrgSetupBundle/
+.venv/
+.claude/
+notes/org-setup-state/
